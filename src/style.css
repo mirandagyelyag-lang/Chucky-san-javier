@@ -129,3 +129,24 @@ radial-gradient(circle at 76% 42%,rgba(205,43,38,.15),transparent 34%)}
  .illustrated04 .heroMascot03{width:74%;right:-8%;object-position:68% 50%}
  .illustrated04 .heroCopy strong{font-size:25px}
 }
+
+/* HOME 02 v7 — final transparent mascot, no nested mockup */
+.illustrated04{height:405px;overflow:hidden;background:
+radial-gradient(circle at 78% 48%,rgba(189,35,31,.13),transparent 33%),
+linear-gradient(135deg,#080808 0%,#0b0909 100%)}
+.illustrated04 .heroMascot03{
+ width:66%;height:auto;max-height:none;
+ right:-3%;bottom:-2%;top:auto;
+ object-fit:contain;object-position:right bottom;
+ clip-path:none;
+ filter:drop-shadow(-14px 10px 22px rgba(0,0,0,.48)) saturate(.96) contrast(1.03);
+}
+.illustrated04:after{background:linear-gradient(90deg,#080808 0%,#080808 31%,rgba(8,8,8,.90) 39%,rgba(8,8,8,.18) 59%,transparent 72%)}
+.illustrated04 .heroCopy{top:116px;left:18px}
+.illustrated04 .heroWhisper{bottom:17px;left:18px}
+.illustrated04 .heroMood{right:13px;top:28px}
+@media(max-width:420px){
+ .illustrated04{height:375px}
+ .illustrated04 .heroMascot03{width:72%;right:-10%;bottom:-1%}
+ .illustrated04 .heroCopy{top:108px}
+}
