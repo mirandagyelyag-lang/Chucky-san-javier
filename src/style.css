@@ -545,3 +545,30 @@ radial-gradient(circle at 87% 25%,rgba(226,53,46,.16),transparent 21%);pointer-e
 .mv4Marks>span{position:absolute;z-index:1;right:17px;bottom:5px;color:#e5433a2e;font-size:83px;line-height:1;transform:rotate(11deg)}.mv4Marks em{position:absolute;z-index:2;right:16px;top:20px;text-align:right;color:#776b64;font:13px/.84 'Permanent Marker',cursive;transform:rotate(6deg)}.mv4Marks strong{color:#e34740;font-weight:400}
 .menuV4Tabs{display:flex;gap:7px;overflow-x:auto;padding:3px 1px 18px;scrollbar-width:none}.menuV4Tabs::-webkit-scrollbar{display:none}.menuV4Tabs button{flex:none;height:52px;border:1px solid #332e2a;background:#11100f;color:#8d8580;border-radius:13px;padding:0 14px;display:flex;align-items:center;gap:8px;font-size:10px;font-weight:900;text-transform:uppercase}.menuV4Tabs button svg{width:22px;height:22px;fill:none;stroke:#a53b36;stroke-width:1.8}.menuV4Tabs button.on{background:#e43d37;color:#fff;border-color:#e43d37;box-shadow:0 8px 22px #e43d3726}.menuV4Tabs button.on svg{stroke:#fff}
 @media(max-width:370px){.menuV4Intro{padding-left:18px;min-height:195px}.mv4Headline h1{font-size:42px!important}.menuV4Tabs button{padding:0 12px}}
+
+/* MENU POSTER — approved concept */
+.page:has(.menuPosterHero){background:#070707!important}
+.page:has(.menuPosterHero) .home{padding:0 14px 112px!important;background:#070707!important}
+.menuPosterHero{position:relative;height:300px;margin:4px 0 15px;border-radius:0;overflow:hidden;background:#111;border:1px solid #211f1d}
+.menuPosterHero>img{width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.92) contrast(1.06)}
+.mphShade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,4,4,.94) 0 34%,rgba(4,4,4,.5) 54%,rgba(4,4,4,.15)),linear-gradient(0deg,#08080822,#08080808)}
+.mphCopy{position:absolute;left:16px;bottom:25px;z-index:2;white-space:pre-line}.mphCopy>span{display:block;width:max-content;max-width:215px;background:#b72825;color:#f8f1e8;padding:8px 10px 5px;font:41px/.76 'Permanent Marker',cursive;letter-spacing:-1.5px;transform:rotate(-2deg);box-shadow:5px 5px 0 #080808;white-space:pre-line}.mphCopy>b{display:block;margin:11px 0 0 12px;color:#b7aca4;font:15px/.92 'Permanent Marker',cursive;white-space:pre-line;transform:rotate(-3deg)}
+.mphDoodle{position:absolute;z-index:2;left:10px;top:12px;color:#4c4744;font:17px/.78 'Permanent Marker',cursive;transform:rotate(-10deg)}.mphDoodle strong{font-weight:400;color:#5c5551}
+.mphTape{position:absolute;right:8px;top:17px;z-index:2;background:#c3b09a;color:#161311;padding:9px 11px 7px;font:12px/.95 'Permanent Marker',cursive;transform:rotate(8deg);box-shadow:3px 4px 0 #0007}.mphTape:before{content:"♕";display:block;color:#413a34;font-size:15px;line-height:.8}
+.mphCrown{position:absolute;right:27px;bottom:12px;color:#e53632;font-size:49px;transform:rotate(8deg)}
+.menuPosterTabs{display:flex;gap:7px;overflow-x:auto;padding:0 0 17px;scrollbar-width:none}.menuPosterTabs::-webkit-scrollbar{display:none}.menuPosterTabs button{flex:none;min-width:115px;height:55px;border:1px solid #292725;border-radius:999px;background:#141414;color:#a8a29e;padding:0 13px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:9px;font-weight:900;text-transform:uppercase}.menuPosterTabs button svg{width:22px;height:22px;stroke:#aaa;fill:none;stroke-width:1.8}.menuPosterTabs button.on{background:#e63836;border-color:#e63836;color:#fff;box-shadow:0 8px 22px #e6383629}.menuPosterTabs button.on svg{stroke:#fff}
+.menuPosterGrid{display:grid;gap:10px;padding-bottom:18px}
+.menuPosterGrid .menuV3Card,.menuPosterGrid .menuV3Card.featured{grid-column:auto;display:grid;grid-template-columns:54% 46%;min-height:188px;border-radius:13px;background:#0d0d0d;border:1px solid #34312e;overflow:hidden}
+.menuPosterGrid .menuV3Photo,.menuPosterGrid .menuV3Card.featured .menuV3Photo{height:100%;min-height:188px}
+.menuPosterGrid .menuV3Photo:after{background:linear-gradient(90deg,transparent 65%,#0d0d0d)}
+.menuPosterGrid .menuV3Photo>span{left:11px;top:10px;font-size:9px;padding:7px 9px;background:#e33b37}
+.menuPosterGrid .menuV3Info,.menuPosterGrid .menuV3Card.featured .menuV3Info{min-height:188px;padding:18px 12px 52px;display:block}
+.menuPosterGrid .menuV3Info small{font-size:8px;color:#d44841}
+.menuPosterGrid .menuV3Info h3,.menuPosterGrid .menuV3Card.featured .menuV3Info h3{margin:6px 0 9px!important;color:#f4eee7!important;font:27px/.9 'Permanent Marker',cursive!important;text-transform:uppercase}
+.menuPosterGrid .menuV3Info p,.menuPosterGrid .menuV3Card.featured .menuV3Info p{font-size:10px!important;line-height:1.35!important;color:#aaa29c!important;-webkit-line-clamp:4;margin-bottom:14px!important}
+.menuPosterGrid .menuV3Info strong,.menuPosterGrid .menuV3Card.featured .menuV3Info strong{font-size:19px}
+.menuPosterGrid .menuV3Plus{width:42px;height:42px;right:11px;bottom:11px}
+.menuPosterGrid .menuV3Card:nth-child(2) .menuV3Photo:before{content:"EL DOBLE\A DE\A TODO";white-space:pre;position:absolute;z-index:3;left:10px;top:13px;color:#c2bbb6;font:13px/.9 'Permanent Marker',cursive;transform:rotate(-8deg);text-shadow:1px 1px #000}
+.menuPosterGrid .menuV3Card:nth-child(3) .menuV3Photo:before{content:"CON TOCINO\A TODO SABE\A MEJOR";white-space:pre;position:absolute;z-index:3;left:10px;top:13px;color:#c2bbb6;font:12px/.9 'Permanent Marker',cursive;transform:rotate(-7deg);text-shadow:1px 1px #000}
+@media(min-width:600px){.page:has(.menuPosterHero) .home{max-width:520px;margin:0 auto}.menuPosterHero{height:335px}}
+@media(max-width:370px){.menuPosterHero{height:276px}.mphCopy>span{font-size:36px}.menuPosterTabs button{min-width:108px}.menuPosterGrid .menuV3Card,.menuPosterGrid .menuV3Card.featured{grid-template-columns:51% 49%}}
