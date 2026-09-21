@@ -150,3 +150,53 @@ linear-gradient(135deg,#080808 0%,#0b0909 100%)}
  .illustrated04 .heroMascot03{width:72%;right:-10%;bottom:-1%}
  .illustrated04 .heroCopy{top:108px}
 }
+
+/* HOME 02 RESET v8 — rebuilt from scratch, mobile-first street editorial */
+.page:has(.streetHero){background:#0c0b0b !important;background-image:none !important}
+.page:has(.streetHero) .homeTop{height:118px;padding:22px 20px 10px;background:#0c0b0b !important;backdrop-filter:none}
+.page:has(.streetHero) .homeTop .brand strong{font:22px/.84 'Permanent Marker';color:#f5f1eb}
+.page:has(.streetHero) .homeTop .brand strong:before{font-size:11px;color:#e33d35;margin:0 0 4px}
+.page:has(.streetHero) .homeTop .brand span{display:block;font:5px Inter;letter-spacing:.36em;color:#a59c95;margin-top:7px}
+.page:has(.streetHero) .home{padding:0 14px 96px;background:#0c0b0b !important}
+.streetHero{height:300px;position:relative;overflow:hidden;margin:0 -14px 12px;background:
+linear-gradient(105deg,#0c0b0b 0 41%,transparent 62%),
+radial-gradient(circle at 78% 50%,#39100e 0,#160b0a 34%,#0c0b0b 67%)}
+.streetHero:before{content:"";position:absolute;z-index:1;inset:0;background:
+linear-gradient(115deg,transparent 0 61%,rgba(224,49,42,.16) 61% 62%,transparent 62%),
+radial-gradient(circle at 87% 25%,rgba(226,53,46,.16),transparent 21%);pointer-events:none}
+.streetMascot{position:absolute;z-index:2;width:65%;height:auto;right:-6%;bottom:-5%;filter:drop-shadow(-12px 12px 18px #0009)}
+.streetHeroCopy{position:absolute;z-index:4;left:20px;top:68px;width:48%}
+.streetKicker{font:800 8px Inter;letter-spacing:.15em;color:#e6443a;margin-bottom:8px}
+.streetHeroCopy h1{margin:0;font:29px/.86 'Permanent Marker';letter-spacing:-.035em;color:#f5f1eb;transform:rotate(-2deg)}
+.streetHeroCopy h1 span{color:#f5f1eb}
+.streetHeroCopy p{margin:7px 0 0;font:700 9px Inter;color:#eee}
+.streetHeroCopy button{margin-top:17px;padding:11px 15px;border:1px solid #e34339;border-radius:3px;background:#0b0a0a;color:#fff;font:800 8px Inter;letter-spacing:.02em}
+.streetHeroCopy button b{margin-left:10px;color:#e34339}
+.streetCrown{position:absolute;z-index:4;left:20px;top:18px;color:#e6443a;font:31px 'Permanent Marker';transform:rotate(-9deg)}
+.streetMood{position:absolute;z-index:4;right:12px;top:17px;width:76px;text-align:right;color:#e6443a;font:18px/.84 'Permanent Marker';transform:rotate(7deg)}
+.streetNote{position:absolute;z-index:4;left:20px;bottom:18px;color:#9d948d;font:8px/.98 'Permanent Marker';transform:rotate(-6deg)}
+.streetNote b{color:#eee;font-weight:400}
+.page:has(.streetHero) .catIcons{margin:4px 0 25px;gap:7px}
+.page:has(.streetHero) .catIcons button>span{height:58px;width:100%;border:1px solid #2b2826;border-radius:4px;background:#121111 !important;box-shadow:none;backdrop-filter:none}
+.page:has(.streetHero) .catIcons button>span svg{width:23px;height:23px;stroke:#e3443a}
+.page:has(.streetHero) .catIcons small{font:600 6.5px Inter;color:#cfc8c1;margin-top:6px}
+.page:has(.streetHero) .sectionTitle{margin:0 0 11px}
+.page:has(.streetHero) .sectionTitle h2{font:21px/.9 'Permanent Marker';color:#f3eee8}
+.page:has(.streetHero) .sectionTitle button{font-size:8px;color:#aaa29c}
+.page:has(.streetHero) .popular{gap:7px}
+.page:has(.streetHero) .popular article{border-radius:4px;border:1px solid #292624;background:#111010 !important;padding-bottom:9px;box-shadow:none}
+.page:has(.streetHero) .popular img{height:96px;filter:saturate(.88) contrast(1.05)}
+.page:has(.streetHero) .popular b{font-size:7px;margin:6px 6px 0}
+.page:has(.streetHero) .popular strong{font-size:9px;margin:4px 6px}
+.page:has(.streetHero) .popular button{width:23px;height:23px;border-radius:50%;background:#e23f36}
+.page:has(.streetHero) .combo02{margin-top:17px;border-radius:4px}
+.page:has(.streetHero) .bottomNav{background:#070707 !important}
+@media(max-width:380px){
+ .page:has(.streetHero) .homeTop{height:108px}
+ .streetHero{height:280px}
+ .streetMascot{width:70%;right:-12%;bottom:-3%}
+ .streetHeroCopy{left:16px;top:62px}
+ .streetHeroCopy h1{font-size:25px}
+ .streetCrown,.streetNote{left:16px}
+ .streetMood{font-size:16px}
+}
