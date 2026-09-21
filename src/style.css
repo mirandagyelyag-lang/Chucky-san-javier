@@ -367,3 +367,14 @@ radial-gradient(circle at 87% 25%,rgba(226,53,46,.16),transparent 21%);pointer-e
   background-position:center top!important;
 }
 .page:has(.homeFreshHero) .home{background:transparent!important}
+
+/* HOME 02 v16 — match approved mockup: sparse edge doodles + clean breathing room */
+.page:has(.homeFreshHero){
+  background-color:#090909!important;
+  background-image:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='620' viewBox='0 0 420 620'%3E%3Cg fill='none' stroke='%23645d59' stroke-width='1.35' stroke-linecap='round' stroke-linejoin='round' opacity='.14'%3E%3C!-- edge burger --%3E%3Cg transform='translate(-8 38) rotate(-7)'%3E%3Cpath d='M0 18C5 5 39 5 44 18M-3 24h50M2 31h40M8 37h28'/%3E%3C/g%3E%3C!-- fries --%3E%3Cg transform='translate(337 83) rotate(8)'%3E%3Cpath d='M0 8h31l-4 39H5zM7 8L4-12M15 8l2-24M23 8l9-19'/%3E%3C/g%3E%3C!-- hotdog edge --%3E%3Cg transform='translate(-12 300) rotate(-8)'%3E%3Cpath d='M0 15c8-10 15-14 25-14 20 0 34 12 34 25S45 51 25 51c-10 0-17-4-25-13zM7 15c15 6 29 6 44 0M7 37c15-6 29-6 44 0'/%3E%3C/g%3E%3C!-- drink edge --%3E%3Cg transform='translate(374 397) rotate(7)'%3E%3Cpath d='M0 6h28l-3 40H4zM10 6l8-22h15'/%3E%3C/g%3E%3C!-- lower burger --%3E%3Cg transform='translate(306 543) rotate(8)'%3E%3Cpath d='M0 18C5 5 39 5 44 18M-3 24h50M2 31h40M8 37h28'/%3E%3C/g%3E%3C/g%3E%3Cg fill='none' stroke='%23a5322d' stroke-width='1.35' stroke-linecap='round' stroke-linejoin='round' opacity='.13'%3E%3C!-- sparse crowns/lightning --%3E%3Cpath d='M72 151l4-14 8 10 9-12 8 12 9-10 3 14zM77 157h31M333 256l4-13 8 9 9-11 8 11 9-9 3 13zM338 262h30M83 501l5-14 8 10 9-12 8 12 9-10 3 14zM88 507h31'/%3E%3Cpath d='M380 160l-8 15h8l-5 15 15-20h-8l6-10M178 552l-7 13h7l-5 13 13-17h-7l5-9'/%3E%3C/g%3E%3C/svg%3E")!important;
+  background-repeat:repeat-y!important;
+  background-position:center top!important;
+  background-size:420px 620px!important;
+}
+.page:has(.homeFreshHero) .home{background:transparent!important}
