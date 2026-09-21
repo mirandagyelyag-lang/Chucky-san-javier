@@ -687,3 +687,32 @@ body::before,body::after{display:none!important}
 .page:has(.streetBg) > .bottomNav{
   z-index:1000!important;
 }
+
+/* STREET ART EVERY SCREEN v8 */
+.page:has(.streetBg) .darkScreen,
+.page:has(.streetBg) .searchScreen{
+  position:relative!important;
+  z-index:2!important;
+  background:transparent!important;
+  background-image:none!important;
+}
+.globalStreetBg{
+  position:fixed!important;
+  inset:0!important;
+  z-index:0!important;
+  pointer-events:none!important;
+  background:url('/street-bg.jpg.png?v=8') center top/100% auto repeat-y!important;
+  opacity:.72!important;
+}
+.globalStreetBg:after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  background:rgba(0,0,0,.08)!important;
+}
+.cartV2{
+  position:relative!important;
+  z-index:1!important;
+  background:transparent!important;
+  background-image:none!important;
+}
