@@ -103,3 +103,29 @@ radial-gradient(circle at 76% 42%,rgba(205,43,38,.15),transparent 34%)}
 .page:has(.home) .sectionTitle h2{font-family:'Permanent Marker';font-size:20px;letter-spacing:-.02em}
 .page:has(.home) .combo02{background:#0b0808}
 .page:has(.home) .bottomNav{background:#050505 !important;backdrop-filter:none}
+
+/* HOME 02 v6 — selected mascot 03 artwork; additive, no feature removal */
+.illustrated04{height:390px;background:#080808;isolation:isolate}
+.illustrated04 .heroMascot03{
+  position:absolute;z-index:2;
+  width:69%;height:100%;
+  right:-2%;bottom:0;top:auto;
+  object-fit:cover;object-position:69% 50%;
+  filter:saturate(.95) contrast(1.04) brightness(.9);
+  clip-path:polygon(10% 0,100% 0,100% 100%,0 100%);
+}
+.illustrated04:after{
+  z-index:3;
+  background:linear-gradient(90deg,#080808 0%,#080808 31%,rgba(8,8,8,.91) 38%,rgba(8,8,8,.28) 57%,transparent 72%)
+}
+.illustrated04 .heroCopy{z-index:5;top:105px}
+.illustrated04 .heroCopy strong{font-size:29px}
+.illustrated04 .heroWhisper{z-index:5;left:18px;right:auto;bottom:20px;text-align:left;color:#aaa19b}
+.illustrated04 .heroCrown{z-index:5}
+.illustrated04 .heroArrow{z-index:5}
+.illustrated04 .heroMood{z-index:5;right:9px;top:28px}
+@media(max-width:420px){
+ .illustrated04{height:360px}
+ .illustrated04 .heroMascot03{width:74%;right:-8%;object-position:68% 50%}
+ .illustrated04 .heroCopy strong{font-size:25px}
+}
