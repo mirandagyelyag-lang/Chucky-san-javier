@@ -651,3 +651,39 @@ body::before,body::after{display:none!important}
 .home,.menuPage,.searchPage,.cartPage,.detail{padding-bottom:104px!important}
 .top.homeTop{position:relative!important;z-index:2!important}
 .streetBg{z-index:0!important}
+
+/* GLOBAL STREET ART v7 — header included on HOME + MENU */
+.page:has(.streetBg){
+  position:relative!important;
+  background:transparent!important;
+  min-height:100dvh!important;
+}
+.page:has(.streetBg) .streetBg{
+  position:fixed!important;
+  inset:0!important;
+  z-index:0!important;
+  background:url('/street-bg.jpg.png?v=7') center top/100% auto repeat-y!important;
+  opacity:.72!important;
+  pointer-events:none!important;
+}
+.page:has(.streetBg) .streetBg:after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  background:rgba(0,0,0,.08)!important;
+}
+.page:has(.streetBg) > .top.homeTop{
+  position:relative!important;
+  z-index:2!important;
+  background:transparent!important;
+  background-image:none!important;
+}
+.page:has(.streetBg) > .home{
+  position:relative!important;
+  z-index:2!important;
+  background:transparent!important;
+  background-image:none!important;
+}
+.page:has(.streetBg) > .bottomNav{
+  z-index:1000!important;
+}
