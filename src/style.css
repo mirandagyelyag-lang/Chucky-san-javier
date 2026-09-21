@@ -356,3 +356,14 @@ radial-gradient(circle at 87% 25%,rgba(226,53,46,.16),transparent 21%);pointer-e
   background-size:210px 245px!important;
 }
 .page:has(.homeFreshHero) .home{background:transparent!important}
+
+/* HOME 02 v15 — handcrafted irregular street-food wallpaper */
+.page:has(.homeFreshHero){
+  background:#0a0909!important;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='390' height='520' viewBox='0 0 390 520'%3E%3Cg fill='none' stroke='%23837a74' stroke-width='1.55' stroke-linecap='round' stroke-linejoin='round' opacity='.15'%3E%3Cg transform='translate(28 42) rotate(-8)'%3E%3Cpath d='M0 17C3 5 34 5 38 17M-2 22h42M2 28h34M7 34h24'/%3E%3C/g%3E%3Cg transform='translate(282 73) rotate(9)'%3E%3Cpath d='M0 6h31l-4 36H5zM8 6L5-13M16 6l2-22M24 6l8-17'/%3E%3C/g%3E%3Cg transform='translate(78 182) rotate(7)'%3E%3Cpath d='M0 14C6 2 39 2 45 14M-2 20h49M3 27h39M8 33h29'/%3E%3C/g%3E%3Cg transform='translate(292 238) rotate(-10)'%3E%3Cpath d='M0 7h27l-3 38H4zM10 7l8-22h15'/%3E%3C/g%3E%3Cg transform='translate(34 332) rotate(-5)'%3E%3Cpath d='M0 16c8-10 15-14 25-14 20 0 34 12 34 25S45 52 25 52c-10 0-17-4-25-13zM7 16c15 6 29 6 44 0M7 37c15-6 29-6 44 0'/%3E%3C/g%3E%3Cg transform='translate(228 410) rotate(8)'%3E%3Cpath d='M0 17C4 4 37 4 42 17M-2 23h46M3 30h36M8 36h26'/%3E%3C/g%3E%3C/g%3E%3Cg fill='none' stroke='%23a8332e' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' opacity='.13'%3E%3Cg transform='translate(192 110) rotate(12)'%3E%3Cpath d='M0 18L4 2l9 11 9-13 8 13 10-11 3 16zM4 23h35'/%3E%3C/g%3E%3Cg transform='translate(333 350) rotate(-13)'%3E%3Cpath d='M0 18L4 2l9 11 9-13 8 13 10-11 3 16zM4 23h35'/%3E%3C/g%3E%3Cg transform='translate(116 463) rotate(6)'%3E%3Cpath d='M0 18L4 2l9 11 9-13 8 13 10-11 3 16zM4 23h35'/%3E%3C/g%3E%3C/g%3E%3Cg fill='%23837a74' opacity='.12'%3E%3Ccircle cx='344' cy='161' r='2'/%3E%3Ccircle cx='153' cy='294' r='2'/%3E%3Ccircle cx='69' cy='477' r='2'/%3E%3Cpath d='M352 185l3 7 7 3-7 3-3 7-3-7-7-3 7-3zM178 367l2 5 5 2-5 2-2 5-2-5-5-2 5-2z'/%3E%3C/g%3E%3C/svg%3E")!important;
+  background-repeat:repeat!important;
+  background-size:390px 520px!important;
+  background-position:center top!important;
+}
+.page:has(.homeFreshHero) .home{background:transparent!important}
