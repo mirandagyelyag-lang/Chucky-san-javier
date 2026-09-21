@@ -623,3 +623,15 @@ body::before,body::after{display:none!important}
 .streetBg{display:block!important;position:fixed!important;inset:0!important;z-index:0!important;pointer-events:none!important;background:url('/street-bg.jpg?v=4') center top/cover repeat-y!important;opacity:.26!important}
 .streetBg:after{content:"";position:absolute;inset:0;background:rgba(5,5,5,.22)}
 .top.homeTop,.home,.bottomNav{position:relative!important;z-index:1!important}
+
+/* STREET BG FINAL — use uploaded grunge artwork at readable strength */
+#root::before{display:none!important}
+.streetBg{
+  background-image:url('/street-bg.jpg?v=5')!important;
+  background-size:100% auto!important;
+  background-position:center top!important;
+  background-repeat:repeat-y!important;
+  opacity:.72!important;
+  filter:none!important;
+}
+.streetBg:after{background:rgba(0,0,0,.08)!important}
