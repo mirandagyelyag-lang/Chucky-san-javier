@@ -615,11 +615,11 @@ body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;back
 
 /* STREET BG FIX v2 — real visible layer above root backgrounds */
 #root{position:relative!important;isolation:isolate!important;min-height:100dvh!important}
-#root::before{content:""!important;position:fixed!important;inset:0!important;z-index:-1!important;pointer-events:none!important;background-image:linear-gradient(rgba(7,7,7,.72),rgba(7,7,7,.72)),url('/street-bg.jpg?v=2')!important;background-size:cover!important;background-position:center top!important;background-repeat:repeat-y!important}
+#root::before{content:""!important;position:fixed!important;inset:0!important;z-index:-1!important;pointer-events:none!important;background-image:linear-gradient(rgba(7,7,7,.72),rgba(7,7,7,.72)),url('/street-bg.jpg?v=4')!important;background-size:cover!important;background-position:center top!important;background-repeat:repeat-y!important}
 body::before,body::after{display:none!important}
 .page,.home,.menuPage,.searchPage,.cartPage,.detail{background:transparent!important}
 
 /* STREET BG v3 — explicit DOM layer, cannot hide behind body/root */
-.streetBg{display:block!important;position:fixed!important;inset:0!important;z-index:0!important;pointer-events:none!important;background:url('/street-bg.jpg?v=3') center top/cover repeat-y!important;opacity:.26!important}
+.streetBg{display:block!important;position:fixed!important;inset:0!important;z-index:0!important;pointer-events:none!important;background:url('/street-bg.jpg?v=4') center top/cover repeat-y!important;opacity:.26!important}
 .streetBg:after{content:"";position:absolute;inset:0;background:rgba(5,5,5,.22)}
 .top.homeTop,.home,.bottomNav{position:relative!important;z-index:1!important}
