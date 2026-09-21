@@ -230,3 +230,52 @@ radial-gradient(circle at 87% 25%,rgba(226,53,46,.16),transparent 21%);pointer-e
 .page:has(.homeFreshHero) .bottomNav{height:66px;background:#070707!important;border-color:#201e1c}
 .page:has(.homeFreshHero) .bottomNav button{font-size:6.5px;gap:4px}.page:has(.homeFreshHero) .bottomNav svg{width:18px}
 @media(max-width:380px){.homeFreshHero{height:215px}.homeFreshHero>img{width:61%;right:-10%}.freshCopy h1{font-size:24px}.freshPopular img{height:78px}}
+
+/* HOME 02 v10 — mobile scale-up pass */
+.page:has(.homeFreshHero) .homeTop{height:112px;padding:18px 20px 10px}
+.page:has(.homeFreshHero) .homeTop .brand strong{font-size:25px}
+.page:has(.homeFreshHero) .homeTop .brand strong:before{font-size:11px}
+.page:has(.homeFreshHero) .homeTop .brand span{font-size:5.5px;margin-top:7px}
+.page:has(.homeFreshHero) .homeTop svg{width:25px;height:25px}
+.page:has(.homeFreshHero) .home{padding-left:16px;padding-right:16px}
+.homeFreshHero{height:286px;border-radius:14px}
+.homeFreshHero>img{width:64%;right:-8%;bottom:-12%}
+.freshCopy{left:18px;top:32px;width:58%}
+.freshCopy small{font-size:7.5px}
+.freshCopy h1{font-size:33px;line-height:.88;margin:11px 0 10px}
+.freshCopy p{font-size:11.5px;line-height:1.4}
+.freshCopy button{margin-top:18px;padding:13px 18px;font-size:9px}
+.freshStamp{right:10px;top:12px;font-size:15px}
+.freshCats{gap:9px;padding:13px 0 21px}
+.freshCats button{height:45px;padding:0 15px;gap:8px;font-size:9.5px}
+.freshCats svg{width:21px;height:21px}
+.freshTitle{margin-bottom:13px}
+.freshTitle small{font-size:6.5px}
+.freshTitle h2{font-size:25px;margin-top:5px}
+.freshTitle>button{font-size:8px}
+.freshPopular{display:flex;gap:10px;overflow-x:auto;margin-right:-16px;padding-right:16px;padding-bottom:3px;scroll-snap-type:x proximity;scrollbar-width:none}
+.freshPopular::-webkit-scrollbar{display:none}
+.freshPopular article{flex:0 0 43%;scroll-snap-align:start;border-radius:9px;padding-bottom:11px}
+.freshPopular img{height:130px}
+.freshPopular article>div{padding:9px 9px 0}
+.freshPopular b{font-size:10px}
+.freshPopular strong{font-size:13px;margin-top:7px}
+.freshPopular article>button{width:32px;height:32px;right:8px;bottom:8px}
+.freshPopular article>button svg{width:16px}
+.freshCombo{height:145px;margin-top:20px}
+.freshCombo>div{left:17px;top:18px}
+.freshCombo small{font-size:6.5px}
+.freshCombo strong{font-size:30px}
+.freshCombo b{font-size:9px}
+.freshCombo button{font-size:8px;margin-top:10px}
+.page:has(.homeFreshHero) .bottomNav{height:78px}
+.page:has(.homeFreshHero) .bottomNav button{font-size:9px;gap:6px}
+.page:has(.homeFreshHero) .bottomNav svg{width:23px;height:23px}
+@media(max-width:380px){
+ .homeFreshHero{height:266px}
+ .homeFreshHero>img{width:67%;right:-11%}
+ .freshCopy h1{font-size:30px}
+ .freshCopy p{font-size:10.5px}
+ .freshPopular article{flex-basis:45%}
+ .freshPopular img{height:118px}
+}
