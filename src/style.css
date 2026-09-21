@@ -572,3 +572,20 @@ radial-gradient(circle at 87% 25%,rgba(226,53,46,.16),transparent 21%);pointer-e
 .menuPosterGrid .menuV3Card:nth-child(3) .menuV3Photo:before{content:"CON TOCINO\A TODO SABE\A MEJOR";white-space:pre;position:absolute;z-index:3;left:10px;top:13px;color:#c2bbb6;font:12px/.9 'Permanent Marker',cursive;transform:rotate(-7deg);text-shadow:1px 1px #000}
 @media(min-width:600px){.page:has(.menuPosterHero) .home{max-width:520px;margin:0 auto}.menuPosterHero{height:335px}}
 @media(max-width:370px){.menuPosterHero{height:276px}.mphCopy>span{font-size:36px}.menuPosterTabs button{min-width:108px}.menuPosterGrid .menuV3Card,.menuPosterGrid .menuV3Card.featured{grid-template-columns:51% 49%}}
+
+/* EMERGENCY MENU FIX — force poster layout over legacy global button/svg rules */
+.page:has(.menuPosterHero) .menuPosterHero{position:relative!important;display:block!important;width:100%!important;height:300px!important;margin:4px 0 15px!important;padding:0!important;overflow:hidden!important;border:1px solid #292522!important;border-radius:18px!important;background:#111!important}
+.page:has(.menuPosterHero) .menuPosterHero>img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;display:block!important}
+.page:has(.menuPosterHero) .mphShade{position:absolute!important;inset:0!important;z-index:1!important}
+.page:has(.menuPosterHero) .mphCopy{position:absolute!important;z-index:3!important;left:18px!important;bottom:25px!important;width:auto!important}
+.page:has(.menuPosterHero) .mphCopy>span{font:38px/.78 'Permanent Marker',cursive!important;color:#fff!important}
+.page:has(.menuPosterHero) .mphCopy>b{font:13px/1 'Permanent Marker',cursive!important;color:#c1b8b1!important}
+.page:has(.menuPosterHero) .mphDoodle{position:absolute!important;z-index:3!important;left:16px!important;top:17px!important;font:14px/.82 'Permanent Marker',cursive!important}
+.page:has(.menuPosterHero) .mphTape{position:absolute!important;z-index:4!important;right:13px!important;top:18px!important;width:auto!important}
+.page:has(.menuPosterHero) .mphCrown{position:absolute!important;z-index:3!important;right:24px!important;bottom:12px!important}
+.page:has(.menuPosterHero) .menuPosterTabs{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;gap:8px!important;width:100%!important;overflow-x:auto!important;padding:0 0 18px!important}
+.page:has(.menuPosterHero) .menuPosterTabs>button{appearance:none!important;display:flex!important;flex:0 0 auto!important;align-items:center!important;justify-content:center!important;width:auto!important;min-width:0!important;height:50px!important;margin:0!important;padding:0 16px!important;border:1px solid #302c29!important;border-radius:999px!important;background:#111!important;color:#99918b!important;box-shadow:none!important;font:800 10px/1 Inter,Arial,sans-serif!important}
+.page:has(.menuPosterHero) .menuPosterTabs>button.on{background:#e63d38!important;border-color:#e63d38!important;color:#fff!important}
+.page:has(.menuPosterHero) .menuPosterTabs>button svg{display:block!important;width:20px!important;height:20px!important;min-width:20px!important;max-width:20px!important;margin:0 7px 0 0!important;padding:0!important;stroke:currentColor!important;fill:none!important}
+.page:has(.menuPosterHero) .menuPosterTabs>button span{display:inline!important;position:static!important;width:auto!important;height:auto!important;margin:0!important;padding:0!important;font:inherit!important;color:inherit!important;white-space:nowrap!important}
+@media(max-width:420px){.page:has(.menuPosterHero) .menuPosterHero{height:285px!important}.page:has(.menuPosterHero) .menuPosterTabs>button{height:48px!important;padding:0 13px!important;font-size:9px!important}}
