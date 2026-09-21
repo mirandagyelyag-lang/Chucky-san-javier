@@ -716,3 +716,52 @@ body::before,body::after{display:none!important}
   background:transparent!important;
   background-image:none!important;
 }
+
+/* STREET SKETCH BOTTOM NAV — approved concept */
+.bottomNav.streetNav{
+  height:92px!important;
+  padding:9px 18px 12px!important;
+  background:rgba(5,5,5,.96)!important;
+  border-top:1px solid rgba(244,238,226,.16)!important;
+  backdrop-filter:blur(14px)!important;
+}
+.bottomNav.streetNav button{
+  gap:3px!important;
+  color:#77716d!important;
+  font-family:inherit!important;
+}
+.bottomNav.streetNav button>span:last-child{
+  font-size:12px!important;
+  font-weight:700!important;
+  letter-spacing:.02em!important;
+}
+.bottomNav.streetNav button.on{color:#ef443d!important}
+.bottomNav.streetNav button.on>span:last-child:after{
+  content:"";display:block;width:30px;height:3px;margin:3px auto 0;
+  background:currentColor;border-radius:60% 30% 70% 40%;
+  transform:rotate(-2deg);opacity:.9;
+}
+.navSketch{
+  width:34px;height:34px;display:grid!important;place-items:center;
+  font-family:Georgia,serif!important;font-size:35px!important;line-height:1!important;
+  font-weight:400!important;
+  filter:drop-shadow(1px 0 0 currentColor);
+}
+.navCrown{font-size:37px!important;transform:rotate(-3deg)}
+.navBurger{
+  font-size:0!important;position:relative;
+}
+.navBurger:before{
+  content:"";width:31px;height:23px;display:block;
+  border:3px solid currentColor;border-left-color:transparent;border-right-color:transparent;
+  border-radius:50% 50% 35% 35%;transform:rotate(-2deg);
+}
+.navBurger:after{
+  content:"";position:absolute;width:27px;height:3px;background:currentColor;
+  border-radius:50%;top:16px;left:4px;box-shadow:0 -8px 0 -1px currentColor;
+}
+.navSketchSvg{
+  width:31px!important;height:31px!important;stroke-width:2.5!important;
+  transform:rotate(-2deg);filter:drop-shadow(1px 0 0 currentColor);
+}
+.navCart{transform:rotate(2deg) skewX(-4deg)}
