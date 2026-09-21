@@ -81,3 +81,25 @@ backdrop-filter:blur(4px)}
   background:rgba(4,4,4,.94) !important;
   backdrop-filter:blur(12px);
 }
+
+/* HOME 02 v5 — selected concept 04: illustrated street-food */
+.page:has(.home){background:#080808 !important;background-image:none !important}
+.page:has(.home) .homeTop{background:#080808 !important;backdrop-filter:none}
+.page:has(.home) .home{background:
+radial-gradient(circle at 84% 9%,rgba(150,25,23,.12),transparent 25%),
+linear-gradient(180deg,#080808,#0a0909) !important}
+.illustrated04{height:330px;background:#090909;border:0;overflow:hidden;box-shadow:none;position:relative}
+.illustrated04:before{content:"";position:absolute;inset:0;z-index:1;background:
+linear-gradient(115deg,transparent 0 57%,rgba(210,40,35,.08) 57% 58%,transparent 58%),
+radial-gradient(circle at 76% 42%,rgba(205,43,38,.15),transparent 34%)}
+.illustrated04 img{width:64%;height:80%;top:auto;bottom:0;right:-4%;object-fit:cover;object-position:center;filter:saturate(.88) contrast(1.12) brightness(.84);clip-path:polygon(8% 8%,100% 0,96% 96%,0 100%)}
+.illustrated04:after{background:linear-gradient(90deg,#080808 0%,#080808f8 32%,#080808a6 48%,transparent 69%)}
+.illustrated04 .heroCopy{left:16px;top:91px}.illustrated04 .heroCopy strong{font:27px/.96 'Permanent Marker';letter-spacing:-.025em}.illustrated04 .heroCopy small{color:#ef4036;font-size:8px}.illustrated04 .heroCopy span{font:9px Inter;font-weight:700}.illustrated04 .heroCopy button{margin-top:19px;border-radius:3px;background:#080808;border-color:#e33d34}
+.heroDoodle{position:absolute;z-index:4;font-family:'Permanent Marker';pointer-events:none}.heroCrown{left:19px;top:26px;color:#e63c34;font-size:38px;transform:rotate(-10deg)}.heroArrow{left:112px;top:44px;color:#e7e0d8;font-size:31px;transform:rotate(12deg)}.heroMood{right:12px;top:22px;color:#d83932;font-size:19px;line-height:.9;text-align:right;transform:rotate(8deg)}
+.illustrated04 .heroWhisper{right:8px;bottom:13px;color:#e6dfd7;font-size:9px;transform:rotate(-8deg)}
+.page:has(.home) .catIcons button>span{background:#0b0b0b !important;border-color:#292525;border-radius:5px;backdrop-filter:none}
+.page:has(.home) .catIcons button>span svg{stroke:#ec4037}
+.page:has(.home) .popular article{background:#0b0b0b !important;border-color:#282323;backdrop-filter:none}
+.page:has(.home) .sectionTitle h2{font-family:'Permanent Marker';font-size:20px;letter-spacing:-.02em}
+.page:has(.home) .combo02{background:#0b0808}
+.page:has(.home) .bottomNav{background:#050505 !important;backdrop-filter:none}
