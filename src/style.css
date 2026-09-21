@@ -53,3 +53,31 @@ linear-gradient(180deg,rgba(8,6,5,.70),rgba(8,6,5,.42)),
 radial-gradient(circle at 72% 8%,rgba(128,62,31,.32),transparent 34%);
 backdrop-filter:blur(4px)}
 .hero02,.popular article,.catIcons button>span,.combo02{box-shadow:0 14px 34px rgba(0,0,0,.24)}
+
+/* HOME 02 v4 — visibly photographic restaurant background */
+.page:has(.home){
+  background-image:
+    linear-gradient(rgba(8,5,3,.70),rgba(8,5,3,.76)),
+    url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1400&q=82") !important;
+  background-size:cover !important;
+  background-position:center top !important;
+  background-attachment:fixed !important;
+}
+.page:has(.home) .homeTop{
+  background:linear-gradient(180deg,rgba(8,5,3,.60),rgba(8,5,3,.38)) !important;
+  backdrop-filter:blur(2px);
+}
+.page:has(.home) .home{
+  background:linear-gradient(180deg,rgba(5,4,3,.22),rgba(5,4,3,.48)) !important;
+  backdrop-filter:none;
+}
+.page:has(.home) .home:before{display:none !important}
+.page:has(.home) .catIcons button>span,
+.page:has(.home) .popular article{
+  background:rgba(10,9,8,.86) !important;
+  backdrop-filter:blur(8px);
+}
+.page:has(.home) .bottomNav{
+  background:rgba(4,4,4,.94) !important;
+  backdrop-filter:blur(12px);
+}
