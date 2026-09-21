@@ -328,3 +328,21 @@ radial-gradient(circle at 87% 25%,rgba(226,53,46,.16),transparent 21%);pointer-e
 .page:has(.homeFreshHero) .homeFreshHero{
   background:linear-gradient(112deg,rgba(22,18,17,.98) 0 48%,rgba(37,13,11,.98) 100%);
 }
+
+/* HOME 02 v13 — visible but subtle doodles, applied to page layer (not hidden by .home background) */
+.page:has(.homeFreshHero){
+  position:relative;
+  isolation:isolate;
+  background-color:#0b0a0a!important;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='330' height='390' viewBox='0 0 330 390'%3E%3Cg fill='none' stroke='%237a716c' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round' opacity='.30'%3E%3Cpath d='M22 49c12-14 43-14 55 0M18 56h63M23 64h53M29 71h41'/%3E%3Cpath d='M249 39l10-25 8 19 15-15-2 29z'/%3E%3Cpath d='M239 166c8-12 37-12 46 0l3 8h-52zM236 181h52M242 189h40'/%3E%3Cpath d='M31 273c4-12 31-12 36 0M27 280h44M31 287h36M37 294h25'/%3E%3Cpath d='M252 305c7-7 13-10 20-10 16 0 27 11 27 23s-11 23-27 23c-7 0-13-3-20-9zM258 311c10 4 19 4 30 0M258 326c10-4 19-4 30 0'/%3E%3Cpath d='M94 144c13 2 25 2 37 0M98 136l4-22 7 22 7-25 7 25 8-20 1 20'/%3E%3Cpath d='M139 351l8-29 9 29M146 322h13M143 334h18'/%3E%3C/g%3E%3Cg fill='none' stroke='%23c23a33' stroke-width='2.3' opacity='.25'%3E%3Cpath d='M174 83l7-19 7 15 13-13-2 23zM64 355l8-21 8 17 14-14-3 24zM296 229l7-17 6 13 11-11-2 19z'/%3E%3C/g%3E%3C/svg%3E")!important;
+  background-repeat:repeat!important;
+  background-size:330px 390px!important;
+}
+.page:has(.homeFreshHero) .home{
+  background-color:transparent!important;
+  background-image:none!important;
+}
+.page:has(.homeFreshHero) .homeTop{
+  background-color:rgba(11,10,10,.92)!important;
+}
