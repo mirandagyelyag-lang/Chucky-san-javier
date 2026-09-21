@@ -438,3 +438,45 @@ radial-gradient(circle at 87% 25%,rgba(226,53,46,.16),transparent 21%);pointer-e
  .detailStreet .detailName>b{font-size:19px}
  .detailStreet .detailBody{padding-left:17px;padding-right:17px}
 }
+
+/* PRODUCT V2 — fully isolated, selected concept 02 */
+.productV2,.productV2 *{box-sizing:border-box}
+.productV2{position:fixed;inset:0;z-index:100;background:#090909;color:#f6f0e9;overflow-y:auto;font-family:Inter,Arial,sans-serif;padding-bottom:92px}
+.pv2Photo{position:relative;width:100%;height:46dvh;min-height:340px;max-height:470px;overflow:hidden;background:#111}
+.pv2Photo>img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 50%}
+.pv2Shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.24),transparent 52%,rgba(9,9,9,.88));pointer-events:none}
+.pv2Back,.pv2Heart{position:absolute!important;top:18px!important;width:44px!important;height:44px!important;border-radius:50%!important;border:1px solid #514943!important;background:rgba(10,9,9,.78)!important;color:#fff!important;display:grid!important;place-items:center!important;padding:0!important;backdrop-filter:blur(9px)}
+.pv2Back{left:18px!important}.pv2Heart{right:18px!important}
+.pv2Back svg,.pv2Heart svg{width:21px!important;height:21px!important;stroke-width:2!important}
+.pv2Sticker{position:absolute;left:22px;bottom:14px;background:#e7443d;color:#fff;padding:8px 14px 7px;font:18px/.88 'Permanent Marker',cursive;transform:rotate(-4deg);box-shadow:5px 5px 0 #090909;letter-spacing:.01em}
+.pv2Main{position:relative;background:#090909!important;padding:20px 22px 32px;min-height:420px;overflow:hidden}
+.pv2Main:before{content:"♕";position:absolute;right:-8px;top:68px;font-size:100px;line-height:1;color:#211e1c;transform:rotate(10deg);pointer-events:none}
+.pv2Title{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;position:relative;z-index:2}
+.pv2Title h1{margin:0!important;color:#f6f0e9!important;text-transform:uppercase;font:44px/.9 'Permanent Marker',cursive!important;letter-spacing:-1px}
+.pv2Title strong{color:#fff;font-size:23px;font-weight:900;white-space:nowrap}
+.pv2Desc{position:relative;z-index:2;margin:17px 0 27px!important;max-width:82%;color:#bdb5af!important;font-size:14px!important;line-height:1.5!important}
+.pv2Scribble{position:absolute;right:22px;top:77px;color:#57504c;text-align:right;font:15px/.86 'Permanent Marker',cursive;transform:rotate(5deg);opacity:.8}
+.pv2Scribble b{color:#a23531;font-weight:400}
+.pv2Main h2{position:relative;z-index:2;margin:0 0 12px;color:#e64a43;font-size:13px;line-height:1.2;font-weight:900;font-style:italic;letter-spacing:.04em}
+.pv2Options{position:relative;z-index:2;display:grid;gap:9px}
+.pv2Options>button{all:unset;box-sizing:border-box;width:100%;height:58px;border:1px solid #34302d;border-radius:12px;background:#121111;display:flex;align-items:center;justify-content:space-between;padding:0 14px;cursor:pointer;color:#f4eee8}
+.pv2Options>button>span{display:flex;align-items:center;gap:11px}
+.pv2Options b{font-size:13px;font-style:normal}
+.pv2Options svg{width:23px;height:23px;stroke:#e64840;stroke-width:1.7;fill:none}
+.pv2Options em{display:flex;align-items:center;gap:3px;color:#8f8882;font-size:11px;font-style:normal;white-space:nowrap}
+.pv2Options em svg{width:15px;height:15px;stroke:#8f8882}
+.pv2SauceIcon{width:23px;height:23px;border:1.5px solid #e64840;border-radius:50%;display:grid!important;place-items:center!important;color:#e64840;font-size:11px;font-weight:900}
+.pv2Bar{position:fixed!important;z-index:110!important;left:0!important;right:0!important;bottom:0!important;height:88px!important;background:rgba(9,9,9,.97)!important;border-top:1px solid #302b28!important;display:flex!important;align-items:center!important;gap:15px!important;padding:13px 18px calc(13px + env(safe-area-inset-bottom))!important;backdrop-filter:blur(12px)}
+.pv2Qty{display:flex;align-items:center;gap:10px;flex:none}
+.pv2Qty button{all:unset;width:40px;height:40px;border-radius:50%;border:1px solid #45403c;display:grid;place-items:center;background:#121111;color:#fff}
+.pv2Qty button svg{width:18px;height:18px}.pv2Qty b{min-width:15px;text-align:center;font-size:15px}
+.pv2Add{all:unset;box-sizing:border-box;flex:1;height:55px;border-radius:10px;background:#e72d33;color:#fff;display:flex;align-items:center;justify-content:center;gap:7px;font-size:14px;font-weight:900;letter-spacing:.01em}
+.pv2Add span{font-size:15px}
+@media(max-width:380px){
+ .pv2Photo{height:43dvh;min-height:310px}
+ .pv2Main{padding-left:18px;padding-right:18px}
+ .pv2Title h1{font-size:39px!important}
+ .pv2Title strong{font-size:20px}
+ .pv2Bar{padding-left:14px!important;padding-right:14px!important;gap:10px!important}
+ .pv2Qty{gap:7px}.pv2Qty button{width:37px;height:37px}
+}
