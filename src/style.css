@@ -346,3 +346,13 @@ radial-gradient(circle at 87% 25%,rgba(226,53,46,.16),transparent 21%);pointer-e
 .page:has(.homeFreshHero) .homeTop{
   background-color:rgba(11,10,10,.92)!important;
 }
+
+/* HOME 02 v14 — refined small street-food doodles */
+.page:has(.homeFreshHero){
+  background-color:#0b0a0a!important;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='210' height='245' viewBox='0 0 210 245'%3E%3Cg fill='none' stroke='%236d6662' stroke-width='1.35' stroke-linecap='round' stroke-linejoin='round' opacity='.19'%3E%3C!-- burger --%3E%3Cpath d='M18 38c3-9 23-9 27 0M15 42h33M18 47h27M21 51h21'/%3E%3C!-- fries --%3E%3Cpath d='M151 24l3 24h19l3-24M154 29l-1-14M160 29l2-17M166 29l5-15M172 30l5-12'/%3E%3C!-- hotdog --%3E%3Cpath d='M119 103c4-5 8-7 13-7 11 0 18 7 18 14s-7 14-18 14c-5 0-9-2-13-6zM123 104c7 3 14 3 22 0M123 116c7-3 14-3 22 0'/%3E%3C!-- drink --%3E%3Cpath d='M35 131h18l-2 27H38zM43 131l6-12h8'/%3E%3C!-- burger --%3E%3Cpath d='M161 182c3-8 22-8 26 0M158 187h32M162 192h24M165 196h18'/%3E%3C!-- fries --%3E%3Cpath d='M72 199l3 22h18l3-22M75 203l-2-13M81 203l2-16M87 203l5-14M93 204l5-11'/%3E%3C/g%3E%3Cg fill='none' stroke='%23a93631' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' opacity='.16'%3E%3C!-- crowns --%3E%3Cpath d='M86 60l4-11 4 8 7-7-1 13zM183 80l4-10 4 7 7-7-1 13zM20 211l4-10 4 7 7-7-1 13z'/%3E%3C/g%3E%3C/svg%3E")!important;
+  background-repeat:repeat!important;
+  background-size:210px 245px!important;
+}
+.page:has(.homeFreshHero) .home{background:transparent!important}
