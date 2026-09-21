@@ -400,3 +400,41 @@ radial-gradient(circle at 87% 25%,rgba(226,53,46,.16),transparent 21%);pointer-e
   background-position:center top!important;
 }
 .page:has(.homeFreshHero) .home{background:transparent!important}
+
+/* PRODUCT DETAIL — selected concept 02 STREET STICKER */
+.detailStreet{background:#090909!important;color:#f5f0e9;overflow:auto;padding-bottom:86px}
+.detailStreet .detailPhoto{height:43dvh;min-height:330px;max-height:440px;background:#111;overflow:hidden}
+.detailStreet .detailPhoto img{width:100%;height:100%;object-fit:cover;object-position:center 48%;filter:saturate(1.05) contrast(1.03)}
+.detailStreet .detailPhotoShade{position:absolute;inset:0;background:linear-gradient(180deg,#0003 0%,transparent 55%,#090909 100%);pointer-events:none}
+.detailStreet .detailPhoto>button{top:18px;width:42px;height:42px;background:#090909c9;color:#fff;border:1px solid #383330;backdrop-filter:blur(8px)}
+.detailStreet .detailPhoto>button:first-of-type{left:17px}.detailStreet .detailPhoto .heart{right:17px}
+.detailStreet .detailPhoto svg{width:21px;height:21px}
+.detailStreet .detailCrown{position:absolute;right:18px;bottom:46px;color:#e7433b;font-size:45px;line-height:1;transform:rotate(8deg);opacity:.9}
+.detailStreet .sticker{left:20px;bottom:17px;background:#e7433b;color:#fff;border:0;padding:8px 13px;font:17px/.88 'Permanent Marker';transform:rotate(-4deg);box-shadow:4px 4px 0 #0a0909}
+.detailStreet .detailBody{margin:0;background:#090909!important;border-radius:0;padding:18px 20px 118px;position:relative;overflow:hidden}
+.detailStreet .detailBody:after{content:"♕";position:absolute;right:12px;top:54px;color:#3a3431;font-size:72px;transform:rotate(8deg);opacity:.38;pointer-events:none}
+.detailStreet .detailName{display:flex;align-items:flex-end!important;justify-content:space-between!important;position:relative;z-index:2}
+.detailStreet .detailName h1{font:42px/.9 'Permanent Marker';text-transform:uppercase;color:#f7f2eb;letter-spacing:-.02em;margin:0}
+.detailStreet .detailName>b{font:800 22px Inter;color:#f4eee8;white-space:nowrap}
+.detailStreet .detailMood{position:absolute;right:21px;top:74px;text-align:right;font:15px/.82 'Permanent Marker';color:#59514c;transform:rotate(5deg);z-index:1}
+.detailStreet .detailMood b{color:#8f302d;font-weight:400}
+.detailStreet .detailBody>p{font:500 13px/1.45 Inter;color:#c1bab4;margin:18px 0 26px;max-width:82%;position:relative;z-index:2}
+.detailStreet .detailBody h3{font:14px Inter;font-style:italic;color:#e7433b;letter-spacing:.02em;margin:0 0 12px;position:relative;z-index:2}
+.detailStreet .detailBody section{border:0;border-radius:0;overflow:visible;display:grid;gap:8px;position:relative;z-index:2}
+.detailStreet .detailBody section>button{height:54px;border:1px solid #332f2c!important;border-radius:10px;background:#121111!important;color:#f0ebe5;padding:0 13px;font-size:12px;font-weight:700;align-items:center}
+.detailStreet .detailBody section>button>span:last-child{display:flex;align-items:center;gap:3px;color:#928a84;font-size:11px}
+.detailStreet .detailBody section>button>span:last-child svg{width:14px;height:14px}
+.detailStreet .optionLead{display:flex!important;align-items:center;gap:10px;color:#eee!important}
+.detailStreet .optionLead svg{width:22px!important;height:22px!important;fill:none;stroke:#e7433b;stroke-width:1.8}
+.detailStreet .detailSauce{font-size:23px;color:#e7433b!important}.detailStreet .detailSauce i{font-style:normal;color:#eee;font-size:12px}
+.detailStreet .detailBottom{height:86px;background:#090909f7!important;border-top:1px solid #2c2825;padding:12px 18px;gap:16px;backdrop-filter:blur(12px);z-index:70}
+.detailStreet .detailBottom>div{gap:10px}
+.detailStreet .detailBottom>div button{width:39px;height:39px;border:1px solid #45403c;background:#111;color:#fff}
+.detailStreet .detailBottom>div b{font-size:14px;color:#fff}
+.detailStreet .detailBottom>button{height:54px;border-radius:9px;background:#e82d32;color:#fff;font-size:14px;font-weight:800}
+@media(max-width:380px){
+ .detailStreet .detailPhoto{height:41dvh;min-height:300px}
+ .detailStreet .detailName h1{font-size:37px}
+ .detailStreet .detailName>b{font-size:19px}
+ .detailStreet .detailBody{padding-left:17px;padding-right:17px}
+}
