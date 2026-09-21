@@ -606,7 +606,7 @@ radial-gradient(circle at 87% 25%,rgba(226,53,46,.16),transparent 21%);pointer-e
 
 /* GLOBAL STREET BACKGROUND — shared identity across the whole app */
 html,body,#root{background:#080808!important}
-body:before{content:"";position:fixed;inset:0;z-index:-2;background:#080808 url('/street-bg.jpg?v=1') center top/cover repeat-y!important}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:#080808 url('/street-bg.jpg.png?v=6') center top/cover repeat-y!important}
 body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:rgba(5,5,5,.30)!important}
 #root,.page,.home,.menuPage,.searchPage,.cartPage,.detail{background-color:transparent!important}
 .page,.home,.menuPage,.searchPage,.cartPage{background-image:none!important}
@@ -615,19 +615,19 @@ body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;back
 
 /* STREET BG FIX v2 — real visible layer above root backgrounds */
 #root{position:relative!important;isolation:isolate!important;min-height:100dvh!important}
-#root::before{content:""!important;position:fixed!important;inset:0!important;z-index:-1!important;pointer-events:none!important;background-image:linear-gradient(rgba(7,7,7,.72),rgba(7,7,7,.72)),url('/street-bg.jpg?v=4')!important;background-size:cover!important;background-position:center top!important;background-repeat:repeat-y!important}
+#root::before{content:""!important;position:fixed!important;inset:0!important;z-index:-1!important;pointer-events:none!important;background-image:linear-gradient(rgba(7,7,7,.72),rgba(7,7,7,.72)),url('/street-bg.jpg.png?v=6')!important;background-size:cover!important;background-position:center top!important;background-repeat:repeat-y!important}
 body::before,body::after{display:none!important}
 .page,.home,.menuPage,.searchPage,.cartPage,.detail{background:transparent!important}
 
 /* STREET BG v3 — explicit DOM layer, cannot hide behind body/root */
-.streetBg{display:block!important;position:fixed!important;inset:0!important;z-index:0!important;pointer-events:none!important;background:url('/street-bg.jpg?v=4') center top/cover repeat-y!important;opacity:.26!important}
+.streetBg{display:block!important;position:fixed!important;inset:0!important;z-index:0!important;pointer-events:none!important;background:url('/street-bg.jpg.png?v=6') center top/cover repeat-y!important;opacity:.26!important}
 .streetBg:after{content:"";position:absolute;inset:0;background:rgba(5,5,5,.22)}
 .top.homeTop,.home,.bottomNav{position:relative!important;z-index:1!important}
 
 /* STREET BG FINAL — use uploaded grunge artwork at readable strength */
 #root::before{display:none!important}
 .streetBg{
-  background-image:url('/street-bg.jpg?v=5')!important;
+  background-image:url('/street-bg.jpg.png?v=6')!important;
   background-size:100% auto!important;
   background-position:center top!important;
   background-repeat:repeat-y!important;
@@ -635,3 +635,6 @@ body::before,body::after{display:none!important}
   filter:none!important;
 }
 .streetBg:after{background:rgba(0,0,0,.08)!important}
+
+/* ACTUAL uploaded asset filename: street-bg.jpg.png */
+.streetBg{background-image:url('/street-bg.jpg.png?v=6')!important}
