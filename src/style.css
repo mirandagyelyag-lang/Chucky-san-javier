@@ -389,3 +389,14 @@ radial-gradient(circle at 87% 25%,rgba(226,53,46,.16),transparent 21%);pointer-e
   background-position:center 4px!important;
 }
 .page:has(.homeFreshHero) .home{background:transparent!important}
+
+/* HOME 02 v18 — full doodle wallpaper */
+.page:has(.homeFreshHero){
+  background-color:#090909!important;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='245' height='275' viewBox='0 0 245 275'%3E%3Cg fill='none' stroke='%237a716c' stroke-width='1.35' stroke-linecap='round' stroke-linejoin='round' opacity='.22'%3E%3Cg transform='translate(9 23) rotate(-8)'%3E%3Cpath d='M0 14C4 4 29 4 33 14M-2 19h37M2 25h29M6 30h21'/%3E%3C/g%3E%3Cg transform='translate(177 25) rotate(7)'%3E%3Cpath d='M0 6h25l-3 31H4zM6 6L3-10M13 6l2-19M20 6l7-15'/%3E%3C/g%3E%3Cg transform='translate(91 72) rotate(6)'%3E%3Cpath d='M0 12c6-8 12-11 20-11 16 0 27 10 27 20S36 41 20 41c-8 0-14-3-20-10zM5 12c12 5 23 5 35 0M5 29c12-5 23-5 35 0'/%3E%3C/g%3E%3Cg transform='translate(201 116) rotate(-7)'%3E%3Cpath d='M0 5h22l-3 30H4zM8 5l6-17h12'/%3E%3C/g%3E%3Cg transform='translate(20 146) rotate(5)'%3E%3Cpath d='M0 14C4 4 30 4 34 14M-2 19h38M2 25h30M6 30h22'/%3E%3C/g%3E%3Cg transform='translate(127 194) rotate(-6)'%3E%3Cpath d='M0 6h25l-3 31H4zM6 6L3-10M13 6l2-19M20 6l7-15'/%3E%3C/g%3E%3Cg transform='translate(207 222) rotate(8)'%3E%3Cpath d='M0 12c6-8 12-11 20-11 16 0 27 10 27 20S36 41 20 41c-8 0-14-3-20-10zM5 12c12 5 23 5 35 0M5 29c12-5 23-5 35 0'/%3E%3C/g%3E%3C/g%3E%3Cg fill='none' stroke='%23b53a33' stroke-width='1.35' stroke-linecap='round' stroke-linejoin='round' opacity='.19'%3E%3Cpath d='M58 82l4-11 6 8 7-9 6 9 8-8 2 11zM62 87h25M166 139l4-11 6 8 7-9 6 9 8-8 2 11zM170 144h25M50 231l4-11 6 8 7-9 6 9 8-8 2 11zM54 236h25'/%3E%3Cpath d='M221 65l-6 11h6l-4 11 11-15h-6l4-7M103 132l-6 11h6l-4 11 11-15h-6l4-7M17 251l-6 11h6l-4 11 11-15h-6l4-7'/%3E%3C/g%3E%3C/svg%3E")!important;
+  background-repeat:repeat!important;
+  background-size:245px 275px!important;
+  background-position:center top!important;
+}
+.page:has(.homeFreshHero) .home{background:transparent!important}
