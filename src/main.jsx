@@ -28,6 +28,29 @@ return <Shell screen={screen} setScreen={setScreen} count={count}><header classN
 </main>{selected&&<Detail p={selected} close={()=>setSelected(null)} add={add} sub={sub} qty={cart[selected.id]||1}/>}</Shell>}
 function ProductRow({p,add,setSelected}){return <article className="productRow" onClick={()=>setSelected(p)}><img src={p.img}/><div><b>{p.name}</b><p>{p.desc}</p><strong>{money(p.price)}</strong></div><button onClick={e=>add(p.id,e)}><Plus/></button></article>}
 function Shell({children,screen,setScreen,count}){return <div className="page">{children}<nav className="bottomNav"><button className={screen==='home'?'on':''} onClick={()=>setScreen('home')}><Home/><span>Inicio</span></button><button className={screen==='menu'?'on':''} onClick={()=>setScreen('menu')}><Grid2X2/><span>Menú</span></button><button className={screen==='search'?'on':''} onClick={()=>setScreen('search')}><Search/><span>Buscar</span></button><button className={screen==='cart'?'on':''} onClick={()=>setScreen('cart')}><ShoppingCart/><span>Pedido</span>{count>0&&<i>{count}</i>}</button></nav></div>}
-function Detail({p,close,add,sub,qty}){return <div className="detail detailStreet"><div className="detailPhoto"><img src={p.img}/><div className="detailPhotoShade"/><button onClick={close}><ArrowLeft/></button><button className="heart"><Heart/></button><div className="detailCrown">♕</div><div className="sticker">LA CLÁSICA<br/>NUNCA FALLA!</div></div><div className="detailBody"><div className="detailName"><h1>{p.name}</h1><b>{money(p.price)}</b></div><div className="detailMood">GOOD<br/>FOOD<br/><b>BAD<br/>MOOD</b></div><p>{p.desc}</p><h3>PERSONALIZA TU HAMBURGUESA</h3><section><button><span className="optionLead"><CatIcon type="Hamburguesas"/>Tipo de carne</span><span>Normal <ChevronRight/></span></button><button><span className="optionLead"><CatIcon type="Papas"/>Extras</span><span>0 seleccionados <ChevronRight/></span></button><button><span className="optionLead detailSauce">♧ <i>Salsas</i></span><span>0 seleccionadas <ChevronRight/></span></button></section></div><div className="detailBottom"><div><button onClick={e=>sub(p.id,e)}><Minus/></button><b>{qty}</b><button onClick={e=>add(p.id,e)}><Plus/></button></div><button onClick={e=>{add(p.id,e);close()}}>Agregar {money(p.price)}</button></div></div>}
+function Detail({p,close,add,sub,qty}){return <div className="productV2">
+  <div className="pv2Photo">
+    <img src={p.img} alt={p.name}/>
+    <div className="pv2Shade"/>
+    <button className="pv2Back" onClick={close}><ArrowLeft/></button>
+    <button className="pv2Heart"><Heart/></button>
+    <div className="pv2Sticker">LA CLÁSICA<br/>NUNCA FALLA!</div>
+  </div>
+  <main className="pv2Main">
+    <div className="pv2Title"><h1>{p.name}</h1><strong>{money(p.price)}</strong></div>
+    <p className="pv2Desc">{p.desc}</p>
+    <div className="pv2Scribble">GOOD FOOD<br/><b>BAD MOOD</b></div>
+    <h2>PERSONALIZA TU HAMBURGUESA</h2>
+    <div className="pv2Options">
+      <button><span><CatIcon type="Hamburguesas"/><b>Tipo de carne</b></span><em>Normal <ChevronRight/></em></button>
+      <button><span><CatIcon type="Papas"/><b>Extras</b></span><em>0 seleccionados <ChevronRight/></em></button>
+      <button><span className="pv2SauceIcon">S</span><b>Salsas</b><em>0 seleccionadas <ChevronRight/></em></button>
+    </div>
+  </main>
+  <footer className="pv2Bar">
+    <div className="pv2Qty"><button onClick={e=>sub(p.id,e)}><Minus/></button><b>{qty}</b><button onClick={e=>add(p.id,e)}><Plus/></button></div>
+    <button className="pv2Add" onClick={e=>{add(p.id,e);close()}}>AGREGAR <span>{money(p.price)}</span></button>
+  </footer>
+</div>}
 function Cart({cart,data,add,sub,note,setNote,subtotal,delivery,total,setScreen}){const items=data.filter(p=>cart[p.id]);return <div className="cartPage"><div className="cartHead"><h1>Tu Pedido</h1><button onClick={()=>setScreen('home')}><X/></button></div>{items.map(p=><div className="cartItem"><img src={p.img}/><div><b>{p.name}</b><strong>{money(p.price)}</strong><div><button onClick={e=>sub(p.id,e)}><Minus/></button><span>{cart[p.id]}</span><button onClick={e=>add(p.id,e)}><Plus/></button></div></div><Trash2/></div>)}<label className="cartNote"><b>Agregar una nota</b><textarea value={note} onChange={e=>setNote(e.target.value)} placeholder="Ej: sin cebolla, extra salsa, etc."/></label><div className="totals"><p><span>Subtotal</span><b>{money(subtotal)}</b></p><p><span>Costo de envío</span><b>{money(delivery)}</b></p><p><strong>Total</strong><strong>{money(total)}</strong></p></div><button className="finish" onClick={()=>setScreen('confirm')}>Finalizar pedido →</button><h3>También te podría gustar</h3><div className="upsell">{data.filter(p=>['Papas','Bebidas'].includes(p.cat)&&!cart[p.id]).slice(0,3).map(p=><article><img src={p.img}/><b>{p.name}</b><span>{money(p.price)}</span><button onClick={e=>add(p.id,e)}><Plus/></button></article>)}</div></div>}
 createRoot(document.getElementById('root')).render(<App/>);
