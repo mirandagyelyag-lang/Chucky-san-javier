@@ -2,3 +2,9 @@
 /* Exact intro composition pass based on approved mockup */
 .intro{background:#080808}.intro>img{object-position:center 82%;transform:scale(1.03);transform-origin:center bottom}.introShade{background:linear-gradient(180deg,#050505e8 0%,#080808b8 19%,#08080830 39%,#08080808 64%,#05050535 78%,#050505e8 100%)}.introBrand{top:9.5%;left:12%;width:68%;transform:rotate(-5deg);text-align:center}.introBrand i{font-size:30px;line-height:1;margin-bottom:3px}.introBrand h1{font-size:39px;line-height:.9;letter-spacing:-.025em;text-align:left;margin-left:4%;}.introBrand span{display:block;font-size:8px;letter-spacing:.28em;margin:8px 0 0 12%;text-align:center}.introNote{top:29%;right:7%;bottom:auto;font-size:18px;line-height:1.08;text-align:center;transform:rotate(-7deg);max-width:135px}.intro>button{left:10%;width:80%;bottom:7.5%;height:49px;font-size:13px;border-radius:28px}.intro>small{bottom:2.4%;font-size:5.7px}
 @media(max-width:390px){.introBrand{left:10%;width:72%}.introBrand h1{font-size:36px}.introNote{font-size:17px;right:6%}}
+
+/* Exact generated cover asset. Do not redraw or crop. */
+.intro.introExact{position:fixed;inset:0;width:100%;height:100dvh;background:#080808;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.intro.introExact>img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center center;transform:none;filter:none}
+.intro.introExact .introHotspot{position:absolute;z-index:3;left:20%;width:60%;bottom:10.4%;height:9%;min-height:52px;border:0;border-radius:999px;background:transparent;box-shadow:none;cursor:pointer}
+@media(min-width:600px){.intro.introExact{width:min(430px,100vw);left:50%;right:auto;transform:translateX(-50%)}}
