@@ -612,3 +612,9 @@ body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;back
 .page,.home,.menuPage,.searchPage,.cartPage{background-image:none!important}
 .detail>section,.cartPage>section{position:relative}
 .bottomNav{background:rgba(5,5,5,.96)!important;backdrop-filter:blur(12px)}
+
+/* STREET BG FIX v2 — real visible layer above root backgrounds */
+#root{position:relative!important;isolation:isolate!important;min-height:100dvh!important}
+#root::before{content:""!important;position:fixed!important;inset:0!important;z-index:-1!important;pointer-events:none!important;background-image:linear-gradient(rgba(7,7,7,.72),rgba(7,7,7,.72)),url('/street-bg.jpg?v=2')!important;background-size:cover!important;background-position:center top!important;background-repeat:repeat-y!important}
+body::before,body::after{display:none!important}
+.page,.home,.menuPage,.searchPage,.cartPage,.detail{background:transparent!important}
