@@ -1747,3 +1747,73 @@ html,body,#root{background:var(--bg);color:var(--cream)}
  .v6Food{height:205px!important}
  .v6Neon{font-size:37px!important}
 }
+
+
+/* Desktop shell: keep the product intentionally mobile-first */
+@media(min-width:768px){
+ html{background:#efe4da}
+ body{
+   min-height:100vh;
+   margin:0;
+   background:
+     radial-gradient(circle at 14% 22%,#e6a46f40 0,transparent 18%),
+     radial-gradient(circle at 87% 72%,#e37b6640 0,transparent 20%),
+     #f3e9e0!important;
+ }
+ #root{
+   width:100%;
+   min-height:100vh;
+   display:flex;
+   justify-content:center;
+ }
+ .app{
+   position:relative!important;
+   width:430px!important;
+   max-width:430px!important;
+   min-height:100vh!important;
+   margin:0 auto!important;
+   padding-bottom:96px!important;
+   overflow-x:hidden!important;
+   background:#f8f0e9!important;
+   box-shadow:0 0 55px #4f2a1b20!important;
+ }
+ .topbar{
+   width:430px!important;
+   max-width:430px!important;
+   margin:0!important;
+   left:auto!important;
+   right:auto!important;
+ }
+ .content,.homeV6{
+   width:100%!important;
+   max-width:100%!important;
+   margin:0!important;
+   box-sizing:border-box!important;
+ }
+ .homeV6{padding:12px 16px 116px!important}
+ .v6Hero{min-height:285px!important;padding:32px 20px 25px!important;border-radius:30px 30px 20px 20px!important}
+ .v6HeroCopy{left:20px!important;right:20px!important;bottom:22px!important}
+ .v6HeroCopy h1{font-size:37px!important}
+ .v6HeroCopy p{font-size:10px!important}
+ .v6Neon{font-size:41px!important;right:5px!important;top:21px!important}
+ .v6Stamp{width:64px!important;height:64px!important;right:15px!important;bottom:20px!important;font-size:6px!important}
+ .v6Choices{padding:9px!important;gap:8px!important}
+ .v6Food{height:220px!important}
+ .v6FoodCopy{left:13px!important;bottom:14px!important}
+ .v6FoodCopy b{font-size:24px!important}
+ .quickRowV3{grid-template-columns:1fr!important}
+ .favoriteGridV3{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
+ .favoriteGridV3 article{display:block!important}
+ .favoriteGridV3 article>img{height:125px!important}
+ .favoriteGridV3 article>div{padding:10px 38px 12px 11px!important}
+ .favoriteGridV3 article h3{font-size:17px!important}
+ .nav{
+   position:fixed!important;
+   width:398px!important;
+   max-width:398px!important;
+   left:50%!important;
+   right:auto!important;
+   transform:translateX(-50%)!important;
+   bottom:12px!important;
+ }
+}
