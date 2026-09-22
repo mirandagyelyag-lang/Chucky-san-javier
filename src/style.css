@@ -883,3 +883,14 @@ img{display:block}
 .customerForm .fieldError{
   margin-top:1px;color:#ff7376;font-size:7px;font-weight:700;
 }
+
+
+/* WALLPAPER REMOVED — CLEAN CHUCKY BACKGROUND */
+.app{
+  background:
+    radial-gradient(circle at 84% 12%,#4d100e 0,transparent 25%),
+    radial-gradient(circle at 18% 45%,#240a08 0,transparent 30%),
+    linear-gradient(180deg,#090807,#0d0b0a 55%,#090807)!important;
+  background-attachment:scroll!important;
+}
+.app:before,.app:after{display:none!important}
