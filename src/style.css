@@ -874,3 +874,12 @@ img{display:block}
 .orderRecapLine>span{min-width:0}
 .orderRecapLine b{margin-right:4px;color:var(--red)}
 .orderRecapLine strong{flex:none;color:#fff;font-size:11px}
+
+
+/* OPTIONAL EMAIL CONFIRMATION */
+.optionalTag{
+  margin-left:5px;color:#766e68;font-size:6px;font-weight:800;letter-spacing:.08em;
+}
+.customerForm .fieldError{
+  margin-top:1px;color:#ff7376;font-size:7px;font-weight:700;
+}
