@@ -31,44 +31,46 @@ function App(){
  </Shell>
 }
 
-function Topbar({setScreen,count}){return <header className="topbar">
+function Topbar({setScreen,count}){return <header className="topbar topbarConcept">
  <button className="ghostBtn" aria-label="Abrir menú"><Menu/></button>
- <button className="brand" onClick={()=>setScreen('home')}><span>CHUCKY</span><small>FRIED CHICKEN · SUSHI</small></button>
- <button className="ghostBtn cartBtn" onClick={()=>setScreen('cart')} aria-label="Ver pedido"><ShoppingBag/>{count>0&&<i>{count}</i>}</button>
+ <button className="brand brandConcept" onClick={()=>setScreen('home')}><span>CHUCKY</span><small>FRIED CHICKEN · SUSHI</small></button>
+ <div className="topActions"><span className="notifyDot"/><button className="ghostBtn cartBtn" onClick={()=>setScreen('cart')} aria-label="Ver pedido"><ShoppingBag/>{count>0&&<i>{count}</i>}</button></div>
  </header>}
 
 
-function HomePage({setScreen,setCat,add,setSelected}){return <main className="content">
- <section className="heroNew">
-  <img src={products[3].img}/>
-  <div className="heroShade"/>
-  <div className="heroKicker">CHUCKY · STREET KITCHEN</div>
-  <div className="heroText"><small>CRISPY × FRESH</small><h1>POLLO FRITO<br/><em>+ SUSHI</em></h1><p>Dos antojos. Una sola parada.</p><button onClick={()=>setScreen('menu')}>VER MENÚ <ChevronRight/></button></div>
+function HomePage({setScreen,setCat,add,setSelected}){const categoryCards=[
+ {label:'POLLO FRITO',img:products[0].img,cat:'Pollo frito'},
+ {label:'SUSHI',img:products[2].img,cat:'Sushi'},
+ {label:'COMBOS',img:products[4].img,cat:'Combos'},
+ {label:'EXTRAS',img:'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=900&q=90',cat:'Bebidas'}
+];return <main className="content homeConcept">
+ <section className="heroConcept">
+   <div className="heroConceptCopy">
+    <div className="scribbleCrown">♕</div>
+    <h1><span>TOO GOOD</span><small>TO BE</small><em>INNOCENT.</em></h1>
+    <p>Pollo frito. Sushi.<br/>La misma tentación, dos formas.</p>
+    <button onClick={()=>setScreen('menu')}>VER MENÚ <ChevronRight/></button>
+    <div className="heroDots"><i className="on"/><i/><i/></div>
+   </div>
+   <div className="heroConceptFood">
+    <div className="bucketCard"><img src={products[0].img}/><span className="bucketBrand">CHUCKY</span><span className="bucketSmile">⌣</span></div>
+    <div className="sushiBoard"><img src={products[2].img}/></div>
+   </div>
  </section>
 
- <section className="tasteStrip">
-  <span>GOOD FOOD</span><i/> <span>GOOD MOOD</span><i/> <span>HECHO PARA REPETIR</span>
+ <section className="categoryRail">
+  {categoryCards.map(c=><button key={c.label} className="categoryTile" onClick={()=>{setCat(c.cat);setScreen('menu')}}>
+    <img src={c.img}/><div/><span>{c.label}</span><b>›</b>
+  </button>)}
  </section>
 
- <section className="dualPick">
-  <button className="photoPick" onClick={()=>{setCat('Pollo frito');setScreen('menu')}}>
-    <img src={products[0].img}/>
-    <div className="pickShade"/>
-    <span><small>HOT & CRISPY</small><b>POLLO FRITO</b></span><ChevronRight/>
-  </button>
-  <button className="photoPick" onClick={()=>{setCat('Sushi');setScreen('menu')}}>
-    <img src={products[2].img}/>
-    <div className="pickShade"/>
-    <span><small>FRESH & ROLLED</small><b>SUSHI</b></span><ChevronRight/>
-  </button>
- </section>
+ <section className="popularHead"><div><small>LOS FAVORITOS</small><h2>POPULARES</h2></div><button onClick={()=>setScreen('menu')}>Ver todos <ChevronRight/></button></section>
 
- <Headline kicker="LOS QUE NO FALLAN" title="CHUCKY PICKS" note="Elige tu favorito o mezcla los dos mundos."/>
- <div className="editorialGrid">{products.slice(0,4).map((p,i)=><Card key={p.id} p={p} add={add} setSelected={setSelected} featured={i===0}/>)}</div>
-
- <section className="comboBanner" onClick={()=>{setCat('Combos');setScreen('menu')}}>
-   <div><small>MIX IT UP</small><h2>CRUNCH<br/>MEETS ROLL.</h2><p>Combos para cuando elegir uno solo no alcanza.</p></div>
-   <div className="comboOrb">食</div><ChevronRight/>
+ <section className="popularGrid">
+  {products.slice(0,2).map((p,i)=><article key={p.id} className="popularCard" onClick={()=>setSelected(p)}>
+    <div className="popularPhoto"><img src={p.img}/><button className="heartMini" onClick={e=>e.stopPropagation()}><Heart/></button>{i===0&&<span className="popularCrown">♕</span>}</div>
+    <div className="popularInfo"><h3>{i===0?'Original Chucky':'Roll Diabólico'}</h3><p>{i===0?'Crujiente por fuera. Adictivo por dentro.':'Fresco, cremoso y con un toque spicy.'}</p><div><strong>{money(p.price)}</strong><button onClick={e=>add(p.id,e)}><Plus/></button></div></div>
+  </article>)}
  </section>
  </main>}
 
