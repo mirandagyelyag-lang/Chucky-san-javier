@@ -459,3 +459,171 @@ img{display:block}
   .nav button b{font-size:8px!important}
   .nav i{top:5px!important}
 }
+
+
+/* HERO EDITORIAL — CHUCKY */
+.boldClaim:before{
+  content:"POLLO FRITO + SUSHI";
+  display:inline-flex;
+  align-items:center;
+  min-height:27px;
+  margin-bottom:14px;
+  padding:0 11px;
+  border:1px solid #ef2d3166;
+  border-radius:999px;
+  background:#ef2d3118;
+  color:#ff6265;
+  font:800 7px/1 Inter,sans-serif;
+  letter-spacing:.2em;
+}
+.boldHero:after{
+  content:"";
+  position:absolute;
+  z-index:1;
+  left:5%;
+  right:5%;
+  top:58%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#ef2d314d,transparent);
+  transform:rotate(-5deg);
+}
+.boldChicken{
+  border-radius:30px!important;
+  box-shadow:0 26px 55px #000b,0 0 0 1px #ffffff12!important;
+}
+.boldSushi{
+  z-index:3;
+  border:4px solid #0a0908!important;
+  border-radius:24px!important;
+  box-shadow:0 22px 42px #000c!important;
+}
+.boldSideNote{
+  width:106px!important;
+  height:106px;
+  padding:0 12px;
+  border:1px solid #ef2d3185;
+  border-radius:50%;
+  background:#110c0bcf;
+  color:#fff!important;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  backdrop-filter:blur(10px);
+  box-shadow:0 12px 30px #0008;
+  font-size:10px!important;
+  line-height:1.2!important;
+  letter-spacing:.01em;
+  transform:rotate(7deg)!important;
+}
+.boldSideNote:before{
+  content:"★";
+  position:absolute;
+  top:8px;
+  color:#ef2d31;
+  font-size:10px;
+}
+.boldSideNote:after{
+  content:"";
+  position:absolute;
+  inset:6px;
+  border:1px dashed #ef2d315e;
+  border-radius:50%;
+}
+
+@media(max-width:519px){
+  .boldHero{min-height:670px!important}
+  .boldClaim:before{margin-bottom:11px}
+  .boldFood{height:290px!important}
+  .boldChicken{
+    left:0!important;
+    top:10px!important;
+    width:78%!important;
+    height:235px!important;
+  }
+  .boldSushi{
+    right:0!important;
+    bottom:0!important;
+    width:62%!important;
+    height:165px!important;
+  }
+  .boldSideNote{
+    top:362px!important;
+    right:18px!important;
+    width:92px!important;
+    height:92px!important;
+    font-size:9px!important;
+  }
+}
+
+@media(min-width:520px) and (max-width:767px){
+  .boldHero{
+    min-height:520px!important;
+    padding-top:38px!important;
+  }
+  .boldClaim:before{margin-bottom:12px}
+  .boldClaim h1 span:first-child{font-size:47px!important}
+  .boldClaim h1 span:nth-child(2){font-size:35px!important}
+  .boldClaim h1 em{font-size:58px!important}
+  .boldFood{
+    top:64px!important;
+    right:22px!important;
+    bottom:28px!important;
+    width:48%!important;
+  }
+  .boldChicken{
+    top:25px!important;
+    right:0!important;
+    width:88%!important;
+    height:72%!important;
+  }
+  .boldSushi{
+    right:-2px!important;
+    bottom:0!important;
+    width:66%!important;
+    height:39%!important;
+  }
+  .boldSideNote{
+    top:30px!important;
+    right:24px!important;
+    width:98px!important;
+    height:98px!important;
+  }
+}
+
+@media(min-width:768px){
+  .boldHero{min-height:610px!important;padding-top:58px!important}
+  .boldClaim:before{
+    min-height:31px;
+    margin-bottom:18px;
+    padding:0 14px;
+    font-size:8px;
+  }
+  .boldClaim h1 span:first-child{font-size:72px}
+  .boldClaim h1 span:nth-child(2){font-size:54px}
+  .boldClaim h1 em{font-size:87px}
+  .boldFood{
+    right:36px!important;
+    bottom:32px!important;
+    width:52%!important;
+    height:82%!important;
+  }
+  .boldChicken{
+    top:0!important;
+    right:0!important;
+    width:82%!important;
+    height:78%!important;
+  }
+  .boldSushi{
+    right:-4px!important;
+    bottom:0!important;
+    width:60%!important;
+    height:42%!important;
+  }
+  .boldSideNote{
+    top:42px!important;
+    right:42px!important;
+    width:118px!important;
+    height:118px!important;
+    font-size:11px!important;
+  }
+}
