@@ -769,3 +769,23 @@ img{display:block}
     background:radial-gradient(circle at center,rgba(8,7,6,.78),rgba(8,7,6,.20) 68%,transparent 75%);
   }
 }
+
+
+/* SOFT LOWER FADE — prevent wallpaper, cards and navigation from competing */
+@media(max-width:767px){
+  .app:after{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    background:linear-gradient(
+      180deg,
+      transparent 0%,
+      transparent 46%,
+      rgba(9,8,7,.18) 58%,
+      rgba(9,8,7,.62) 76%,
+      rgba(9,8,7,.94) 100%
+    );
+  }
+}
