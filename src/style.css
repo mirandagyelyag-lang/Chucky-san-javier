@@ -1183,3 +1183,173 @@ img{display:block}
   .favoriteListNew article h3{font-size:25px}
   .favoriteListNew article p{font-size:10px}
 }
+
+
+/* WARM LIGHT CHUCKY THEME */
+:root{
+  --red:#e93438;
+  --red-dark:#b92328;
+  --bg:#f6efe6;
+  --panel:#fff9f3;
+  --panel-2:#f1e5da;
+  --line:#dfd0c4;
+  --cream:#241b17;
+  --muted:#817168;
+}
+html,body,#root{background:var(--bg);color:var(--cream)}
+.app{
+  background:
+    radial-gradient(circle at 88% 8%,#f2c9b866 0,transparent 24%),
+    radial-gradient(circle at 10% 48%,#e9343812 0,transparent 28%),
+    linear-gradient(180deg,#f8f1e9,#f4eadf 58%,#f8f1e9)!important;
+}
+.grain{opacity:.035;mix-blend-mode:multiply}
+.topbar{
+  background:rgba(255,249,243,.94)!important;
+  border-bottom-color:#e5d8cd!important;
+  box-shadow:0 8px 24px #5d33200b;
+}
+.ghostBtn,.brand{color:#241b17!important}
+.brand span{color:#241b17!important}
+.brand small{color:#83736a!important}
+.notifyDot{background:var(--red)}
+.content{color:#241b17}
+
+/* Home */
+.homeHeroNew{
+  border:1px solid #e5d6ca;
+  border-top:0;
+  background:
+    radial-gradient(circle at 88% 16%,#f2c9b88c 0,transparent 29%),
+    linear-gradient(145deg,#fffaf5,#f2e5d9)!important;
+  box-shadow:0 18px 44px #6b3c2413;
+}
+.heroCopyNew h1{color:#241b17}
+.heroCopyNew p{color:#75665e}
+.heroMainFood,.heroSecondFood{border-color:#fff8;box-shadow:0 18px 38px #53301d2c}
+.heroSecondFood{border-color:#fff9f3}
+.categoryGridNew>button{
+  border-color:#e2d4c8;
+  background:linear-gradient(145deg,#fffaf5,#f5eade)!important;
+  color:#241b17!important;
+  box-shadow:0 9px 24px #7041270d;
+}
+.categoryGridNew>button em{color:#8e7d73}
+.categoryGridNew>button i{background:#efe1d6;color:#362923}
+.sectionHeadNew h2{color:#241b17}
+.sectionHeadNew>span,.sectionHeadNew>button{color:#88786f}
+.favoriteListNew article{
+  border-color:#e2d4c8;
+  background:#fff9f3!important;
+  box-shadow:0 10px 26px #7041270c;
+}
+.favoriteListNew article h3,.favoriteListNew article strong{color:#241b17}
+.favoriteListNew article p{color:#88776d}
+
+/* Menu + search */
+.menuIntro{
+  border-color:#d92e33!important;
+  background:
+    radial-gradient(circle at 88% 15%,#ff7b6d75 0,transparent 34%),
+    linear-gradient(135deg,#e93438,#b92328)!important;
+  box-shadow:0 18px 42px #b9232829;
+}
+.menuIntro small,.menuIntro h1,.menuIntro h1 em{color:#fff!important}
+.menuIntro p{color:#fbe7dd!important}
+.menuMascotSeal{box-shadow:0 13px 30px #64101566}
+.tabs{
+  border-color:#dfd0c4!important;
+  background:rgba(255,249,243,.94)!important;
+  box-shadow:0 11px 27px #70412712,inset 0 1px 0 #fff!important;
+}
+.tabs button{color:#86756b!important}
+.tabs button.on{color:#fff!important}
+.headline h2{color:#241b17}
+.headline p{color:#817168}
+.foodCard{
+  border-color:#dfd0c4!important;
+  background:#fff9f3!important;
+  box-shadow:0 10px 25px #7041270e;
+}
+.foodInfo h3,.priceRow strong{color:#241b17}
+.foodInfo p{color:#817168}
+.priceRow strong{color:#d92d32}
+.searchBox{
+  border-color:#dfd0c4!important;
+  background:#fff9f3!important;
+  box-shadow:0 9px 24px #7041270c;
+}
+.searchBox input{color:#241b17}
+.searchBox input::placeholder{color:#a09086}
+.searchBox>svg,.searchCount{color:#817168}
+
+/* Product detail */
+.detail{background:#f6efe6}
+.detailShade{
+  background:
+    linear-gradient(0deg,#f6efe6,transparent 52%),
+    linear-gradient(180deg,#0006,transparent 24%);
+}
+.detailBody h1,.detailPrice strong{color:#241b17}
+.detailBody p{color:#817168}
+.detailPrice span{color:#95857c}
+
+/* Cart and customer form */
+.cartTop h1{color:#241b17}
+.cartTop .close{
+  border-color:#ddcec2;
+  background:#fff9f3;
+  color:#241b17;
+}
+.cartItem{
+  border-color:#dfd0c4!important;
+  background:#fff9f3!important;
+  box-shadow:0 8px 22px #7041270c;
+}
+.cartCopy b,.cartCopy strong{color:#241b17}
+.qty button{border-color:#ddcec2;background:#f3e7dc;color:#241b17}
+.empty>span{color:#c9b7aa}
+.empty b{color:#241b17}
+.empty p{color:#817168}
+.bill{border-top-color:#d9cabe}
+.bill>div{color:#817168}
+.bill .billTotal,.bill .billTotal b{color:#241b17}
+.customerForm{
+  border-color:#dfd0c4;
+  background:#fff9f3;
+  box-shadow:0 10px 26px #7041270d;
+}
+.orderFormHead h2{color:#241b17}
+.customerForm label{color:#75665e}
+.customerForm input,.customerForm select,.customerForm textarea{
+  border-color:#dccdc1;
+  background:#fffdfa;
+  color:#241b17;
+}
+.customerForm input::placeholder,.customerForm textarea::placeholder{color:#a3948b}
+.orderRecap{
+  border-color:#dfd0c4;
+  background:#fff9f3;
+  box-shadow:0 9px 24px #7041270c;
+}
+.orderRecapHead{border-bottom-color:#e5d8ce}
+.orderRecapHead>span{color:#8e7d73}
+.orderRecapLine{color:#55473f}
+.orderRecapLine strong{color:#241b17}
+.orderSuccess h1{color:#241b17}
+.orderSuccess p{color:#817168}
+
+/* Bottom navigation */
+.nav{
+  border-color:#dfd0c4;
+  background:rgba(255,249,243,.96);
+  box-shadow:0 16px 38px #5b321f2b;
+}
+.nav button{color:#99887e}
+.nav button.on{color:#241b17}
+.nav button.on span,.nav button.on svg{color:var(--red)}
+
+/* Keep image-overlay controls readable */
+.boldFavPhoto>button,.heartMini{background:#16100dcc;color:#fff}
+.foodPhoto .cardCat{color:#fff}
+.detailPhoto button{color:#fff}
