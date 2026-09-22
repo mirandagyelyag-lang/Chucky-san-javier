@@ -1000,3 +1000,20 @@ img{display:block}
   .mascotWelcomeSeal{right:35px;width:125px;height:125px}
   .menuMascotSeal{right:36px;bottom:26px;width:150px;height:150px}
 }
+
+
+/* KEEP THE COMPLETE MASCOT + CHUCKY WORDMARK VISIBLE */
+.mascotWelcomeArt{
+  left:10px!important;
+  bottom:8px!important;
+  width:116px!important;
+  height:150px!important;
+  object-fit:contain!important;
+  object-position:center!important;
+}
+@media(max-width:380px){
+  .mascotWelcomeArt{left:5px!important;width:102px!important;height:142px!important}
+}
+@media(min-width:768px){
+  .mascotWelcomeArt{left:28px!important;bottom:12px!important;width:170px!important;height:198px!important}
+}
