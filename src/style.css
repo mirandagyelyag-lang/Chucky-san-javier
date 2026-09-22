@@ -155,3 +155,90 @@ html,body,#root{background:#f7f3ef;color:#171513}
 .nav button{color:#817872}
 .nav button.on{color:#171513}
 .nav button.on span,.nav button.on svg{color:#d92922}
+
+
+/* SELECTED CREAM HORROR-FOOD CONCEPT */
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+.topbarConcept{height:86px;padding:14px 20px;background:#fbf3e6;border-bottom:0;box-shadow:none}
+.topbarConcept .ghostBtn{color:#161310}
+.topActions{display:flex;align-items:center;gap:2px;position:relative}
+.notifyDot{width:8px;height:8px;border-radius:50%;background:#c71f1f;position:absolute;right:38px;top:3px;z-index:3}
+.brandConcept span{font-family:'Permanent Marker',cursive;font-size:30px;letter-spacing:.02em;color:#111;line-height:.9;position:relative}
+.brandConcept span:before{content:"♕";position:absolute;right:-20px;top:-20px;color:#b81f1f;font-family:serif;font-size:22px;transform:rotate(8deg)}
+.brandConcept span:after{content:"⌣";position:absolute;right:-12px;bottom:-17px;color:#b81f1f;font-family:Arial,sans-serif;font-size:24px;transform:rotate(6deg)}
+.brandConcept small{font-size:6px;letter-spacing:.23em;color:#111;margin-top:9px}
+
+.homeConcept{padding:0 18px 126px;background:#fbf3e6;color:#111}
+.heroConcept{position:relative;min-height:430px;display:grid;grid-template-columns:46% 54%;gap:0;overflow:visible;padding-top:12px}
+.heroConceptCopy{position:relative;z-index:3;padding:14px 0 0 4px}
+.scribbleCrown{font-size:27px;color:#b7191d;line-height:1;transform:rotate(-12deg);margin-left:12px;margin-bottom:2px}
+.heroConceptCopy h1{margin:0;font-family:'Permanent Marker',cursive;line-height:.87;color:#14110f;font-weight:400;letter-spacing:-.03em}
+.heroConceptCopy h1>span{display:block;font-size:46px;white-space:nowrap;transform:rotate(-2deg);transform-origin:left}
+.heroConceptCopy h1>small{display:inline-block;font-size:25px;margin-top:5px;margin-right:7px}
+.heroConceptCopy h1>em{display:inline-block;font-style:normal;font-size:40px;color:#c31d22;transform:rotate(-1deg);border-bottom:4px solid #c31d22;padding-bottom:4px}
+.heroConceptCopy p{font-size:13px;line-height:1.45;color:#514944;margin:23px 0 18px}
+.heroConceptCopy>button{height:54px;border:0;border-radius:999px;background:#cc1d22;color:#fff;padding:0 21px;font-size:10px;font-weight:900;letter-spacing:.12em;display:flex;align-items:center;gap:8px;box-shadow:0 10px 22px #a2181c28}
+.heroConceptCopy>button svg{width:16px}
+.heroDots{display:flex;gap:8px;margin:20px 0 0 5px}
+.heroDots i{width:8px;height:8px;border-radius:50%;background:#d9cec3}
+.heroDots i.on{background:#c51e22}
+
+.heroConceptFood{position:relative;min-height:410px}
+.bucketCard{position:absolute;right:-22px;top:17px;width:205px;height:250px;border-radius:32px 18px 30px 24px;overflow:hidden;transform:rotate(2deg);background:#c31f24;box-shadow:0 20px 40px #6e3a2022}
+.bucketCard:after{content:"";position:absolute;inset:auto 0 0;height:40%;background:linear-gradient(180deg,transparent,#6f1117a3)}
+.bucketCard img{width:100%;height:100%;object-fit:cover;filter:saturate(1.04) contrast(1.03)}
+.bucketBrand{position:absolute;left:20px;bottom:32px;color:#fff;z-index:2;font-family:'Permanent Marker',cursive;font-size:26px;transform:rotate(-4deg)}
+.bucketSmile{position:absolute;left:22px;bottom:7px;color:#fff;z-index:2;font-size:35px;transform:rotate(8deg)}
+.sushiBoard{position:absolute;left:-6px;right:-34px;bottom:24px;height:175px;border-radius:30px 20px 26px 30px;overflow:hidden;transform:rotate(-2deg);box-shadow:0 15px 30px #36231b25}
+.sushiBoard img{width:100%;height:100%;object-fit:cover;filter:saturate(1.08) contrast(1.02)}
+
+.categoryRail{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:-3px}
+.categoryTile{position:relative;height:128px;border:0;border-radius:16px;overflow:hidden;padding:0;background:#191614;box-shadow:0 7px 18px #5b3d2d1a}
+.categoryTile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.categoryTile>div{position:absolute;inset:0;background:linear-gradient(0deg,#090706d9 0,#09070638 58%,transparent 78%)}
+.categoryTile span{position:absolute;left:9px;bottom:10px;color:#fff;font:700 16px/.9 Oswald,sans-serif;text-align:left;max-width:72%}
+.categoryTile b{position:absolute;right:7px;bottom:7px;width:24px;height:24px;border-radius:50%;background:#fff8ef;color:#15110f;display:grid;place-items:center;font-size:18px}
+
+.popularHead{display:flex;align-items:end;justify-content:space-between;margin:28px 2px 12px}
+.popularHead small{display:block;color:#b81f1f;font-size:7px;font-weight:900;letter-spacing:.16em;margin-bottom:2px}
+.popularHead h2{margin:0;font-family:'Permanent Marker',cursive;font-size:34px;color:#111;line-height:.9;border-bottom:3px solid #c51e22;padding-bottom:3px}
+.popularHead>button{border:0;background:none;color:#4e4640;font-size:10px;display:flex;align-items:center;gap:4px;padding:5px 0}
+.popularHead>button svg{width:14px}
+
+.popularGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.popularCard{border-radius:18px;background:#fffaf3;overflow:hidden;box-shadow:0 8px 20px #5a3d2d12;border:1px solid #eee0d3}
+.popularPhoto{height:158px;position:relative}
+.popularPhoto img{width:100%;height:100%;object-fit:cover}
+.heartMini{position:absolute;right:9px;top:9px;width:30px;height:30px;border:0;border-radius:50%;background:#fff9ef;color:#1d1814;display:grid;place-items:center}
+.heartMini svg{width:15px}
+.popularCrown{position:absolute;left:9px;top:7px;color:#fff;font-size:28px;text-shadow:0 2px 5px #0008}
+.popularInfo{padding:10px}
+.popularInfo h3{margin:0 0 4px;font:700 17px Oswald,sans-serif;color:#16120f}
+.popularInfo p{margin:0 0 8px;font-size:9px;line-height:1.35;color:#716861;min-height:36px}
+.popularInfo>div{display:flex;align-items:center;justify-content:space-between}
+.popularInfo strong{font-size:17px;color:#c51f24}
+.popularInfo>div>button{width:29px;height:29px;border:0;border-radius:50%;background:#c51f24;color:#fff;display:grid;place-items:center}
+.popularInfo>div>button svg{width:13px}
+
+.nav{left:18px;right:18px;bottom:14px;height:74px;border:0;border-radius:28px;background:#fffaf3f4;box-shadow:0 10px 30px #5d402d1f;overflow:hidden}
+.nav button{color:#4e4741;gap:3px}
+.nav button.on{color:#b91f24}
+.nav button.on:after{display:none}
+.nav button.on span,.nav button.on svg{color:#b91f24}
+.nav span,.nav svg{width:21px;height:21px;font-size:21px}
+.nav b{font-size:9px}
+.nav i{top:7px;right:19%}
+
+@media(max-width:430px){
+ .homeConcept{padding-left:15px;padding-right:15px}
+ .heroConcept{min-height:410px;grid-template-columns:47% 53%}
+ .heroConceptCopy h1>span{font-size:42px}
+ .heroConceptCopy h1>small{font-size:22px}
+ .heroConceptCopy h1>em{font-size:36px}
+ .bucketCard{width:192px;height:238px;right:-18px}
+ .sushiBoard{height:165px}
+ .categoryTile{height:118px}
+ .categoryTile span{font-size:15px}
+ .popularPhoto{height:148px}
+}
