@@ -1511,3 +1511,13 @@ html,body,#root{background:var(--bg);color:var(--cream)}
   .heroVisualV2 .heroApprovedSeal{width:92px!important;height:92px!important;right:18px!important;top:18px!important}
   .heroChoice{top:18px;min-width:180px;padding:9px 14px}
 }
+
+
+/* HERO SPLIT OVERFLOW FIX */
+.heroVisualV2{position:relative!important;width:100%!important;max-width:100%!important}
+.heroFoodSplit{position:absolute!important;inset:0!important;display:block!important;width:100%!important;overflow:hidden!important}
+.heroDish{position:absolute!important;top:0!important;bottom:0!important;min-width:0!important;max-width:none!important;height:100%!important}
+.heroDishChicken{left:0!important;width:58%!important}
+.heroDishSushi{left:auto!important;right:0!important;width:42%!important;border-left:3px solid #fff9f3!important}
+.heroDish>img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:100%!important;object-fit:cover!important}
+.heroDish>span{position:absolute!important}
