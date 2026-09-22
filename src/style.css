@@ -1817,3 +1817,7 @@ html,body,#root{background:var(--bg);color:var(--cream)}
    bottom:12px!important;
  }
 }
+
+/* Header: hamburger removed because there is no side menu */
+.headerSpacer{width:52px;height:52px;display:block;flex:0 0 52px}
+@media(max-width:380px){.headerSpacer{width:48px;height:48px;flex-basis:48px}}
