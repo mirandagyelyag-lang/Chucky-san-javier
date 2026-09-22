@@ -2146,3 +2146,38 @@ html,body,#root{background:var(--bg);color:var(--cream)}
 .nav button.active{color:#d93636!important}
 .nav button.active svg{stroke:#d93636!important}
 @media(min-width:768px){.nav{width:398px!important;max-width:398px!important}}
+
+
+/* BOLD DARK HOME — concept 02 */
+.homeBold{padding:0 14px 116px!important;background:#120d0c!important;color:#fff!important;min-height:100vh}
+.boldHero{position:relative;height:300px;margin:0 -14px;overflow:hidden;background:#100b0a}
+.boldHeroImg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 48%;filter:saturate(.95) contrast(1.08) brightness(.64)}
+.boldHeroShade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,5,4,.94) 0%,rgba(10,5,4,.76) 43%,rgba(10,5,4,.30) 78%),linear-gradient(0deg,rgba(9,5,4,.82),transparent 55%)}
+.boldHeroCopy{position:absolute;z-index:2;left:20px;right:18px;top:28px}
+.boldHeroCopy>small{color:#ff6568;font-size:7px;font-weight:900;letter-spacing:.17em}
+.boldHeroCopy h1{margin:13px 0 0;color:#fff;font:italic 700 35px/.92 Georgia,serif;letter-spacing:-.045em}
+.boldHeroCopy h1 em{font-style:italic;color:#fff}
+.boldScribble{display:block;width:155px;height:8px;margin:8px 0 8px;transform:rotate(-5deg);border-top:3px solid #e4373b;border-radius:50%}
+.boldHeroCopy p{margin:0 0 15px;color:#f1e5df;font-size:9px}
+.boldHeroCopy button{height:40px;padding:0 16px;border:0;border-radius:999px;background:#dc363a;color:#fff;display:flex;align-items:center;gap:5px;font-size:8px;font-weight:900;box-shadow:0 8px 22px rgba(220,54,58,.25)}
+.boldHeroCopy button svg{width:14px}
+.boldChoices{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
+.boldFood{position:relative;height:170px;padding:0;overflow:hidden;border:1px solid rgba(255,255,255,.22);border-radius:17px;background:#1a1210;color:#fff;text-align:center}
+.boldFood img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.58) saturate(.95)}
+.boldFoodShade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(9,5,4,.92),rgba(9,5,4,.08) 72%)}
+.boldFoodIcon{position:absolute;z-index:2;left:50%;bottom:57px;transform:translateX(-50%);font-size:22px;color:#fff}
+.boldFoodCopy{position:absolute;z-index:2;left:8px;right:8px;bottom:14px}.boldFoodCopy b{display:block;font:400 18px/1 Anton,Impact,sans-serif}.boldFoodCopy small{display:block;margin-top:4px;color:#cbbab1;font-size:7px}
+.boldExplore{margin-top:24px;padding:0 1px}.boldExplore>small{display:block;margin-bottom:11px;color:#a9958b;font-size:7px;font-weight:900;letter-spacing:.15em}
+.boldExploreRow{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.boldExploreRow button{height:66px;padding:7px 2px;border:0;background:transparent;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.boldExploreRow button span{font-size:18px;color:#f1e7e2}.boldExploreRow button b{font-size:7px}
+.homeBold+.nav{}
+body:has(.homeBold){background:#120d0c!important}
+body:has(.homeBold) .nav{background:rgba(255,250,246,.96)!important}
+@media(max-width:380px){.boldHero{height:285px}.boldHeroCopy h1{font-size:32px}.boldFood{height:160px}}
+@media(min-width:768px){
+ .homeBold{width:100%!important;max-width:100%!important;padding:0 14px 116px!important}
+ .boldHero{height:300px!important;margin:0 -14px!important}
+ .boldHeroCopy h1{font-size:35px!important}
+ .boldFood{height:170px!important}
+}
