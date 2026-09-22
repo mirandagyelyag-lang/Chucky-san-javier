@@ -2288,3 +2288,23 @@ html,body,#root{margin:0!important;padding-top:0!important}
   .app{padding-top:0!important}
   .topbar.topbarConcept{top:0!important}
 }
+
+
+/* FIX V8: black strip was the app background showing above the header, not header spacing */
+body:has(.homeMockExact),body:has(.homeMockExact) #root{
+  background:#160f0e!important;
+}
+body:has(.homeMockExact) .app{
+  background:#160f0e!important;
+  background-image:none!important;
+}
+body:has(.homeMockExact) .app:before,
+body:has(.homeMockExact) .app:after,
+body:has(.homeMockExact) .grain{
+  display:none!important;
+}
+body:has(.homeMockExact) .topbar.topbarConcept{
+  position:relative!important;
+  top:0!important;
+  border-top:0!important;
+}
