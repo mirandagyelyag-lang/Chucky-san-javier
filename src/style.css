@@ -2325,3 +2325,20 @@ body:has(.homeMockExact) .topbar.topbarConcept{
     margin-bottom:0!important;
   }
 }
+
+
+/* HOME MOBILE V10 — actual dead-space source: legacy .homeBold min-height:100vh */
+@media(max-width:767px){
+  main.content.homeBold.homeMockExact{
+    min-height:unset!important;
+    height:max-content!important;
+    padding-bottom:24px!important;
+  }
+  body:has(.homeMockExact) .app{
+    min-height:0!important;
+    padding-bottom:92px!important;
+  }
+  .homeMockExact .mockExplore{
+    margin-bottom:0!important;
+  }
+}
