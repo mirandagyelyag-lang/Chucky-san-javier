@@ -242,3 +242,69 @@ html,body,#root{background:#f7f3ef;color:#171513}
  .categoryTile span{font-size:15px}
  .popularPhoto{height:148px}
 }
+
+
+/* HOME CONCEPT REBUILD — closer to selected reference */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Permanent+Marker&display=swap');
+
+.topbarConcept{height:90px;padding:16px 22px;background:#f7efe3;border-bottom:0;box-shadow:none}
+.brandConcept span{font-family:'Permanent Marker',cursive!important;font-size:31px!important;letter-spacing:-.03em!important;color:#101010!important;line-height:.95}
+.brandConcept small{font-family:Inter,sans-serif!important;color:#161616!important;font-size:6.5px!important;letter-spacing:.22em!important;margin-top:8px!important}
+.brandConcept span:before{content:"♕";right:-22px;top:-22px;font-size:22px;color:#b71e24}
+.brandConcept span:after{content:"⌣";right:-12px;bottom:-18px;font-size:23px;color:#b71e24}
+
+.homeConcept{padding:0 18px 150px!important;background:#f7efe3!important;color:#111!important}
+.heroConcept{min-height:390px!important;display:grid!important;grid-template-columns:44% 56%!important;align-items:start!important;padding-top:6px!important;overflow:visible!important}
+.heroConceptCopy{padding:16px 0 0 2px!important}
+.scribbleCrown{display:none!important}
+.heroConceptCopy h1{font-family:'Permanent Marker',cursive!important;font-weight:400!important;line-height:.9!important;letter-spacing:-.035em!important;margin:0!important;color:#101010!important}
+.heroConceptCopy h1>span{font-size:46px!important;white-space:nowrap!important;transform:rotate(-2deg)!important}
+.heroConceptCopy h1>small{display:block!important;font-size:23px!important;margin:8px 0 0 2px!important}
+.heroConceptCopy h1>em{display:block!important;font-size:39px!important;color:#bd2025!important;border-bottom:4px solid #bd2025!important;width:max-content!important;padding-bottom:3px!important;transform:rotate(-1deg)!important}
+.heroConceptCopy p{font-family:Inter,sans-serif!important;font-size:12px!important;line-height:1.45!important;color:#4f4741!important;margin:19px 0 17px!important;max-width:160px}
+.heroConceptCopy>button{height:52px!important;background:#c81f24!important;border-radius:999px!important;padding:0 19px!important;font-size:10px!important}
+.heroDots{margin-top:18px!important}
+.heroDots i{width:7px!important;height:7px!important}
+
+.heroConceptFood{min-height:372px!important}
+.bucketCard{right:-24px!important;top:8px!important;width:214px!important;height:235px!important;border-radius:28px 12px 26px 20px!important;transform:rotate(1deg)!important;box-shadow:none!important}
+.bucketCard img{filter:saturate(1.03) contrast(1.02)!important}
+.bucketBrand{display:none!important}
+.bucketSmile{display:none!important}
+.sushiBoard{left:-18px!important;right:-30px!important;bottom:8px!important;height:165px!important;border-radius:30px 8px 22px 28px!important;transform:rotate(-2deg)!important;box-shadow:none!important}
+
+.categoryRail{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:10px!important;margin-top:4px!important}
+.categoryTile{height:126px!important;border-radius:16px!important;box-shadow:none!important}
+.categoryTile span{left:9px!important;bottom:9px!important;font:700 15px/.92 Oswald,sans-serif!important;color:#fff!important;text-shadow:0 1px 5px #0008}
+.categoryTile b{right:7px!important;bottom:7px!important;width:25px!important;height:25px!important;font-size:18px!important}
+
+.popularHead{margin:27px 2px 12px!important}
+.popularHead small{display:none!important}
+.popularHead h2{font-family:'Permanent Marker',cursive!important;font-size:33px!important;color:#111!important;border-bottom:3px solid #c82024!important}
+.popularHead>button{font-size:10px!important;color:#4e4640!important}
+
+.popularGrid{gap:12px!important}
+.popularCard{border:0!important;background:#fbf5ec!important;border-radius:18px!important;box-shadow:0 8px 20px #6b4b3910!important}
+.popularPhoto{height:155px!important}
+.popularInfo{padding:10px 11px 12px!important}
+.popularInfo h3{font-family:Inter,sans-serif!important;font-weight:800!important;font-size:15px!important;color:#151515!important}
+.popularInfo p{font-family:Inter,sans-serif!important;font-size:9px!important;color:#6d655f!important}
+.popularInfo strong{font-size:17px!important;color:#bc1e23!important}
+
+.nav{left:22px!important;right:22px!important;bottom:18px!important;height:76px!important;border-radius:30px!important;background:#fffaf4f7!important;box-shadow:0 8px 26px #5e46341f!important}
+.nav button{color:#4b4540!important}
+.nav button.on{color:#b71e24!important}
+.nav button.on span,.nav button.on svg{color:#b71e24!important}
+
+@media(max-width:430px){
+  .homeConcept{padding-left:14px!important;padding-right:14px!important}
+  .heroConcept{grid-template-columns:45% 55%!important;min-height:380px!important}
+  .heroConceptCopy h1>span{font-size:42px!important}
+  .heroConceptCopy h1>small{font-size:21px!important}
+  .heroConceptCopy h1>em{font-size:35px!important}
+  .bucketCard{width:199px!important;height:224px!important;right:-18px!important}
+  .sushiBoard{height:158px!important}
+  .categoryTile{height:116px!important}
+  .categoryTile span{font-size:14px!important}
+  .popularPhoto{height:145px!important}
+}
