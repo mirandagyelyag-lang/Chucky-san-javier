@@ -1442,3 +1442,7 @@ html,body,#root{background:var(--bg);color:var(--cream)}
   transform:translateX(4%) scale(1.08);
   transform-origin:center;
 }
+
+
+/* FINAL MASCOT CENTERING NUDGE */
+.brandMascot img{transform:translateX(8%) scale(1.10)!important}
