@@ -42,12 +42,5 @@ button,input{font:inherit}.app{min-height:100dvh;padding-bottom:94px;background:
 /* NAV */
 .nav{position:fixed;z-index:90;bottom:0;left:0;right:0;height:86px;background:#070707f7;border-top:1px solid #24201d;display:grid;grid-template-columns:repeat(4,1fr);backdrop-filter:blur(16px)}.nav button{border:0;background:none;color:#6f6862;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;position:relative}.nav span,.nav svg{font-size:22px;width:22px;height:22px}.nav b{font-size:9px}.nav button.on{color:#fff}.nav button.on span,.nav button.on svg{color:var(--red)}.nav button.on:after{content:"";position:absolute;top:0;width:28px;height:2px;background:var(--red);border-radius:99px}.nav i{top:8px;right:26%}
 
-/* INTRO 03 — FULL ARTWORK */
-.intro03{position:fixed;inset:0;z-index:9999;overflow:hidden;background:#050505}
-.intro03Poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
-.intro03Vignette{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,#00000012 0%,transparent 42%,#00000045 100%)}
-.intro03Start{position:absolute;left:8%;right:8%;bottom:5.2%;height:62px;border:1px solid #f3ece4;border-radius:999px;background:#080808de;color:#fff;font-size:11px;font-weight:800;letter-spacing:.2em;z-index:4;backdrop-filter:blur(8px);box-shadow:0 12px 40px #0007}
-.intro03Start span{font-size:21px;margin-left:14px;vertical-align:-2px}
-
-@media(min-width:600px){.app{max-width:520px;margin:auto;box-shadow:0 0 60px #000}.nav{width:520px;left:50%;transform:translateX(-50%)}.intro03{width:520px;left:50%;right:auto;transform:translateX(-50%);box-shadow:0 0 60px #000}}
+@media(min-width:600px){.app{max-width:520px;margin:auto;box-shadow:0 0 60px #000}.nav{width:520px;left:50%;transform:translateX(-50%)}}
 @media(max-width:370px){.heroNew{height:435px}.heroText h1{font-size:48px}.editorialGrid,.menuList{gap:8px}.foodPhoto{height:150px}.menuList .foodCard.wide{grid-template-columns:1fr 1fr}.menuList .foodCard.wide .foodPhoto{height:172px}}
