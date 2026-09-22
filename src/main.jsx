@@ -104,12 +104,13 @@ function Detail({p,close,add}){return <div className="detail">
 
 function Cart({cart,setCart,add,sub,subtotal,setScreen}){
  const items=products.filter(p=>cart[p.id]);
- const[customer,setCustomer]=useState({name:'',phone:'',delivery:'Retiro en local',address:'',notes:''});
+ const[customer,setCustomer]=useState({name:'',phone:'',email:'',delivery:'Retiro en local',address:'',notes:''});
  const[sending,setSending]=useState(false);
  const[sent,setSent]=useState(false);
  const[error,setError]=useState('');
  const change=e=>setCustomer(c=>({...c,[e.target.name]:e.target.value}));
- const canSend=items.length&&customer.name.trim()&&customer.phone.trim()&&(customer.delivery==='Retiro en local'||customer.address.trim());
+ const emailOk=!customer.email.trim()||/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(customer.email.trim());
+ const canSend=items.length&&customer.name.trim()&&customer.phone.trim()&&emailOk&&(customer.delivery==='Retiro en local'||customer.address.trim());
  const sendOrder=async()=>{
   if(!canSend||sending)return;
   setSending(true);setError('');
@@ -119,6 +120,10 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
   data.append('_template','table');
   data.append('Nombre',customer.name);
   data.append('Teléfono',customer.phone);
+  if(customer.email.trim()){
+   data.append('email',customer.email.trim());
+   data.append('_autoresponse',`¡Hola ${customer.name}! Recibimos tu solicitud de pedido en Chucky.\n\n${detail}\n\nTOTAL: ${money(subtotal)}\n\nEl negocio te contactará para confirmar disponibilidad, horario y entrega. Este mensaje no confirma todavía la preparación.`);
+  }
   data.append('Entrega',customer.delivery);
   data.append('Dirección',customer.delivery==='Despacho'?customer.address:'Retiro en local');
   data.append('Pedido',detail);
@@ -147,6 +152,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
   <div className="orderFormHead"><small>DATOS DEL CLIENTE</small><h2>¿A QUIÉN ENTREGAMOS?</h2></div>
   <label>Nombre<input name="name" value={customer.name} onChange={change} placeholder="Tu nombre" autoComplete="name"/></label>
   <label>Teléfono<input name="phone" value={customer.phone} onChange={change} placeholder="+56 9..." inputMode="tel" autoComplete="tel"/></label>
+  <label>Correo <span className="optionalTag">OPCIONAL · PARA RECIBIR COMPROBANTE</span><input type="email" name="email" value={customer.email} onChange={change} placeholder="tu@correo.com" inputMode="email" autoComplete="email"/>{customer.email&&!emailOk&&<small className="fieldError">Escribe un correo válido.</small>}</label>
   <label>Tipo de entrega<select name="delivery" value={customer.delivery} onChange={change}><option>Retiro en local</option><option>Despacho</option></select></label>
   {customer.delivery==='Despacho'&&<label>Dirección<input name="address" value={customer.address} onChange={change} placeholder="Calle, número y comuna" autoComplete="street-address"/></label>}
   <label>Notas<textarea name="notes" value={customer.notes} onChange={change} placeholder="Salsas, indicaciones o alergias..."/></label>
