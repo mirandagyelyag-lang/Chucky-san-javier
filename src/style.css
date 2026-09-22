@@ -1602,3 +1602,12 @@ html,body,#root{background:var(--bg);color:var(--cream)}
  .favoriteGridV3 article>div{padding:25px 50px 20px 20px}
  .favoriteGridV3 article h3{font-size:25px}
 }
+
+
+/* HOME V3 — equal visual weight for chicken + sushi */
+.gatewayChickenV3{width:50%!important}
+.gatewaySushiV3{width:50%!important}
+@media(max-width:380px){
+  .gatewayChickenV3{width:50%!important}
+  .gatewaySushiV3{width:50%!important}
+}
