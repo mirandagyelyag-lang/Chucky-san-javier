@@ -1821,3 +1821,51 @@ html,body,#root{background:var(--bg);color:var(--cream)}
 /* Header: hamburger removed because there is no side menu */
 .headerSpacer{width:52px;height:52px;display:block;flex:0 0 52px}
 @media(max-width:380px){.headerSpacer{width:48px;height:48px;flex-basis:48px}}
+
+
+/* HEADER V5 — dark branded header, selected concept */
+.topbarConcept{
+  position:relative!important;
+  overflow:hidden!important;
+  background:
+    radial-gradient(circle at 8% 115%,rgba(239,49,49,.72) 0,rgba(166,28,27,.38) 14%,transparent 34%),
+    radial-gradient(circle at 92% -15%,rgba(226,45,42,.48) 0,rgba(121,22,20,.24) 16%,transparent 34%),
+    linear-gradient(105deg,#160f0e 0%,#261411 48%,#120d0c 100%)!important;
+  border-bottom:1px solid rgba(255,255,255,.10)!important;
+  box-shadow:0 10px 28px rgba(52,19,14,.18)!important;
+}
+.topbarConcept:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(115deg,rgba(255,255,255,.055),transparent 32%,rgba(255,255,255,.025) 65%,transparent);
+}
+.topbarConcept .brandConcept{position:relative;z-index:2}
+.topbarConcept .brandWords b{color:#fff!important;text-shadow:0 2px 12px rgba(0,0,0,.28)}
+.topbarConcept .brandWords small{color:#f4e8e0!important;opacity:.82}
+.topbarConcept .brandMascot{
+  background:#f8eee6!important;
+  border:1px solid rgba(255,255,255,.34)!important;
+  box-shadow:0 7px 20px rgba(0,0,0,.28)!important;
+}
+.topbarConcept .headerCircle{
+  position:relative;z-index:2;
+  color:#fff!important;
+  background:rgba(255,255,255,.075)!important;
+  border:1px solid rgba(255,255,255,.20)!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.10),0 8px 22px rgba(0,0,0,.16)!important;
+  backdrop-filter:blur(14px);
+}
+.topbarConcept .headerCircle svg{stroke:#fff!important}
+.topbarConcept .headerSpacer{position:relative;z-index:2}
+@media(max-width:767px){
+  .topbarConcept{min-height:104px!important}
+}
+@media(min-width:768px){
+  .topbarConcept{
+    min-height:104px!important;
+    width:430px!important;
+    max-width:430px!important;
+  }
+}
