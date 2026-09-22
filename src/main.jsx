@@ -15,12 +15,13 @@ const cats=['Pollo frito','Sushi','Combos','Bebidas'];
 const money=n=>'$'+n.toLocaleString('es-CL');
 
 function App(){
- const[screen,setScreen]=useState('home'),[cat,setCat]=useState('Pollo frito'),[q,setQ]=useState(''),[cart,setCart]=useState({}),[selected,setSelected]=useState(null);
+ const[screen,setScreen]=useState('intro'),[cat,setCat]=useState('Pollo frito'),[q,setQ]=useState(''),[cart,setCart]=useState({}),[selected,setSelected]=useState(null);
  const add=(id,e)=>{e?.stopPropagation();setCart(c=>({...c,[id]:(c[id]||0)+1}))};
  const sub=id=>setCart(c=>({...c,[id]:Math.max(0,(c[id]||0)-1)}));
  const count=Object.values(cart).reduce((a,b)=>a+b,0);
  const subtotal=products.reduce((s,p)=>s+(cart[p.id]||0)*p.price,0);
  const filtered=useMemo(()=>products.filter(p=>(screen==='search'||p.cat===cat)&&(!q||p.name.toLowerCase().includes(q.toLowerCase())||p.cat.toLowerCase().includes(q.toLowerCase()))),[screen,cat,q]);
+ if(screen==='intro')return <Intro onStart={()=>setScreen('home')}/>;
  if(screen==='cart')return <Shell screen={screen} setScreen={setScreen} count={count}><Cart cart={cart} add={add} sub={sub} subtotal={subtotal} setScreen={setScreen}/></Shell>;
  return <Shell screen={screen} setScreen={setScreen} count={count}>
    <header className="topbar"><button><Menu/></button><div className="logo"><b>CHUCKY</b><span>CHICKEN × SUSHI</span></div><button onClick={()=>setScreen('cart')}><ShoppingBag/>{count>0&&<i>{count}</i>}</button></header>
@@ -30,6 +31,16 @@ function App(){
    {selected&&<Detail p={selected} close={()=>setSelected(null)} add={add}/>}
  </Shell>
 }
+function Intro({onStart}){return <main className="intro03">
+ <div className="intro03Glow"/>
+ <div className="intro03Mood">GOOD<br/>FOOD<br/>GOOD<br/>MOOD</div>
+ <div className="intro03Lantern">寿司</div>
+ <section className="intro03Brand"><h1>CHUCKY</h1><i/><p>FRIED CHICKEN &amp; SUSHI</p></section>
+ <div className="intro03Japanese">い<br/>た<br/>だ<br/>き<br/>ま<br/>す</div>
+ <div className="intro03Food"><img className="intro03Sushi" src={products[2].img}/><img className="intro03Chicken" src={products[0].img}/></div>
+ <div className="intro03List">POLLO FRITO<br/>SUSHI<br/>BEBIDAS<br/>Y MÁS</div>
+ <button className="intro03Start" onClick={onStart}>COMENZAR <span>→</span></button>
+ </main>}
 function HomePage({setScreen,setCat,add,setSelected}){return <main className="content">
  <section className="hero"><div className="heroCopy"><small>CRUNCH MEETS ROLL</small><h1>FRIED<br/><em>CHICKEN</em><br/>× SUSHI</h1><p>Dos antojos.<br/>Un solo lugar.</p><button onClick={()=>setScreen('menu')}>VER MENÚ ↗</button></div><img src={products[0].img}/><span className="stamp">CHUCKY<br/>MADE IT.</span></section>
  <div className="switchCards"><button onClick={()=>{setCat('Pollo frito');setScreen('menu')}}><Drumstick/><span><small>CRISPY SIDE</small><b>POLLO FRITO</b></span></button><button onClick={()=>{setCat('Sushi');setScreen('menu')}}><span className="rollIcon">◉</span><span><small>FRESH SIDE</small><b>SUSHI</b></span></button></div>
