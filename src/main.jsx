@@ -39,13 +39,9 @@ function Topbar({setScreen,count}){return <header className="topbar">
  </header>}
 
 function Intro({onStart}){return <main className="intro03">
- <div className="intro03Glow"/><div className="intro03Mood">GOOD<br/>FOOD<br/>GOOD<br/>MOOD</div>
- <div className="intro03Lantern">寿司</div>
- <section className="intro03Brand"><h1>CHUCKY</h1><i/><p>FRIED CHICKEN &amp; SUSHI</p></section>
- <div className="intro03Japanese">い<br/>た<br/>だ<br/>き<br/>ま<br/>す</div>
- <div className="intro03Food"><img className="intro03Sushi" src={products[2].img}/><img className="intro03Chicken" src={products[0].img}/></div>
- <div className="intro03List">POLLO FRITO<br/>SUSHI<br/>BEBIDAS<br/>Y MÁS</div>
- <button className="intro03Start" onClick={onStart}>COMENZAR <span>→</span></button>
+ <img className="intro03Poster" src="/chucky-portada-03.png" alt="Chucky · Fried Chicken & Sushi"/>
+ <div className="intro03Vignette"/>
+ <button className="intro03Start" onClick={onStart} aria-label="Comenzar">COMENZAR <span>→</span></button>
  </main>}
 
 function HomePage({setScreen,setCat,add,setSelected}){return <main className="content">
