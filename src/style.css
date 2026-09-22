@@ -686,3 +686,38 @@ img{display:block}
 .brand{top:57%!important}
 @media(max-width:380px){.brand{top:56%!important}}
 @media(min-width:768px){.brand{top:56%!important}}
+
+
+/* ILLUSTRATED CHUCKY WALLPAPER */
+.app{
+  background-image:
+    linear-gradient(180deg,rgba(7,6,5,.76),rgba(8,6,5,.84)),
+    url('/chucky-pattern-wallpaper.webp')!important;
+  background-position:center top,center top!important;
+  background-size:cover,cover!important;
+  background-repeat:no-repeat,no-repeat!important;
+  background-attachment:fixed,fixed!important;
+}
+.topbar{
+  background:rgba(9,8,7,.88)!important;
+  backdrop-filter:blur(15px);
+  -webkit-backdrop-filter:blur(15px);
+}
+.boldHero{
+  background:
+    radial-gradient(circle at 78% 68%,rgba(68,16,14,.58) 0,transparent 31%),
+    linear-gradient(180deg,rgba(8,7,6,.91),rgba(12,10,9,.82))!important;
+}
+.menuIntro{
+  background:
+    radial-gradient(circle at 88% 20%,rgba(76,17,14,.82),transparent 34%),
+    rgba(18,16,15,.88)!important;
+}
+.boldFavGrid article,
+.foodCard,
+.searchBox,
+.cartItem{
+  background:rgba(18,16,15,.91)!important;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
