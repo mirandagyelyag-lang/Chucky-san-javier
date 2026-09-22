@@ -46,6 +46,7 @@ function HomePage({setScreen,setCat,add,setSelected}){const categoryCards=[
 ];return <main className="content homeBold">
  <section className="boldHero">
    <div className="boldTexture"/>
+   <img className="heroChuckyIcon" src="/chucky-app-icon.webp" alt="Chucky"/>
    <div className="boldClaim">
      <h1><span>DEMASIADO</span><span>BUENO PARA SER</span><em>INOCENTE.</em></h1>
      <p>Pollo frito. Sushi.<br/>La misma tentación, dos formas.</p>
