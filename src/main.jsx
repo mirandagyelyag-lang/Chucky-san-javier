@@ -44,48 +44,38 @@ function Topbar({setScreen,count}){return <header className="topbar topbarConcep
 function HomePage({setScreen,setCat,add,setSelected}){
  const go=cat=>{setCat(cat);setScreen('menu')};
  const favorites=[products[0],products[2]];
- return <main className="content homeRedesign homeV3">
-  <div className="jpEdgeDecor jpEdgeRight" aria-hidden="true">食べよう</div>
-  <div className="jpEdgeDecor jpEdgeLeft" aria-hidden="true">美味しい</div>
-  <section className="homeIntroV3">
-   <div className="homeIntroCopyV3">
-    <small>POLLO FRITO · SUSHI</small>
+ return <main className="content homeRedesign homeV6">
+  <section className="v6Hero">
+   <div className="v6Glow v6GlowRed"/><div className="v6Glow v6GlowWarm"/>
+   <div className="v6Neon" aria-hidden="true">Chucky</div>
+   <div className="v6HeroCopy">
+    <small>POLLO · SUSHI · BUENA COMIDA</small>
     <h1>EL ANTOJO<br/><em>EMPIEZA AQUÍ.</em></h1>
     <p>Crujiente por un lado. Fresco por el otro.</p>
+    <button onClick={()=>setScreen('menu')}>VER MENÚ <ChevronRight/></button>
    </div>
-   <button className="homeMenuCtaV3" onClick={()=>setScreen('menu')}>VER MENÚ <ChevronRight/></button>
+   <div className="v6Stamp">GOOD FOOD<br/>GOOD PEOPLE</div>
   </section>
 
-  <section className="foodGatewayV3" aria-label="Elige tu antojo">
-   <button className="gatewayCardV3 gatewayChickenV3" onClick={()=>go('Pollo frito')}>
-    <img src={products[0].img} alt="Pollo frito"/>
-    <span className="gatewayShadeV3"/>
-    <span className="gatewayCopyV3"><small>01 · CRUJIENTE</small><b>POLLO<br/>FRITO</b><i>VER →</i></span>
+  <section className="v6Choices" aria-label="Elige tu antojo">
+   <button className="v6Food" onClick={()=>go('Pollo frito')}>
+    <img src={products[0].img} alt="Pollo frito"/><span className="v6Shade"/>
+    <span className="v6FoodCopy"><small>01 · CRUJIENTE</small><b>POLLO<br/>FRITO</b><i>VER →</i></span>
    </button>
-   <button className="gatewayCardV3 gatewaySushiV3" onClick={()=>go('Sushi')}>
-    <img src={products[2].img} alt="Sushi"/>
-    <span className="gatewayShadeV3"/>
-    <span className="gatewayCopyV3"><small>02 · FRESCO</small><b>SUSHI</b><i>VER →</i></span>
+   <button className="v6Food" onClick={()=>go('Sushi')}>
+    <img src={products[2].img} alt="Sushi"/><span className="v6Shade"/>
+    <span className="v6FoodCopy"><small>02 · FRESCO</small><b>SUSHI</b><i>VER →</i></span>
    </button>
-   <img className="gatewaySealV3" src="/chucky-approved-seal.webp" alt="Aprobado por Chucky"/>
   </section>
 
-  <section className="quickCategoriesV3">
+  <section className="quickCategoriesV3 v6Quick">
    <div className="sectionTitleV3"><div><small>DIRECTO AL ANTOJO</small><h2>¿QUÉ VAS A PEDIR?</h2></div></div>
-   <div className="quickRowV3">
-    {['Pollo frito','Sushi','Combos','Bebidas'].map((c,i)=><button key={c} onClick={()=>go(c)}><span>{String(i+1).padStart(2,'0')}</span><b>{c}</b><i>→</i></button>)}
-   </div>
+   <div className="quickRowV3">{['Pollo frito','Sushi','Combos','Bebidas'].map((c,i)=><button key={c} onClick={()=>go(c)}><span>{String(i+1).padStart(2,'0')}</span><b>{c}</b><i>→</i></button>)}</div>
   </section>
 
-  <section className="favoritesV3">
+  <section className="favoritesV3 v6Favorites">
    <div className="sectionTitleV3 sectionTitleActionV3"><div><small>LOS QUE NO FALLAN</small><h2>FAVORITOS</h2></div><button onClick={()=>setScreen('menu')}>VER TODO</button></div>
-   <div className="favoriteGridV3">
-    {favorites.map(p=><article key={p.id} onClick={()=>setSelected(p)}>
-     <img src={p.img} alt={p.name}/>
-     <div><small>{p.cat}</small><h3>{p.name}</h3><strong>{money(p.price)}</strong></div>
-     <button onClick={e=>add(p.id,e)} aria-label={'Agregar '+p.name}><Plus/></button>
-    </article>)}
-   </div>
+   <div className="favoriteGridV3">{favorites.map(p=><article key={p.id} onClick={()=>setSelected(p)}><img src={p.img} alt={p.name}/><div><small>{p.cat}</small><h3>{p.name}</h3><strong>{money(p.price)}</strong></div><button onClick={e=>add(p.id,e)} aria-label={'Agregar '+p.name}><Plus/></button></article>)}</div>
   </section>
  </main>
 }
