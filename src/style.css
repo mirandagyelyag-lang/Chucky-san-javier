@@ -2011,3 +2011,65 @@ html,body,#root{background:var(--bg);color:var(--cream)}
  .topbar.topbarConcept{grid-template-columns:50px minmax(0,1fr) 50px!important}
  .topbar.topbarConcept>.topActions{width:50px!important;height:50px!important}
 }
+
+
+/* HEADER V5.4 — definitive mobile-first geometry */
+.topbar.topbarConcept{
+  position:relative!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:100%!important;
+  max-width:none!important;
+  height:104px!important;
+  min-height:104px!important;
+  padding:14px 18px!important;
+  margin:0!important;
+  box-sizing:border-box!important;
+}
+.topbar.topbarConcept>.headerSpacer{display:none!important}
+.topbar.topbarConcept>.brandConcept{
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  right:auto!important;
+  bottom:auto!important;
+  transform:translate(-50%,-50%)!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:7px!important;
+  width:max-content!important;
+  max-width:calc(100% - 136px)!important;
+  margin:0!important;
+}
+.topbar.topbarConcept>.topActions{
+  position:absolute!important;
+  right:18px!important;
+  top:50%!important;
+  left:auto!important;
+  bottom:auto!important;
+  transform:translateY(-50%)!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:54px!important;
+  height:54px!important;
+  margin:0!important;
+}
+.topbar.topbarConcept .premiumCart{width:54px!important;height:54px!important}
+@media(max-width:380px){
+ .topbar.topbarConcept{padding-left:14px!important;padding-right:14px!important}
+ .topbar.topbarConcept>.brandConcept{max-width:calc(100% - 120px)!important}
+ .topbar.topbarConcept>.topActions{right:14px!important;width:50px!important;height:50px!important}
+ .topbar.topbarConcept .premiumCart{width:50px!important;height:50px!important}
+ .topbar.topbarConcept .brandMascot{width:38px!important;height:38px!important}
+ .topbar.topbarConcept .brandWords b{font-size:36px!important}
+}
+@media(min-width:768px){
+ .topbar.topbarConcept{
+   width:430px!important;
+   max-width:430px!important;
+   margin:0 auto!important;
+ }
+}
