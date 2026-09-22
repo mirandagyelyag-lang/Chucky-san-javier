@@ -2210,3 +2210,70 @@ body:has(.homeMockExact){background:#0c0908!important}
 body:has(.homeMockExact) .nav{height:68px!important;bottom:10px!important;background:#fffaf6!important;border-color:rgba(255,255,255,.4)!important;box-shadow:0 12px 32px rgba(0,0,0,.28)!important}
 @media(max-width:380px){.mockHeroCopy{left:20px}.mockHeroCopy h1{font-size:31px}.mockHeroCopy h1 em{font-size:36px}.mockFood{height:178px}}
 @media(min-width:768px){.homeMockExact{width:430px!important;max-width:430px!important;margin:0 auto!important}.mockHero{height:282px!important}.mockFood{height:190px!important}}
+
+
+/* HERO POLISH V2 — rebalance approved composition with branded photo */
+.homeMockExact .mockHero{
+  height:315px!important;
+}
+.homeMockExact .mockHero>img{
+  object-position:58% 48%!important;
+  filter:saturate(1.05) contrast(1.04) brightness(.90)!important;
+  transform:scale(1.015);
+}
+.homeMockExact .mockHeroShade{
+  background:
+    linear-gradient(90deg,rgba(8,5,4,.91) 0%,rgba(9,5,4,.69) 39%,rgba(8,4,3,.14) 70%),
+    linear-gradient(0deg,rgba(8,5,4,.42),transparent 52%)!important;
+}
+.homeMockExact .mockHeroCopy{
+  left:24px!important;
+  top:35px!important;
+  width:205px!important;
+}
+.homeMockExact .mockHeroCopy>small{
+  font-size:6.5px!important;
+  letter-spacing:.16em!important;
+}
+.homeMockExact .mockHeroCopy h1{
+  margin:12px 0 3px!important;
+  font-size:29px!important;
+  line-height:.91!important;
+  letter-spacing:-.05em!important;
+}
+.homeMockExact .mockHeroCopy h1 em{
+  font-size:34px!important;
+  line-height:.92!important;
+}
+.homeMockExact .mockCrown{
+  left:172px!important;
+  top:54px!important;
+  font-size:18px!important;
+  transform:rotate(10deg)!important;
+}
+.homeMockExact .mockStroke{
+  width:132px!important;
+  margin:5px 0 12px 25px!important;
+  border-top-width:2.5px!important;
+  transform:rotate(-7deg)!important;
+}
+.homeMockExact .mockHeroCopy p{
+  margin-bottom:13px!important;
+  font-size:8px!important;
+  line-height:1.45!important;
+}
+.homeMockExact .mockHeroCopy button{
+  height:37px!important;
+  padding:0 15px!important;
+  font-size:7.5px!important;
+}
+@media(max-width:380px){
+ .homeMockExact .mockHero{height:300px!important}
+ .homeMockExact .mockHeroCopy{left:20px!important;top:31px!important;width:190px!important}
+ .homeMockExact .mockHeroCopy h1{font-size:27px!important}
+ .homeMockExact .mockHeroCopy h1 em{font-size:32px!important}
+ .homeMockExact .mockCrown{left:160px!important;top:51px!important}
+}
+@media(min-width:768px){
+ .homeMockExact .mockHero{height:315px!important}
+}
