@@ -43,33 +43,32 @@ function HomePage({setScreen,setCat,add,setSelected}){const categoryCards=[
  {label:'SUSHI',img:products[2].img,cat:'Sushi'},
  {label:'COMBOS',img:products[4].img,cat:'Combos'},
  {label:'ACOMPAÑAMIENTOS',img:'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=900&q=90',cat:'Bebidas'}
-];return <main className="content homeConcept">
- <section className="heroConcept">
-   <div className="heroConceptCopy">
-    <div className="scribbleCrown">♕</div>
-    <h1><span>DEMASIADO</span><small>BUENO PARA SER</small><em>INOCENTE.</em></h1>
-    <p>Pollo frito. Sushi.<br/>Un antojo y era.</p>
-    <button onClick={()=>setScreen('menu')}>VER MENÚ <ChevronRight/></button>
-    <div className="heroDots"><i className="on"/><i/><i/></div>
+];return <main className="content homeBold">
+ <section className="boldHero">
+   <div className="boldTexture"/>
+   <div className="boldClaim">
+     <h1><span>DEMASIADO</span><span>BUENO PARA SER</span><em>INOCENTE.</em></h1>
+     <p>Pollo frito. Sushi.<br/>La misma tentación, dos formas.</p>
+     <button onClick={()=>setScreen('menu')}>VER MENÚ <ChevronRight/></button>
    </div>
-   <div className="heroConceptFood">
-    <div className="bucketCard"><img src={products[0].img}/><span className="bucketBrand">CHUCKY</span><span className="bucketSmile">⌣</span></div>
-    <div className="sushiBoard"><img src={products[2].img}/></div>
+   <div className="boldFood">
+     <img className="boldChicken" src={products[0].img}/>
+     <img className="boldSushi" src={products[2].img}/>
    </div>
+   <div className="boldSideNote">MÁS QUE COMIDA<br/>UN ANTOJO ♡</div>
  </section>
 
- <section className="categoryRail">
-  {categoryCards.map(c=><button key={c.label} className="categoryTile" onClick={()=>{setCat(c.cat);setScreen('menu')}}>
+ <section className="boldCategories">
+  {categoryCards.map(c=><button key={c.label} onClick={()=>{setCat(c.cat);setScreen('menu')}}>
     <img src={c.img}/><div/><span>{c.label}</span><b>›</b>
   </button>)}
  </section>
 
- <section className="popularHead"><div><small>LOS FAVORITOS</small><h2>POPULARES</h2></div><button onClick={()=>setScreen('menu')}>Ver todos <ChevronRight/></button></section>
-
- <section className="popularGrid">
-  {products.slice(0,2).map((p,i)=><article key={p.id} className="popularCard" onClick={()=>setSelected(p)}>
-    <div className="popularPhoto"><img src={p.img}/><button className="heartMini" onClick={e=>e.stopPropagation()}><Heart/></button>{i===0&&<span className="popularCrown">♕</span>}</div>
-    <div className="popularInfo"><h3>{i===0?'El Chucky':'Roll de la Casa'}</h3><p>{i===0?'Crujiente por fuera. Adictivo por dentro.':'Fresco, cremoso y con un toque picante.'}</p><div><strong>{money(p.price)}</strong><button onClick={e=>add(p.id,e)}><Plus/></button></div></div>
+ <section className="boldFavHead"><h2>LOS FAVORITOS</h2><button onClick={()=>setScreen('menu')}>Ver todos <ChevronRight/></button></section>
+ <section className="boldFavGrid">
+  {products.slice(0,2).map((p,i)=><article key={p.id} onClick={()=>setSelected(p)}>
+    <div className="boldFavPhoto"><img src={p.img}/><button onClick={e=>e.stopPropagation()}><Heart/></button></div>
+    <div className="boldFavInfo"><h3>{i===0?'El Chucky':'Roll de la Casa'}</h3><p>{i===0?'Crujiente por fuera. Adictivo por dentro.':'Fresco, cremoso y con un toque picante.'}</p><div><strong>{money(p.price)}</strong><button onClick={e=>add(p.id,e)}><Plus/></button></div></div>
   </article>)}
  </section>
  </main>}
