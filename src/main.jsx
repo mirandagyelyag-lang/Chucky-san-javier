@@ -58,6 +58,12 @@ function HomePage({setScreen,setCat,add,setSelected}){const categoryCards=[
    <div className="boldSideNote">MÁS QUE COMIDA<br/>UN ANTOJO ♡</div>
  </section>
 
+ <section className="mascotWelcome">
+  <img className="mascotWelcomeArt" src="/chucky-mascot.webp" alt="Mascota oficial de Chucky"/>
+  <div><small>CONOCE AL CULPABLE</small><h2>ÉL ES CHUCKY.</h2><p>Pollo frito en una mano, sushi en la otra. Claramente no es inocente.</p></div>
+  <img className="mascotWelcomeSeal" src="/chucky-approved-seal.webp" alt="Aprobado por Chucky"/>
+ </section>
+
  <section className="boldCategories">
   {categoryCards.map(c=><button key={c.label} onClick={()=>{setCat(c.cat);setScreen('menu')}}>
     <img src={c.img}/><div/><span>{c.label}</span><b>›</b>
@@ -76,6 +82,7 @@ function HomePage({setScreen,setCat,add,setSelected}){const categoryCards=[
 function MenuPage({cat,setCat,filtered,add,setSelected}){return <main className="content menuContent">
  <section className="menuIntro">
   <div><small>PARA TODOS LOS ANTOJOS</small><h1>ELIGE<br/><em>TU FAVORITO.</em></h1><p>Pollo crujiente, sushi fresco y sin tanta vuelta.</p></div>
+  <img className="menuMascotSeal" src="/chucky-approved-seal.webp" alt="Aprobado por Chucky"/>
   <span>★</span>
  </section>
  <nav className="tabs">{cats.map(c=><button key={c} className={cat===c?'on':''} onClick={()=>setCat(c)}>{c}</button>)}</nav>
@@ -139,7 +146,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
   }finally{setSending(false)}
  };
  if(sent)return <main className="content cart orderSuccess">
-  <div className="successMark">✓</div>
+  <div className="successMark"><img src="/chucky-app-icon.webp" alt="Chucky"/></div>
   <small>PEDIDO ENVIADO</small>
   <h1>¡RECIBIDO!</h1>
   <p>El pedido fue enviado al negocio. Te contactaremos al teléfono indicado para confirmarlo.</p>
