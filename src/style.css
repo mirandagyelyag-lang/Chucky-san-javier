@@ -413,3 +413,49 @@ img{display:block}
   .boldCategories span{font-size:17px!important}
   .boldFavPhoto{height:220px!important}
 }
+
+
+/* MID-SIZE FINAL POLISH — keep navigation off the content */
+@media (min-width:520px) and (max-width:767px){
+  .app{padding-bottom:104px!important}
+  .homeBold{padding-bottom:120px!important}
+  .boldHero{
+    min-height:535px!important;
+    padding-top:48px!important;
+    padding-bottom:28px!important;
+  }
+  .boldClaim h1 span:first-child{font-size:50px!important}
+  .boldClaim h1 span:nth-child(2){font-size:37px!important}
+  .boldClaim h1 em{font-size:61px!important}
+  .boldClaim p{margin-top:20px!important;margin-bottom:18px!important}
+  .boldFood{
+    top:66px!important;
+    bottom:18px!important;
+  }
+  .boldChicken{
+    top:70px!important;
+    height:52%!important;
+  }
+  .boldSushi{
+    height:41%!important;
+  }
+  .boldSideNote{
+    top:42px!important;
+  }
+  .boldCategories{
+    margin-top:18px!important;
+    margin-bottom:34px!important;
+  }
+  .nav{
+    left:50%!important;
+    right:auto!important;
+    bottom:14px!important;
+    width:min(520px,calc(100% - 40px))!important;
+    height:64px!important;
+    transform:translateX(-50%)!important;
+    border-radius:24px!important;
+  }
+  .nav button span,.nav button svg{width:20px!important;height:20px!important;font-size:20px!important}
+  .nav button b{font-size:8px!important}
+  .nav i{top:5px!important}
+}
