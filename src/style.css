@@ -2308,3 +2308,20 @@ body:has(.homeMockExact) .topbar.topbarConcept{
   top:0!important;
   border-top:0!important;
 }
+
+
+/* HOME MOBILE V9 — remove dead space below category cards */
+@media(max-width:767px){
+  .homeMockExact{
+    min-height:0!important;
+    height:auto!important;
+    padding-bottom:104px!important;
+  }
+  .homeMockExact .mockExplore{
+    margin-bottom:0!important;
+    padding-bottom:0!important;
+  }
+  .homeMockExact .mockExplore>div{
+    margin-bottom:0!important;
+  }
+}
