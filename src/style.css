@@ -948,3 +948,55 @@ img{display:block}
   .tabs{gap:2px!important;padding:4px!important}
   .tabs button{height:44px;padding:0 4px!important;font-size:7px!important}
 }
+
+
+/* OFFICIAL CHUCKY MASCOT */
+.mascotWelcome{
+  position:relative;min-height:164px;margin:14px 0;
+  padding:22px 86px 22px 125px;overflow:hidden;
+  border:1px solid #352d29;border-radius:22px;
+  background:
+    radial-gradient(circle at 12% 50%,#581411 0,transparent 30%),
+    linear-gradient(115deg,#0b0908,#17100e);
+  display:flex;align-items:center;
+  box-shadow:0 16px 34px #0006;
+}
+.mascotWelcomeArt{
+  position:absolute;left:8px;bottom:-24px;
+  width:112px;height:176px;object-fit:cover;object-position:top;
+  mix-blend-mode:screen;
+}
+.mascotWelcome>div{position:relative;z-index:2}
+.mascotWelcome small{color:#ff5559;font-size:7px;font-weight:900;letter-spacing:.18em}
+.mascotWelcome h2{margin:5px 0 7px;font:400 30px/.95 Anton,Impact,sans-serif}
+.mascotWelcome p{max-width:250px;margin:0;color:#a89f98;font-size:9px;line-height:1.45}
+.mascotWelcomeSeal{
+  position:absolute;right:12px;top:50%;width:70px;height:70px;
+  border-radius:50%;transform:translateY(-50%) rotate(6deg);
+  box-shadow:0 9px 24px #0008;
+}
+.menuMascotSeal{
+  position:absolute;right:18px;bottom:18px;
+  z-index:2;width:102px;height:102px;border-radius:50%;
+  transform:rotate(7deg);box-shadow:0 14px 28px #0008;
+}
+.menuIntro>span{display:none}
+.successMark{
+  overflow:hidden;padding:0!important;background:#ef2d31!important;
+}
+.successMark img{width:100%;height:100%;object-fit:cover}
+@media(max-width:380px){
+  .mascotWelcome{padding-left:105px;padding-right:70px}
+  .mascotWelcomeArt{left:0;width:104px}
+  .mascotWelcomeSeal{right:8px;width:58px;height:58px}
+  .mascotWelcome h2{font-size:26px}
+}
+@media(min-width:768px){
+  .mascotWelcome{min-height:220px;padding:30px 170px 30px 220px;border-radius:28px}
+  .mascotWelcomeArt{left:24px;bottom:-34px;width:170px;height:255px}
+  .mascotWelcome small{font-size:9px}
+  .mascotWelcome h2{font-size:46px}
+  .mascotWelcome p{max-width:430px;font-size:13px}
+  .mascotWelcomeSeal{right:35px;width:125px;height:125px}
+  .menuMascotSeal{right:36px;bottom:26px;width:150px;height:150px}
+}
