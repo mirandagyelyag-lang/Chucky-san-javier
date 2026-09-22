@@ -15,13 +15,12 @@ const cats=['Pollo frito','Sushi','Combos','Bebidas'];
 const money=n=>'$'+n.toLocaleString('es-CL');
 
 function App(){
- const[screen,setScreen]=useState('intro'),[cat,setCat]=useState('Pollo frito'),[q,setQ]=useState(''),[cart,setCart]=useState({}),[selected,setSelected]=useState(null);
+ const[screen,setScreen]=useState('home'),[cat,setCat]=useState('Pollo frito'),[q,setQ]=useState(''),[cart,setCart]=useState({}),[selected,setSelected]=useState(null);
  const add=(id,e)=>{e?.stopPropagation();setCart(c=>({...c,[id]:(c[id]||0)+1}))};
  const sub=id=>setCart(c=>({...c,[id]:Math.max(0,(c[id]||0)-1)}));
  const count=Object.values(cart).reduce((a,b)=>a+b,0);
  const subtotal=products.reduce((s,p)=>s+(cart[p.id]||0)*p.price,0);
  const filtered=useMemo(()=>products.filter(p=>(screen==='search'||p.cat===cat)&&(!q||p.name.toLowerCase().includes(q.toLowerCase())||p.cat.toLowerCase().includes(q.toLowerCase()))),[screen,cat,q]);
- if(screen==='intro')return <Intro onStart={()=>setScreen('home')}/>;
  if(screen==='cart')return <Shell screen={screen} setScreen={setScreen} count={count}><Cart cart={cart} add={add} sub={sub} subtotal={subtotal} setScreen={setScreen}/></Shell>;
  return <Shell screen={screen} setScreen={setScreen} count={count}>
   <Topbar setScreen={setScreen} count={count}/>
@@ -38,11 +37,6 @@ function Topbar({setScreen,count}){return <header className="topbar">
  <button className="ghostBtn cartBtn" onClick={()=>setScreen('cart')} aria-label="Ver pedido"><ShoppingBag/>{count>0&&<i>{count}</i>}</button>
  </header>}
 
-function Intro({onStart}){return <main className="intro03">
- <img className="intro03Poster" src="/chucky-portada-03.png" alt="Chucky · Fried Chicken & Sushi"/>
- <div className="intro03Vignette"/>
- <button className="intro03Start" onClick={onStart} aria-label="Comenzar">COMENZAR <span>→</span></button>
- </main>}
 
 function HomePage({setScreen,setCat,add,setSelected}){return <main className="content">
  <section className="heroNew">
