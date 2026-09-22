@@ -810,3 +810,46 @@ img{display:block}
     background:none!important;
   }
 }
+
+
+/* ORDER DETAILS + EMAIL CHECKOUT */
+.customerForm{
+  margin-top:22px;padding:18px;
+  border:1px solid var(--line);border-radius:20px;
+  background:rgba(18,16,15,.94);
+  display:grid;gap:13px;
+}
+.orderFormHead{margin-bottom:2px}
+.orderFormHead small{color:var(--red);font-size:7px;font-weight:900;letter-spacing:.18em}
+.orderFormHead h2{margin:6px 0 0;font:400 25px/1 Anton,Impact,sans-serif}
+.customerForm label{display:grid;gap:6px;color:#b8aea7;font-size:9px;font-weight:700}
+.customerForm input,.customerForm select,.customerForm textarea{
+  width:100%;border:1px solid #38312d;border-radius:12px;
+  outline:none;background:#0c0a09;color:#fff;padding:12px 13px;
+  font-size:12px;
+}
+.customerForm input,.customerForm select{height:46px}
+.customerForm textarea{min-height:82px;resize:vertical}
+.customerForm input:focus,.customerForm select:focus,.customerForm textarea:focus{
+  border-color:#ef2d31;box-shadow:0 0 0 3px #ef2d311a;
+}
+.orderError{margin:12px 0 0;color:#ff7376;text-align:center;font-size:10px}
+.orderSuccess{
+  min-height:calc(100dvh - 100px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding-left:28px;padding-right:28px;
+}
+.successMark{
+  width:74px;height:74px;margin-bottom:18px;border-radius:50%;
+  display:grid;place-items:center;background:var(--red);color:#fff;
+  font-size:38px;font-weight:900;box-shadow:0 15px 40px #ef2d314f;
+}
+.orderSuccess>small{color:var(--red);font-size:8px;font-weight:900;letter-spacing:.2em}
+.orderSuccess h1{margin:8px 0;font:400 48px/1 Anton,Impact,sans-serif}
+.orderSuccess p{max-width:320px;margin:0;color:#b8aea7;font-size:12px;line-height:1.55}
+.backHome{
+  height:52px;margin-top:22px;padding:0 22px;border:0;border-radius:999px;
+  background:var(--red);color:#fff;display:flex;align-items:center;gap:7px;
+  font-size:9px;font-weight:900;letter-spacing:.08em;
+}
+.backHome svg{width:15px}
