@@ -1649,3 +1649,30 @@ html,body,#root{background:var(--bg);color:var(--cream)}
   .jpEdgeRight{right:-35px;top:70px;font-size:25px}
   .jpEdgeLeft{left:-35px;top:440px;font-size:22px}
 }
+
+
+/* HOME V3 — make Japanese edge type intentionally visible */
+.jpEdgeDecor{
+  z-index:2!important;
+  color:#cf554c!important;
+  font-weight:700!important;
+  opacity:.78!important;
+  text-shadow:0 1px 0 #fff8f2;
+}
+.jpEdgeRight{
+  top:34px!important;
+  right:5px!important;
+  font-size:24px!important;
+  padding-left:11px!important;
+  border-left:1.5px solid #cf554c80!important;
+}
+.jpEdgeLeft{
+  top:350px!important;
+  left:4px!important;
+  font-size:21px!important;
+  opacity:.64!important;
+}
+@media(max-width:380px){
+  .jpEdgeRight{right:2px!important;font-size:22px!important}
+  .jpEdgeLeft{left:1px!important;font-size:19px!important}
+}
