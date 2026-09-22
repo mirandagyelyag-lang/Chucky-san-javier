@@ -2181,3 +2181,32 @@ body:has(.homeBold) .nav{background:rgba(255,250,246,.96)!important}
  .boldHeroCopy h1{font-size:35px!important}
  .boldFood{height:170px!important}
 }
+
+
+/* APPROVED MOCKUP — exact mobile composition */
+.homeMockExact{padding:0 18px 118px!important;background:radial-gradient(circle at 70% 10%,#24120f 0,#100b0a 45%,#0c0908 100%)!important;color:#fff!important}
+.mockHero{position:relative;height:282px;margin:0 -18px 16px;overflow:hidden;background:#120b09}
+.mockHero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% center;filter:saturate(1.08) contrast(1.08) brightness(.78)}
+.mockHeroShade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,5,4,.96) 0%,rgba(9,5,4,.78) 44%,rgba(8,4,3,.16) 78%),linear-gradient(0deg,rgba(8,5,4,.55),transparent 48%)}
+.mockHeroCopy{position:absolute;z-index:2;left:25px;top:27px;width:240px}
+.mockHeroCopy>small{display:block;color:#f15a5d;font-size:7px;font-weight:900;letter-spacing:.14em}
+.mockHeroCopy h1{position:relative;margin:13px 0 4px;font:italic 700 34px/.88 Georgia,serif;letter-spacing:-.055em}
+.mockHeroCopy h1 span,.mockHeroCopy h1 em{display:block}.mockHeroCopy h1 span{color:#fff}.mockHeroCopy h1 em{color:#ef3338;font-size:39px;font-weight:700}
+.mockCrown{position:absolute;left:185px;top:47px;color:#ef3338;font:normal 25px/1 sans-serif;transform:rotate(8deg)}
+.mockStroke{display:block;width:176px;height:10px;margin:-1px 0 8px 36px;border-top:3px solid #ef3338;border-radius:50%;transform:rotate(-8deg)}
+.mockHeroCopy p{margin:0 0 12px;color:#f4e9e4;font-size:9px;line-height:1.5}
+.mockHeroCopy button{height:39px;padding:0 16px;border:0;border-radius:999px;background:#ee3439;color:#fff;display:flex;align-items:center;gap:6px;font-size:8px;font-weight:900;box-shadow:0 8px 20px rgba(238,52,57,.28)}.mockHeroCopy button svg{width:13px}
+.mockGood{position:absolute;z-index:2;right:14px;top:20px;color:#fff;font:italic 700 10px/1.08 Georgia,serif;transform:rotate(7deg);text-align:center}.mockGood b{color:#ef3338;font-size:17px}
+.mockChoices{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.mockFood{position:relative;height:190px;padding:0;overflow:hidden;border:1px solid rgba(255,255,255,.35);border-radius:19px;background:#1b110e;color:#fff;text-align:left}
+.mockFood>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.08) contrast(1.05)}
+.mockFoodShade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,5,4,.91),rgba(8,5,4,.06) 67%)}
+.mockFoodCopy{position:absolute;z-index:2;left:14px;bottom:14px}.mockFoodCopy small{display:block;margin-bottom:5px;color:#f14a4f;font-size:8px;font-weight:900}.mockFoodCopy b{display:block;font:400 26px/.88 Anton,Impact,sans-serif}.mockFoodCopy i{display:block;margin-top:7px;color:#f0e4df;font-size:8px;font-style:normal}
+.mockArrow{position:absolute;z-index:3;right:12px;bottom:35px;width:34px;height:34px;border-radius:50%;background:#fffaf6;color:#241713;display:grid;place-items:center;font-size:17px}
+.mockExplore{margin-top:23px}.mockExplore>small{display:block;margin:0 0 11px 4px;color:#b9a29a;font-size:7px;font-weight:900;letter-spacing:.16em}
+.mockExplore>div{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.mockExplore button{height:75px;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(55,29,23,.18);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}.mockExplore button span{font-size:21px}.mockExplore button b{font-size:7px}
+body:has(.homeMockExact){background:#0c0908!important}
+body:has(.homeMockExact) .nav{height:68px!important;bottom:10px!important;background:#fffaf6!important;border-color:rgba(255,255,255,.4)!important;box-shadow:0 12px 32px rgba(0,0,0,.28)!important}
+@media(max-width:380px){.mockHeroCopy{left:20px}.mockHeroCopy h1{font-size:31px}.mockHeroCopy h1 em{font-size:36px}.mockFood{height:178px}}
+@media(min-width:768px){.homeMockExact{width:430px!important;max-width:430px!important;margin:0 auto!important}.mockHero{height:282px!important}.mockFood{height:190px!important}}
