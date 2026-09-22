@@ -73,3 +73,85 @@ button,input{font:inherit}.app{min-height:100dvh;padding-bottom:94px;background:
   .heroText{top:64px}
   .heroText h1{font-size:46px}
 }
+
+
+/* LIGHT THEME TEST */
+:root{--ink:#171513;--card:#ffffff;--line:#e7ded8;--cream:#171513;--muted:#756d67}
+html,body,#root{background:#f7f3ef;color:#171513}
+.app{background:
+  radial-gradient(circle at 88% 7%,#ffe6e1 0,transparent 24%),
+  radial-gradient(circle at 12% 38%,#fff4ed 0,transparent 30%),
+  linear-gradient(180deg,#fffdfb 0%,#f8f4f0 48%,#fff 100%);
+  color:#171513}
+.grain{opacity:.035;mix-blend-mode:multiply}
+.topbar{background:#fffaf7e8;border-bottom:1px solid #eadfda;backdrop-filter:blur(14px)}
+.ghostBtn,.brand{color:#1d1a18}
+.brand span{color:#b92020}
+.brand small{color:#8a817b}
+.content{color:#171513}
+
+.heroNew{background:#fff;border:1px solid #eadfd9;box-shadow:0 14px 34px #7d5a4a1c}
+.heroNew>img{filter:brightness(1.1) saturate(1.08) contrast(.98)}
+.heroShade{background:
+  linear-gradient(90deg,#fffaf4f2 0,#fffaf4c7 34%,#fffaf43b 66%,transparent 80%),
+  linear-gradient(0deg,#fff8f28a 0,transparent 40%)}
+.heroKicker{color:#4b433e}
+.heroText small{color:#cf2424}
+.heroText h1{color:#171513;text-shadow:none}
+.heroText h1 em{color:#d32222}
+.heroText p{color:#4c4540}
+.heroText button{background:#d92922;border-color:#d92922;color:#fff;box-shadow:0 9px 22px #d9292230}
+.heroNew:before{background:radial-gradient(circle,#ffcec655 0,transparent 68%)}
+.heroNew:after{background:linear-gradient(90deg,transparent,#d9292240,transparent)}
+
+.tasteStrip{color:#6e655f}
+.tasteStrip i{background:#d92922}
+
+.dualPick .photoPick{background:#fff;border:1px solid #eadfd9;box-shadow:0 10px 24px #7d5a4a1a}
+.dualPick .photoPick>img{filter:brightness(1.03) saturate(1.05)}
+.pickShade{background:linear-gradient(0deg,#fffaf3e8 0,#fffaf37d 44%,transparent 76%)}
+.dualPick .photoPick small{color:#c92a27}
+.dualPick .photoPick b{color:#171513;text-shadow:0 1px 0 #fff8}
+.dualPick .photoPick>svg{color:#1f1b18}
+.dualPick .photoPick:first-child:after,.dualPick .photoPick:last-child:after{background:linear-gradient(90deg,#d92922,transparent)}
+
+.headline h2{color:#181512}
+.headline p{color:#7c736d}
+.foodCard{border-color:#e7ddd7;background:#fff;box-shadow:0 8px 22px #624c3c12}
+.photoShade{background:linear-gradient(0deg,#2018148f,transparent 55%)}
+.foodInfo h3,.priceRow strong{color:#1d1916}
+.foodInfo p{color:#786f69}
+.cardCat{color:#fff}
+.priceRow button{background:#d92922;color:#fff}
+
+.comboBanner{border-color:#ecd8d0;background:radial-gradient(circle at 82% 38%,#ffd8d0 0,transparent 34%),linear-gradient(135deg,#fff9f6,#f5ece7);box-shadow:0 9px 24px #7f5f4e16}
+.comboBanner h2{color:#1b1715}.comboBanner p{color:#776d67}
+.comboOrb{border-color:#d9292240;color:#d9292238}
+
+.menuIntro{border-color:#eadcd6;background:radial-gradient(circle at 88% 20%,#ffd9d1 0,transparent 34%),linear-gradient(135deg,#fffaf7,#f7efea);box-shadow:0 9px 24px #7c5d4c14}
+.menuIntro h1{color:#181512}.menuIntro p{color:#756c66}.menuIntro>span{color:#d9292218}
+.tabs button{border-color:#e4d9d3;background:#fff;color:#716762}
+.tabs button.on{background:#d92922;border-color:#d92922;color:#fff}
+
+.searchBox{border-color:#e2d7d1;background:#fff;box-shadow:0 7px 18px #71564712}
+.searchBox>svg{color:#716963}.searchBox input{color:#1d1916}.searchBox input::placeholder{color:#a69d97}
+.searchCount{color:#8f8680}
+
+.detail{background:#fffaf7;color:#181512}
+.detailShade{background:linear-gradient(0deg,#fffaf7 0,transparent 45%),linear-gradient(180deg,#0006,transparent 24%)}
+.detailBody h1{color:#171513}.detailBody p{color:#756d67}.detailPrice strong{color:#171513}.detailPrice span{color:#918780}
+
+.cart{color:#171513}
+.cartTop h1{color:#171513}
+.cartTop .close{border-color:#e2d7d0;background:#fff;color:#171513}
+.cartItem{border-color:#e6dcd6;background:#fff;box-shadow:0 7px 18px #6e524414}
+.cartCopy b,.cartCopy strong{color:#171513}
+.qty button{border-color:#ded2cc;background:#fff;color:#171513}
+.empty>span{color:#f1c4bc}.empty b{color:#171513}.empty p{color:#7b716b}
+.empty button{border-color:#dfd4ce;background:#fff;color:#171513}
+.bill{border-top-color:#e3d8d2}.bill>div{color:#7b716b}.bill>div b{color:#4b433e}.bill .billTotal span,.bill .billTotal b{color:#171513}
+
+.nav{background:#fffdfaf2;border-top:1px solid #e7dcd6;box-shadow:0 -8px 24px #59413310}
+.nav button{color:#817872}
+.nav button.on{color:#171513}
+.nav button.on span,.nav button.on svg{color:#d92922}
