@@ -357,3 +357,59 @@ img{display:block}
   .boldCategories button{height:132px}.boldCategories span{font-size:16px}
   .cartItem{grid-template-columns:66px 1fr}.cartItem>img{width:66px;height:66px}.qty{grid-column:2;justify-content:flex-end}
 }
+
+
+/* MID-SIZE PORTRAIT / V0 PREVIEW */
+@media (min-width:520px) and (max-width:767px){
+  .topbar{height:92px;padding-left:28px;padding-right:28px}
+  .homeBold{padding-left:16px!important;padding-right:16px!important}
+  .boldHero{
+    min-height:590px!important;
+    margin-left:-16px!important;
+    margin-right:-16px!important;
+    padding:64px 34px 40px!important;
+  }
+  .boldClaim{
+    width:50%!important;
+    padding-top:0!important;
+  }
+  .boldClaim h1 span:first-child{font-size:54px!important}
+  .boldClaim h1 span:nth-child(2){font-size:40px!important}
+  .boldClaim h1 em{font-size:66px!important;border-bottom-width:5px!important}
+  .boldClaim p{max-width:280px!important;font-size:14px!important;margin-top:25px!important}
+  .boldClaim>button{height:56px!important;padding:0 26px!important;font-size:11px!important}
+  .boldFood{
+    left:auto!important;
+    right:18px!important;
+    top:82px!important;
+    bottom:24px!important;
+    width:48%!important;
+    height:auto!important;
+  }
+  .boldChicken{
+    left:auto!important;
+    right:0!important;
+    top:70px!important;
+    width:86%!important;
+    height:54%!important;
+  }
+  .boldSushi{
+    right:0!important;
+    bottom:0!important;
+    width:96%!important;
+    height:43%!important;
+  }
+  .boldSideNote{
+    top:54px!important;
+    right:30px!important;
+    width:125px!important;
+    font-size:12px!important;
+  }
+  .boldCategories{
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    gap:10px!important;
+  }
+  .boldCategories button{height:155px!important}
+  .boldCategories span{font-size:17px!important}
+  .boldFavPhoto{height:220px!important}
+}
