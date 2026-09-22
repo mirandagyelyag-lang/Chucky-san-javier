@@ -2277,3 +2277,14 @@ body:has(.homeMockExact) .nav{height:68px!important;bottom:10px!important;backgr
 @media(min-width:768px){
  .homeMockExact .mockHero{height:315px!important}
 }
+
+
+/* MOBILE TOP GAP FIX — remove legacy phantom strip above header */
+html,body,#root{margin:0!important;padding-top:0!important}
+.app{margin-top:0!important}
+.topbar.topbarConcept{margin-top:0!important;top:auto!important}
+@media(max-width:767px){
+  #root{padding-top:0!important}
+  .app{padding-top:0!important}
+  .topbar.topbarConcept{top:0!important}
+}
