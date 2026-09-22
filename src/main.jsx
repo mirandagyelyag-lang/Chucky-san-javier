@@ -38,47 +38,52 @@ function Topbar({setScreen,count}){return <header className="topbar topbarConcep
  </header>}
 
 
-function HomePage({setScreen,setCat,add,setSelected}){const categoryCards=[
- {label:'POLLO FRITO',img:products[0].img,cat:'Pollo frito'},
- {label:'SUSHI',img:products[2].img,cat:'Sushi'},
- {label:'COMBOS',img:products[4].img,cat:'Combos'},
- {label:'ACOMPAÑAMIENTOS',img:'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=900&q=90',cat:'Bebidas'}
-];return <main className="content homeBold">
- <section className="boldHero">
-   <div className="boldTexture"/>
-   <img className="heroChuckyIcon" src="/chucky-app-icon.webp" alt="Chucky"/>
-   <div className="boldClaim">
-     <h1><span>DEMASIADO</span><span>BUENO PARA SER</span><em>INOCENTE.</em></h1>
-     <p>Pollo frito. Sushi.<br/>La misma tentación, dos formas.</p>
-     <button onClick={()=>setScreen('menu')}>VER MENÚ <ChevronRight/></button>
+function HomePage({setScreen,setCat,add,setSelected}){
+ const categoryCards=[
+  {label:'POLLO FRITO',note:'Crujiente y dorado',cat:'Pollo frito'},
+  {label:'SUSHI',note:'Fresco y cremoso',cat:'Sushi'},
+  {label:'COMBOS',note:'Lo mejor de ambos',cat:'Combos'},
+  {label:'BEBIDAS',note:'Para acompañar',cat:'Bebidas'}
+ ];
+ const favorites=[products[0],products[2]];
+ return <main className="content homeRedesign">
+  <section className="homeHeroNew">
+   <div className="heroCopyNew">
+    <small>POLLO FRITO · SUSHI</small>
+    <h1>DEMASIADO<br/>BUENO PARA SER<br/><em>INOCENTE.</em></h1>
+    <p>Dos antojos. Una sola decisión difícil.</p>
+    <button onClick={()=>setScreen('menu')}>VER MENÚ <ChevronRight/></button>
    </div>
-   <div className="boldFood">
-     <img className="boldChicken" src={products[0].img}/>
-     <img className="boldSushi" src={products[2].img}/>
+   <div className="heroVisualNew">
+    <img className="heroMainFood" src={products[0].img} alt="Pollo frito Chucky"/>
+    <img className="heroSecondFood" src={products[2].img} alt="Sushi Chucky"/>
+    <img className="heroApprovedSeal" src="/chucky-approved-seal.webp" alt="Aprobado por Chucky"/>
    </div>
-   <div className="boldSideNote">MÁS QUE COMIDA<br/>UN ANTOJO ♡</div>
- </section>
+  </section>
 
- <section className="mascotWelcome">
-  <img className="mascotWelcomeArt" src="/chucky-mascot.webp" alt="Mascota oficial de Chucky"/>
-  <div><small>CONOCE AL CULPABLE</small><h2>ÉL ES CHUCKY.</h2><p>Pollo frito en una mano, sushi en la otra. Claramente no es inocente.</p></div>
-  <img className="mascotWelcomeSeal" src="/chucky-approved-seal.webp" alt="Aprobado por Chucky"/>
- </section>
+  <section className="categorySectionNew">
+   <div className="sectionHeadNew"><div><small>ELIGE TU ANTOJO</small><h2>¿QUÉ VAS A PEDIR?</h2></div><span>04 categorías</span></div>
+   <div className="categoryGridNew">
+    {categoryCards.map((item,index)=><button key={item.label} onClick={()=>{setCat(item.cat);setScreen('menu')}}>
+     <small>{String(index+1).padStart(2,'0')}</small>
+     <span><b>{item.label}</b><em>{item.note}</em></span>
+     <i>→</i>
+    </button>)}
+   </div>
+  </section>
 
- <section className="boldCategories">
-  {categoryCards.map(c=><button key={c.label} onClick={()=>{setCat(c.cat);setScreen('menu')}}>
-    <img src={c.img}/><div/><span>{c.label}</span><b>›</b>
-  </button>)}
- </section>
-
- <section className="boldFavHead"><h2>LOS FAVORITOS</h2><button onClick={()=>setScreen('menu')}>Ver todos <ChevronRight/></button></section>
- <section className="boldFavGrid">
-  {products.slice(0,2).map((p,i)=><article key={p.id} onClick={()=>setSelected(p)}>
-    <div className="boldFavPhoto"><img src={p.img}/><button onClick={e=>e.stopPropagation()}><Heart/></button></div>
-    <div className="boldFavInfo"><h3>{i===0?'El Chucky':'Roll de la Casa'}</h3><p>{i===0?'Crujiente por fuera. Adictivo por dentro.':'Fresco, cremoso y con un toque picante.'}</p><div><strong>{money(p.price)}</strong><button onClick={e=>add(p.id,e)}><Plus/></button></div></div>
-  </article>)}
- </section>
- </main>}
+  <section className="favoritesNew">
+   <div className="sectionHeadNew"><div><small>APROBADOS POR CHUCKY</small><h2>LOS FAVORITOS</h2></div><button onClick={()=>setScreen('menu')}>VER TODOS <ChevronRight/></button></div>
+   <div className="favoriteListNew">
+    {favorites.map(p=><article key={p.id} onClick={()=>setSelected(p)}>
+     <img src={p.img} alt={p.name}/>
+     <div><small>{p.cat}</small><h3>{p.name}</h3><p>{p.desc}</p><strong>{money(p.price)}</strong></div>
+     <button onClick={e=>add(p.id,e)} aria-label={'Agregar '+p.name}><Plus/></button>
+    </article>)}
+   </div>
+  </section>
+ </main>
+}
 
 function MenuPage({cat,setCat,filtered,add,setSelected}){return <main className="content menuContent">
  <section className="menuIntro">
