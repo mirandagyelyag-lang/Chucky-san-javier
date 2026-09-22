@@ -1446,3 +1446,68 @@ html,body,#root{background:var(--bg);color:var(--cream)}
 
 /* FINAL MASCOT CENTERING NUDGE */
 .brandMascot img{transform:translateX(5%) scale(1.10)!important}
+
+
+/* HOME HERO V2 — COMPACT FOOD DUO */
+.heroV2{padding-bottom:20px!important}
+.heroCopyV2 h1{font-size:39px!important;line-height:.88!important;max-width:330px}
+.heroCopyV2 p{margin-bottom:16px!important}
+.heroCopyV2>button{height:47px!important;padding:0 19px!important}
+.heroVisualV2{
+  height:268px!important;
+  margin-top:24px!important;
+  border:1px solid #dfd0c4;
+  border-radius:23px;
+  background:#241b17;
+  overflow:hidden;
+  box-shadow:0 17px 35px #5b321f26;
+}
+.heroFoodSplit{position:absolute;inset:0;display:grid;grid-template-columns:58% 42%}
+.heroDish{
+  position:relative;min-width:0;padding:0;border:0;background:#241b17;
+  overflow:hidden;color:#fff;text-align:left;
+}
+.heroDish+.heroDish{border-left:3px solid #fff9f3}
+.heroDish>img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+.heroDish:active>img{transform:scale(1.03)}
+.heroDish:after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(0deg,#1b110de8 0,transparent 50%);
+}
+.heroDish>span{
+  position:absolute;z-index:2;left:13px;right:12px;bottom:15px;
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:7px;
+}
+.heroDish small{color:#ff696c;font-size:6px;font-weight:900}
+.heroDish b{font:400 18px/1 Anton,Impact,sans-serif;letter-spacing:.02em}
+.heroDish i{
+  width:25px;height:25px;border-radius:50%;background:#fff;color:#241b17;
+  display:grid;place-items:center;font-size:13px;font-style:normal;font-weight:900;
+}
+.heroDishSushi b{font-size:17px}
+.heroChoice{
+  position:absolute;z-index:4;left:50%;top:13px;transform:translateX(-50%);
+  min-width:142px;padding:7px 10px;border-radius:999px;
+  background:#fff9f3e8;backdrop-filter:blur(10px);
+  box-shadow:0 8px 20px #1b110d35;text-align:center;
+}
+.heroChoice span{display:block;color:#e93438;font-size:6px;font-weight:900;letter-spacing:.14em}
+.heroChoice em{display:block;margin-top:2px;color:#5e4d44;font-size:5px;font-style:normal;font-weight:800;letter-spacing:.08em}
+.heroVisualV2 .heroApprovedSeal{
+  right:12px!important;top:12px!important;width:64px!important;height:64px!important;
+  box-shadow:0 9px 22px #160b0866!important;
+}
+@media(max-width:380px){
+  .heroCopyV2 h1{font-size:35px!important}
+  .heroVisualV2{height:248px!important}
+  .heroDish b{font-size:16px}
+  .heroVisualV2 .heroApprovedSeal{width:57px!important;height:57px!important}
+}
+@media(min-width:768px){
+  .heroV2{min-height:560px!important;padding:64px 62px!important}
+  .heroCopyV2 h1{font-size:66px!important;max-width:570px}
+  .heroVisualV2{height:420px!important;margin:0!important}
+  .heroDish b{font-size:27px}
+  .heroVisualV2 .heroApprovedSeal{width:92px!important;height:92px!important;right:18px!important;top:18px!important}
+  .heroChoice{top:18px;min-width:180px;padding:9px 14px}
+}
