@@ -32,9 +32,12 @@ function App(){
 }
 
 function Topbar({setScreen,count}){return <header className="topbar topbarConcept">
- <button className="ghostBtn" aria-label="Abrir menú"><Menu/></button>
- <button className="brand brandConcept" onClick={()=>setScreen('home')}><span>CHUCKY</span><small>POLLO FRITO · SUSHI</small></button>
- <div className="topActions"><span className="notifyDot"/><button className="ghostBtn cartBtn" onClick={()=>setScreen('cart')} aria-label="Ver pedido"><ShoppingBag/>{count>0&&<i>{count}</i>}</button></div>
+ <button className="ghostBtn headerCircle" aria-label="Abrir menú"><Menu/></button>
+ <button className="brand brandConcept" onClick={()=>setScreen('home')}>
+  <img className="brandMascot" src="/chucky-app-icon.webp" alt=""/>
+  <div className="brandWords"><b>CHUCKY</b><small>POLLO FRITO · SUSHI</small></div>
+ </button>
+ <div className="topActions"><button className="ghostBtn cartBtn headerCircle" onClick={()=>setScreen('cart')} aria-label="Ver pedido"><ShoppingBag/>{count>0&&<i>{count}</i>}</button></div>
  </header>}
 
 
