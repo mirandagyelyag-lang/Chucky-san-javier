@@ -691,8 +691,8 @@ img{display:block}
 /* ILLUSTRATED CHUCKY WALLPAPER */
 .app{
   background-image:
-    linear-gradient(180deg,rgba(7,6,5,.76),rgba(8,6,5,.84)),
-    url('/chucky-pattern-wallpaper.webp')!important;
+    linear-gradient(180deg,rgba(7,6,5,.28),rgba(8,6,5,.46)),
+    url('/chucky-minimal-wallpaper.webp')!important;
   background-position:center top,center top!important;
   background-size:cover,cover!important;
   background-repeat:no-repeat,no-repeat!important;
