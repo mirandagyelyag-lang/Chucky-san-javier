@@ -50,16 +50,25 @@ function HomePage({setScreen,setCat,add,setSelected}){
  ];
  const favorites=[products[0],products[2]];
  return <main className="content homeRedesign">
-  <section className="homeHeroNew">
-   <div className="heroCopyNew">
+  <section className="homeHeroNew heroV2">
+   <div className="heroCopyNew heroCopyV2">
     <small>POLLO FRITO · SUSHI</small>
     <h1>DEMASIADO<br/>BUENO PARA SER<br/><em>INOCENTE.</em></h1>
     <p>Dos antojos. Una sola decisión difícil.</p>
     <button onClick={()=>setScreen('menu')}>VER MENÚ <ChevronRight/></button>
    </div>
-   <div className="heroVisualNew">
-    <img className="heroMainFood" src={products[0].img} alt="Pollo frito Chucky"/>
-    <img className="heroSecondFood" src={products[2].img} alt="Sushi Chucky"/>
+   <div className="heroVisualNew heroVisualV2">
+    <div className="heroFoodSplit">
+     <button className="heroDish heroDishChicken" onClick={()=>{setCat('Pollo frito');setScreen('menu')}} aria-label="Ver pollo frito">
+      <img src={products[0].img} alt="Pollo frito Chucky"/>
+      <span><small>01</small><b>POLLO FRITO</b><i>→</i></span>
+     </button>
+     <button className="heroDish heroDishSushi" onClick={()=>{setCat('Sushi');setScreen('menu')}} aria-label="Ver sushi">
+      <img src={products[2].img} alt="Sushi Chucky"/>
+      <span><small>02</small><b>SUSHI</b><i>→</i></span>
+     </button>
+    </div>
+    <div className="heroChoice"><span>ELIGE TU ANTOJO</span><em>CRUJIENTE O FRESCO</em></div>
     <img className="heroApprovedSeal" src="/chucky-approved-seal.webp" alt="Aprobado por Chucky"/>
    </div>
   </section>
