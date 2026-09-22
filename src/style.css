@@ -627,3 +627,56 @@ img{display:block}
     font-size:11px!important;
   }
 }
+
+
+/* BRAND FIRST — CHUCKY WORDMARK */
+.topbar{
+  height:118px!important;
+  padding-left:20px!important;
+  padding-right:20px!important;
+}
+.brand{
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  transform:translate(-50%,-50%)!important;
+  width:max-content;
+  z-index:2;
+}
+.brand span{
+  font-size:62px!important;
+  line-height:.82!important;
+  letter-spacing:.025em!important;
+}
+.brand span:before{
+  right:-27px!important;
+  top:-19px!important;
+  font-size:25px!important;
+}
+.brand small{
+  margin-top:9px!important;
+  font-size:7.5px!important;
+  letter-spacing:.24em!important;
+}
+.topbar>.ghostBtn,.topbar>.topActions{position:relative;z-index:3}
+
+@media(min-width:520px) and (max-width:767px){
+  .topbar{height:128px!important}
+  .brand span{font-size:74px!important}
+  .brand span:before{right:-31px!important;top:-21px!important;font-size:28px!important}
+  .brand small{font-size:8px!important}
+}
+
+@media(min-width:768px){
+  .topbar{height:138px!important}
+  .brand span{font-size:86px!important}
+  .brand span:before{right:-35px!important;top:-24px!important;font-size:32px!important}
+  .brand small{margin-top:10px!important;font-size:9px!important;letter-spacing:.26em!important}
+}
+
+@media(max-width:380px){
+  .topbar{height:108px!important}
+  .brand span{font-size:54px!important}
+  .brand span:before{right:-23px!important;top:-17px!important;font-size:22px!important}
+  .brand small{font-size:6.5px!important}
+}
