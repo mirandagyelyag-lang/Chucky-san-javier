@@ -1960,3 +1960,54 @@ html,body,#root{background:var(--bg);color:var(--cream)}
  .topbarConcept .headerSpacer,.topbarConcept .topActions{width:50px!important}
  .topbarConcept .premiumCart{width:50px!important;height:50px!important}
 }
+
+
+/* HEADER V5.3 — repair layout after legacy flex rules */
+.topbar.topbarConcept{
+  display:grid!important;
+  grid-template-columns:54px minmax(0,1fr) 54px!important;
+  grid-template-areas:"spacer brand actions"!important;
+  align-items:center!important;
+  justify-content:stretch!important;
+  gap:0!important;
+  box-sizing:border-box!important;
+}
+.topbar.topbarConcept>.headerSpacer{
+  grid-area:spacer!important;
+  display:block!important;
+  position:static!important;
+  margin:0!important;
+}
+.topbar.topbarConcept>.brandConcept{
+  grid-area:brand!important;
+  position:static!important;
+  justify-self:center!important;
+  align-self:center!important;
+  width:max-content!important;
+  max-width:100%!important;
+  margin:0!important;
+  left:auto!important;right:auto!important;top:auto!important;
+  transform:none!important;
+}
+.topbar.topbarConcept>.topActions{
+  grid-area:actions!important;
+  position:static!important;
+  justify-self:end!important;
+  align-self:center!important;
+  display:flex!important;
+  width:54px!important;
+  height:54px!important;
+  margin:0!important;
+  inset:auto!important;
+  transform:none!important;
+}
+.topbar.topbarConcept .premiumCart{
+  position:relative!important;
+  inset:auto!important;
+  margin:0!important;
+  transform:none!important;
+}
+@media(max-width:380px){
+ .topbar.topbarConcept{grid-template-columns:50px minmax(0,1fr) 50px!important}
+ .topbar.topbarConcept>.topActions{width:50px!important;height:50px!important}
+}
