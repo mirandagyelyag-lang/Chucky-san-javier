@@ -2073,3 +2073,12 @@ html,body,#root{background:var(--bg);color:var(--cream)}
    margin:0 auto!important;
  }
 }
+
+
+/* HEADER V5.5 — optical composition: brand balances the cart */
+.topbar.topbarConcept>.brandConcept{
+  left:calc(50% - 18px)!important;
+}
+@media(max-width:380px){
+  .topbar.topbarConcept>.brandConcept{left:calc(50% - 14px)!important}
+}
