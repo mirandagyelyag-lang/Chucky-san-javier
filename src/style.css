@@ -1353,3 +1353,73 @@ html,body,#root{background:var(--bg);color:var(--cream)}
 .boldFavPhoto>button,.heartMini{background:#16100dcc;color:#fff}
 .foodPhoto .cardCat{color:#fff}
 .detailPhoto button{color:#fff}
+
+
+/* COMPACT MASCOT HEADER */
+.topbar{
+  height:88px!important;
+  padding:12px 16px!important;
+}
+.headerCircle{
+  width:44px!important;height:44px!important;
+  border:1px solid #dfd0c4!important;
+  border-radius:50%!important;
+  background:#fff9f3!important;
+  box-shadow:0 7px 18px #70412712;
+}
+.headerCircle svg{width:21px!important;height:21px!important}
+.brand{
+  top:50%!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:10px!important;
+  width:auto!important;
+  text-align:left!important;
+}
+.brandMascot{
+  width:44px;height:44px;flex:none;
+  border:1px solid #e2d4c8;border-radius:14px;
+  object-fit:cover;
+  box-shadow:0 7px 18px #70412718;
+}
+.brandWords{display:flex;flex-direction:column;align-items:flex-start}
+.brandWords b{
+  color:#241b17;
+  font:400 42px/.78 Anton,Impact,sans-serif;
+  letter-spacing:.025em;
+}
+.brandWords small{
+  margin-top:8px!important;
+  color:#83736a!important;
+  font-size:6px!important;
+  font-weight:900!important;
+  letter-spacing:.2em!important;
+  white-space:nowrap;
+}
+.cartBtn i{
+  right:-3px!important;top:-4px!important;
+  min-width:19px!important;height:19px!important;
+  border:2px solid #fff9f3;
+  font-size:8px!important;
+}
+@media(max-width:380px){
+  .topbar{height:82px!important;padding-left:12px!important;padding-right:12px!important}
+  .headerCircle{width:40px!important;height:40px!important}
+  .brand{gap:7px!important}
+  .brandMascot{width:38px;height:38px;border-radius:12px}
+  .brandWords b{font-size:36px}
+  .brandWords small{margin-top:7px!important;font-size:5.5px!important}
+}
+@media(min-width:520px) and (max-width:767px){
+  .topbar{height:94px!important}
+  .brandMascot{width:48px;height:48px}
+  .brandWords b{font-size:48px}
+  .brandWords small{font-size:6.5px!important}
+}
+@media(min-width:768px){
+  .topbar{height:100px!important;padding:14px 8px!important}
+  .headerCircle{width:48px!important;height:48px!important}
+  .brandMascot{width:52px;height:52px;border-radius:16px}
+  .brandWords b{font-size:54px}
+  .brandWords small{font-size:7px!important}
+}
