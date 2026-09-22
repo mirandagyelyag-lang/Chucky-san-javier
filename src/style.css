@@ -10,13 +10,13 @@ button,input{font:inherit}.app{min-height:100dvh;padding-bottom:94px;background:
 .content{padding:10px 18px 28px;position:relative;z-index:2}
 
 /* HOME */
-.heroNew{height:430px;border-radius:28px;overflow:hidden;position:relative;border:1px solid #46312b;background:#111;box-shadow:0 18px 45px #0007,0 0 0 1px #8e211313 inset}
-.heroNew>img{width:100%;height:100%;object-fit:cover;object-position:63% center;filter:brightness(.9) saturate(1.08) contrast(1.05)}
-.heroShade{position:absolute;inset:0;background:linear-gradient(90deg,#070605e6 0,#070605b0 38%,#07060535 68%,#3a0d0a22 100%),linear-gradient(0deg,#090807bd 0,transparent 42%),radial-gradient(circle at 82% 20%,#d9292238 0,transparent 28%)}
+.heroNew{height:360px;border-radius:24px;overflow:hidden;position:relative;background:#111;box-shadow:0 16px 38px #0007}
+.heroNew>img{width:100%;height:100%;object-fit:cover;object-position:66% center;filter:brightness(1.05) saturate(1.12) contrast(1.03)}
+.heroShade{position:absolute;inset:0;background:linear-gradient(90deg,#090706e5 0,#090706a8 36%,#0907062d 72%),linear-gradient(0deg,#09070695 0,transparent 42%),radial-gradient(circle at 86% 18%,#d9292238 0,transparent 30%)}
 .heroKicker{position:absolute;left:22px;top:22px;font-size:7px;letter-spacing:.28em;color:#b8aea5}
-.heroText{position:absolute;left:22px;right:20px;top:78px;z-index:2}.heroText small,.headline>small,.menuIntro small,.detailBody>small,.cartTop small{color:var(--red);font-size:8px;font-weight:900;letter-spacing:.2em}
-.heroText h1{margin:12px 0 14px;font:700 54px/.9 Oswald,sans-serif;letter-spacing:-.035em}.heroText h1 em{font-style:normal;color:var(--red)}
-.heroText p{font-size:13px;color:#bbb2aa;margin:0 0 20px}.heroText button{height:47px;padding:0 18px;border:1px solid #ffffff38;background:#0b0b0bcf;color:#fff;border-radius:999px;display:flex;align-items:center;gap:8px;font-size:9px;font-weight:900;letter-spacing:.14em}.heroText button svg{width:15px}
+.heroText{position:absolute;left:22px;right:18px;top:70px;z-index:2}.heroText small,.headline>small,.menuIntro small,.detailBody>small,.cartTop small{color:var(--red);font-size:8px;font-weight:900;letter-spacing:.2em}
+.heroText h1{margin:10px 0 12px;font:700 49px/.88 Oswald,sans-serif;letter-spacing:-.035em}.heroText h1 em{font-style:normal;color:var(--red)}
+.heroText p{font-size:12px;color:#d2c9c1;margin:0 0 16px}.heroText button{height:47px;padding:0 18px;border:1px solid #ffffff38;background:#0b0b0bcf;color:#fff;border-radius:999px;display:flex;align-items:center;gap:8px;font-size:9px;font-weight:900;letter-spacing:.14em}.heroText button svg{width:15px}
 .heroSeal{position:absolute;right:15px;bottom:15px;width:68px;height:68px;border:1px solid #f0e7df8f;border-radius:50%;display:grid;place-items:center;text-align:center;font:600 8px/1.25 Oswald,sans-serif;letter-spacing:.11em;transform:rotate(6deg);background:#0a0807a6;backdrop-filter:blur(5px)}.heroSeal b{color:#ef3a31}
 .dualPick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 20px}.dualPick button{border:1px solid #3a2f2b;background:linear-gradient(145deg,#1a1412,#100d0c);color:#fff;border-radius:19px;min-height:84px;padding:12px;display:grid;grid-template-columns:38px 1fr 16px;align-items:center;text-align:left;gap:8px;box-shadow:0 10px 24px #0005}.dualPick button>svg{width:15px;color:#69625c}.pickIcon{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#211312;color:var(--red)}.pickIcon svg{width:19px}.pickIcon.roll{font-family:serif;font-size:19px}.dualPick small{display:block;color:#756e68;font-size:6.5px;letter-spacing:.12em;margin-bottom:4px}.dualPick b{font:600 13px Oswald,sans-serif;letter-spacing:.04em}
 .headline{margin:16px 2px 13px}.headline>small{display:block;margin-bottom:6px}.headline>div{display:flex;justify-content:space-between;align-items:end;gap:12px}.headline h2{margin:0;font:700 30px/.95 Oswald,sans-serif;text-transform:uppercase;letter-spacing:.01em}.headline p{margin:0;max-width:145px;color:#77706a;font-size:9px;line-height:1.35;text-align:right}
@@ -54,4 +54,22 @@ button,input{font:inherit}.app{min-height:100dvh;padding-bottom:94px;background:
   .heroText h1{font-size:50px}
   .heroText p{margin-bottom:16px}
   .dualPick{margin-top:9px}
+}
+
+.tasteStrip{display:flex;align-items:center;gap:8px;overflow:hidden;padding:10px 2px 2px;color:#9d948d;font-size:7px;font-weight:800;letter-spacing:.16em;white-space:nowrap}
+.tasteStrip i{display:block;width:14px;height:1px;background:var(--red);opacity:.8}
+.dualPick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 18px}
+.dualPick .photoPick{position:relative;min-height:128px;padding:0;border:0;border-radius:18px;overflow:hidden;background:#111;display:block;text-align:left;box-shadow:0 10px 24px #0006}
+.dualPick .photoPick>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.92) saturate(1.08)}
+.pickShade{position:absolute;inset:0;background:linear-gradient(0deg,#080706e8 0,#0807066b 48%,transparent 78%)}
+.dualPick .photoPick>span{position:absolute;left:12px;right:32px;bottom:12px;z-index:2}
+.dualPick .photoPick small{display:block;color:#d6cdc5;font-size:6.5px;letter-spacing:.13em;margin-bottom:4px}
+.dualPick .photoPick b{font:600 17px/.95 Oswald,sans-serif;letter-spacing:.03em}
+.dualPick .photoPick>svg{position:absolute;right:10px;bottom:13px;z-index:2;width:16px;color:#fff}
+.dualPick .photoPick:first-child:after,.dualPick .photoPick:last-child:after{content:"";position:absolute;inset:auto 10px 8px 10px;height:2px;background:linear-gradient(90deg,var(--red),transparent);z-index:2;opacity:.75}
+.heroSeal{display:none}
+@media(max-width:430px){
+  .heroNew{height:345px}
+  .heroText{top:64px}
+  .heroText h1{font-size:46px}
 }
