@@ -721,3 +721,14 @@ img{display:block}
   backdrop-filter:blur(8px);
   -webkit-backdrop-filter:blur(8px);
 }
+
+
+/* KEEP THE FULL MINIMAL WALLPAPER VISIBLE ON PHONES */
+@media(max-width:767px){
+  .app{
+    background-size:auto,100% auto!important;
+    background-position:center top,center top!important;
+    background-repeat:no-repeat,repeat-y!important;
+    background-attachment:scroll,scroll!important;
+  }
+}
