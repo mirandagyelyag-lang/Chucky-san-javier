@@ -2358,3 +2358,11 @@ body:has(.homeMockExact) .topbar.topbarConcept{
     padding-bottom:86px!important; /* only nav overlap clearance */
   }
 }
+
+
+/* HOME MOBILE V12 — give Explore breathing room above floating nav */
+@media(max-width:767px){
+  .homeMockExact .mockExplore{
+    padding-bottom:112px!important;
+  }
+}
