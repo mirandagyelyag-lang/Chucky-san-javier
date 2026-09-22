@@ -2342,3 +2342,19 @@ body:has(.homeMockExact) .topbar.topbarConcept{
     margin-bottom:0!important;
   }
 }
+
+
+/* HOME MOBILE V11 — collapse the real footer reserve above fixed nav */
+@media(max-width:767px){
+  main.content.homeBold.homeMockExact{
+    padding-bottom:0!important;
+    margin-bottom:0!important;
+  }
+  body:has(.homeMockExact) .app{
+    padding-bottom:0!important;
+    min-height:0!important;
+  }
+  .homeMockExact .mockExplore{
+    padding-bottom:86px!important; /* only nav overlap clearance */
+  }
+}
