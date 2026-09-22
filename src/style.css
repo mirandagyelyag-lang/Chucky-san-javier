@@ -789,3 +789,24 @@ img{display:block}
     );
   }
 }
+
+
+/* ONE CONSISTENT BLACK VEIL ABOVE THE WALLPAPER ON EVERY MOBILE PAGE */
+@media(max-width:767px){
+  .app:after{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    background:rgba(0,0,0,.52)!important;
+  }
+  .cart{
+    background:transparent!important;
+    box-shadow:none!important;
+    clip-path:none!important;
+  }
+  .cart .empty{
+    background:none!important;
+  }
+}
