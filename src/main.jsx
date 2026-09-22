@@ -21,7 +21,7 @@ function App(){
  const count=Object.values(cart).reduce((a,b)=>a+b,0);
  const subtotal=products.reduce((s,p)=>s+(cart[p.id]||0)*p.price,0);
  const filtered=useMemo(()=>products.filter(p=>(screen==='search'||p.cat===cat)&&(!q||p.name.toLowerCase().includes(q.toLowerCase())||p.cat.toLowerCase().includes(q.toLowerCase()))),[screen,cat,q]);
- if(screen==='cart')return <Shell screen={screen} setScreen={setScreen} count={count}><Cart cart={cart} add={add} sub={sub} subtotal={subtotal} setScreen={setScreen}/></Shell>;
+ if(screen==='cart')return <Shell screen={screen} setScreen={setScreen} count={count}><Cart cart={cart} setCart={setCart} add={add} sub={sub} subtotal={subtotal} setScreen={setScreen}/></Shell>;
  return <Shell screen={screen} setScreen={setScreen} count={count}>
   <Topbar setScreen={setScreen} count={count}/>
   {screen==='home'&&<HomePage setScreen={setScreen} setCat={setCat} add={add} setSelected={setSelected}/>}
@@ -102,12 +102,60 @@ function Detail({p,close,add}){return <div className="detail">
  <div className="detailBody"><small>SELECCIÓN CHUCKY</small><h1>{p.name}</h1><p>{p.desc}</p><div className="detailPrice"><strong>{money(p.price)}</strong><span>IVA incl.</span></div><button className="bigAdd" onClick={e=>{add(p.id,e);close()}}>AGREGAR AL PEDIDO <Plus/></button></div>
  </div>}
 
-function Cart({cart,add,sub,subtotal,setScreen}){const items=products.filter(p=>cart[p.id]);return <main className="content cart">
+function Cart({cart,setCart,add,sub,subtotal,setScreen}){
+ const items=products.filter(p=>cart[p.id]);
+ const[customer,setCustomer]=useState({name:'',phone:'',delivery:'Retiro en local',address:'',notes:''});
+ const[sending,setSending]=useState(false);
+ const[sent,setSent]=useState(false);
+ const[error,setError]=useState('');
+ const change=e=>setCustomer(c=>({...c,[e.target.name]:e.target.value}));
+ const canSend=items.length&&customer.name.trim()&&customer.phone.trim()&&(customer.delivery==='Retiro en local'||customer.address.trim());
+ const sendOrder=async()=>{
+  if(!canSend||sending)return;
+  setSending(true);setError('');
+  const detail=items.map(p=>`${cart[p.id]} x ${p.name} — ${money(cart[p.id]*p.price)}`).join('\n');
+  const data=new FormData();
+  data.append('_subject',`Nuevo pedido Chucky — ${customer.name}`);
+  data.append('_template','table');
+  data.append('Nombre',customer.name);
+  data.append('Teléfono',customer.phone);
+  data.append('Entrega',customer.delivery);
+  data.append('Dirección',customer.delivery==='Despacho'?customer.address:'Retiro en local');
+  data.append('Pedido',detail);
+  data.append('Total',money(subtotal));
+  data.append('Notas',customer.notes||'Sin notas');
+  try{
+   const response=await fetch('https://formsubmit.co/ajax/antonia.miranda.acmmo@gmail.com',{method:'POST',headers:{Accept:'application/json'},body:data});
+   const result=await response.json();
+   if(!response.ok||result.success===false)throw new Error('No se pudo enviar');
+   setSent(true);setCart({});
+  }catch(e){
+   setError('No pudimos enviar el pedido. Inténtalo nuevamente.');
+  }finally{setSending(false)}
+ };
+ if(sent)return <main className="content cart orderSuccess">
+  <div className="successMark">✓</div>
+  <small>PEDIDO ENVIADO</small>
+  <h1>¡RECIBIDO!</h1>
+  <p>El pedido fue enviado al negocio. Te contactaremos al teléfono indicado para confirmarlo.</p>
+  <button className="backHome" onClick={()=>setScreen('home')}>VOLVER AL INICIO <ChevronRight/></button>
+ </main>;
+ return <main className="content cart">
  <div className="cartTop"><div><small>PEDIDO CHUCKY</small><h1>TU PEDIDO</h1></div><button className="close" onClick={()=>setScreen('home')}><X/></button></div>
  {items.length?items.map(p=><article className="cartItem" key={p.id}><img src={p.img}/><div className="cartCopy"><small>{p.cat}</small><b>{p.name}</b><strong>{money(p.price)}</strong></div><div className="qty"><button onClick={()=>sub(p.id)}><Minus/></button><span>{cart[p.id]}</span><button onClick={e=>add(p.id,e)}><Plus/></button></div></article>):<div className="empty"><span>空</span><b>ESTÁ VACÍO.</b><p>Eso se arregla rápido.</p><button onClick={()=>setScreen('menu')}>IR AL MENÚ <ChevronRight/></button></div>}
+ {items.length>0&&<section className="customerForm">
+  <div className="orderFormHead"><small>DATOS DEL CLIENTE</small><h2>¿A QUIÉN ENTREGAMOS?</h2></div>
+  <label>Nombre<input name="name" value={customer.name} onChange={change} placeholder="Tu nombre" autoComplete="name"/></label>
+  <label>Teléfono<input name="phone" value={customer.phone} onChange={change} placeholder="+56 9..." inputMode="tel" autoComplete="tel"/></label>
+  <label>Tipo de entrega<select name="delivery" value={customer.delivery} onChange={change}><option>Retiro en local</option><option>Despacho</option></select></label>
+  {customer.delivery==='Despacho'&&<label>Dirección<input name="address" value={customer.address} onChange={change} placeholder="Calle, número y comuna" autoComplete="street-address"/></label>}
+  <label>Notas<textarea name="notes" value={customer.notes} onChange={change} placeholder="Salsas, indicaciones o alergias..."/></label>
+ </section>}
  <div className="bill"><div><span>Subtotal</span><b>{money(subtotal)}</b></div><div className="billTotal"><span>TOTAL</span><b>{money(subtotal)}</b></div></div>
- <button className="checkout" disabled={!items.length}>FINALIZAR PEDIDO <ChevronRight/></button>
- </main>}
+ {error&&<p className="orderError">{error}</p>}
+ <button className="checkout" disabled={!canSend||sending} onClick={sendOrder}>{sending?'ENVIANDO...':'FINALIZAR PEDIDO'} {!sending&&<ChevronRight/>}</button>
+ </main>
+}
 
 function Shell({children,screen,setScreen,count}){return <div className="app"><div className="grain"/>{children}<nav className="nav">
  <button className={screen==='home'?'on':''} onClick={()=>setScreen('home')}><span>⌂</span><b>Inicio</b></button>
