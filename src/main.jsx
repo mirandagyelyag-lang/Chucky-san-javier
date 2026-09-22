@@ -45,6 +45,8 @@ function HomePage({setScreen,setCat,add,setSelected}){
  const go=cat=>{setCat(cat);setScreen('menu')};
  const favorites=[products[0],products[2]];
  return <main className="content homeRedesign homeV3">
+  <div className="jpEdgeDecor jpEdgeRight" aria-hidden="true">食べよう</div>
+  <div className="jpEdgeDecor jpEdgeLeft" aria-hidden="true">美味しい</div>
   <section className="homeIntroV3">
    <div className="homeIntroCopyV3">
     <small>POLLO FRITO · SUSHI</small>
