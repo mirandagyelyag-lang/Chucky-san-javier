@@ -43,37 +43,37 @@ function Topbar({setScreen,count}){return <header className="topbar topbarConcep
 
 function HomePage({setScreen,setCat,add,setSelected}){
  const go=cat=>{setCat(cat);setScreen('menu')};
- const favorites=[products[0],products[2]];
- return <main className="content homeRedesign homeV7">
-  <section className="v7Hero">
-   <div className="v7HeroCopy">
+ return <main className="content homeBold">
+  <section className="boldHero">
+   <img className="boldHeroImg" src={products[0].img} alt="Pollo frito y sushi"/>
+   <div className="boldHeroShade"/>
+   <div className="boldHeroCopy">
     <small>POLLO FRITO · SUSHI</small>
-    <h1>EL ANTOJO<br/><em>EMPIEZA AQUÍ.</em></h1>
-    <p>Dos antojos. Una sola decisión difícil.</p>
+    <h1>Pórtate mal.<br/><em>Come bien.</em></h1>
+    <span className="boldScribble" aria-hidden="true"/>
+    <p>Crujiente por un lado. Fresco por el otro.</p>
     <button onClick={()=>setScreen('menu')}>VER MENÚ <ChevronRight/></button>
    </div>
-   <div className="v7Accent" aria-hidden="true"><span>CHUCKY</span></div>
   </section>
 
-  <section className="v7Choices" aria-label="Elige tu antojo">
-   <button className="v7Food" onClick={()=>go('Pollo frito')}>
-    <img src={products[0].img} alt="Pollo frito"/><span className="v7Shade"/>
-    <span className="v7FoodCopy"><small>01 · CRUJIENTE</small><b>POLLO<br/>FRITO</b><i>VER →</i></span>
+  <section className="boldChoices" aria-label="Elige tu antojo">
+   <button className="boldFood" onClick={()=>go('Pollo frito')}>
+    <img src={products[0].img} alt="Pollo frito"/><span className="boldFoodShade"/>
+    <span className="boldFoodIcon">◌</span>
+    <span className="boldFoodCopy"><b>POLLO FRITO</b><small>Crujiente siempre.</small></span>
    </button>
-   <button className="v7Food" onClick={()=>go('Sushi')}>
-    <img src={products[2].img} alt="Sushi"/><span className="v7Shade"/>
-    <span className="v7FoodCopy"><small>02 · FRESCO</small><b>SUSHI</b><i>VER →</i></span>
+   <button className="boldFood" onClick={()=>go('Sushi')}>
+    <img src={products[2].img} alt="Sushi"/><span className="boldFoodShade"/>
+    <span className="boldFoodIcon">◉</span>
+    <span className="boldFoodCopy"><b>SUSHI</b><small>Fresco siempre.</small></span>
    </button>
   </section>
 
-  <section className="v7Quick">
-   <div className="v7SectionHead"><small>DIRECTO AL ANTOJO</small><h2>¿QUÉ VAS A PEDIR?</h2></div>
-   <div className="v7CategoryList">{['Pollo frito','Sushi','Combos','Bebidas'].map((c,i)=><button key={c} onClick={()=>go(c)}><span>{String(i+1).padStart(2,'0')}</span><b>{c}</b><i>→</i></button>)}</div>
-  </section>
-
-  <section className="v7Favorites">
-   <div className="v7SectionHead v7SectionRow"><div><small>LOS QUE NO FALLAN</small><h2>FAVORITOS</h2></div><button onClick={()=>setScreen('menu')}>VER TODO</button></div>
-   <div className="v7FavoriteGrid">{favorites.map(p=><article key={p.id} onClick={()=>setSelected(p)}><img src={p.img} alt={p.name}/><div><small>{p.cat}</small><h3>{p.name}</h3><strong>{money(p.price)}</strong></div><button onClick={e=>add(p.id,e)} aria-label={'Agregar '+p.name}><Plus/></button></article>)}</div>
+  <section className="boldExplore">
+   <small>ELIGE TU ANTOJO</small>
+   <div className="boldExploreRow">
+    {['Combos','Bebidas','Salsas','Postres'].map((c,i)=><button key={c} onClick={()=>go(c)}><span>{['✦','▣','◒','♢'][i]}</span><b>{c}</b></button>)}
+   </div>
   </section>
  </main>
 }
