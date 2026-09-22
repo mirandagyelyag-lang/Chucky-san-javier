@@ -853,3 +853,24 @@ img{display:block}
   font-size:9px;font-weight:900;letter-spacing:.08em;
 }
 .backHome svg{width:15px}
+
+
+/* FINAL ORDER RECAP */
+.orderRecap{
+  margin-top:14px;padding:15px 16px;
+  border:1px solid #3a322e;border-radius:17px;
+  background:rgba(18,16,15,.95);
+}
+.orderRecapHead{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid #302925;
+}
+.orderRecapHead small{color:var(--red);font-size:7px;font-weight:900;letter-spacing:.16em}
+.orderRecapHead>span{color:#8e847d;font-size:8px}
+.orderRecapLine{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:6px 0;color:#ddd3cc;font-size:10px;
+}
+.orderRecapLine>span{min-width:0}
+.orderRecapLine b{margin-right:4px;color:var(--red)}
+.orderRecapLine strong{flex:none;color:#fff;font-size:11px}
