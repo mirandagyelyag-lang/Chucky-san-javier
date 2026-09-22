@@ -680,3 +680,9 @@ img{display:block}
   .brand span:before{right:-23px!important;top:-17px!important;font-size:22px!important}
   .brand small{font-size:6.5px!important}
 }
+
+
+/* WORDMARK VERTICAL ALIGNMENT */
+.brand{top:57%!important}
+@media(max-width:380px){.brand{top:56%!important}}
+@media(min-width:768px){.brand{top:56%!important}}
