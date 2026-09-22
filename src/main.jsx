@@ -152,6 +152,10 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
   <label>Notas<textarea name="notes" value={customer.notes} onChange={change} placeholder="Salsas, indicaciones o alergias..."/></label>
  </section>}
  <div className="bill"><div><span>Subtotal</span><b>{money(subtotal)}</b></div><div className="billTotal"><span>TOTAL</span><b>{money(subtotal)}</b></div></div>
+ {items.length>0&&<section className="orderRecap">
+  <div className="orderRecapHead"><small>CONFIRMA TU PEDIDO</small><span>{items.reduce((sum,p)=>sum+cart[p.id],0)} productos</span></div>
+  {items.map(p=><div className="orderRecapLine" key={'recap-'+p.id}><span><b>{cart[p.id]}×</b> {p.name}</span><strong>{money(cart[p.id]*p.price)}</strong></div>)}
+ </section>}
  {error&&<p className="orderError">{error}</p>}
  <button className="checkout" disabled={!canSend||sending} onClick={sendOrder}>{sending?'ENVIANDO...':'FINALIZAR PEDIDO'} {!sending&&<ChevronRight/>}</button>
  </main>
