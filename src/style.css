@@ -1611,3 +1611,41 @@ html,body,#root{background:var(--bg);color:var(--cream)}
   .gatewayChickenV3{width:50%!important}
   .gatewaySushiV3{width:50%!important}
 }
+
+
+/* HOME V3 — concept 01: minimal Japanese edge typography */
+.homeV3{position:relative}
+.jpEdgeDecor{
+  position:absolute;
+  z-index:0;
+  color:#b86e61;
+  font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  font-weight:500;
+  writing-mode:vertical-rl;
+  letter-spacing:.12em;
+  opacity:.52;
+  pointer-events:none;
+  user-select:none;
+}
+.homeV3>section{position:relative;z-index:1}
+.jpEdgeRight{
+  top:30px;
+  right:2px;
+  font-size:20px;
+  padding-left:10px;
+  border-left:1px solid #c8796b80;
+}
+.jpEdgeLeft{
+  top:355px;
+  left:1px;
+  font-size:17px;
+  opacity:.4;
+}
+@media(max-width:380px){
+  .jpEdgeRight{right:-2px;font-size:18px}
+  .jpEdgeLeft{left:-3px;font-size:15px}
+}
+@media(min-width:768px){
+  .jpEdgeRight{right:-35px;top:70px;font-size:25px}
+  .jpEdgeLeft{left:-35px;top:440px;font-size:22px}
+}
