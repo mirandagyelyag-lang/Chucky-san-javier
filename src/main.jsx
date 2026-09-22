@@ -1,64 +1,51 @@
-import React,{useMemo,useState}from'react';import{createRoot}from'react-dom/client';import{Menu,Search,ShoppingCart,MapPin,Plus,Minus,X,ChevronRight,ArrowLeft,Trash2,Home,Grid2X2,Heart}from'lucide-react';import'./style.css';
-const cats=['Hamburguesas','Papas','Bebidas','Extras'];
-const CatIcon=({type})=>type==='Hamburguesas'?<svg viewBox="0 0 32 32"><path d="M6 14c1-6 19-6 20 0M5 18h22M7 22h18M9 26h14"/></svg>:type==='Papas'?<svg viewBox="0 0 32 32"><path d="M9 10l2 16h10l2-16M11 10l-1-6M15 10V3M19 10l1-7M23 10l2-5"/></svg>:type==='Bebidas'?<svg viewBox="0 0 32 32"><path d="M10 10h13l-2 17h-9L10 10ZM18 10l3-7M20 4h6"/></svg>:<svg viewBox="0 0 32 32"><circle cx="12" cy="13" r="5"/><circle cx="20" cy="19" r="5"/><path d="M8 23c4-3 12-11 16-14"/></svg>;
-const data=[
-{id:1,cat:'Hamburguesas',name:'Clásica',desc:'Carne, queso cheddar, lechuga, tomate, cebolla y salsa de la casa.',price:6500,img:'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=90'},
-{id:2,cat:'Hamburguesas',name:'Doble',desc:'Doble carne, doble queso, lechuga, tomate, cebolla y salsa de la casa.',price:8500,img:'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=700&q=90'},
-{id:3,cat:'Hamburguesas',name:'Bacon',desc:'Carne, queso cheddar, tocino crujiente, cebolla crispy y salsa BBQ.',price:7900,img:'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=700&q=90'},
-{id:4,cat:'Hamburguesas',name:'Especial',desc:'Carne, queso, tocino, huevo, lechuga, tomate, cebolla y salsa de la casa.',price:8900,img:'https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=90'},
-{id:5,cat:'Completos',name:'Completo Italiano',desc:'Vienesa, tomate, palta y mayo.',price:4500,img:'https://images.unsplash.com/photo-1612392062631-94dd858cba88?auto=format&fit=crop&w=700&q=90'},
-{id:6,cat:'Completos',name:'Completo Dinámico',desc:'Vienesa, tomate, palta, mayo y mostaza.',price:4500,img:'https://images.unsplash.com/photo-1612392062631-94dd858cba88?auto=format&fit=crop&w=700&q=90'},
-{id:7,cat:'Completos',name:'Completo Chacarero',desc:'Vienesa, tomate, palta, porotos verdes y mayo.',price:4800,img:'https://images.unsplash.com/photo-1612392062631-94dd858cba88?auto=format&fit=crop&w=700&q=90'},
-{id:8,cat:'Papas',name:'Papas Grandes',desc:'Papas fritas doradas y crujientes.',price:3500,img:'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=700&q=90'},
-{id:9,cat:'Papas',name:'Papas Cheddar',desc:'Papas crujientes con cheddar.',price:4000,img:'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=700&q=90'},
-{id:10,cat:'Bebidas',name:'Bebida en lata',desc:'Elige tu sabor disponible.',price:2000,img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=90'},
-{id:11,cat:'Promos',name:'Combo',desc:'Hamburguesa + papas + bebida.',price:9900,img:'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=700&q=90'}];
+import React,{useMemo,useState}from'react';
+import{createRoot}from'react-dom/client';
+import{Menu,Search,ShoppingBag,Plus,Minus,X,ArrowLeft,Heart,Drumstick}from'lucide-react';
+import'./style.css';
+
+const products=[
+{id:1,cat:'Pollo frito',name:'Chicken Crunch',desc:'Pollo frito extra crujiente, dorado y recién hecho.',price:7990,img:'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?auto=format&fit=crop&w=900&q=90'},
+{id:2,cat:'Pollo frito',name:'Chucky Bucket',desc:'Bucket para compartir con piezas de pollo crujiente.',price:12990,img:'https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=900&q=90'},
+{id:3,cat:'Sushi',name:'Chucky Roll',desc:'Roll de la casa, cremoso, fresco y lleno de sabor.',price:6990,img:'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=900&q=90'},
+{id:4,cat:'Sushi',name:'Crunch Roll',desc:'Roll crocante con topping y salsa de la casa.',price:7490,img:'https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?auto=format&fit=crop&w=900&q=90'},
+{id:5,cat:'Combos',name:'Dúo Chucky',desc:'Pollo frito + roll para mezclar los dos mundos.',price:13990,img:'https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=900&q=90'},
+{id:6,cat:'Bebidas',name:'Bebida',desc:'Elige entre los sabores disponibles.',price:2000,img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=900&q=90'}
+];
+const cats=['Pollo frito','Sushi','Combos','Bebidas'];
 const money=n=>'$'+n.toLocaleString('es-CL');
-function App(){const[screen,setScreen]=useState('intro'),[cat,setCat]=useState('Hamburguesas'),[q,setQ]=useState(''),[cart,setCart]=useState({}),[selected,setSelected]=useState(null),[note,setNote]=useState('');
-const add=(id,e)=>{e?.stopPropagation();setCart(c=>({...c,[id]:(c[id]||0)+1}))},sub=(id,e)=>{e?.stopPropagation();setCart(c=>({...c,[id]:Math.max(0,(c[id]||0)-1)}))};
-const count=Object.values(cart).reduce((a,b)=>a+b,0),subtotal=data.reduce((s,p)=>s+(cart[p.id]||0)*p.price,0),delivery=count?2000:0,total=subtotal+delivery;
-const filtered=useMemo(()=>data.filter(p=>(screen==='search'||p.cat===cat)&&(!q||p.name.toLowerCase().includes(q.toLowerCase())||p.desc.toLowerCase().includes(q.toLowerCase()))),[cat,q,screen]);
-if(screen==='intro')return <div className="intro introExact"><img src="/intro-cover.jpg?v=20260921-3" alt="'Onde el Chucky Street Food"/><button className="introHotspot" aria-label="Comenzar" onClick={()=>setScreen('home')}></button></div>;
-if(screen==='promos')return <Shell screen={screen} setScreen={setScreen} count={count}><div className="darkScreen"><h1>Promociones</h1><p>MÁS SABOR, MÁS PLANES</p>{data.filter(x=>x.cat==='Promos').concat(data.filter(x=>x.cat==='Papas').slice(0,1)).map(p=><article className="promoCard"><img src={p.img}/><div><b>{p.name.toUpperCase()}</b><span>{p.desc}</span><strong>{money(p.price)}</strong></div><button onClick={e=>add(p.id,e)}><Plus/></button></article>)}</div></Shell>;
-if(screen==='search')return <Shell screen={screen} setScreen={setScreen} count={count}><div className="streetBg" aria-hidden="true"></div><div className="darkScreen searchScreen"><h1>Buscar</h1><p>ENCUENTRA TU ANTOJO</p><label><Search/><input autoFocus value={q} onChange={e=>setQ(e.target.value)} placeholder="Buscar..."/></label>{filtered.map(p=><ProductRow p={p} add={add} setSelected={setSelected}/>)}</div></Shell>;
-if(screen==='cart')return <><div className="streetBg globalStreetBg" aria-hidden="true"></div><Cart cart={cart} data={data} add={add} sub={sub} note={note} setNote={setNote} subtotal={subtotal} delivery={delivery} total={total} setScreen={setScreen}/></>;
-return <Shell screen={screen} setScreen={setScreen} count={count}><div className="streetBg" aria-hidden="true"></div><header className="top homeTop"><button><Menu/></button><div className="brand"><strong>'ONDE<br/>EL CHUCKY</strong><span>STREET FOOD</span></div><button onClick={()=>setScreen('cart')} className="cartIcon"><ShoppingCart/>{count>0&&<i>{count}</i>}</button></header><main className="home">
-{screen==='home'&&<><section className="homeFreshHero"><div className="freshCopy"><small>STREET FOOD · SAN JAVIER</small><h1>ANTOJO<br/><span>SIN VUELTAS.</span></h1><p>Hamburguesas, papas y completos.<br/>Pide lo que de verdad querías.</p><button onClick={()=>setScreen('menu')}>VER MENÚ <b>→</b></button></div><img src="/chucky-mascot-final.png?v=3" alt="Mascota Onde el Chucky"/><div className="freshStamp">BUENA<br/>COMIDA<br/><b>SIEMPRE.</b></div></section><nav className="freshCats">{cats.map(c=><button onClick={()=>{setCat(c==='Extras'?'Completos':c);setScreen('menu')}}><CatIcon type={c}/><span>{c}</span></button>)}</nav><div className="freshTitle"><div><small>LOS FAVORITOS</small><h2>LO MÁS PEDIDO</h2></div><button onClick={()=>setScreen('menu')}>VER TODO →</button></div><div className="freshPopular">{[data[0],data[3],data[8]].map(p=><article onClick={()=>setSelected(p)}><img src={p.img}/><div><b>{p.name==='Clásica'?'Chucky Clásica':p.name==='Especial'?'Chucky Especial':p.name}</b><strong>{money(p.price)}</strong></div><button onClick={e=>add(p.id,e)}><Plus/></button></article>)}</div><section className="freshCombo" onClick={()=>setScreen('promos')}><img src={data[10].img}/><div><small>PARA COMPARTIR · O NO</small><strong>COMBOS</strong><b>Hamburguesa + papas + bebida</b><button>VER COMBOS →</button></div></section></>}
-{screen==='menu'&&<><section className="menuCleanHead"><div><small>ELIGE TU ANTOJO</small><h1>{cat}</h1><p>{cat==='Hamburguesas'?'CARNE · QUESO · ACTITUD':cat==='Completos'?'CHILENOS · CARGADOS · SIN VUELTAS':cat==='Papas'?'DORADAS · CRUJIENTES · ADICTIVAS':'HELADAS · SIMPLES · AL PUNTO'}</p></div><span>♕</span></section><nav className="menuCleanTabs">{['Hamburguesas','Completos','Papas','Bebidas'].map(c=><button className={cat===c?'on':''} onClick={()=>setCat(c)}><CatIcon type={c}/><span>{c}</span></button>)}</nav><div className="menuCleanLead"><span>{cat==='Hamburguesas'?'LAS QUE NO FALLAN':cat==='Completos'?'A LA CHILENA':cat==='Papas'?'PARA PICAR · O NO':'PA’ BAJAR EL ANTOJO'}</span><b>GOOD FOOD <i>BAD MOOD</i></b></div><div className="menuCleanGrid">{filtered.map((p,i)=><ProductRow key={p.id} p={p} index={i} add={add} setSelected={setSelected}/>)}</div></>}
-</main>{selected&&<Detail p={selected} close={()=>setSelected(null)} add={add} sub={sub} qty={cart[selected.id]||1}/>}</Shell>}
-function ProductRow({p,add,setSelected,index=0}){return <article className={"menuV3Card "+(index===0?'featured':'')} onClick={()=>setSelected(p)}><div className="menuV3Photo"><img src={p.img} alt={p.name}/>{index===0&&<span>FAVORITA</span>}</div><div className="menuV3Info"><small>{p.cat}</small><h3>{p.name}</h3><p>{p.desc}</p><strong>{money(p.price)}</strong></div><button className="menuV3Plus" onClick={e=>add(p.id,e)}><Plus/></button></article>}
-function Shell({children,screen,setScreen,count}){return <div className="page">{children}<nav className="bottomNav streetNav"><button className={screen==='home'?'on':''} onClick={()=>setScreen('home')}><span className="navSketch navCrown">♕</span><span>Inicio</span></button><button className={screen==='menu'?'on':''} onClick={()=>setScreen('menu')}><span className="navSketch navBurger">☰</span><span>Menú</span></button><button className={screen==='search'?'on':''} onClick={()=>setScreen('search')}><Search className="navSketchSvg"/><span>Buscar</span></button><button className={screen==='cart'?'on':''} onClick={()=>setScreen('cart')}><ShoppingCart className="navSketchSvg navCart"/><span>Pedido</span>{count>0&&<i>{count}</i>}</button></nav></div>}
-function Detail({p,close,add,sub,qty}){return <div className="productV2">
-  <div className="pv2Photo">
-    <img src={p.img} alt={p.name}/>
-    <div className="pv2Shade"/>
-    <button className="pv2Back" onClick={close}><ArrowLeft/></button>
-    <button className="pv2Heart"><Heart/></button>
-    <div className="pv2Sticker">LA CLÁSICA<br/>NUNCA FALLA!</div>
-  </div>
-  <main className="pv2Main">
-    <div className="pv2Title"><h1>{p.name}</h1><strong>{money(p.price)}</strong></div>
-    <p className="pv2Desc">{p.desc}</p>
-    <div className="pv2Scribble">GOOD FOOD<br/><b>BAD MOOD</b></div>
-    <h2>PERSONALIZA TU HAMBURGUESA</h2>
-    <div className="pv2Options">
-      <button><span><CatIcon type="Hamburguesas"/><b>Tipo de carne</b></span><em>Normal <ChevronRight/></em></button>
-      <button><span><CatIcon type="Papas"/><b>Extras</b></span><em>0 seleccionados <ChevronRight/></em></button>
-      <button><span className="pv2SauceIcon">S</span><b>Salsas</b><em>0 seleccionadas <ChevronRight/></em></button>
-    </div>
-  </main>
-  <footer className="pv2Bar">
-    <div className="pv2Qty"><button onClick={e=>sub(p.id,e)}><Minus/></button><b>{qty}</b><button onClick={e=>add(p.id,e)}><Plus/></button></div>
-    <button className="pv2Add" onClick={e=>{add(p.id,e);close()}}>AGREGAR <span>{money(p.price)}</span></button>
-  </footer>
-</div>}
-function Cart({cart,data,add,sub,note,setNote,subtotal,delivery,total,setScreen}){const items=data.filter(p=>cart[p.id]);return <div className="cartV2">
-  <header className="cv2Head"><div><small>CASI TUYO</small><h1>TU PEDIDO</h1><p>{items.length?items.length+' antojo'+(items.length>1?'s':'')+' en la bolsa':'LA BOLSA ESTÁ PIDIENDO COMIDA'}</p></div><button onClick={()=>setScreen('home')}><X/></button></header>
-  <div className="cv2Doodle">GOOD FOOD<br/><b>GOOD MOOD</b></div>
-  {items.length>0?<section className="cv2Items">{items.map(p=><article><img src={p.img}/><div><small>{p.cat}</small><b>{p.name}</b><strong>{money(p.price)}</strong><div className="cv2MiniQty"><button onClick={e=>sub(p.id,e)}><Minus/></button><span>{cart[p.id]}</span><button onClick={e=>add(p.id,e)}><Plus/></button></div></div></article>)}</section>:<section className="cv2Empty"><span>♕</span><h2>¿NADA TODAVÍA?</h2><p>Eso se arregla con una hamburguesa.</p><button onClick={()=>setScreen('menu')}>VER MENÚ →</button></section>}
-  <label className="cv2Note"><span>NOTA PARA LA COCINA</span><textarea value={note} onChange={e=>setNote(e.target.value)} placeholder="Sin cebolla, extra salsa, bien tostado..."/></label>
-  <section className="cv2Summary"><small>RESUMEN</small><p><span>Subtotal</span><b>{money(subtotal)}</b></p><p><span>Envío</span><b>{money(delivery)}</b></p><div><span>TOTAL</span><strong>{money(total)}</strong></div></section>
-  <button className="cv2Finish" disabled={!items.length} onClick={()=>items.length&&setScreen('confirm')}><span>FINALIZAR PEDIDO</span><b>{money(total)} →</b></button>
-  <section className="cv2Upsell"><div><small>POR SI QUEDÓ HAMBRE</small><h2>AGRÉGALE ALGO</h2></div><div className="cv2UpsellGrid">{data.filter(p=>['Papas','Bebidas'].includes(p.cat)&&!cart[p.id]).slice(0,3).map(p=><article><img src={p.img}/><div><b>{p.name}</b><span>{money(p.price)}</span></div><button onClick={e=>add(p.id,e)}><Plus/></button></article>)}</div></section>
-</div>}
+
+function App(){
+ const[screen,setScreen]=useState('home'),[cat,setCat]=useState('Pollo frito'),[q,setQ]=useState(''),[cart,setCart]=useState({}),[selected,setSelected]=useState(null);
+ const add=(id,e)=>{e?.stopPropagation();setCart(c=>({...c,[id]:(c[id]||0)+1}))};
+ const sub=id=>setCart(c=>({...c,[id]:Math.max(0,(c[id]||0)-1)}));
+ const count=Object.values(cart).reduce((a,b)=>a+b,0);
+ const subtotal=products.reduce((s,p)=>s+(cart[p.id]||0)*p.price,0);
+ const filtered=useMemo(()=>products.filter(p=>(screen==='search'||p.cat===cat)&&(!q||p.name.toLowerCase().includes(q.toLowerCase())||p.cat.toLowerCase().includes(q.toLowerCase()))),[screen,cat,q]);
+ if(screen==='cart')return <Shell screen={screen} setScreen={setScreen} count={count}><Cart cart={cart} add={add} sub={sub} subtotal={subtotal} setScreen={setScreen}/></Shell>;
+ return <Shell screen={screen} setScreen={setScreen} count={count}>
+   <header className="topbar"><button><Menu/></button><div className="logo"><b>CHUCKY</b><span>CHICKEN × SUSHI</span></div><button onClick={()=>setScreen('cart')}><ShoppingBag/>{count>0&&<i>{count}</i>}</button></header>
+   {screen==='home'&&<HomePage setScreen={setScreen} setCat={setCat} add={add} setSelected={setSelected}/>}
+   {screen==='menu'&&<MenuPage cat={cat} setCat={setCat} filtered={filtered} add={add} setSelected={setSelected}/>}
+   {screen==='search'&&<SearchPage q={q} setQ={setQ} filtered={filtered} add={add} setSelected={setSelected}/>}
+   {selected&&<Detail p={selected} close={()=>setSelected(null)} add={add}/>}
+ </Shell>
+}
+function HomePage({setScreen,setCat,add,setSelected}){return <main className="content">
+ <section className="hero"><div className="heroCopy"><small>CRUNCH MEETS ROLL</small><h1>FRIED<br/><em>CHICKEN</em><br/>× SUSHI</h1><p>Dos antojos.<br/>Un solo lugar.</p><button onClick={()=>setScreen('menu')}>VER MENÚ ↗</button></div><img src={products[0].img}/><span className="stamp">CHUCKY<br/>MADE IT.</span></section>
+ <div className="switchCards"><button onClick={()=>{setCat('Pollo frito');setScreen('menu')}}><Drumstick/><span><small>CRISPY SIDE</small><b>POLLO FRITO</b></span></button><button onClick={()=>{setCat('Sushi');setScreen('menu')}}><span className="rollIcon">◉</span><span><small>FRESH SIDE</small><b>SUSHI</b></span></button></div>
+ <Title eyebrow="LOS IMPERDIBLES" title="CHUCKY PICKS"/>
+ <div className="grid">{products.slice(0,4).map((p,i)=><Card key={p.id} p={p} add={add} setSelected={setSelected} featured={i===0}/>)}</div>
+ </main>}
+function MenuPage({cat,setCat,filtered,add,setSelected}){return <main className="content menuContent">
+ <section className="menuHero"><small>¿QUÉ TOCA HOY?</small><h1>CRUNCH<br/>OR ROLL?</h1><p>Pollo brutalmente crujiente.<br/>Sushi hecho para repetir.</p></section>
+ <nav className="tabs">{cats.map(c=><button className={cat===c?'on':''} onClick={()=>setCat(c)}>{c}</button>)}</nav>
+ <Title eyebrow="ELIGE SIN MIEDO" title={cat}/>
+ <div className="grid">{filtered.map(p=><Card key={p.id} p={p} add={add} setSelected={setSelected}/>)}</div>
+ </main>}
+function SearchPage({q,setQ,filtered,add,setSelected}){return <main className="content searchPage"><Title eyebrow="ENCUENTRA TU ANTOJO" title="BUSCAR"/><label className="searchBox"><Search/><input autoFocus value={q} onChange={e=>setQ(e.target.value)} placeholder="Pollo, sushi, combo..."/></label><div className="grid">{filtered.map(p=><Card key={p.id} p={p} add={add} setSelected={setSelected}/>)}</div></main>}
+function Title({eyebrow,title}){return <div className="sectionTitle"><small>{eyebrow}</small><h2>{title}</h2></div>}
+function Card({p,add,setSelected,featured}){return <article className="foodCard" onClick={()=>setSelected(p)}><div><img src={p.img}/>{featured&&<span>CHUCKY PICK</span>}</div><small>{p.cat}</small><h3>{p.name}</h3><p>{p.desc}</p><strong>{money(p.price)}</strong><button onClick={e=>add(p.id,e)}><Plus/></button></article>}
+function Detail({p,close,add}){return <div className="detail"><div className="detailPhoto"><img src={p.img}/><button onClick={close}><ArrowLeft/></button><button className="heart"><Heart/></button></div><div className="detailBody"><small>{p.cat}</small><h1>{p.name}</h1><p>{p.desc}</p><strong>{money(p.price)}</strong><button className="bigAdd" onClick={e=>{add(p.id,e);close()}}>AGREGAR AL PEDIDO +</button></div></div>}
+function Cart({cart,add,sub,subtotal,setScreen}){const items=products.filter(p=>cart[p.id]);return <main className="content cart"><button className="close" onClick={()=>setScreen('home')}><X/></button><Title eyebrow="CASI LISTO" title="TU PEDIDO"/>{items.length?items.map(p=><article className="cartItem"><img src={p.img}/><div><small>{p.cat}</small><b>{p.name}</b><strong>{money(p.price)}</strong></div><div className="qty"><button onClick={()=>sub(p.id)}><Minus/></button><span>{cart[p.id]}</span><button onClick={e=>add(p.id,e)}><Plus/></button></div></article>):<div className="empty"><b>EMPTY?</b><p>Eso se arregla con crunch o sushi.</p><button onClick={()=>setScreen('menu')}>IR AL MENÚ</button></div>}<div className="total"><span>TOTAL</span><b>{money(subtotal)}</b></div><button className="checkout" disabled={!items.length}>FINALIZAR PEDIDO ↗</button></main>}
+function Shell({children,screen,setScreen,count}){return <div className="app"><div className="grain"/>{children}<nav className="nav"><button className={screen==='home'?'on':''} onClick={()=>setScreen('home')}><span>⌂</span><b>Inicio</b></button><button className={screen==='menu'?'on':''} onClick={()=>setScreen('menu')}><span>✦</span><b>Menú</b></button><button className={screen==='search'?'on':''} onClick={()=>setScreen('search')}><Search/><b>Buscar</b></button><button className={screen==='cart'?'on':''} onClick={()=>setScreen('cart')}><ShoppingBag/><b>Pedido</b>{count>0&&<i>{count}</i>}</button></nav></div>}
 createRoot(document.getElementById('root')).render(<App/>);
