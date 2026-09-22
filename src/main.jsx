@@ -43,37 +43,37 @@ function Topbar({setScreen,count}){return <header className="topbar topbarConcep
 
 function HomePage({setScreen,setCat,add,setSelected}){
  const go=cat=>{setCat(cat);setScreen('menu')};
- return <main className="content homeBold">
-  <section className="boldHero">
-   <img className="boldHeroImg" src={products[0].img} alt="Pollo frito y sushi"/>
-   <div className="boldHeroShade"/>
-   <div className="boldHeroCopy">
+ return <main className="content homeBold homeMockExact">
+  <section className="mockHero">
+   <img src={products[0].img} alt="Pollo frito"/>
+   <div className="mockHeroShade"/>
+   <div className="mockHeroCopy">
     <small>POLLO FRITO · SUSHI</small>
-    <h1>Pórtate mal.<br/><em>Come bien.</em></h1>
-    <span className="boldScribble" aria-hidden="true"/>
-    <p>Crujiente por un lado. Fresco por el otro.</p>
+    <h1><span>Pórtate mal.</span><em>Come bien.</em></h1>
+    <i className="mockCrown">♕</i>
+    <i className="mockStroke"/>
+    <p>Crujiente por un lado.<br/>Fresco por el otro.</p>
     <button onClick={()=>setScreen('menu')}>VER MENÚ <ChevronRight/></button>
    </div>
+   <div className="mockGood">GOOD<br/>FOOD <b>♡</b><br/>GOOD<br/>PEOPLE</div>
   </section>
 
-  <section className="boldChoices" aria-label="Elige tu antojo">
-   <button className="boldFood" onClick={()=>go('Pollo frito')}>
-    <img src={products[0].img} alt="Pollo frito"/><span className="boldFoodShade"/>
-    <span className="boldFoodIcon">◌</span>
-    <span className="boldFoodCopy"><b>POLLO FRITO</b><small>Crujiente siempre.</small></span>
+  <section className="mockChoices">
+   <button onClick={()=>go('Pollo frito')} className="mockFood">
+    <img src={products[0].img} alt="Pollo frito"/><span className="mockFoodShade"/>
+    <span className="mockFoodCopy"><small>01.</small><b>POLLO<br/>FRITO</b><i>Siempre crujiente.</i></span>
+    <span className="mockArrow">→</span>
    </button>
-   <button className="boldFood" onClick={()=>go('Sushi')}>
-    <img src={products[2].img} alt="Sushi"/><span className="boldFoodShade"/>
-    <span className="boldFoodIcon">◉</span>
-    <span className="boldFoodCopy"><b>SUSHI</b><small>Fresco siempre.</small></span>
+   <button onClick={()=>go('Sushi')} className="mockFood">
+    <img src={products[2].img} alt="Sushi"/><span className="mockFoodShade"/>
+    <span className="mockFoodCopy"><small>02.</small><b>SUSHI</b><i>Siempre fresco.</i></span>
+    <span className="mockArrow">→</span>
    </button>
   </section>
 
-  <section className="boldExplore">
+  <section className="mockExplore">
    <small>ELIGE TU ANTOJO</small>
-   <div className="boldExploreRow">
-    {['Combos','Bebidas','Salsas','Postres'].map((c,i)=><button key={c} onClick={()=>go(c)}><span>{['✦','▣','◒','♢'][i]}</span><b>{c}</b></button>)}
-   </div>
+   <div>{[['Combos','☰'],['Bebidas','▯'],['Salsas','◒'],['Postres','♧']].map(([c,ico])=><button key={c} onClick={()=>go(c)}><span>{ico}</span><b>{c}</b></button>)}</div>
   </section>
  </main>
 }
