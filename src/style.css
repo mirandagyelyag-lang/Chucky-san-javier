@@ -1017,3 +1017,26 @@ img{display:block}
 @media(min-width:768px){
   .mascotWelcomeArt{left:28px!important;bottom:12px!important;width:170px!important;height:198px!important}
 }
+
+
+/* CHUCKY HERO STICKER */
+.heroChuckyIcon{display:none}
+@media(max-width:767px){
+  .heroChuckyIcon{
+    display:block;
+    position:absolute;
+    z-index:3;
+    top:238px;
+    right:22px;
+    width:104px;
+    height:104px;
+    object-fit:cover;
+    border:2px solid #ef2d316b;
+    border-radius:25px;
+    transform:rotate(7deg);
+    box-shadow:0 14px 34px #000b,0 0 28px #ef2d312e;
+  }
+}
+@media(max-width:380px){
+  .heroChuckyIcon{top:230px;right:14px;width:88px;height:88px;border-radius:21px}
+}
