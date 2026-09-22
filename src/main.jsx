@@ -42,61 +42,51 @@ function Topbar({setScreen,count}){return <header className="topbar topbarConcep
 
 
 function HomePage({setScreen,setCat,add,setSelected}){
- const categoryCards=[
-  {label:'POLLO FRITO',note:'Crujiente y dorado',cat:'Pollo frito'},
-  {label:'SUSHI',note:'Fresco y cremoso',cat:'Sushi'},
-  {label:'COMBOS',note:'Lo mejor de ambos',cat:'Combos'},
-  {label:'BEBIDAS',note:'Para acompañar',cat:'Bebidas'}
- ];
+ const go=cat=>{setCat(cat);setScreen('menu')};
  const favorites=[products[0],products[2]];
- return <main className="content homeRedesign">
-  <section className="homeHeroNew heroV2">
-   <div className="heroCopyNew heroCopyV2">
+ return <main className="content homeRedesign homeV3">
+  <section className="homeIntroV3">
+   <div className="homeIntroCopyV3">
     <small>POLLO FRITO · SUSHI</small>
-    <h1>DEMASIADO<br/>BUENO PARA SER<br/><em>INOCENTE.</em></h1>
-    <p>Dos antojos. Una sola decisión difícil.</p>
-    <button onClick={()=>setScreen('menu')}>VER MENÚ <ChevronRight/></button>
+    <h1>EL ANTOJO<br/><em>EMPIEZA AQUÍ.</em></h1>
+    <p>Crujiente por un lado. Fresco por el otro.</p>
    </div>
-   <div className="heroVisualNew heroVisualV2">
-    <div className="heroFoodSplit">
-     <button className="heroDish heroDishChicken" onClick={()=>{setCat('Pollo frito');setScreen('menu')}} aria-label="Ver pollo frito">
-      <img src={products[0].img} alt="Pollo frito Chucky"/>
-      <span><small>01</small><b>POLLO FRITO</b><i>→</i></span>
-     </button>
-     <button className="heroDish heroDishSushi" onClick={()=>{setCat('Sushi');setScreen('menu')}} aria-label="Ver sushi">
-      <img src={products[2].img} alt="Sushi Chucky"/>
-      <span><small>02</small><b>SUSHI</b><i>→</i></span>
-     </button>
-    </div>
-    <div className="heroChoice"><span>ELIGE TU ANTOJO</span><em>CRUJIENTE O FRESCO</em></div>
-    <img className="heroApprovedSeal" src="/chucky-approved-seal.webp" alt="Aprobado por Chucky"/>
+   <button className="homeMenuCtaV3" onClick={()=>setScreen('menu')}>VER MENÚ <ChevronRight/></button>
+  </section>
+
+  <section className="foodGatewayV3" aria-label="Elige tu antojo">
+   <button className="gatewayCardV3 gatewayChickenV3" onClick={()=>go('Pollo frito')}>
+    <img src={products[0].img} alt="Pollo frito"/>
+    <span className="gatewayShadeV3"/>
+    <span className="gatewayCopyV3"><small>01 · CRUJIENTE</small><b>POLLO<br/>FRITO</b><i>VER →</i></span>
+   </button>
+   <button className="gatewayCardV3 gatewaySushiV3" onClick={()=>go('Sushi')}>
+    <img src={products[2].img} alt="Sushi"/>
+    <span className="gatewayShadeV3"/>
+    <span className="gatewayCopyV3"><small>02 · FRESCO</small><b>SUSHI</b><i>VER →</i></span>
+   </button>
+   <img className="gatewaySealV3" src="/chucky-approved-seal.webp" alt="Aprobado por Chucky"/>
+  </section>
+
+  <section className="quickCategoriesV3">
+   <div className="sectionTitleV3"><div><small>DIRECTO AL ANTOJO</small><h2>¿QUÉ VAS A PEDIR?</h2></div></div>
+   <div className="quickRowV3">
+    {['Pollo frito','Sushi','Combos','Bebidas'].map((c,i)=><button key={c} onClick={()=>go(c)}><span>{String(i+1).padStart(2,'0')}</span><b>{c}</b><i>→</i></button>)}
    </div>
   </section>
 
-  <section className="categorySectionNew">
-   <div className="sectionHeadNew"><div><small>ELIGE TU ANTOJO</small><h2>¿QUÉ VAS A PEDIR?</h2></div><span>04 categorías</span></div>
-   <div className="categoryGridNew">
-    {categoryCards.map((item,index)=><button key={item.label} onClick={()=>{setCat(item.cat);setScreen('menu')}}>
-     <small>{String(index+1).padStart(2,'0')}</small>
-     <span><b>{item.label}</b><em>{item.note}</em></span>
-     <i>→</i>
-    </button>)}
-   </div>
-  </section>
-
-  <section className="favoritesNew">
-   <div className="sectionHeadNew"><div><small>APROBADOS POR CHUCKY</small><h2>LOS FAVORITOS</h2></div><button onClick={()=>setScreen('menu')}>VER TODOS <ChevronRight/></button></div>
-   <div className="favoriteListNew">
+  <section className="favoritesV3">
+   <div className="sectionTitleV3 sectionTitleActionV3"><div><small>LOS QUE NO FALLAN</small><h2>FAVORITOS</h2></div><button onClick={()=>setScreen('menu')}>VER TODO</button></div>
+   <div className="favoriteGridV3">
     {favorites.map(p=><article key={p.id} onClick={()=>setSelected(p)}>
      <img src={p.img} alt={p.name}/>
-     <div><small>{p.cat}</small><h3>{p.name}</h3><p>{p.desc}</p><strong>{money(p.price)}</strong></div>
+     <div><small>{p.cat}</small><h3>{p.name}</h3><strong>{money(p.price)}</strong></div>
      <button onClick={e=>add(p.id,e)} aria-label={'Agregar '+p.name}><Plus/></button>
     </article>)}
    </div>
   </section>
  </main>
 }
-
 function MenuPage({cat,setCat,filtered,add,setSelected}){return <main className="content menuContent">
  <section className="menuIntro">
   <div><small>PARA TODOS LOS ANTOJOS</small><h1>ELIGE<br/><em>TU FAVORITO.</em></h1><p>Pollo crujiente, sushi fresco y sin tanta vuelta.</p></div>
