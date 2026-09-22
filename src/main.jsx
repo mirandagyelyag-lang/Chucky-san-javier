@@ -45,7 +45,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
  const go=cat=>{setCat(cat);setScreen('menu')};
  return <main className="content homeBold homeMockExact">
   <section className="mockHero">
-   <img src="/chucky-pollo-hero.png" alt="Pollo frito Chucky"/>
+   <img src="/chucky-pollo-hero.png" alt="Pollo frito Chucky" loading="eager" fetchPriority="high" decoding="async"/>
    <div className="mockHeroShade"/>
    <div className="mockHeroCopy">
     <small>POLLO FRITO · SUSHI</small>
