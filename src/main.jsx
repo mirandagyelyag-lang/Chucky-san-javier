@@ -44,12 +44,23 @@ function HomePage({setScreen,setCat,add,setSelected}){return <main className="co
   <div className="heroShade"/>
   <div className="heroKicker">CHUCKY · STREET KITCHEN</div>
   <div className="heroText"><small>CRISPY × FRESH</small><h1>POLLO FRITO<br/><em>+ SUSHI</em></h1><p>Dos antojos. Una sola parada.</p><button onClick={()=>setScreen('menu')}>VER MENÚ <ChevronRight/></button></div>
-  <div className="heroSeal">GOOD<br/>FOOD<br/><b>GOOD MOOD</b></div>
+ </section>
+
+ <section className="tasteStrip">
+  <span>GOOD FOOD</span><i/> <span>GOOD MOOD</span><i/> <span>HECHO PARA REPETIR</span>
  </section>
 
  <section className="dualPick">
-  <button onClick={()=>{setCat('Pollo frito');setScreen('menu')}}><div className="pickIcon"><Drumstick/></div><span><small>HOT & CRISPY</small><b>POLLO FRITO</b></span><ChevronRight/></button>
-  <button onClick={()=>{setCat('Sushi');setScreen('menu')}}><div className="pickIcon roll">寿</div><span><small>FRESH & ROLLED</small><b>SUSHI</b></span><ChevronRight/></button>
+  <button className="photoPick" onClick={()=>{setCat('Pollo frito');setScreen('menu')}}>
+    <img src={products[0].img}/>
+    <div className="pickShade"/>
+    <span><small>HOT & CRISPY</small><b>POLLO FRITO</b></span><ChevronRight/>
+  </button>
+  <button className="photoPick" onClick={()=>{setCat('Sushi');setScreen('menu')}}>
+    <img src={products[2].img}/>
+    <div className="pickShade"/>
+    <span><small>FRESH & ROLLED</small><b>SUSHI</b></span><ChevronRight/>
+  </button>
  </section>
 
  <Headline kicker="LOS QUE NO FALLAN" title="CHUCKY PICKS" note="Elige tu favorito o mezcla los dos mundos."/>
