@@ -70,16 +70,17 @@ function HomePage({setScreen,setCat,add,setSelected}){
    </button>
   </section>
 
-  <section className="mockExplore">
-   <div className="exploreHead"><div><small>ELIGE</small><h2>¿Qué se te antoja?</h2></div><p>El complemento<br/>perfecto también cuenta.</p></div>
-   <div className="exploreGrid">{[
-    ['03.','Combos','Para compartir.','⌁'],
-    ['04.','Bebidas','Bien heladas.','▯'],
-    ['05.','Salsas','El toque final.','◒'],
-    ['06.','Postres','Algo dulce.','♧']
-   ].map(([n,c,sub,ico])=><button key={c} onClick={()=>go(c)}>
-      <span className="exploreNum">{n}</span><span className="exploreIcon">{ico}</span>
-      <span className="exploreCopy"><b>{c}</b><i>{sub}</i></span><span className="exploreArrow">→</span>
+  <section className="mockExplore exploreEditorial">
+   <div className="exploreHead"><div><small>ELIGE</small><h2>¿Qué se te antoja?</h2></div></div>
+   <div className="exploreList">{[
+    ['03','Combos','Para compartir.'],
+    ['04','Bebidas','Bien heladas.'],
+    ['05','Salsas','El toque final.'],
+    ['06','Postres','Algo dulce.']
+   ].map(([n,c,sub])=><button key={c} onClick={()=>go(c)}>
+      <span className="exploreNum">{n}</span>
+      <span className="exploreCopy"><b>{c}</b><i>{sub}</i></span>
+      <span className="exploreArrow">→</span>
    </button>)}</div>
   </section>
  </main>
