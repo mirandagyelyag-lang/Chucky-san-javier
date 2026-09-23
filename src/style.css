@@ -3246,3 +3246,24 @@ body:has(.searchRedesign02),body:has(.searchRedesign02) #root,body:has(.searchRe
    box-sizing:border-box!important;
  }
 }
+
+/* Three-action bottom nav: compact width after removing Search */
+.chuckyNav{
+ grid-template-columns:repeat(3,minmax(0,1fr))!important;
+ left:64px!important;
+ right:64px!important;
+ height:60px!important;
+ padding:0 6px!important;
+ border-radius:23px!important;
+}
+.chuckyNav>button{
+ height:50px!important;
+ padding:4px 2px 3px!important;
+}
+@media(max-width:380px){
+ .chuckyNav{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  left:52px!important;
+  right:52px!important;
+ }
+}
