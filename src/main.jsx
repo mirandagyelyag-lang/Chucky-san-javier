@@ -35,7 +35,7 @@ function App(){
 function Topbar({setScreen,count}){return <header className="topbar topbarConcept editorialTopbar">
  <span className="editorialHeaderSpacer" aria-hidden="true"></span>
  <button className="brand brandConcept editorialBrand" onClick={()=>setScreen('home')}>
-  <span className="brandMascot"><img src="/chucky-approved-seal.webp" alt=""/></span>
+  <span className="brandMascot"><img src="/chucky-nuevo.png" alt=""/></span>
   <div className="brandWords"><b>CHUCKY</b><small>POLLO FRITO · SUSHI</small></div>
  </button>
  <div className="topActions editorialActions">
@@ -78,7 +78,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
   <section className="editorialBrandFooter" onClick={()=>setScreen('menu')} aria-label="Ver menú">
    <div className="editorialBrandFooterMark">
     <small>ONDE EL</small>
-    <div className="editorialBrandSignature"><strong>Chucky</strong><img src="/chucky-approved-seal.webp" alt=""/></div>
+    <div className="editorialBrandSignature"><strong>Chucky</strong><img src="/chucky-nuevo.png" alt=""/></div>
     <i aria-hidden="true"></i>
    </div>
    <p>POLLO <span>•</span> SUSHI <span>•</span> BUEN MOMENTO</p>
@@ -175,7 +175,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
   }finally{setSending(false)}
  };
  if(sent)return <main className="content cart orderSuccess">
-  <div className="successMark"><img src="/chucky-approved-seal.webp" alt="Chucky"/></div>
+  <div className="successMark"><img src="/chucky-nuevo.png" alt="Chucky"/></div>
   <small>PEDIDO ENVIADO</small>
   <h1>¡RECIBIDO!</h1>
   <p>El pedido fue enviado al negocio. Te contactaremos al teléfono indicado para confirmarlo.</p>
