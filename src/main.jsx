@@ -46,10 +46,10 @@ function Topbar({setScreen,count}){return <header className="topbar topbarConcep
 function HomePage({setScreen,setCat,add,setSelected}){
  const go=cat=>{setCat(cat);setScreen('menu')};
  const categoryItems=[
-  ['Sushi','ROLLS, HANDROLLS Y MÁS.',products.find(p=>p.cat==='Sushi').img,'Sushi'],
-  ['Pollo frito','PIEZAS, ALITAS Y COMBOS.',products[0].img,'Pollo frito'],
-  ['Bebidas','PARA ACOMPAÑAR.',products.find(p=>p.cat==='Bebidas').img,'Bebidas'],
-  ['Salsas','EL TOQUE FINAL.',products.find(p=>p.cat==='Salsas').img,'Salsas']
+  ['Sushi','ROLLS, HANDROLLS Y MÁS.','/sushi-principal.png','Sushi'],
+  ['Pollo frito','PIEZAS, ALITAS Y COMBOS.','/pollo-frito-principal.png','Pollo frito'],
+  ['Bebidas','PARA ACOMPAÑAR.','/bebidas-principal.png','Bebidas'],
+  ['Salsas','EL TOQUE FINAL.','/salsas-principal.png','Salsas']
  ];
  const favorites=[products[0],products[2],products[4],products[3]];
  return <main className="content homeEditorial homeSales exactHome">
