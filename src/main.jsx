@@ -105,12 +105,27 @@ function MenuPage({cat,setCat,filtered,add,setSelected}){return <main className=
  <div className="menuTitle02"><div><small>MENÚ CHUCKY</small><h2>{cat}</h2></div><p>{filtered.length} opciones disponibles</p></div>
  <div className="menuList menuList02">{filtered.map((p,i)=><Card key={p.id} p={p} add={add} setSelected={setSelected} featured={i===0} wide/>)}</div>
  </main>}
-function SearchPage({q,setQ,filtered,add,setSelected}){return <main className="content searchPage">
- <Headline kicker="BUSCA SIN DAR VUELTAS" title="¿QUÉ SE TE ANTOJA?" note="Pollo, sushi, combo o bebida."/>
- <label className="searchBox"><Search/><input autoFocus value={q} onChange={e=>setQ(e.target.value)} placeholder="Escribe aquí..."/>{q&&<button onClick={()=>setQ('')}><X/></button>}</label>
- <div className="searchCount">{q?filtered.length+' resultados para “'+q+'”':'TODOS LOS SABORES'}</div>
- <div className="menuList">{filtered.map((p,i)=><Card key={p.id} p={p} add={add} setSelected={setSelected} wide={i%3===0}/>)}</div>
- </main>}
+function SearchPage({q,setQ,filtered,add,setSelected}){
+ const[searchCat,setSearchCat]=useState('Todo');
+ const visible=filtered.filter(p=>searchCat==='Todo'||p.cat===searchCat);
+ return <main className="content searchPage searchRedesign02">
+  <section className="searchIntro02">
+   <small>BUSCAR</small>
+   <div className="searchIntroRow02"><h1>¿QUÉ SE TE<br/>ANTOJA?</h1><p>POLLO<br/>SUSHI<br/>COMBOS<br/>BEBIDAS</p></div>
+  </section>
+  <label className="searchBox02"><Search/><input autoFocus value={q} onChange={e=>setQ(e.target.value)} placeholder="Buscar pollo, sushi, combos..."/>{q&&<button onClick={()=>setQ('')} aria-label="Limpiar búsqueda"><X/></button>}</label>
+  <nav className="searchFilters02">
+   {['Todo','Pollo frito','Sushi','Bebidas'].map((c,i)=><button key={c} className={searchCat===c?'on':''} onClick={()=>setSearchCat(c)}>
+    <span>{i===0?'▦':i===1?'♧':i===2?'▣':'▱'}</span>{c==='Pollo frito'?'Pollo':c}
+   </button>)}
+  </nav>
+  <div className="searchSectionHead02"><b>{q?'RESULTADOS':'PRODUCTOS DESTACADOS'}</b><span>{visible.length} {visible.length===1?'producto':'productos'}</span></div>
+  <div className="searchResults02">
+   {visible.map((p,i)=><Card key={p.id} p={p} add={add} setSelected={setSelected} featured={!q&&searchCat==='Todo'&&i===0} wide/>)}
+   {!visible.length&&<div className="searchEmpty02"><Search/><b>NO ENCONTRAMOS ESO.</b><p>Prueba con otro nombre o categoría.</p></div>}
+  </div>
+ </main>
+}
 
 function Headline({kicker,title,note}){return <div className="headline"><small>{kicker}</small><div><h2>{title}</h2>{note&&<p>{note}</p>}</div></div>}
 
