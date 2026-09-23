@@ -34,7 +34,7 @@ function App(){
 }
 
 function Topbar({setScreen,count}){return <header className="topbar topbarConcept editorialTopbar">
- <span className="editorialHeaderSpacer" aria-hidden="true"></span>
+ <button className="heroMenuBtn" aria-label="Abrir menú" onClick={()=>setScreen('menu')}><Menu/></button>
  <button className="brand brandConcept editorialBrand cleanChuckyBrand" onClick={()=>setScreen('home')} aria-label="Chucky · Pollo frito y sushi">
   <img className="chuckyHeaderTransparent" src="/chucky-header.png" alt="Chucky · Pollo frito x sushi"/>
  </button>
@@ -57,8 +57,8 @@ function HomePage({setScreen,setCat,add,setSelected}){
    <img src="/chucky-pollo-hero.png" alt="Pollo frito y sushi Chucky" loading="eager" fetchPriority="high"/>
    <div className="editorialHeroShade"/>
    <div className="editorialHeroCopy">
-    <small>DOS ANTOJOS. UN SOLO CHUCKY.</small>
-    <h1>Pollo frito<br/>y sushi.</h1><span className="editorialStroke"/>
+    <small>DOS ANTOJOS.<br/>UN SOLO CHUCKY.</small>
+    <h1>Pollo frito<br/>y sushi.</h1><span className="editorialStroke"/><span className="heroCrown" aria-hidden="true">♛</span><span className="heroSideNote">MISMAS GANAS.<br/>MEJOR COMIDA.</span>
     <p>MITAD CRUJIENTE<br/>MITAD FRESCO<br/>100% CHUCKY</p>
     <button onClick={()=>setScreen('menu')}>Haz tu pedido <span>→</span></button>
    </div>
