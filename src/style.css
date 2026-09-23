@@ -2890,3 +2890,28 @@ body:has(.homeEditorial) #root{
  .chuckyNavSignature strong{font-size:30px}
  .chuckyNavSignature span{font-size:11px}
 }
+
+/* NAV 03 — restrained Torii / Japanese signature */
+.chuckyNav .toriiSignature{
+ width:72px!important;height:90px!important;margin-top:-27px!important;
+ gap:0!important;justify-content:center!important;
+}
+.chuckyNav .toriiSignature:before{display:none!important}
+.chuckyNav .toriiSignature .toriiMark{
+ display:block!important;margin:0 0 0!important;
+ font-family:serif!important;font-size:28px!important;font-weight:800!important;line-height:.85!important;
+ letter-spacing:-.12em!important;color:#e53238!important;
+ transform:scaleX(1.12)!important;
+}
+.chuckyNav .toriiSignature strong{
+ margin:5px 0 0!important;
+ font-family:'Noto Sans JP','Noto Sans CJK JP',sans-serif!important;
+ font-size:12px!important;font-style:normal!important;font-weight:800!important;
+ line-height:1!important;letter-spacing:.04em!important;color:#e53238!important;
+ transform:none!important;white-space:nowrap!important;
+}
+.chuckyNav .toriiSignature>span:last-child{
+ margin-top:5px!important;
+ font-family:inherit!important;font-size:7px!important;font-style:normal!important;font-weight:700!important;
+ line-height:1!important;letter-spacing:.24em!important;color:#b6a69b!important;
+}
