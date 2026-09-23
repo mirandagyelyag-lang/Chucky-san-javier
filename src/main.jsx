@@ -32,7 +32,7 @@ function App(){
 }
 
 function Topbar({setScreen,count}){return <header className="topbar topbarConcept editorialTopbar">
- <button className="editorialMenuBtn" onClick={()=>setScreen('menu')} aria-label="Abrir menú"><Menu/></button>
+ <span className="editorialHeaderSpacer" aria-hidden="true"></span>
  <button className="brand brandConcept editorialBrand" onClick={()=>setScreen('home')}>
   <span className="brandMascot"><img src="/chucky-app-icon.webp" alt=""/></span>
   <div className="brandWords"><b>CHUCKY</b><small>POLLO FRITO · SUSHI</small></div>
