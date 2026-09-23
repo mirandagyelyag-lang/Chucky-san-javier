@@ -2726,3 +2726,24 @@ body:has(.homeEditorial) .editorialActions{
    letter-spacing:.38em!important;color:#a89889!important;
  }
 }
+
+/* Home must be allowed to extend past the viewport: app shell previously clipped the footer */
+body:has(.homeEditorial) .app{
+ overflow:visible!important;
+ min-height:100dvh!important;
+ height:auto!important;
+ padding-bottom:0!important;
+}
+body:has(.homeEditorial),
+body:has(.homeEditorial) #root{
+ overflow-x:hidden!important;
+ overflow-y:visible!important;
+ height:auto!important;
+}
+@media(max-width:767px){
+ body:has(.homeEditorial) .homeEditorial .editorialBrandFooter{
+   display:flex!important;
+   visibility:visible!important;
+   opacity:1!important;
+ }
+}
