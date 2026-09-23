@@ -46,34 +46,29 @@ function Topbar({setScreen,count}){return <header className="topbar topbarConcep
 function HomePage({setScreen,setCat,add,setSelected}){
  const go=cat=>{setCat(cat);setScreen('menu')};
  const categoryItems=[
-  ['Sushi','Rolls, handrolls y más.',products.find(p=>p.cat==='Sushi').img,'Sushi'],
-  ['Pollo frito','Piezas, alitas y combos.',products[0].img,'Pollo frito'],
-  ['Bebidas','Para acompañar.',products.find(p=>p.cat==='Bebidas').img,'Bebidas'],
-  ['Salsas','El toque final.',products.find(p=>p.cat==='Salsas').img,'Salsas']
+  ['Sushi','ROLLS, HANDROLLS Y MÁS.',products.find(p=>p.cat==='Sushi').img,'Sushi'],
+  ['Pollo frito','PIEZAS, ALITAS Y COMBOS.',products[0].img,'Pollo frito'],
+  ['Bebidas','PARA ACOMPAÑAR.',products.find(p=>p.cat==='Bebidas').img,'Bebidas'],
+  ['Salsas','EL TOQUE FINAL.',products.find(p=>p.cat==='Salsas').img,'Salsas']
  ];
  const favorites=[products[0],products[2],products[4],products[3]];
- return <main className="content homeEditorial homeSales">
-  <section className="editorialHero salesHero">
-   <img src="/chucky-hero.png?v=d0d4f229" alt="Pollo frito y sushi Chucky" loading="eager" fetchPriority="high"/>
-   <div className="editorialHeroShade"/>
-   <div className="editorialHeroCopy">
-    <small>DOS ANTOJOS.<br/>UN SOLO CHUCKY.</small>
-    <h1>Pollo frito<br/>y sushi.</h1><span className="editorialStroke"/><span className="heroCrown" aria-hidden="true">♛</span><span className="heroSideNote">MISMAS GANAS.<br/>MEJOR COMIDA.</span>
-    <p>MITAD CRUJIENTE<br/>MITAD FRESCO<br/>100% CHUCKY</p>
-    <button className="heroOrderPill" onClick={()=>setScreen('menu')}><span className="heroOrderText">Haz tu pedido</span><span className="heroOrderCircle">→</span></button>
-   </div>
+ return <main className="content homeEditorial homeSales exactHome">
+  <section className="exactHero">
+   <img className="exactHeroImg" src="/chucky-hero.png?v=exact2" alt="Pollo frito y sushi Chucky"/>
+   <div className="exactHeroShade"/>
+   <button className="exactMenu" onClick={()=>setScreen('menu')} aria-label="Menú"><Menu/></button>
+   <img className="exactLogo" src="/chucky-header.png" alt="Chucky"/>
+   <button className="exactCart" onClick={()=>setScreen('cart')} aria-label="Pedido"><Bag/></button>
+   <div className="exactCopy"><small>DOS ANTOJOS.<br/>UN SOLO CHUCKY.</small><h1>Pollo frito<br/>y sushi.</h1><i></i><p>MITAD CRUJIENTE<br/>MITAD FRESCO<br/>100% CHUCKY</p><button onClick={()=>setScreen('menu')}>Haz tu pedido <span>→</span></button></div>
+   <b className="exactCrown">♛</b><em className="exactNote">MISMAS GANAS.<br/>MEJOR COMIDA.</em>
   </section>
-  <section className="quickShop">
-   <div className="quickTitle"><div><h2>¿Qué vas a pedir?</h2><p>TODO A UN TOQUE.</p></div></div>
-   <div className="quickGrid">{categoryItems.map(([name,sub,img,target])=><button key={name} className="quickCard" onClick={()=>go(target)}>
-    <img src={img} alt={name}/><span className="quickShade"/><span className="quickCopy"><b>{name}</b><small>{sub}</small></span><i>→</i>
-   </button>)}</div>
+  <section className="exactShop">
+   <div className="exactTitle"><h2>¿Qué vas a pedir?<b>⌁</b></h2><p>TODO A UN TOQUE.</p></div>
+   <div className="exactGrid">{categoryItems.map(([name,sub,img,target])=><button key={name} className="exactCat" onClick={()=>go(target)}><img src={img} alt={name}/><i></i><span><strong>{name}</strong><small>{sub}</small></span><b>→</b></button>)}</div>
   </section>
-  <section className="homeFavorites">
-   <div className="favoritesHead"><h2>Los más pedidos <span>♛</span></h2><button onClick={()=>setScreen('menu')}>Ver todos&nbsp; →</button></div>
-   <div className="favoritesRail">{favorites.map(p=><article className="favoriteMini" key={p.id} onClick={()=>setSelected(p)}>
-    <img src={p.img} alt={p.name}/><div><b>{p.name}</b><span>{money(p.price)}</span></div><button onClick={e=>add(p.id,e)} aria-label={'Agregar '+p.name}>+</button>
-   </article>)}</div>
+  <section className="exactFav">
+   <div className="exactFavHead"><h2>Los más pedidos <b>♛</b></h2><button onClick={()=>setScreen('menu')}>Ver todos&nbsp; →</button></div>
+   <div className="exactFavGrid">{favorites.map((p,i)=><article className="exactProduct" key={p.id} onClick={()=>setSelected(p)}>{i===0&&<em>MÁS PEDIDO</em>}<img src={p.img} alt={p.name}/><strong>{p.name}</strong><span>{money(p.price)}</span><button onClick={e=>add(p.id,e)}>+</button></article>)}</div>
   </section>
  </main>
 }
