@@ -70,18 +70,14 @@ function HomePage({setScreen,setCat,add,setSelected}){
    </button>
   </section>
 
-  <section className="mockExplore exploreEditorial">
-   <div className="exploreHead"><div><small>ELIGE</small><h2>¿Qué se te antoja?</h2></div></div>
-   <div className="exploreList">{[
-    ['03','Combos','Para compartir.'],
-    ['04','Bebidas','Bien heladas.'],
-    ['05','Salsas','El toque final.'],
-    ['06','Postres','Algo dulce.']
-   ].map(([n,c,sub])=><button key={c} onClick={()=>go(c)}>
-      <span className="exploreNum">{n}</span>
-      <span className="exploreCopy"><b>{c}</b><i>{sub}</i></span>
-      <span className="exploreArrow">→</span>
-   </button>)}</div>
+  <section className="mockExplore packagingExplore">
+   <div className="packStage">
+    <button className="pack packCombo" onClick={()=>go('Combos')}><span className="packBrand">CHUCKY</span><span className="packCopy"><b>Combos</b><i>Para compartir.</i></span><span className="packArrow">→</span></button>
+    <button className="pack packDrink" onClick={()=>go('Bebidas')}><span className="packRim"></span><span className="packStraw"></span><span className="packCopy"><b>Bebidas</b><i>Bien heladas.</i></span><span className="packArrow">→</span></button>
+    <button className="pack packSauce" onClick={()=>go('Salsas')}><span className="packLid"></span><span className="packCopy"><b>Salsas</b><i>El toque final.</i></span><span className="packArrow">→</span></button>
+    <button className="pack packDessert" onClick={()=>go('Postres')}><span className="packBrand">CHUCKY</span><span className="packCopy"><b>Postres</b><i>Algo dulce.</i></span><span className="packArrow">→</span></button>
+   </div>
+   <p className="packFooter">COMIDA REAL <span></span> PARA DÍAS REALES.</p>
   </section>
  </main>
 }
