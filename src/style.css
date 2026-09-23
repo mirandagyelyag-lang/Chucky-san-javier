@@ -3562,3 +3562,32 @@ main.cartSmart.cartSmartEmpty:after{
 }
 
 /* deploy retry 2026-09-23: Pedido background */
+
+
+/* NUEVO CHUCKY — logo horizontal responsive */
+.topbar.topbarConcept .editorialBrand{
+  width:min(56vw,310px)!important;
+  max-width:calc(100% - 118px)!important;
+  height:auto!important;
+  overflow:visible!important;
+  transform:none!important;
+}
+.topbar.topbarConcept .chuckyNewHeaderLogo{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-height:78px!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+@media(max-width:420px){
+  .topbar.topbarConcept .editorialBrand{
+    width:min(58vw,260px)!important;
+    max-width:calc(100% - 92px)!important;
+  }
+  .topbar.topbarConcept .chuckyNewHeaderLogo{max-height:68px!important}
+}
