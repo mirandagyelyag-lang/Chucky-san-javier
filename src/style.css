@@ -3965,3 +3965,43 @@ body:has(.exactHome) .chuckyNav button.on svg{color:#ef2437!important}
  body:has(.exactHome) .exactShop{padding:20px 26px 9px!important}
  body:has(.exactHome) .exactFav{padding:11px 26px 4px!important}
 }
+
+
+/* HERO POLISH — food-forward composition */
+.exactHeroShade{
+  background:linear-gradient(90deg,rgba(5,4,3,.72) 0%,rgba(5,4,3,.35) 46%,rgba(5,4,3,.04) 78%),linear-gradient(180deg,rgba(0,0,0,.20),transparent 30%,rgba(0,0,0,.04))!important;
+}
+.exactCopy>button{
+  width:166px!important;
+  height:43px!important;
+  padding:0 14px 0 17px!important;
+  font-size:16px!important;
+}
+.exactCopy>button span{font-size:23px!important}
+.exactCrown{
+  left:66%!important;
+  top:143px!important;
+  font-size:36px!important;
+}
+.exactNote{
+  right:17px!important;
+  top:114px!important;
+  font-size:6px!important;
+  line-height:1.12!important;
+}
+.exactCat>span{
+  bottom:12px!important;
+  gap:2px!important;
+}
+.exactCat strong{
+  line-height:1!important;
+  margin:0!important;
+}
+.exactCat small{
+  display:block!important;
+  line-height:1.15!important;
+  margin:0!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
