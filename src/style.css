@@ -3591,3 +3591,52 @@ main.cartSmart.cartSmartEmpty:after{
   }
   .topbar.topbarConcept .chuckyNewHeaderLogo{max-height:68px!important}
 }
+
+
+/* HEADER CHUCKY FINAL — asset completo, sin recorte ni reconstrucción */
+body:has(.homeEditorial) .topbar.editorialTopbar,
+.topbar.topbarConcept.editorialTopbar{
+  min-height:112px!important;
+  height:112px!important;
+  padding:10px 18px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+.topbar.topbarConcept .editorialBrand{
+  position:static!important;
+  left:auto!important;
+  top:auto!important;
+  translate:none!important;
+  transform:none!important;
+  margin:0!important;
+  padding:0!important;
+  width:min(72vw,430px)!important;
+  max-width:calc(100% - 82px)!important;
+  height:92px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+.topbar.topbarConcept .chuckyNewHeaderLogo{
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:center!important;
+}
+body:has(.homeEditorial) .editorialActions,
+.topbar.topbarConcept .editorialActions{
+  position:absolute!important;
+  right:18px!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+}
+@media(max-width:420px){
+  body:has(.homeEditorial) .topbar.editorialTopbar,
+  .topbar.topbarConcept.editorialTopbar{height:104px!important;min-height:104px!important;padding:8px 12px!important}
+  .topbar.topbarConcept .editorialBrand{width:72vw!important;max-width:calc(100% - 72px)!important;height:84px!important}
+  body:has(.homeEditorial) .editorialActions,
+  .topbar.topbarConcept .editorialActions{right:12px!important}
+}
