@@ -54,7 +54,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
  const favorites=[products[0],products[2],products[4],products[3]];
  return <main className="content homeEditorial homeSales">
   <section className="editorialHero salesHero">
-   <img src="/chucky-pollo-hero.png" alt="Pollo frito y sushi Chucky" loading="eager" fetchPriority="high"/>
+   <img src="/chucky-hero.png" alt="Pollo frito y sushi Chucky" loading="eager" fetchPriority="high"/>
    <div className="editorialHeroShade"/>
    <div className="editorialHeroCopy">
     <small>DOS ANTOJOS.<br/>UN SOLO CHUCKY.</small>
