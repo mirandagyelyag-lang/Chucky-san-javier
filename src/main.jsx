@@ -77,7 +77,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
   <section className="editorialBrandFooter" onClick={()=>setScreen('menu')} aria-label="Ver menú">
    <div className="editorialBrandFooterMark">
     <small>ONDE EL</small>
-    <div><strong>Chucky</strong><img src="/chucky-approved-seal.webp" alt=""/></div>
+    <div className="editorialBrandSignature"><strong>Chucky</strong><img src="/chucky-approved-seal.webp" alt=""/></div>
     <i aria-hidden="true"></i>
    </div>
    <p>POLLO <span>•</span> SUSHI <span>•</span> BUEN MOMENTO</p>
