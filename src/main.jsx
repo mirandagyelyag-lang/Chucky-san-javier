@@ -26,7 +26,7 @@ function App(){
  const filtered=useMemo(()=>products.filter(p=>p.cat===cat),[cat]);
  if(screen==='cart')return <Shell screen={screen} setScreen={setScreen} count={count}><Cart cart={cart} setCart={setCart} add={add} sub={sub} subtotal={subtotal} setScreen={setScreen}/></Shell>;
  return <Shell screen={screen} setScreen={setScreen} count={count}>
-  <Topbar setScreen={setScreen} count={count}/>
+  {screen!=='home'&&<Topbar setScreen={setScreen} count={count}/>}
   {screen==='home'&&<HomePage setScreen={setScreen} setCat={setCat} add={add} setSelected={setSelected}/>}
   {screen==='menu'&&<MenuPage cat={cat} setCat={setCat} filtered={filtered} add={add} setSelected={setSelected}/>}
   {selected&&<Detail p={selected} close={()=>setSelected(null)} add={add}/>}
