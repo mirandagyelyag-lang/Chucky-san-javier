@@ -74,8 +74,13 @@ function HomePage({setScreen,setCat,add,setSelected}){
    </div>
   </section>
 
-  <section className="editorialTicket" onClick={()=>setScreen('menu')}>
-   <b>CHUCKY</b><span></span><p>BUENA COMIDA<br/><strong>MEJORES MOMENTOS</strong></p><i aria-hidden="true"></i>
+  <section className="editorialBrandFooter" onClick={()=>setScreen('menu')} aria-label="Ver menú">
+   <div className="editorialBrandFooterMark">
+    <small>ONDE EL</small>
+    <div><strong>Chucky</strong><img src="/chucky-approved-seal.webp" alt=""/></div>
+    <i aria-hidden="true"></i>
+   </div>
+   <p>POLLO <span>•</span> SUSHI <span>•</span> BUEN MOMENTO</p>
   </section>
  </main>
 }
