@@ -2969,3 +2969,14 @@ body:has(.homeEditorial) #root{
  margin:3px 0 0!important;font-size:10px!important;font-weight:700!important;
  letter-spacing:.08em!important;color:#d92f35!important;
 }
+
+/* Purchase-first nav: only four essential actions */
+.chuckyNav{
+ grid-template-columns:repeat(4,minmax(0,1fr))!important;
+ height:72px!important;
+ padding:0 10px!important;
+}
+.chuckyNav>button{height:58px!important;gap:4px!important}
+.chuckyNav>button svg{width:21px!important;height:21px!important}
+.chuckyNav>button b{font-size:9px!important}
+@media(max-width:380px){.chuckyNav{grid-template-columns:repeat(4,minmax(0,1fr))!important}}
