@@ -3008,3 +3008,47 @@ body:has(.homeEditorial) #root{
  width:3px!important;
  height:3px!important;
 }
+
+/* MENU — approved concept: 02 highlighted cards + 01 header */
+.menuRedesign02{background:#0a0706!important;color:#f5eee7!important;padding-bottom:110px!important}
+.menuRedesign02 .menuHero02{position:relative;height:250px;overflow:hidden;border-radius:0 0 28px 28px;background:#090605}
+.menuHero02>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:64% 48%;filter:saturate(.92) contrast(1.08)}
+.menuHero02Shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,4,3,.96) 0%,rgba(6,4,3,.82) 37%,rgba(6,4,3,.25) 68%,rgba(6,4,3,.12) 100%)}
+.menuHero02Copy{position:absolute;left:24px;top:43px;z-index:2}
+.menuHero02Copy small{font-size:8px;font-weight:800;letter-spacing:.28em;color:#e5d9d0}
+.menuHero02Copy h1{margin:10px 0 0;font-family:Impact,'Arial Narrow',sans-serif;font-size:72px;line-height:.86;letter-spacing:-.025em;color:#f5eee7}
+.menuHero02Copy i{display:block;width:118px;height:4px;margin:12px 0 14px;background:#e7333a;transform:rotate(-3deg);border-radius:50%}
+.menuHero02Copy p{margin:0;font-size:10px;font-weight:700;line-height:1.7;letter-spacing:.17em;color:#eee2d8}
+.menuHero02Note{position:absolute;z-index:2;right:21px;top:29px;text-align:right;font-size:10px;font-weight:800;font-style:italic;line-height:1.15;letter-spacing:.08em;color:#eee3db;transform:rotate(-7deg)}
+.menuTabs02{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;padding:14px 16px 7px;background:#0a0706}
+.menuTabs02 button{height:72px;border:1px solid rgba(213,190,174,.22);border-radius:16px;background:#110d0b;color:#bcaea4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.menuTabs02 button span{font-size:19px;line-height:1}
+.menuTabs02 button b{font-size:8px;font-weight:800;white-space:nowrap}
+.menuTabs02 button.on{background:linear-gradient(145deg,#e8353b,#bd1f25);border-color:#ff7a7d;color:#fff;box-shadow:0 7px 20px rgba(202,36,42,.2)}
+.menuTitle02{display:flex;align-items:flex-end;justify-content:space-between;padding:17px 18px 10px}
+.menuTitle02 small{display:block;margin-bottom:4px;font-size:8px;font-weight:900;letter-spacing:.27em;color:#e7333a}
+.menuTitle02 h2{margin:0;font-family:Impact,'Arial Narrow',sans-serif;text-transform:uppercase;font-size:35px;line-height:1;color:#f4ece5;letter-spacing:.01em}
+.menuTitle02>p{margin:0 0 3px;font-size:9px;color:#9e9087}
+.menuList02{display:flex!important;flex-direction:column!important;gap:10px!important;padding:0 16px 20px!important}
+.menuList02 .foodCard{min-height:142px!important;display:grid!important;grid-template-columns:48% 52%!important;border:1px solid rgba(210,184,166,.2)!important;border-radius:18px!important;overflow:hidden!important;background:#120e0c!important;color:#f5eee7!important;box-shadow:none!important}
+.menuList02 .foodCard:first-child{border-color:#e7333a!important;box-shadow:0 0 0 1px rgba(231,51,58,.45),0 12px 30px rgba(0,0,0,.22)!important}
+.menuList02 .foodPhoto{height:100%!important;min-height:142px!important;border-radius:0!important}
+.menuList02 .foodPhoto img{width:100%!important;height:100%!important;object-fit:cover!important}
+.menuList02 .cardCat{display:none!important}
+.menuList02 .pickTag{left:10px!important;top:10px!important;right:auto!important;padding:6px 8px!important;border-radius:999px!important;background:#dc3036!important;color:#fff!important;font-size:7px!important}
+.menuList02 .pickTag svg{width:10px!important;height:10px!important}
+.menuList02 .foodInfo{padding:15px 13px!important;display:flex!important;flex-direction:column!important;justify-content:space-between!important;background:linear-gradient(135deg,#17110f,#0f0c0a)!important}
+.menuList02 .foodInfo h3{margin:0 0 7px!important;font-size:16px!important;line-height:1.05!important;color:#fff!important}
+.menuList02 .foodInfo p{margin:0!important;font-size:9px!important;line-height:1.45!important;color:#bcaea5!important}
+.menuList02 .priceRow{margin-top:12px!important;display:flex!important;align-items:center!important;justify-content:space-between!important}
+.menuList02 .priceRow strong{font-size:17px!important;color:#fff!important}
+.menuList02 .priceRow button{width:38px!important;height:38px!important;border:0!important;border-radius:50%!important;background:#e7333a!important;color:#fff!important}
+.menuList02 .priceRow button svg{width:19px!important;height:19px!important}
+@media(max-width:380px){
+ .menuRedesign02 .menuHero02{height:232px}
+ .menuHero02Copy h1{font-size:64px}
+ .menuTabs02{gap:5px;padding-left:12px;padding-right:12px}
+ .menuTabs02 button{height:66px}
+ .menuTabs02 button b{font-size:7px}
+ .menuList02{padding-left:12px!important;padding-right:12px!important}
+}
