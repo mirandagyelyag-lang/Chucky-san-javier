@@ -1,6 +1,6 @@
 import React,{useMemo,useState}from'react';
 import{createRoot}from'react-dom/client';
-import{Menu,Search,ShoppingBag,Plus,Minus,X,ArrowLeft,Heart,Drumstick,ChevronRight,Sparkles}from'lucide-react';
+import{Menu,Search,ShoppingBag,Plus,Minus,X,ArrowLeft,Heart,Drumstick,ChevronRight,Sparkles,Home,UtensilsCrossed}from'lucide-react';
 import'./style.css';
 
 const products=[
@@ -180,9 +180,10 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
  </main>
 }
 
-function Shell({children,screen,setScreen,count}){return <div className="app"><div className="grain"/>{children}<nav className="nav">
- <button className={screen==='home'?'on':''} onClick={()=>setScreen('home')}><span>⌂</span><b>Inicio</b></button>
- <button className={screen==='menu'?'on':''} onClick={()=>setScreen('menu')}><span>★</span><b>Menú</b></button>
+function Shell({children,screen,setScreen,count}){return <div className="app"><div className="grain"/>{children}<nav className="nav chuckyNav">
+ <button className={screen==='home'?'on':''} onClick={()=>setScreen('home')}><Home/><b>Inicio</b></button>
+ <button className={screen==='menu'?'on':''} onClick={()=>setScreen('menu')}><UtensilsCrossed/><b>Menú</b></button>
+ <div className="chuckyNavMascot" aria-hidden="true"><img src="/chucky-approved-seal.webp" alt=""/><strong>Chucky</strong></div>
  <button className={screen==='search'?'on':''} onClick={()=>setScreen('search')}><Search/><b>Buscar</b></button>
  <button className={screen==='cart'?'on':''} onClick={()=>setScreen('cart')}><ShoppingBag/><b>Pedido</b>{count>0&&<i>{count}</i>}</button>
  </nav></div>}
