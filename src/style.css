@@ -2669,3 +2669,24 @@ body:has(.homeEditorial) .editorialActions{
  .homeEditorial .editorialBrandFooterMark strong{font-size:43px}
  .homeEditorial .editorialBrandFooterMark img{width:60px;height:60px}
 }
+
+/* Final mobile flow: categories must not reserve nav space; footer owns the safe area */
+@media(max-width:767px){
+ body:has(.homeEditorial) .homeEditorial .editorialCategories{
+   padding-bottom:0!important;
+ }
+ body:has(.homeEditorial) .homeEditorial .editorialBrandFooter{
+   display:flex!important;
+   position:relative!important;
+   z-index:1!important;
+   min-height:300px!important;
+   height:auto!important;
+   margin:0!important;
+   padding:46px 22px 120px!important;
+   overflow:visible!important;
+ }
+ body:has(.homeEditorial) .content.homeEditorial{
+   overflow:visible!important;
+   padding-bottom:0!important;
+ }
+}
