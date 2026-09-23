@@ -31,56 +31,56 @@ function App(){
  </Shell>
 }
 
-function Topbar({setScreen,count}){return <header className="topbar topbarConcept">
- <span className="headerSpacer" aria-hidden="true"/>
- <button className="brand brandConcept" onClick={()=>setScreen('home')}>
+function Topbar({setScreen,count}){return <header className="topbar topbarConcept editorialTopbar">
+ <button className="editorialMenuBtn" onClick={()=>setScreen('menu')} aria-label="Abrir menú"><Menu/></button>
+ <button className="brand brandConcept editorialBrand" onClick={()=>setScreen('home')}>
   <span className="brandMascot"><img src="/chucky-app-icon.webp" alt=""/></span>
   <div className="brandWords"><b>CHUCKY</b><small>POLLO FRITO · SUSHI</small></div>
  </button>
- <div className="topActions"><button className="ghostBtn cartBtn headerCircle premiumCart" onClick={()=>setScreen('cart')} aria-label="Ver pedido"><ShoppingBag/>{count>0&&<i>{count}</i>}</button></div>
+ <div className="topActions editorialActions">
+  <button className="editorialSearchBtn" onClick={()=>setScreen('search')} aria-label="Buscar"><Search/></button>
+  <button className="ghostBtn cartBtn premiumCart" onClick={()=>setScreen('cart')} aria-label="Ver pedido"><ShoppingBag/>{count>0&&<i>{count}</i>}</button>
+ </div>
  </header>}
-
 
 function HomePage({setScreen,setCat,add,setSelected}){
  const go=cat=>{setCat(cat);setScreen('menu')};
- return <main className="content homeBold homeMockExact">
-  <section className="mockHero">
+ const categoryItems=[
+  ['Combos','Para compartir.',products[0].img],
+  ['Bebidas','Bien heladas.',products[5].img],
+  ['Salsas','El toque final.','https://images.unsplash.com/photo-1472476443507-c7a5948772fc?auto=format&fit=crop&w=700&q=80'],
+  ['Postres','Algo dulce.','https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80']
+ ];
+ return <main className="content homeBold homeMockExact homeEditorial">
+  <section className="editorialHero">
    <img src="/chucky-pollo-hero.png" alt="Pollo frito Chucky" loading="eager" fetchPriority="high" decoding="async"/>
-   <div className="mockHeroShade"/>
-   <div className="mockHeroCopy">
-    <small>POLLO FRITO · SUSHI</small>
-    <h1><span>Pórtate mal.</span><em>Come bien.</em></h1>
-    <i className="mockCrown">♕</i>
-    <i className="mockStroke"/>
-    <p>Crujiente por un lado.<br/>Fresco por el otro.</p>
-    <button onClick={()=>setScreen('menu')}>VER MENÚ <ChevronRight/></button>
+   <div className="editorialHeroShade"/>
+   <div className="editorialHeroCopy">
+    <small>COMIDA REAL</small>
+    <h1>Para días<br/>reales.</h1>
+    <span className="editorialStroke"/>
+    <p>POLLO FRITO<br/>SUSHI<br/>BUENAS COMPAÑÍAS</p>
+    <button onClick={()=>setScreen('menu')}>Ver menú <span>→</span></button>
    </div>
   </section>
 
-  <section className="mockChoices">
-   <button onClick={()=>go('Pollo frito')} className="mockFood">
-    <img src={products[0].img} alt="Pollo frito"/><span className="mockFoodShade"/>
-    <span className="mockFoodCopy"><small>01.</small><b>POLLO<br/>FRITO</b><i>Siempre crujiente.</i></span>
-    <span className="mockArrow">→</span>
-   </button>
-   <button onClick={()=>go('Sushi')} className="mockFood">
-    <img src={products[2].img} alt="Sushi"/><span className="mockFoodShade"/>
-    <span className="mockFoodCopy"><small>02.</small><b>SUSHI</b><i>Siempre fresco.</i></span>
-    <span className="mockArrow">→</span>
-   </button>
+  <section className="editorialCategories">
+   <div className="editorialCatHead"><span>¿QUÉ SE TE ANTOJA HOY?</span><i/><span>MISMAS GANAS.<br/>MEJOR COMIDA.</span></div>
+   <div className="editorialCatRail">
+    {categoryItems.map(([c,sub,img])=><button key={c} onClick={()=>go(c)} className="editorialCat">
+      <img src={img} alt="" loading="lazy"/>
+      <span className="editorialCatShade"/>
+      <span className="editorialCatCopy"><b>{c}</b><i></i><small>{sub}</small></span>
+    </button>)}
+   </div>
   </section>
 
-  <section className="mockExplore packagingExplore">
-   <div className="packStage">
-    <button className="pack packCombo" onClick={()=>go('Combos')}><span className="packBrand">CHUCKY</span><span className="packCopy"><b>Combos</b><i>Para compartir.</i></span><span className="packArrow">→</span></button>
-    <button className="pack packDrink" onClick={()=>go('Bebidas')}><span className="packRim"></span><span className="packStraw"></span><span className="packCopy"><b>Bebidas</b><i>Bien heladas.</i></span><span className="packArrow">→</span></button>
-    <button className="pack packSauce" onClick={()=>go('Salsas')}><span className="packLid"></span><span className="packCopy"><b>Salsas</b><i>El toque final.</i></span><span className="packArrow">→</span></button>
-    <button className="pack packDessert" onClick={()=>go('Postres')}><span className="packBrand">CHUCKY</span><span className="packCopy"><b>Postres</b><i>Algo dulce.</i></span><span className="packArrow">→</span></button>
-   </div>
-   <p className="packFooter">COMIDA REAL <span></span> PARA DÍAS REALES.</p>
+  <section className="editorialTicket" onClick={()=>setScreen('menu')}>
+   <b>CHUCKY</b><span></span><p>BUENA COMIDA<br/><strong>MEJORES MOMENTOS</strong></p><i aria-hidden="true"></i>
   </section>
  </main>
 }
+
 function MenuPage({cat,setCat,filtered,add,setSelected}){return <main className="content menuContent">
  <section className="menuIntro">
   <div><small>PARA TODOS LOS ANTOJOS</small><h1>ELIGE<br/><em>TU FAVORITO.</em></h1><p>Pollo crujiente, sushi fresco y sin tanta vuelta.</p></div>
