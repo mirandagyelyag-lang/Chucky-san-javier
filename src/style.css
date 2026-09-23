@@ -2589,3 +2589,25 @@ body:has(.homeEditorial) .editorialActions{
    margin-bottom:18px!important;
  }
 }
+
+/* Definitive mobile category layout */
+@media screen and (max-width:767px){
+ body:has(.homeEditorial) .homeEditorial .editorialCatRail{
+   display:grid!important;
+   grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+   grid-template-rows:auto auto!important;
+   grid-auto-flow:row!important;
+   grid-auto-columns:unset!important;
+   width:100%!important;
+   max-width:100%!important;
+   overflow-x:hidden!important;
+   overflow-y:visible!important;
+   scroll-snap-type:none!important;
+ }
+ body:has(.homeEditorial) .homeEditorial .editorialCat{
+   width:100%!important;
+   min-width:0!important;
+   max-width:none!important;
+   scroll-snap-align:none!important;
+ }
+}
