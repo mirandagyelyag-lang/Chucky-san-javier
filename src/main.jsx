@@ -70,12 +70,11 @@ function HomePage({setScreen,setCat,add,setSelected}){
    </button>)}</div>
   </section>
   <section className="homeFavorites">
-   <div className="favoritesHead"><h2>Los más pedidos</h2><button onClick={()=>setScreen('menu')}>VER TODOS →</button></div>
+   <div className="favoritesHead"><h2>Los más pedidos <span>♛</span></h2><button onClick={()=>setScreen('menu')}>Ver todos&nbsp; →</button></div>
    <div className="favoritesRail">{favorites.map(p=><article className="favoriteMini" key={p.id} onClick={()=>setSelected(p)}>
-    <img src={p.img} alt={p.name}/><div><b>{p.name}</b><small>{p.desc}</small><span>{money(p.price)}</span></div><button onClick={e=>add(p.id,e)} aria-label={'Agregar '+p.name}>+</button>
+    <img src={p.img} alt={p.name}/><div><b>{p.name}</b><span>{money(p.price)}</span></div><button onClick={e=>add(p.id,e)} aria-label={'Agregar '+p.name}>+</button>
    </article>)}</div>
   </section>
-  <button className="comboBanner" onClick={()=>go('Combos')}><img src="/chucky-mascot.webp" alt="Chucky"/><span><b>POLLO Y SUSHI.</b><strong>LA MEJOR COMBINACIÓN.</strong></span><i>Ver combos →</i></button>
  </main>
 }
 function MenuPage({cat,setCat,filtered,add,setSelected}){return <main className="content menuContent menuRedesign02">
