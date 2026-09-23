@@ -2915,3 +2915,28 @@ body:has(.homeEditorial) #root{
  font-family:inherit!important;font-size:7px!important;font-style:normal!important;font-weight:700!important;
  line-height:1!important;letter-spacing:.24em!important;color:#b6a69b!important;
 }
+
+/* Actual torii glyph drawn in CSS; 鳥居 was the word 'torii', not the gate icon */
+.chuckyNav .toriiSignature .toriiMark{
+ position:relative!important;display:block!important;
+ width:34px!important;height:25px!important;margin:0 auto 1px!important;
+ transform:none!important;font-size:0!important;color:transparent!important;
+}
+.chuckyNav .toriiSignature .toriiMark:before,
+.chuckyNav .toriiSignature .toriiMark:after{
+ content:''!important;position:absolute!important;left:50%!important;transform:translateX(-50%)!important;
+ background:#e53238!important;border-radius:2px!important;
+}
+.chuckyNav .toriiSignature .toriiMark:before{top:1px!important;width:34px!important;height:4px!important}
+.chuckyNav .toriiSignature .toriiMark:after{top:7px!important;width:27px!important;height:3px!important}
+.chuckyNav .toriiSignature .toriiMark i,
+.chuckyNav .toriiSignature .toriiMark b{
+ position:absolute!important;top:8px!important;width:4px!important;height:17px!important;
+ background:#e53238!important;display:block!important;border-radius:1px!important;
+}
+.chuckyNav .toriiSignature .toriiMark i{left:8px!important;transform:rotate(3deg)!important}
+.chuckyNav .toriiSignature .toriiMark b{right:8px!important;transform:rotate(-3deg)!important}
+.chuckyNav .toriiSignature .toriiMark em{
+ position:absolute!important;left:5px!important;right:5px!important;top:13px!important;height:2px!important;
+ background:#e53238!important;display:block!important;
+}
