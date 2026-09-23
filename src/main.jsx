@@ -183,7 +183,6 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
 function Shell({children,screen,setScreen,count}){return <div className="app"><div className="grain"/>{children}<nav className="nav chuckyNav">
  <button className={screen==='home'?'on':''} onClick={()=>setScreen('home')}><Home/><b>Inicio</b></button>
  <button className={screen==='menu'?'on':''} onClick={()=>setScreen('menu')}><UtensilsCrossed/><b>Menú</b></button>
- <div className="chuckyNavSignature toriiSignature" aria-hidden="true"><span className="toriiMark" aria-hidden="true"><i></i><b></b><em></em></span><strong>チャッキー</strong><span>Chucky</span></div>
  <button className={screen==='search'?'on':''} onClick={()=>setScreen('search')}><Search/><b>Buscar</b></button>
  <button className={screen==='cart'?'on':''} onClick={()=>setScreen('cart')}><ShoppingBag/><b>Pedido</b>{count>0&&<i>{count}</i>}</button>
  </nav></div>}
