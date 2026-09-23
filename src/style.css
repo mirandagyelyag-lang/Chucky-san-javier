@@ -3666,3 +3666,29 @@ body:has(.homeEditorial) .editorialActions,
   .topbar.topbarConcept .editorialBrand{width:72vw!important;height:90px!important}
   .topbar.topbarConcept .chuckyNewHeaderLogo{transform:scale(1.18)!important}
 }
+
+
+/* Chucky header: integrar el asset al fondo, sin efecto de rectángulo */
+.topbar.topbarConcept.editorialTopbar{
+  overflow:hidden!important;
+}
+.topbar.topbarConcept .editorialBrand{
+  width:min(66vw,390px)!important;
+  max-width:calc(100% - 92px)!important;
+  height:86px!important;
+}
+.topbar.topbarConcept .chuckyNewHeaderLogo{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  mix-blend-mode:screen!important;
+  filter:contrast(1.06) saturate(.94)!important;
+}
+@media(max-width:420px){
+  .topbar.topbarConcept .editorialBrand{
+    width:64vw!important;
+    max-width:calc(100% - 82px)!important;
+    height:80px!important;
+  }
+}
