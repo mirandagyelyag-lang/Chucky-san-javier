@@ -2791,3 +2791,60 @@ body:has(.homeEditorial) #root{
    white-space:nowrap!important;
  }
 }
+
+/* NAV 02 — Chucky signature navigation */
+.chuckyNav{
+ height:78px!important;
+ left:16px!important;right:16px!important;bottom:10px!important;
+ padding:0 8px!important;
+ display:grid!important;
+ grid-template-columns:1fr 1fr 70px 1fr 1fr!important;
+ align-items:center!important;
+ overflow:visible!important;
+ border:1px solid rgba(181,149,135,.28)!important;
+ border-radius:28px!important;
+ background:rgba(10,7,6,.97)!important;
+ box-shadow:0 18px 42px rgba(0,0,0,.48)!important;
+}
+.chuckyNav>button{
+ min-width:0!important;height:62px!important;padding:7px 2px 5px!important;
+ border:0!important;border-radius:20px!important;background:transparent!important;
+ display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+ gap:4px!important;color:#a99a8f!important;
+}
+.chuckyNav>button svg{width:22px!important;height:22px!important;stroke-width:1.8!important}
+.chuckyNav>button b{font-size:9px!important;font-weight:700!important}
+.chuckyNav>button.on{
+ color:#e7333a!important;
+ background:radial-gradient(circle at 50% 45%,rgba(190,35,40,.22),rgba(93,17,18,.08) 65%,transparent 70%)!important;
+}
+.chuckyNav>button.on:after{
+ content:'';width:4px;height:4px;border-radius:50%;background:#e7333a;
+ position:absolute;bottom:5px;
+}
+.chuckyNav>button{position:relative!important}
+.chuckyNavMascot{
+ position:relative;align-self:center;justify-self:center;
+ width:72px;height:96px;margin-top:-35px;
+ display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+ pointer-events:none;
+}
+.chuckyNavMascot:before{
+ content:'';position:absolute;top:2px;width:70px;height:70px;border-radius:50%;
+ background:#100908;border:2px solid #d52c32;box-shadow:0 8px 24px #0009,0 0 0 6px #100908;
+}
+.chuckyNavMascot img{
+ position:relative;z-index:1;width:62px;height:62px;margin-top:6px;border-radius:50%;object-fit:cover;
+}
+.chuckyNavMascot strong{
+ position:relative;z-index:2;margin-top:3px;
+ font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;font-weight:600;
+ color:#e7333a;transform:rotate(-5deg);
+}
+@media(max-width:380px){
+ .chuckyNav{left:12px!important;right:12px!important;grid-template-columns:1fr 1fr 62px 1fr 1fr!important}
+ .chuckyNavMascot{width:64px}
+ .chuckyNavMascot:before{width:62px;height:62px}
+ .chuckyNavMascot img{width:54px;height:54px}
+ .chuckyNav>button b{font-size:8px!important}
+}
