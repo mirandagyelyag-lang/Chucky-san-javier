@@ -3906,3 +3906,21 @@ body:has(.homeEditorial) .editorialActions,
  .chuckyNav{left:14px!important;right:14px!important;bottom:10px!important;height:68px!important;min-height:68px!important;border-radius:35px!important;padding:4px 11px!important}
  .chuckyNav button svg{width:20px!important;height:20px!important}.chuckyNav button b{font-size:10px!important}
 }
+
+/* HERO CTA — outlined round arrow from approved mockup */
+.homeSales .editorialHeroCopy .heroOrderPill{
+ display:flex!important;align-items:center!important;justify-content:space-between!important;
+ padding:3px 4px 3px 18px!important;background:#ed1f32!important;border:0!important;
+ border-radius:999px!important;color:#fff!important;
+}
+.homeSales .heroOrderText{display:block!important;background:transparent!important;width:auto!important;height:auto!important;font-family:Georgia,'Times New Roman',serif!important}
+.homeSales .editorialHeroCopy .heroOrderCircle{
+ display:grid!important;place-items:center!important;flex:0 0 auto!important;
+ width:38px!important;height:38px!important;border:2px solid #fff!important;border-radius:50%!important;
+ background:transparent!important;color:#fff!important;font-family:Arial,sans-serif!important;
+ font-size:22px!important;line-height:1!important;
+}
+@media(max-width:600px){
+ .homeSales .editorialHeroCopy .heroOrderPill{width:174px!important;height:47px!important;padding:3px 4px 3px 16px!important;font-size:17px!important;margin-top:12px!important}
+ .homeSales .editorialHeroCopy .heroOrderCircle{width:38px!important;height:38px!important;font-size:21px!important}
+}
