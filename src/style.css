@@ -3940,3 +3940,16 @@ body:has(.homeEditorial) .editorialActions,
 .exactFavGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.exactProduct{position:relative;min-width:0;background:#fffaf2;border:1px solid rgba(30,20,15,.08);border-radius:7px;overflow:hidden;padding-bottom:8px}.exactProduct>img{width:100%;height:72px;object-fit:cover}.exactProduct>strong,.exactProduct>span{display:block;padding:0 6px}.exactProduct>strong{font:700 9px Georgia,serif;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.exactProduct>span{font:900 13px Arial,sans-serif;margin-top:5px}.exactProduct>button{position:absolute;right:5px;bottom:5px;width:24px;height:24px;border:0;border-radius:50%;background:#ef2437;color:white;font-size:18px}.exactProduct>em{position:absolute;z-index:2;left:5px;top:5px;background:#ef2437;color:#fff;border-radius:999px;padding:4px 6px;font:900 5px Arial,sans-serif}
 @media(max-width:600px){body:has(.exactHome)>.topbar,body:has(.exactHome) .topbar{display:none!important}.exactHero{height:430px}.chuckyNav{left:24px!important;right:24px!important;bottom:12px!important;height:76px!important;min-height:76px!important;border-radius:42px!important}.exactHome+.chuckyNav{}}
 @media(max-width:380px){.exactHero{height:410px}.exactCopy h1{font-size:38px}.exactShop,.exactFav{padding-left:18px;padding-right:18px}.exactTitle h2{font-size:34px}}
+
+
+/* HOME SHELL FIX — 2026-09-23 */
+body:has(.exactHome){background:#f7f1e7!important}
+body:has(.exactHome) .app{max-width:600px;margin:0 auto;background:#f7f1e7!important;overflow:visible!important;box-shadow:0 0 36px rgba(30,18,10,.10)}
+body:has(.exactHome) .grain{display:none!important}
+body:has(.exactHome) .chuckyNav{grid-template-columns:repeat(3,1fr)!important;left:50%!important;right:auto!important;width:min(552px,calc(100% - 48px))!important;transform:translateX(-50%)!important;bottom:12px!important;height:76px!important;min-height:76px!important;border-radius:42px!important;padding:5px 12px!important}
+body:has(.exactHome) .chuckyNav button{min-width:0!important}
+body:has(.exactHome) .chuckyNav button svg{width:22px!important;height:22px!important}
+body:has(.exactHome) .chuckyNav button b{font-size:10px!important}
+body:has(.exactHome) .chuckyNav button.on{color:#fff!important}
+body:has(.exactHome) .chuckyNav button.on svg{color:#ef2437!important}
+@media(min-width:601px){body:has(.exactHome) .chuckyNav{width:552px!important}}
