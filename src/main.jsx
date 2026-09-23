@@ -46,10 +46,10 @@ function Topbar({setScreen,count}){return <header className="topbar topbarConcep
 function HomePage({setScreen,setCat,add,setSelected}){
  const go=cat=>{setCat(cat);setScreen('menu')};
  const categoryItems=[
-  ['Combos','Para compartir.',products[0].img],
-  ['Bebidas','Bien heladas.',products[5].img],
-  ['Salsas','El toque final.','https://images.unsplash.com/photo-1472476443507-c7a5948772fc?auto=format&fit=crop&w=700&q=80'],
-  ['Postres','Algo dulce.','https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80']
+  ['Pollo frito','Crujiente siempre.',products[0].img,'Pollo frito'],
+  ['Sushi','Un bocado diferente.',products.find(p=>p.cat==='Sushi')?.img || products[1].img,'Sushi'],
+  ['Salsas','El toque final.','https://images.unsplash.com/photo-1472476443507-c7a5948772fc?auto=format&fit=crop&w=700&q=80','Salsas'],
+  ['Bebidas','Bien heladas.',products.find(p=>p.cat==='Bebidas')?.img || products[5].img,'Bebidas']
  ];
  return <main className="content homeBold homeMockExact homeEditorial">
   <section className="editorialHero">
@@ -67,7 +67,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
   <section className="editorialCategories">
    <div className="editorialCatHead"><span>¿QUÉ SE TE ANTOJA HOY?</span><i/><span>MISMAS GANAS.<br/>MEJOR COMIDA.</span></div>
    <div className="editorialCatRail">
-    {categoryItems.map(([c,sub,img])=><button key={c} onClick={()=>go(c)} className="editorialCat">
+    {categoryItems.map(([c,sub,img,target])=><button key={c} onClick={()=>go(target)} className="editorialCat">
       <img src={img} alt="" loading="lazy"/>
       <span className="editorialCatShade"/>
       <span className="editorialCatCopy"><b>{c}</b><i></i><small>{sub}</small></span>
