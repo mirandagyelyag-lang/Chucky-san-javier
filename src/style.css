@@ -3445,3 +3445,37 @@ main.cartSmart.cartSmartEmpty{
 
 
 /* deploy ping: Git reconnection 2026-09-23 */
+
+
+/* Fix empty bucket artwork: keep the chicken inside the bucket, no clipping/haunted crop */
+.cartSmartEmpty .emptyBucket{
+  overflow:visible!important;
+  isolation:isolate!important;
+}
+.cartSmartEmpty .emptyBucket:after{
+  content:""!important;
+  position:absolute!important;
+  z-index:3!important;
+  left:17%!important;
+  right:17%!important;
+  top:7px!important;
+  height:14px!important;
+  border-radius:50%!important;
+  background:#130c0b!important;
+  border:2px solid rgba(239,48,58,.55)!important;
+}
+.cartSmartEmpty .emptyBucket img{
+  z-index:2!important;
+  width:72px!important;
+  height:72px!important;
+  left:50%!important;
+  top:-29px!important;
+  transform:translateX(-50%) rotate(4deg)!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  border-radius:50%!important;
+  clip-path:none!important;
+}
+.cartSmartEmpty .emptyBucket:before{
+  z-index:4!important;
+}
