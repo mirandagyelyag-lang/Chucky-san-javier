@@ -35,8 +35,7 @@ function App(){
 function Topbar({setScreen,count}){return <header className="topbar topbarConcept editorialTopbar">
  <span className="editorialHeaderSpacer" aria-hidden="true"></span>
  <button className="brand brandConcept editorialBrand" onClick={()=>setScreen('home')}>
-  <span className="brandMascot"><img src="/chucky-nuevo.png" alt=""/></span>
-  <div className="brandWords"><b>CHUCKY</b><small>POLLO FRITO · SUSHI</small></div>
+  <img className="chuckyNewHeaderLogo" src="/chucky-nuevo.png" alt="Chucky · Pollo frito y sushi"/>
  </button>
  <div className="topActions editorialActions">
   <button className="ghostBtn cartBtn premiumCart" onClick={()=>setScreen('cart')} aria-label="Ver pedido"><ShoppingBag/>{count>0&&<i>{count}</i>}</button>
