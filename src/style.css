@@ -2627,3 +2627,45 @@ body:has(.homeEditorial) .editorialActions{
 @media(max-width:380px){
  .homeEditorial .editorialCatGrid .editorialCat{height:196px!important}
 }
+
+/* Chucky signature footer: stays fully visible above fixed navigation */
+.homeEditorial .editorialBrandFooter{
+ min-height:260px;
+ margin:0;
+ padding:48px 22px 118px;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+ gap:16px;
+ background:
+   radial-gradient(circle at 50% 44%,rgba(112,27,25,.13),transparent 34%),
+   #080605;
+ color:#eadfd3;
+ text-align:center;
+ cursor:pointer;
+ box-sizing:border-box;
+}
+.homeEditorial .editorialBrandFooterMark{position:relative;display:flex;flex-direction:column;align-items:center}
+.homeEditorial .editorialBrandFooterMark>small{
+ color:#c93238;font-size:10px;font-weight:800;letter-spacing:.55em;margin:0 0 -5px 2px;
+}
+.homeEditorial .editorialBrandFooterMark>div{display:flex;align-items:center;justify-content:center;gap:10px}
+.homeEditorial .editorialBrandFooterMark strong{
+ font-family:Georgia,'Times New Roman',serif;font-size:48px;font-weight:500;font-style:italic;line-height:1;color:#b9a99a;
+}
+.homeEditorial .editorialBrandFooterMark img{
+ width:66px;height:66px;object-fit:contain;filter:saturate(.85);
+}
+.homeEditorial .editorialBrandFooterMark>i{
+ width:150px;height:4px;margin-top:-7px;background:#9e2226;border-radius:99px;transform:rotate(-5deg);
+}
+.homeEditorial .editorialBrandFooter>p{
+ margin:4px 0 0;color:#a99889;font-size:8px;font-weight:800;letter-spacing:.38em;
+}
+.homeEditorial .editorialBrandFooter>p span{color:#a72a2d;margin:0 4px}
+@media(max-width:380px){
+ .homeEditorial .editorialBrandFooter{min-height:245px;padding-bottom:112px}
+ .homeEditorial .editorialBrandFooterMark strong{font-size:43px}
+ .homeEditorial .editorialBrandFooterMark img{width:60px;height:60px}
+}
