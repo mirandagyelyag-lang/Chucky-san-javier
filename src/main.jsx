@@ -9,9 +9,10 @@ const products=[
 {id:3,cat:'Sushi',name:'Roll Chucky',desc:'Roll de la casa, cremoso, fresco y lleno de sabor.',price:6990,img:'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=1000&q=90'},
 {id:4,cat:'Sushi',name:'Roll Crocante',desc:'Roll crocante con cubierta y salsa de la casa.',price:7490,img:'https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?auto=format&fit=crop&w=1000&q=90'},
 {id:5,cat:'Combos',name:'Dúo Chucky',desc:'Pollo frito + roll para mezclar los dos mundos.',price:13990,img:'https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1000&q=90'},
-{id:6,cat:'Bebidas',name:'Bebida',desc:'Elige entre los sabores disponibles.',price:2000,img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=1000&q=90'}
+{id:6,cat:'Bebidas',name:'Bebida',desc:'Elige entre los sabores disponibles.',price:2000,img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=1000&q=90'},
+{id:7,cat:'Salsas',name:'Salsa Chucky',desc:'El toque final para tu pedido.',price:800,img:'https://images.unsplash.com/photo-1472476443507-c7a5948772fc?auto=format&fit=crop&w=1000&q=90'}
 ];
-const cats=['Pollo frito','Sushi','Combos','Bebidas'];
+const cats=['Pollo frito','Sushi','Combos','Bebidas','Salsas'];
 const money=n=>'$'+n.toLocaleString('es-CL');
 
 function App(){
@@ -45,46 +46,38 @@ function Topbar({setScreen,count}){return <header className="topbar topbarConcep
 function HomePage({setScreen,setCat,add,setSelected}){
  const go=cat=>{setCat(cat);setScreen('menu')};
  const categoryItems=[
-  ['Pollo frito','Crujiente siempre.',products[0].img,'Pollo frito'],
-  ['Sushi','Un bocado diferente.',products.find(p=>p.cat==='Sushi')?.img || products[1].img,'Sushi'],
-  ['Salsas','El toque final.','https://images.unsplash.com/photo-1472476443507-c7a5948772fc?auto=format&fit=crop&w=700&q=80','Salsas'],
-  ['Bebidas','Bien heladas.',products.find(p=>p.cat==='Bebidas')?.img || products[5].img,'Bebidas']
+  ['Sushi','Rolls, handrolls y más.',products.find(p=>p.cat==='Sushi').img,'Sushi'],
+  ['Pollo frito','Piezas, alitas y combos.',products[0].img,'Pollo frito'],
+  ['Bebidas','Para acompañar.',products.find(p=>p.cat==='Bebidas').img,'Bebidas'],
+  ['Salsas','El toque final.',products.find(p=>p.cat==='Salsas').img,'Salsas']
  ];
- return <main className="content homeBold homeMockExact homeEditorial">
-  <section className="editorialHero">
-   <img src="/chucky-pollo-hero.png" alt="Pollo frito y sushi Chucky" loading="eager" fetchPriority="high" decoding="async"/>
+ const favorites=[products[0],products[2],products[4],products[3]];
+ return <main className="content homeEditorial homeSales">
+  <section className="editorialHero salesHero">
+   <img src="/chucky-pollo-hero.png" alt="Pollo frito y sushi Chucky" loading="eager" fetchPriority="high"/>
    <div className="editorialHeroShade"/>
    <div className="editorialHeroCopy">
     <small>DOS ANTOJOS. UN SOLO CHUCKY.</small>
-    <h1>Pollo frito<br/>y sushi.</h1>
-    <span className="editorialStroke"/>
+    <h1>Pollo frito<br/>y sushi.</h1><span className="editorialStroke"/>
     <p>MITAD CRUJIENTE<br/>MITAD FRESCO<br/>100% CHUCKY</p>
-    <button onClick={()=>setScreen('menu')}>Ver menú <span>→</span></button>
+    <button onClick={()=>setScreen('menu')}>Haz tu pedido <span>→</span></button>
    </div>
   </section>
-
-  <section className="editorialCategories">
-   <div className="editorialCatHead"><span>¿QUÉ SE TE ANTOJA HOY?</span><i/><span>MISMAS GANAS.<br/>MEJOR COMIDA.</span></div>
-   <div className="editorialCatGrid">
-    {categoryItems.map(([c,sub,img,target])=><button key={c} onClick={()=>go(target)} className="editorialCat">
-      <img src={img} alt="" loading="lazy"/>
-      <span className="editorialCatShade"/>
-      <span className="editorialCatCopy"><b>{c}</b><i></i><small>{sub}</small></span>
-    </button>)}
-   </div>
+  <section className="quickShop">
+   <div className="quickTitle"><div><h2>¿Qué vas a pedir?</h2><p>TODO A UN TOQUE.</p></div></div>
+   <div className="quickGrid">{categoryItems.map(([name,sub,img,target])=><button key={name} className="quickCard" onClick={()=>go(target)}>
+    <img src={img} alt={name}/><span className="quickShade"/><span className="quickCopy"><b>{name}</b><small>{sub}</small></span><i>→</i>
+   </button>)}</div>
   </section>
-
-  <section className="editorialBrandFooter" onClick={()=>setScreen('menu')} aria-label="Ver menú">
-   <div className="editorialBrandFooterMark">
-    <small>ONDE EL</small>
-    <div className="editorialBrandSignature"><strong>Chucky</strong><img src="/chucky-nuevo.png" alt=""/></div>
-    <i aria-hidden="true"></i>
-   </div>
-   <p>POLLO <span>•</span> SUSHI <span>•</span> BUEN MOMENTO</p>
+  <section className="homeFavorites">
+   <div className="favoritesHead"><h2>Los más pedidos</h2><button onClick={()=>setScreen('menu')}>VER TODOS →</button></div>
+   <div className="favoritesRail">{favorites.map(p=><article className="favoriteMini" key={p.id} onClick={()=>setSelected(p)}>
+    <img src={p.img} alt={p.name}/><div><b>{p.name}</b><small>{p.desc}</small><span>{money(p.price)}</span></div><button onClick={e=>add(p.id,e)} aria-label={'Agregar '+p.name}>+</button>
+   </article>)}</div>
   </section>
+  <button className="comboBanner" onClick={()=>go('Combos')}><img src="/chucky-mascot.webp" alt="Chucky"/><span><b>POLLO Y SUSHI.</b><strong>LA MEJOR COMBINACIÓN.</strong></span><i>Ver combos →</i></button>
  </main>
 }
-
 function MenuPage({cat,setCat,filtered,add,setSelected}){return <main className="content menuContent menuRedesign02">
  <section className="menuHero02">
   <img src="/chucky-pollo-hero.png" alt="" loading="eager"/>
