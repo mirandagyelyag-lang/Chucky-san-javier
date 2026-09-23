@@ -99,8 +99,8 @@ function MenuPage({cat,setCat,filtered,add,setSelected}){return <main className=
   </div>
   <div className="menuHero02Note">CRUJIENTE<br/>FRESCO<br/>REAL</div>
  </section>
- <nav className="menuTabs02">{cats.map((c,i)=><button key={c} className={cat===c?'on':''} onClick={()=>setCat(c)}>
-  <span>{i===0?'♧':i===1?'▣':i===2?'♨':'▱'}</span><b>{c}</b>
+ <nav className="menuTabs02">{cats.map(c=><button key={c} className={cat===c?'on':''} onClick={()=>setCat(c)}>
+  <b>{c}</b>
  </button>)}</nav>
  <div className="menuTitle02"><div><small>MENÚ CHUCKY</small><h2>{cat}</h2></div><p>{filtered.length} opciones disponibles</p></div>
  <div className="menuList menuList02">{filtered.map((p,i)=><Card key={p.id} p={p} add={add} setSelected={setSelected} featured={i===0} wide/>)}</div>
