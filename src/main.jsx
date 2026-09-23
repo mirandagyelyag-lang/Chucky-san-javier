@@ -60,7 +60,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
     <small>DOS ANTOJOS.<br/>UN SOLO CHUCKY.</small>
     <h1>Pollo frito<br/>y sushi.</h1><span className="editorialStroke"/><span className="heroCrown" aria-hidden="true">♛</span><span className="heroSideNote">MISMAS GANAS.<br/>MEJOR COMIDA.</span>
     <p>MITAD CRUJIENTE<br/>MITAD FRESCO<br/>100% CHUCKY</p>
-    <button onClick={()=>setScreen('menu')}>Haz tu pedido <span>→</span></button>
+    <button className="heroOrderPill" onClick={()=>setScreen('menu')}><span className="heroOrderText">Haz tu pedido</span><span className="heroOrderCircle">→</span></button>
    </div>
   </section>
   <section className="quickShop">
