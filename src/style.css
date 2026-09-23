@@ -3536,3 +3536,20 @@ main.cartSmart.cartSmartEmpty:after{
  width:min(290px,88vw)!important;
  box-shadow:0 14px 34px rgba(0,0,0,.38)!important;
 }
+
+
+/* Pedido background visibility fix: keep generated art visible */
+main.cartSmart.cartSmartEmpty{
+ background-color:#050403!important;
+ background-image:url('/pedido-vacio-bg.png')!important;
+ background-position:center center!important;
+ background-size:cover!important;
+ background-repeat:no-repeat!important;
+}
+main.cartSmart.cartSmartEmpty:after{
+ background:linear-gradient(180deg,rgba(5,4,3,.02) 0%,rgba(5,4,3,.02) 50%,rgba(5,4,3,.24) 66%,rgba(5,4,3,.82) 92%,#050403 100%)!important;
+}
+.cartSmartEmpty .smartEmpty{
+ justify-content:flex-end!important;
+ padding-bottom:105px!important;
+}
