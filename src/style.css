@@ -3864,3 +3864,45 @@ body:has(.homeEditorial) .editorialActions,
  .chuckyNav button svg{width:22px!important;height:22px!important}.chuckyNav button b{font-size:11px!important}
 }
 @media(min-width:601px){.heroMenuBtn,.heroCrown,.heroSideNote{display:none!important}}
+
+/* MOCKUP MATCH v2 — proportions from approved 63860 reference */
+@media(max-width:600px){
+ .homeSales .salesHero{height:378px!important;min-height:378px!important}
+ body:has(.homeSales) .topbar.editorialTopbar{height:74px!important;min-height:74px!important}
+ .heroMenuBtn{top:23px!important;left:16px!important;width:27px!important;height:27px!important}
+ .heroMenuBtn svg{width:22px!important;height:22px!important}
+ .topbar.topbarConcept .cleanChuckyBrand{width:43vw!important;max-width:184px!important;height:59px!important}
+ body:has(.homeSales) .editorialActions{top:37px!important;right:16px!important}
+ body:has(.homeSales) .premiumCart{width:31px!important;height:31px!important}
+ body:has(.homeSales) .premiumCart svg{width:21px!important;height:21px!important}
+ .homeSales .salesHero>img{object-position:59% 50%!important}
+ .homeSales .editorialHeroCopy{left:16px!important;top:84px!important;width:48%!important}
+ .homeSales .editorialHeroCopy>small{font-size:7px!important;line-height:1.45!important;letter-spacing:2px!important}
+ .homeSales .editorialHeroCopy h1{font-size:34px!important;line-height:.92!important;letter-spacing:-1.5px!important;margin:8px 0 5px!important;white-space:nowrap!important}
+ .homeSales .editorialStroke{width:142px!important;height:3px!important;margin:0 0 13px!important}
+ .homeSales .editorialHeroCopy p{font-size:6.5px!important;line-height:1.55!important;letter-spacing:1.7px!important}
+ .homeSales .editorialHeroCopy button{margin-top:12px!important;width:158px!important;height:43px!important;font-size:17px!important;padding:0 13px 0 15px!important;white-space:nowrap!important}
+ .homeSales .editorialHeroCopy button span{font-size:22px!important}
+ .heroCrown{left:calc(100% + 25px)!important;top:41px!important;font-size:34px!important}
+ .heroSideNote{left:calc(100% + 89px)!important;top:38px!important;width:88px!important;font-size:6.5px!important}
+ .quickShop{padding:15px 15px 6px!important}
+ .quickTitle h2{font-size:31px!important;letter-spacing:-1.5px!important}
+ .quickTitle p{font-size:6.5px!important;letter-spacing:3.5px!important;margin:4px 0 10px!important}
+ .quickGrid{gap:7px!important}
+ .quickCard{height:92px!important;border-radius:8px!important}
+ .quickCopy{left:9px!important;right:32px!important;bottom:7px!important}
+ .quickCopy b{font-size:17px!important}
+ .quickCopy small{font-size:5.4px!important;letter-spacing:1.2px!important;max-width:85px!important}
+ .quickCard>i{width:24px!important;height:24px!important;right:7px!important;bottom:7px!important;font-size:14px!important}
+ .homeFavorites{padding:12px 15px 92px!important}
+ .favoritesHead{margin-bottom:7px!important}
+ .favoritesHead h2{font-size:20px!important}.favoritesHead h2 span{font-size:15px!important}
+ .favoritesHead button{font-size:10px!important}
+ .favoritesRail{grid-auto-columns:calc((100vw - 51px)/4)!important;gap:7px!important}
+ .favoriteMini{min-height:126px!important;border-radius:7px!important}
+ .favoriteMini>img{height:68px!important}
+ .favoriteMini>div{padding:5px!important}.favoriteMini b{font-size:8.5px!important}.favoriteMini span{font-size:12px!important;margin-top:3px!important}
+ .favoriteMini>button{width:23px!important;height:23px!important;right:4px!important;bottom:4px!important;font-size:17px!important}
+ .chuckyNav{left:14px!important;right:14px!important;bottom:10px!important;height:68px!important;min-height:68px!important;border-radius:35px!important;padding:4px 11px!important}
+ .chuckyNav button svg{width:20px!important;height:20px!important}.chuckyNav button b{font-size:10px!important}
+}
