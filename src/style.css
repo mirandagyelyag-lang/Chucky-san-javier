@@ -2611,3 +2611,19 @@ body:has(.homeEditorial) .editorialActions{
    scroll-snap-align:none!important;
  }
 }
+
+/* Fixed category grid, intentionally separate from legacy rail rules */
+.homeEditorial .editorialCatGrid{
+ display:grid!important;
+ grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ width:100%!important;
+ overflow:visible!important;
+}
+.homeEditorial .editorialCatGrid .editorialCat{
+ width:100%!important;
+ min-width:0!important;
+ height:205px!important;
+}
+@media(max-width:380px){
+ .homeEditorial .editorialCatGrid .editorialCat{height:196px!important}
+}
