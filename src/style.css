@@ -3761,3 +3761,28 @@ body:has(.homeEditorial) .editorialActions,
  .chuckyNav button svg{width:24px!important;height:24px!important}
  .chuckyNav button b{font-size:12px!important}
 }
+
+/* HEADER CLEAN LOCKUP — no boxed logo asset */
+.topbar.topbarConcept.editorialTopbar{
+ background:radial-gradient(circle at 18% 18%,rgba(138,27,31,.52),transparent 42%),linear-gradient(100deg,#35100f 0%,#120b09 52%,#090706 100%)!important;
+ border-bottom:1px solid rgba(215,42,52,.32)!important;
+}
+.topbar.topbarConcept .cleanChuckyBrand{
+ width:min(66vw,390px)!important;max-width:calc(100% - 96px)!important;height:88px!important;
+ overflow:visible!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:7px!important;
+ background:transparent!important;mix-blend-mode:normal!important;
+}
+.cleanChuckyMascot{width:76px!important;height:76px!important;object-fit:contain!important;flex:0 0 76px!important;filter:drop-shadow(0 3px 7px rgba(0,0,0,.3))!important}
+.cleanChuckyWords{position:relative!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;line-height:1!important;overflow:visible!important}
+.cleanChuckyWords strong{font-family:Impact,'Arial Black',sans-serif!important;font-size:43px!important;font-style:italic!important;letter-spacing:-2px!important;color:#fff7e9!important;text-shadow:2px 2px 0 rgba(0,0,0,.18)!important;transform:skew(-5deg)!important}
+.cleanChuckyWords small{font-family:Arial,sans-serif!important;font-size:7.5px!important;font-weight:900!important;letter-spacing:3px!important;color:#fff7e9!important;margin-top:3px!important;white-space:nowrap!important}
+.cleanChuckyWords small b{color:#e12734!important;font-size:11px!important}
+.cleanChuckyWords em{display:block!important;width:62%!important;height:3px!important;background:#e12734!important;transform:rotate(-4deg)!important;margin-top:6px!important;border-radius:50%!important}
+.cleanCrown{position:absolute!important;right:13px!important;top:-17px!important;color:#e12734!important;font-family:Arial,sans-serif!important;font-style:normal!important;font-size:28px!important;transform:rotate(8deg)!important}
+@media(max-width:420px){
+ .topbar.topbarConcept .cleanChuckyBrand{width:67vw!important;max-width:calc(100% - 74px)!important;height:82px!important;gap:4px!important}
+ .cleanChuckyMascot{width:64px!important;height:64px!important;flex-basis:64px!important}
+ .cleanChuckyWords strong{font-size:35px!important}
+ .cleanChuckyWords small{font-size:6px!important;letter-spacing:2.2px!important}
+ .cleanCrown{font-size:23px!important;top:-13px!important;right:10px!important}
+}
