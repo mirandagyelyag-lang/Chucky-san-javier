@@ -2861,3 +2861,32 @@ body:has(.homeEditorial) #root{
  background:#100908!important;
 }
 .chuckyNavMascot strong{z-index:3!important}
+
+/* Refined nav 02: signature instead of duplicate mascot */
+.chuckyNavSignature{
+ position:relative;align-self:center;justify-self:center;
+ width:66px;height:78px;margin-top:-18px;
+ display:flex;flex-direction:column;align-items:center;justify-content:center;
+ pointer-events:none;
+}
+.chuckyNavSignature:before{
+ content:'';position:absolute;top:5px;width:58px;height:58px;border-radius:50%;
+ background:#100908;border:1px solid rgba(213,44,50,.62);
+ box-shadow:0 8px 22px rgba(0,0,0,.45);
+}
+.chuckyNavSignature strong{
+ position:relative;z-index:1;margin-top:1px;
+ font-family:Georgia,'Times New Roman',serif;font-size:33px;line-height:.9;
+ font-style:italic;font-weight:500;color:#d92d34;transform:rotate(-7deg);
+}
+.chuckyNavSignature span{
+ position:relative;z-index:2;margin-top:12px;
+ font-family:Georgia,'Times New Roman',serif;font-size:12px;line-height:1;
+ font-style:italic;font-weight:600;color:#b8a79a;
+}
+@media(max-width:380px){
+ .chuckyNavSignature{width:60px}
+ .chuckyNavSignature:before{width:54px;height:54px}
+ .chuckyNavSignature strong{font-size:30px}
+ .chuckyNavSignature span{font-size:11px}
+}
