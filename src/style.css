@@ -2848,3 +2848,16 @@ body:has(.homeEditorial) #root{
  .chuckyNavMascot img{width:54px;height:54px}
  .chuckyNav>button b{font-size:8px!important}
 }
+
+/* Keep mascot artwork clipped to its circular nav badge */
+.chuckyNavMascot{
+ overflow:visible!important;
+ isolation:isolate!important;
+}
+.chuckyNavMascot:before{z-index:0!important}
+.chuckyNavMascot img{
+ clip-path:circle(50% at 50% 50%)!important;
+ overflow:hidden!important;
+ background:#100908!important;
+}
+.chuckyNavMascot strong{z-index:3!important}
