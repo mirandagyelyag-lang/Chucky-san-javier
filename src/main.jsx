@@ -58,7 +58,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
    <div className="exactHeroShade"/>
    <button className="exactMenu" onClick={()=>setScreen('menu')} aria-label="Menú"><Menu/></button>
    <img className="exactLogo" src="/chucky-header.png" alt="Chucky"/>
-   <button className="exactCart" onClick={()=>setScreen('cart')} aria-label="Pedido"><Bag/></button>
+   <button className="exactCart" onClick={()=>setScreen('cart')} aria-label="Pedido"><ShoppingBag/></button>
    <div className="exactCopy"><small>DOS ANTOJOS.<br/>UN SOLO CHUCKY.</small><h1>Pollo frito<br/>y sushi.</h1><i></i><p>MITAD CRUJIENTE<br/>MITAD FRESCO<br/>100% CHUCKY</p><button onClick={()=>setScreen('menu')}>Haz tu pedido <span>→</span></button></div>
    <b className="exactCrown">♛</b><em className="exactNote">MISMAS GANAS.<br/>MEJOR COMIDA.</em>
   </section>
