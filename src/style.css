@@ -2747,3 +2747,47 @@ body:has(.homeEditorial) #root{
    opacity:1!important;
  }
 }
+
+/* Footer polish: compact signature, clean circular seal, balanced breathing room */
+@media(max-width:767px){
+ body:has(.homeEditorial) .homeEditorial .editorialBrandFooter{
+   min-height:245px!important;
+   padding:34px 20px 104px!important;
+   justify-content:flex-start!important;
+   gap:11px!important;
+ }
+ body:has(.homeEditorial) .editorialBrandFooterMark{
+   margin-top:0!important;
+ }
+ body:has(.homeEditorial) .editorialBrandFooterMark>small{
+   font-size:9px!important;
+   letter-spacing:.58em!important;
+   margin:0 0 7px!important;
+ }
+ body:has(.homeEditorial) .editorialBrandSignature{
+   gap:12px!important;
+ }
+ body:has(.homeEditorial) .editorialBrandSignature strong{
+   font-size:46px!important;
+   letter-spacing:-.045em!important;
+ }
+ body:has(.homeEditorial) .editorialBrandSignature img{
+   width:58px!important;
+   height:58px!important;
+   border-radius:50%!important;
+   object-fit:cover!important;
+   overflow:hidden!important;
+ }
+ body:has(.homeEditorial) .editorialBrandFooterMark>i{
+   width:132px!important;
+   height:4px!important;
+   margin:1px 0 0 -38px!important;
+   transform:rotate(-5deg)!important;
+ }
+ body:has(.homeEditorial) .editorialBrandFooter>p{
+   margin:3px 0 0!important;
+   font-size:7px!important;
+   letter-spacing:.32em!important;
+   white-space:nowrap!important;
+ }
+}
