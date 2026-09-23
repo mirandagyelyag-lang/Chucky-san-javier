@@ -15,7 +15,9 @@ const cats=['Pollo frito','Sushi','Combos','Bebidas'];
 const money=n=>'$'+n.toLocaleString('es-CL');
 
 function App(){
- const[screen,setScreen]=useState('home'),[cat,setCat]=useState('Pollo frito'),[q,setQ]=useState(''),[cart,setCart]=useState({}),[selected,setSelected]=useState(null);
+ const initialScreen=()=>{try{const hash=window.location.hash.replace('#/','').replace('#','');return ['home','menu','search','cart'].includes(hash)?hash:'home'}catch{return 'home'}};
+ const[screen,setScreenState]=useState(initialScreen),[cat,setCat]=useState('Pollo frito'),[q,setQ]=useState(''),[cart,setCart]=useState({}),[selected,setSelected]=useState(null);
+ const setScreen=next=>{setScreenState(next);try{history.replaceState(null,'',next==='home'?window.location.pathname:window.location.pathname+'#/'+next)}catch{}};
  const add=(id,e)=>{e?.stopPropagation();setCart(c=>({...c,[id]:(c[id]||0)+1}))};
  const sub=id=>setCart(c=>({...c,[id]:Math.max(0,(c[id]||0)-1)}));
  const count=Object.values(cart).reduce((a,b)=>a+b,0);
