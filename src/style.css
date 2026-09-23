@@ -2412,3 +2412,59 @@ body:has(.homeMockExact) .topbar.topbarConcept{
  .homeMockExact .exploreList .exploreCopy b{font-size:16px!important}
  .homeMockExact .exploreList .exploreCopy i{font-size:7px!important}
 }
+
+
+/* HOME V15 — CHUCKY PACKAGING CATEGORY WORLD */
+.homeMockExact .packagingExplore{position:relative;margin-top:30px!important;padding:18px 4px 112px!important;overflow:hidden}
+.homeMockExact .packStage{position:relative;height:300px;max-width:420px;margin:0 auto;perspective:900px}
+.homeMockExact .pack{position:absolute!important;margin:0!important;color:#f7eee7!important;text-align:left!important;overflow:visible!important;isolation:isolate;transition:transform .18s ease,filter .18s ease;-webkit-tap-highlight-color:transparent}
+.homeMockExact .pack:active{transform:scale(.975)!important;filter:brightness(1.12)}
+.homeMockExact .packCopy{position:absolute;z-index:4;display:block!important}
+.homeMockExact .packCopy b{display:block;font:700 25px/.92 Georgia,serif;letter-spacing:-.04em}
+.homeMockExact .packCopy i{display:block;margin-top:6px;color:#c5b4aa;font-size:9px;font-style:normal;font-weight:500}
+.homeMockExact .packArrow{position:absolute;z-index:5;display:grid!important;place-items:center;width:31px;height:31px;border:1px solid rgba(255,239,230,.35);border-radius:50%;font-size:17px!important;color:#fff}
+.homeMockExact .packBrand{position:absolute;z-index:3;color:#ef3d42;font-size:8px!important;font-weight:900;letter-spacing:.14em}
+
+/* combo takeout box */
+.homeMockExact .packCombo{left:3%;top:20px;width:58%;height:132px!important;border:1px solid rgba(239,61,66,.62)!important;border-radius:10px 10px 18px 18px!important;background:linear-gradient(145deg,#321816 0%,#1a100f 62%,#110c0b 100%)!important;box-shadow:0 18px 35px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.07)!important;clip-path:polygon(7% 0,93% 0,100% 14%,96% 100%,4% 100%,0 14%)}
+.homeMockExact .packCombo:before{content:"";position:absolute;inset:13px 8px auto;height:1px;background:rgba(239,61,66,.35);transform:rotate(-1deg)}
+.homeMockExact .packCombo .packBrand{left:18px;top:18px}
+.homeMockExact .packCombo .packCopy{left:18px;bottom:20px}
+.homeMockExact .packCombo .packArrow{right:15px;bottom:17px}
+
+/* drink cup */
+.homeMockExact .packDrink{right:4%;top:2px;width:31%;height:190px!important;border:1px solid rgba(255,240,231,.22)!important;border-radius:17px 17px 27px 27px!important;background:linear-gradient(105deg,#171110,#2b1715 58%,#130e0d)!important;box-shadow:0 20px 38px rgba(0,0,0,.35),inset 10px 0 25px rgba(255,255,255,.025)!important;clip-path:polygon(5% 7%,95% 7%,86% 100%,14% 100%)}
+.homeMockExact .packDrink .packRim{position:absolute;left:4%;right:4%;top:9px;height:8px;border:1px solid rgba(255,240,231,.34);border-radius:50%;background:#211312}
+.homeMockExact .packDrink .packStraw{position:absolute;z-index:-1;width:6px;height:47px;right:27%;top:-35px;background:#8e2527;border:1px solid #b93639;transform:rotate(7deg)}
+.homeMockExact .packDrink .packCopy{left:19px;bottom:42px}
+.homeMockExact .packDrink .packCopy b{font-size:20px}
+.homeMockExact .packDrink .packArrow{right:15px;bottom:12px;width:27px;height:27px}
+
+/* sauce cup */
+.homeMockExact .packSauce{left:7%;top:177px;width:32%;height:87px!important;border:1px solid rgba(239,61,66,.42)!important;border-radius:14px 14px 24px 24px!important;background:radial-gradient(ellipse at 50% 12%,#3b1b18,#1b1110 65%)!important;box-shadow:0 15px 25px rgba(0,0,0,.3)!important}
+.homeMockExact .packSauce .packLid{position:absolute;left:-4%;right:-4%;top:-5px;height:13px;border:1px solid rgba(255,239,230,.28);border-radius:50%;background:#241412}
+.homeMockExact .packSauce .packCopy{left:14px;bottom:17px}
+.homeMockExact .packSauce .packCopy b{font-size:18px}
+.homeMockExact .packSauce .packCopy i{font-size:7px;margin-top:3px}
+.homeMockExact .packSauce .packArrow{right:10px;bottom:12px;width:25px;height:25px}
+
+/* dessert carton */
+.homeMockExact .packDessert{right:5%;top:205px;width:52%;height:76px!important;border:1px solid rgba(255,239,230,.24)!important;border-radius:8px!important;background:linear-gradient(160deg,#2d1715,#17100f 70%)!important;box-shadow:0 15px 30px rgba(0,0,0,.32)!important;transform:rotate(-2deg)}
+.homeMockExact .packDessert:before{content:"";position:absolute;left:0;right:0;top:12px;border-top:1px solid rgba(239,61,66,.34)}
+.homeMockExact .packDessert .packBrand{right:12px;top:8px;font-size:6px!important}
+.homeMockExact .packDessert .packCopy{left:16px;bottom:13px}
+.homeMockExact .packDessert .packCopy b{font-size:19px}
+.homeMockExact .packDessert .packCopy i{font-size:7px;margin-top:3px}
+.homeMockExact .packDessert .packArrow{right:12px;bottom:10px;width:25px;height:25px}
+
+.homeMockExact .packFooter{display:flex;align-items:center;gap:9px;margin:2px 8px 0;color:#a9968d;font-size:7px;font-weight:800;letter-spacing:.14em}
+.homeMockExact .packFooter span{display:block;width:52px;height:2px;background:#d93439}
+
+@media(max-width:380px){
+ .homeMockExact .packStage{height:280px}
+ .homeMockExact .packCombo{height:124px!important}
+ .homeMockExact .packDrink{height:178px!important}
+ .homeMockExact .packSauce{top:165px}
+ .homeMockExact .packDessert{top:193px}
+ .homeMockExact .packCopy b{font-size:22px}
+}
