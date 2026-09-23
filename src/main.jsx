@@ -38,7 +38,6 @@ function Topbar({setScreen,count}){return <header className="topbar topbarConcep
   <div className="brandWords"><b>CHUCKY</b><small>POLLO FRITO · SUSHI</small></div>
  </button>
  <div className="topActions editorialActions">
-  <button className="editorialSearchBtn" onClick={()=>setScreen('search')} aria-label="Buscar"><Search/></button>
   <button className="ghostBtn cartBtn premiumCart" onClick={()=>setScreen('cart')} aria-label="Ver pedido"><ShoppingBag/>{count>0&&<i>{count}</i>}</button>
  </div>
  </header>}
