@@ -3172,3 +3172,45 @@ body:has(.homeEditorial) #root{
    transform:none!important;
  }
 }
+
+/* SEARCH 02 — fast + visual */
+.searchRedesign02{background:#090706!important;color:#f5eee7!important;min-height:calc(100dvh - 82px);padding:30px 28px 112px!important}
+.searchIntro02>small{display:block;color:#ed343d;font-size:12px;font-weight:900;letter-spacing:.24em;margin-bottom:10px}
+.searchIntroRow02{display:flex;align-items:flex-end;justify-content:space-between;gap:18px}
+.searchIntroRow02 h1{margin:0;font-family:Impact,'Arial Narrow',sans-serif;font-size:46px;line-height:.88;letter-spacing:-.025em;font-weight:900;color:#f6eee7}
+.searchIntroRow02 p{margin:0 2px 2px 0;text-align:right;color:#a99488;font-size:9px;font-weight:800;line-height:1.6;letter-spacing:.18em}
+.searchBox02{height:66px;margin-top:24px;border:1px solid rgba(238,55,63,.55);border-radius:22px;background:linear-gradient(100deg,rgba(65,25,24,.72),rgba(25,19,17,.96));display:flex;align-items:center;padding:0 18px;gap:12px;box-shadow:0 12px 28px rgba(0,0,0,.22)}
+.searchBox02>svg{width:23px;height:23px;color:#c4b3a8;flex:0 0 auto}
+.searchBox02 input{min-width:0;flex:1;border:0;outline:0;background:transparent;color:#f5eee7;font-size:15px}
+.searchBox02 input::placeholder{color:#8e7d73}
+.searchBox02 button{width:34px;height:34px;border:0;border-radius:50%;background:#211917;color:#c9b8ae;display:grid;place-items:center}
+.searchBox02 button svg{width:17px}
+.searchFilters02{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:15px 0 25px}
+.searchFilters02 button{height:44px;border:1px solid #40332e;border-radius:16px;background:#100d0c;color:#a9978c;display:flex;align-items:center;justify-content:center;gap:5px;font-size:11px;font-weight:800;white-space:nowrap}
+.searchFilters02 button span{font-size:14px;font-weight:400}
+.searchFilters02 button.on{border-color:#ef343e;background:#ed3039;color:white;box-shadow:0 8px 22px rgba(237,48,57,.2)}
+.searchSectionHead02{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;color:#f1e7df}
+.searchSectionHead02 b{font-size:11px;letter-spacing:.17em}
+.searchSectionHead02 span{font-size:11px;color:#8f7e74}
+.searchResults02{display:grid;gap:12px}
+.searchRedesign02 .foodCard{background:#120e0d!important;border:1px solid #322824!important;color:#f5eee7!important;box-shadow:none!important}
+.searchRedesign02 .foodCard.wide{min-height:174px}
+.searchRedesign02 .foodInfo h3{color:#f5eee7!important}
+.searchRedesign02 .foodInfo p{color:#a9958a!important}
+.searchRedesign02 .priceRow strong{color:#f5eee7!important}
+.searchRedesign02 .priceRow button{background:#ef303a!important;color:white!important}
+.searchRedesign02 .pickTag{background:#ed3039!important;color:white!important}
+.searchEmpty02{min-height:190px;border:1px dashed #3d302c;border-radius:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#a9958a}
+.searchEmpty02 svg{width:28px;margin-bottom:12px}.searchEmpty02 b{color:#f4ebe4;font-size:14px}.searchEmpty02 p{font-size:12px}
+body:has(.searchRedesign02),body:has(.searchRedesign02) #root,body:has(.searchRedesign02) .app{background:#090706!important;background-image:none!important}
+@media(max-width:767px){
+ body:has(.searchRedesign02) #root{display:block!important;width:100%!important}
+ body:has(.searchRedesign02) .app{width:100%!important;max-width:none!important;margin:0!important;padding-bottom:0!important;box-shadow:none!important}
+ .searchRedesign02{width:100%!important;max-width:none!important;margin:0!important;box-sizing:border-box!important}
+ body:has(.searchRedesign02) .nav{width:auto!important;max-width:none!important;left:28px!important;right:28px!important;transform:none!important}
+}
+@media(max-width:380px){
+ .searchRedesign02{padding-left:20px!important;padding-right:20px!important}
+ .searchIntroRow02 h1{font-size:41px}
+ .searchFilters02{gap:5px}.searchFilters02 button{font-size:10px}
+}
