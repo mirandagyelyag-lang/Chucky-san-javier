@@ -3295,7 +3295,14 @@ body:has(.cartSmart .smartEmpty) #root,
 body:has(.cartSmart .smartEmpty) .app,
 body:has(.cartSmart .smartEmpty) main.cartSmart{
  background:#090706!important;
- background-image:none!important;
+}
+/* Pedido vacío: el arte generado ocupa el fondo completo */
+body:has(.cartSmart .smartEmpty) main.cartSmart.cartSmartEmpty{
+ background-color:#050403!important;
+ background-image:url('/pedido-vacio-bg.png')!important;
+ background-position:center center!important;
+ background-size:cover!important;
+ background-repeat:no-repeat!important;
 }
 
 
