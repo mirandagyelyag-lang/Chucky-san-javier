@@ -85,17 +85,24 @@ function HomePage({setScreen,setCat,add,setSelected}){
  </main>
 }
 
-function MenuPage({cat,setCat,filtered,add,setSelected}){return <main className="content menuContent">
- <section className="menuIntro">
-  <div><small>PARA TODOS LOS ANTOJOS</small><h1>ELIGE<br/><em>TU FAVORITO.</em></h1><p>Pollo crujiente, sushi fresco y sin tanta vuelta.</p></div>
-  <img className="menuMascotSeal" src="/chucky-approved-seal.webp" alt="Aprobado por Chucky"/>
-  <span>★</span>
+function MenuPage({cat,setCat,filtered,add,setSelected}){return <main className="content menuContent menuRedesign02">
+ <section className="menuHero02">
+  <img src="/chucky-pollo-hero.png" alt="" loading="eager"/>
+  <div className="menuHero02Shade"/>
+  <div className="menuHero02Copy">
+   <small>BUENA COMIDA, SIEMPRE.</small>
+   <h1>MENÚ</h1>
+   <i aria-hidden="true"></i>
+   <p>POLLO FRITO · SUSHI<br/>COMBOS · BEBIDAS</p>
+  </div>
+  <div className="menuHero02Note">CRUJIENTE<br/>FRESCO<br/>REAL</div>
  </section>
- <nav className="tabs">{cats.map(c=><button key={c} className={cat===c?'on':''} onClick={()=>setCat(c)}>{c}</button>)}</nav>
- <Headline kicker="MENÚ CHUCKY" title={cat} note={filtered.length+' opciones disponibles'}/>
- <div className="menuList">{filtered.map((p,i)=><Card key={p.id} p={p} add={add} setSelected={setSelected} wide={i%3===0}/>)}</div>
+ <nav className="menuTabs02">{cats.map((c,i)=><button key={c} className={cat===c?'on':''} onClick={()=>setCat(c)}>
+  <span>{i===0?'♧':i===1?'▣':i===2?'♨':'▱'}</span><b>{c}</b>
+ </button>)}</nav>
+ <div className="menuTitle02"><div><small>MENÚ CHUCKY</small><h2>{cat}</h2></div><p>{filtered.length} opciones disponibles</p></div>
+ <div className="menuList menuList02">{filtered.map((p,i)=><Card key={p.id} p={p} add={add} setSelected={setSelected} featured={i===0} wide/>)}</div>
  </main>}
-
 function SearchPage({q,setQ,filtered,add,setSelected}){return <main className="content searchPage">
  <Headline kicker="BUSCA SIN DAR VUELTAS" title="¿QUÉ SE TE ANTOJA?" note="Pollo, sushi, combo o bebida."/>
  <label className="searchBox"><Search/><input autoFocus value={q} onChange={e=>setQ(e.target.value)} placeholder="Escribe aquí..."/>{q&&<button onClick={()=>setQ('')}><X/></button>}</label>
