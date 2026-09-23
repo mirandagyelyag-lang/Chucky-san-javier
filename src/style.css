@@ -3786,3 +3786,29 @@ body:has(.homeEditorial) .editorialActions,
  .cleanChuckyWords small{font-size:6px!important;letter-spacing:2.2px!important}
  .cleanCrown{font-size:23px!important;top:-13px!important;right:10px!important}
 }
+
+/* REAL TRANSPARENT HEADER ASSET */
+.topbar.topbarConcept .cleanChuckyBrand{
+ width:min(72vw,430px)!important;
+ max-width:calc(100% - 92px)!important;
+ height:92px!important;
+ padding:0!important;
+ overflow:visible!important;
+ background:transparent!important;
+}
+.chuckyHeaderTransparent{
+ display:block!important;
+ width:100%!important;
+ height:100%!important;
+ object-fit:contain!important;
+ object-position:center!important;
+ background:transparent!important;
+ mix-blend-mode:normal!important;
+ filter:none!important;
+ transform:none!important;
+ -webkit-mask-image:none!important;
+ mask-image:none!important;
+}
+@media(max-width:420px){
+ .topbar.topbarConcept .cleanChuckyBrand{width:69vw!important;max-width:calc(100% - 76px)!important;height:84px!important}
+}
