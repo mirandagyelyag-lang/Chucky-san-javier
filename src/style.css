@@ -2389,3 +2389,26 @@ body:has(.homeMockExact) .topbar.topbarConcept{
  .homeMockExact .exploreGrid button{padding:10px!important;grid-template-columns:29px 1fr 15px!important}
  .homeMockExact .exploreCopy b{font-size:11px!important}
 }
+
+
+/* HOME CATEGORY EXPLORER V14 — editorial list, no dashboard cards */
+.homeMockExact .exploreEditorial{margin-top:30px!important}
+.homeMockExact .exploreEditorial .exploreHead{display:block!important;margin:0 5px 20px!important}
+.homeMockExact .exploreEditorial .exploreHead small{margin-bottom:5px!important}
+.homeMockExact .exploreEditorial .exploreHead h2{font-size:30px!important;width:max-content;max-width:100%}
+.homeMockExact .exploreEditorial .exploreHead h2:after{width:102px!important;right:2px!important;bottom:-9px!important}
+.homeMockExact .exploreList{display:block!important;border-top:1px solid rgba(255,255,255,.16)}
+.homeMockExact .exploreList button{width:100%!important;height:64px!important;margin:0!important;padding:0 7px!important;border:0!important;border-bottom:1px solid rgba(255,255,255,.14)!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;display:grid!important;grid-template-columns:38px 1fr 28px!important;align-items:center!important;text-align:left!important}
+.homeMockExact .exploreList button:active{background:rgba(239,51,56,.07)!important}
+.homeMockExact .exploreList .exploreNum{color:#ef4146!important;font-size:9px!important;font-weight:900!important;align-self:center}
+.homeMockExact .exploreList .exploreCopy{display:flex!important;align-items:baseline!important;gap:10px!important;min-width:0}
+.homeMockExact .exploreList .exploreCopy b{color:#fff!important;font-size:17px!important;line-height:1!important;letter-spacing:-.02em}
+.homeMockExact .exploreList .exploreCopy i{color:#9f8e87!important;font-size:8px!important;font-style:normal!important;white-space:nowrap}
+.homeMockExact .exploreList .exploreArrow{color:#f5ece7!important;font-size:18px!important;font-weight:300!important;text-align:right}
+@media(max-width:380px){
+ .homeMockExact .exploreEditorial .exploreHead h2{font-size:27px!important}
+ .homeMockExact .exploreList button{grid-template-columns:34px 1fr 24px!important}
+ .homeMockExact .exploreList .exploreCopy{gap:7px!important}
+ .homeMockExact .exploreList .exploreCopy b{font-size:16px!important}
+ .homeMockExact .exploreList .exploreCopy i{font-size:7px!important}
+}
