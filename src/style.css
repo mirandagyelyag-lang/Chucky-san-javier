@@ -3279,3 +3279,21 @@ body:has(.searchRedesign02),body:has(.searchRedesign02) #root,body:has(.searchRe
 .smartEmpty{min-height:58vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}.smartEmpty h1{margin:10px 0 8px;font-family:Impact,'Arial Narrow',sans-serif;font-size:46px;line-height:.92}.smartEmpty p{margin:0 0 22px;color:#9e8d83;font-size:12px}.smartEmpty button{height:52px;padding:0 28px;border:0;border-radius:18px;background:#ef303a;color:white;font-size:10px;font-weight:900;display:flex;align-items:center;gap:8px}.smartEmpty button svg{width:14px}
 body:has(.cartSmart),body:has(.cartSmart) #root,body:has(.cartSmart) .app{background:#090706!important;background-image:none!important}
 @media(max-width:767px){body:has(.cartSmart) #root{display:block!important}body:has(.cartSmart) .app,body:has(.cartSmart) main.cartSmart{width:100%!important;max-width:none!important;margin:0!important;box-shadow:none!important}.cartSmart{padding-left:28px!important;padding-right:28px!important}body:has(.cartSmart) .nav{left:64px!important;right:64px!important;width:auto!important;transform:none!important}}
+
+
+/* Empty Pedido — dark, same visual language as the filled order */
+.cartSmart .smartEmpty{
+ min-height:calc(100dvh - 190px)!important;
+ width:100%!important;
+ background:#090706!important;
+ color:#f5eee7!important;
+}
+.cartSmart .smartEmpty h1{color:#f5eee7!important}
+.cartSmart .smartEmpty p{color:#a9958a!important}
+body:has(.cartSmart .smartEmpty),
+body:has(.cartSmart .smartEmpty) #root,
+body:has(.cartSmart .smartEmpty) .app,
+body:has(.cartSmart .smartEmpty) main.cartSmart{
+ background:#090706!important;
+ background-image:none!important;
+}
