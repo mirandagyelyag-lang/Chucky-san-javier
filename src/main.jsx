@@ -194,7 +194,9 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
    <div className="smartTotal"><span>TOTAL</span><strong>{money(subtotal)}</strong></div>
   </section>
   <button className="smartCheckoutJump" onClick={()=>document.querySelector('.customerForm')?.scrollIntoView({behavior:'smooth'})}>FINALIZAR PEDIDO <ChevronRight/></button>
-  <section className="smartExtras"><div><small>¿ALGO MÁS?</small><b>Antes de terminar</b></div><button onClick={()=>setScreen('menu')}>+ AGREGAR PRODUCTOS</button></section>
+  <section className="smartExtras"><div><small>¿ALGO MÁS?</small><b>Completa tu pedido</b></div><div className="smartSuggestions">
+   {products.filter(p=>!cart[p.id]).slice(0,3).map(p=><button className="smartSuggest" key={p.id} onClick={e=>add(p.id,e)}><img src={p.img} alt=""/><span><b>{p.name}</b><small>{money(p.price)}</small></span><i>+</i></button>)}
+  </div><button className="smartMore" onClick={()=>setScreen('menu')}>VER MÁS</button></section>
   <section className="customerForm smartCustomer">
    <div className="orderFormHead"><small>DATOS DEL CLIENTE</small><h2>¿A QUIÉN ENTREGAMOS?</h2></div>
    <label>Nombre<input name="name" value={customer.name} onChange={change} placeholder="Tu nombre" autoComplete="name"/></label>
@@ -206,7 +208,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
   </section>
   {error&&<p className="orderError">{error}</p>}
   <button className="checkout smartFinal" disabled={!canSend||sending} onClick={sendOrder}>{sending?'ENVIANDO...':'HACER PEDIDO'} {!sending&&<ChevronRight/>}</button>
- </>:<div className="smartEmpty"><small>PEDIDO CHUCKY</small><h1>TU PEDIDO<br/>ESTÁ VACÍO</h1><p>Agrega lo que quieras y vuelve por aquí.</p><button onClick={()=>setScreen('menu')}>VER MENÚ <ChevronRight/></button></div>}
+ </>:<div className="smartEmpty"><small>TU PEDIDO</small><div className="emptyBucket" aria-hidden="true"><img src="/chucky-app-icon.webp" alt=""/></div><h1>Tu pedido está vacío.</h1><p>Toda buena historia empieza<br/>con algo delicioso.</p><button onClick={()=>setScreen('menu')}>IR AL MENÚ <ChevronRight/></button></div>}
  </main>}
 
 function Shell({children,screen,setScreen,count}){return <div className="app"><div className="grain"/>{children}<nav className="nav chuckyNav">
