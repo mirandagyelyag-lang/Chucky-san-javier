@@ -3725,3 +3725,39 @@ body:has(.homeEditorial) .editorialActions,
 .comboBanner span{display:flex;flex-direction:column;gap:3px}.comboBanner span b{font-size:11px;letter-spacing:1.2px}.comboBanner span strong{font-size:14px;line-height:1.1}
 .comboBanner>i{font-style:normal;background:#c92b36;border-radius:999px;padding:11px 12px;font-size:10px;font-weight:800;white-space:nowrap}
 @media(max-width:380px){.quickCard{height:136px}.quickCopy b{font-size:20px}.comboBanner{grid-template-columns:74px 1fr}.comboBanner img{width:84px}.comboBanner>i{display:none}}
+
+/* APPROVED MOBILE HOME — match visual reference */
+@media(max-width:600px){
+ body:has(.homeSales){background:#f5efe5!important}
+ .homeSales{padding-bottom:128px!important}
+ .homeSales .salesHero{height:clamp(520px,118vw,650px)!important;min-height:0!important}
+ .homeSales .editorialHeroCopy{left:20px!important;right:20px!important;bottom:54px!important}
+ .homeSales .editorialHeroCopy h1{font-size:clamp(54px,15vw,78px)!important;line-height:.91!important}
+ .homeSales .editorialHeroCopy button{margin-top:26px!important;min-width:238px!important;height:62px!important;border-radius:999px!important;font-size:24px!important}
+ .quickShop{padding:25px 17px 9px!important}
+ .quickTitle h2{font-size:clamp(38px,11vw,52px)!important;line-height:.96!important}
+ .quickTitle p{margin:8px 0 17px!important;font-size:10px!important;letter-spacing:4px!important}
+ .quickGrid{gap:9px!important}
+ .quickCard{height:143px!important;border-radius:13px!important}
+ .quickCopy{left:11px!important;right:38px!important;bottom:10px!important}
+ .quickCopy b{font-size:22px!important}
+ .quickCopy small{font-size:7.5px!important;letter-spacing:1.25px!important;max-width:100px!important}
+ .quickCard>i{width:31px!important;height:31px!important;right:9px!important;bottom:9px!important}
+ .homeFavorites{padding:24px 17px 4px!important}
+ .favoritesHead{margin-bottom:12px!important;align-items:center!important}
+ .favoritesHead h2{font-size:29px!important;letter-spacing:-1px!important}
+ .favoritesHead h2 span{color:#d92636;font-family:Arial,sans-serif;font-size:22px!important}
+ .favoritesHead button{font-family:Georgia,'Times New Roman',serif!important;text-transform:none!important;font-size:14px!important;letter-spacing:0!important}
+ .favoritesRail{grid-auto-columns:128px!important;gap:8px!important;padding-bottom:12px!important}
+ .favoriteMini{min-height:190px!important;border-radius:10px!important;background:#fffaf2!important}
+ .favoriteMini>img{height:105px!important}
+ .favoriteMini>div{padding:7px 8px 9px!important}
+ .favoriteMini b{font-size:14px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;padding-right:2px!important}
+ .favoriteMini small{display:none!important}
+ .favoriteMini span{font-size:18px!important;margin-top:7px!important}
+ .favoriteMini>button{width:31px!important;height:31px!important;right:7px!important;bottom:7px!important;font-size:22px!important}
+ .comboBanner{display:none!important}
+ .chuckyNav{left:17px!important;right:17px!important;bottom:14px!important;width:auto!important;height:78px!important;min-height:78px!important;border-radius:40px!important;padding:5px 13px!important}
+ .chuckyNav button svg{width:24px!important;height:24px!important}
+ .chuckyNav button b{font-size:12px!important}
+}
