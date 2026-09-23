@@ -3479,3 +3479,17 @@ main.cartSmart.cartSmartEmpty{
 .cartSmartEmpty .emptyBucket:before{
   z-index:4!important;
 }
+
+
+/* Empty Pedido uploaded artwork */
+.cartSmartEmpty .emptyBucket{display:none!important}
+.cartSmartEmpty .emptyPedidoArtwork{
+ width:min(390px,100%)!important;
+ height:330px!important;
+ margin:30px auto 18px!important;
+ background:url('/pedido-vacio-bg.png') center center/contain no-repeat!important;
+ flex:0 0 auto!important;
+}
+@media(max-width:420px){
+ .cartSmartEmpty .emptyPedidoArtwork{height:300px!important;margin-top:22px!important;margin-bottom:12px!important}
+}
