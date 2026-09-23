@@ -3096,3 +3096,45 @@ body:has(.homeEditorial) #root{
    min-height:0!important;
  }
 }
+
+/* MENU mobile shell fix: true full-width dark canvas, no white footer band */
+@media(max-width:767px){
+ body:has(.menuRedesign02),
+ body:has(.menuRedesign02) #root,
+ body:has(.menuRedesign02) .app{
+   width:100%!important;
+   max-width:none!important;
+   margin:0!important;
+   background:#0a0706!important;
+   background-image:none!important;
+ }
+ body:has(.menuRedesign02) #root{
+   display:block!important;
+ }
+ body:has(.menuRedesign02) .app{
+   min-height:0!important;
+   padding-bottom:0!important;
+   box-shadow:none!important;
+ }
+ body:has(.menuRedesign02) .menuRedesign02{
+   width:100%!important;
+   max-width:none!important;
+   margin:0!important;
+   padding-left:0!important;
+   padding-right:0!important;
+   padding-bottom:88px!important;
+   box-sizing:border-box!important;
+ }
+ body:has(.menuRedesign02) .menuTabs02,
+ body:has(.menuRedesign02) .menuTitle02,
+ body:has(.menuRedesign02) .menuList02{
+   box-sizing:border-box!important;
+ }
+ body:has(.menuRedesign02) .nav{
+   width:auto!important;
+   max-width:none!important;
+   left:28px!important;
+   right:28px!important;
+   transform:none!important;
+ }
+}
