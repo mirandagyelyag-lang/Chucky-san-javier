@@ -65,7 +65,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
 
   <section className="editorialCategories">
    <div className="editorialCatHead"><span>¿QUÉ SE TE ANTOJA HOY?</span><i/><span>MISMAS GANAS.<br/>MEJOR COMIDA.</span></div>
-   <div className="editorialCatRail">
+   <div className="editorialCatGrid">
     {categoryItems.map(([c,sub,img,target])=><button key={c} onClick={()=>go(target)} className="editorialCat">
       <img src={img} alt="" loading="lazy"/>
       <span className="editorialCatShade"/>
