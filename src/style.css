@@ -2540,3 +2540,11 @@ body:has(.homeEditorial) .nav button b{font-size:8px!important}
  .homeEditorial .editorialCatRail{grid-template-columns:repeat(4,1fr)}
  .homeEditorial .editorialCatCopy b{font-size:20px}
 }
+
+/* Restore the approved red Chucky header on Home */
+body:has(.homeEditorial) .topbar.editorialTopbar{
+ background:
+   radial-gradient(circle at 18% 50%,rgba(188,35,38,.34),transparent 31%),
+   linear-gradient(100deg,#32100f 0%,#1c0d0c 55%,#120908 100%)!important;
+ border-bottom:1px solid rgba(214,48,52,.38)!important;
+}
