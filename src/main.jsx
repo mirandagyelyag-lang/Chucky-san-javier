@@ -35,7 +35,7 @@ function App(){
 function Topbar({setScreen,count}){return <header className="topbar topbarConcept editorialTopbar">
  <span className="editorialHeaderSpacer" aria-hidden="true"></span>
  <button className="brand brandConcept editorialBrand" onClick={()=>setScreen('home')}>
-  <span className="brandMascot"><img src="/chucky-app-icon.webp" alt=""/></span>
+  <span className="brandMascot"><img src="/chucky-approved-seal.webp" alt=""/></span>
   <div className="brandWords"><b>CHUCKY</b><small>POLLO FRITO · SUSHI</small></div>
  </button>
  <div className="topActions editorialActions">
@@ -53,13 +53,13 @@ function HomePage({setScreen,setCat,add,setSelected}){
  ];
  return <main className="content homeBold homeMockExact homeEditorial">
   <section className="editorialHero">
-   <img src="/chucky-pollo-hero.png" alt="Pollo frito Chucky" loading="eager" fetchPriority="high" decoding="async"/>
+   <img src="/chucky-pollo-hero.png" alt="Pollo frito y sushi Chucky" loading="eager" fetchPriority="high" decoding="async"/>
    <div className="editorialHeroShade"/>
    <div className="editorialHeroCopy">
-    <small>COMIDA REAL</small>
-    <h1>Para días<br/>reales.</h1>
+    <small>DOS ANTOJOS. UN SOLO CHUCKY.</small>
+    <h1>Pollo frito<br/>y sushi.</h1>
     <span className="editorialStroke"/>
-    <p>POLLO FRITO<br/>SUSHI<br/>BUENAS COMPAÑÍAS</p>
+    <p>MITAD CRUJIENTE<br/>MITAD FRESCO<br/>100% CHUCKY</p>
     <button onClick={()=>setScreen('menu')}>Ver menú <span>→</span></button>
    </div>
   </section>
@@ -91,12 +91,12 @@ function MenuPage({cat,setCat,filtered,add,setSelected}){return <main className=
   <img src="/chucky-pollo-hero.png" alt="" loading="eager"/>
   <div className="menuHero02Shade"/>
   <div className="menuHero02Copy">
-   <small>BUENA COMIDA, SIEMPRE.</small>
+   <small>DOS ANTOJOS. UN SOLO CHUCKY.</small>
    <h1>MENÚ</h1>
    <i aria-hidden="true"></i>
    <p>POLLO FRITO · SUSHI<br/>COMBOS · BEBIDAS</p>
   </div>
-  <div className="menuHero02Note">CRUJIENTE<br/>FRESCO<br/>REAL</div>
+  <div className="menuHero02Note">POLLO<br/>+ SUSHI<br/>CHUCKY</div>
  </section>
  <nav className="menuTabs02">{cats.map(c=><button key={c} className={cat===c?'on':''} onClick={()=>setCat(c)}>
   <b>{c}</b>
@@ -175,7 +175,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
   }finally{setSending(false)}
  };
  if(sent)return <main className="content cart orderSuccess">
-  <div className="successMark"><img src="/chucky-app-icon.webp" alt="Chucky"/></div>
+  <div className="successMark"><img src="/chucky-approved-seal.webp" alt="Chucky"/></div>
   <small>PEDIDO ENVIADO</small>
   <h1>¡RECIBIDO!</h1>
   <p>El pedido fue enviado al negocio. Te contactaremos al teléfono indicado para confirmarlo.</p>
