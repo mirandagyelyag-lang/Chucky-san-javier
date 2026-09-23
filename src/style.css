@@ -3953,3 +3953,15 @@ body:has(.exactHome) .chuckyNav button b{font-size:10px!important}
 body:has(.exactHome) .chuckyNav button.on{color:#fff!important}
 body:has(.exactHome) .chuckyNav button.on svg{color:#ef2437!important}
 @media(min-width:601px){body:has(.exactHome) .chuckyNav{width:552px!important}}
+
+
+/* DESKTOP LOCAL PREVIEW: keep the mobile Chucky composition clean */
+@media(min-width:601px){
+ body:has(.exactHome) .exactHome{width:100%!important;max-width:none!important;margin:0!important;padding:0 0 110px!important}
+ body:has(.exactHome) .exactHero{height:430px!important}
+ body:has(.exactHome) .exactLogo{width:205px!important;height:75px!important;top:20px!important}
+ body:has(.exactHome) .exactCopy{left:27px!important;top:108px!important;width:49%!important}
+ body:has(.exactHome) .exactCopy h1{font-size:42px!important}
+ body:has(.exactHome) .exactShop{padding:20px 26px 9px!important}
+ body:has(.exactHome) .exactFav{padding:11px 26px 4px!important}
+}
