@@ -3692,3 +3692,36 @@ body:has(.homeEditorial) .editorialActions,
     height:80px!important;
   }
 }
+
+/* HOME SALES FLOW 2026-09-23 */
+.homeSales{background:#f5efe5;color:#17110e;padding-bottom:150px}
+.homeSales .salesHero{margin-bottom:0}
+.quickShop{padding:26px 18px 12px;background:#f5efe5}
+.quickTitle h2,.favoritesHead h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(30px,8vw,46px);line-height:.95;margin:0;color:#18110e;letter-spacing:-1.5px}
+.quickTitle p{font-size:11px;font-weight:800;letter-spacing:3px;margin:10px 0 18px;color:#3b312c}
+.quickGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.quickCard{position:relative;height:150px;border:0;border-radius:17px;overflow:hidden;padding:0;text-align:left;background:#17110e;color:#fff;box-shadow:none}
+.quickCard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.quickShade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.02) 20%,rgba(0,0,0,.82) 100%)}
+.quickCopy{position:absolute;left:14px;right:42px;bottom:13px;display:flex;flex-direction:column;gap:3px}
+.quickCopy b{font-family:Georgia,'Times New Roman',serif;font-size:23px;line-height:1}
+.quickCopy small{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;line-height:1.3}
+.quickCard>i{position:absolute;right:11px;bottom:12px;width:31px;height:31px;border:1px solid rgba(255,255,255,.75);border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:18px}
+.homeFavorites{padding:22px 18px 10px;background:#f5efe5}
+.favoritesHead{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:14px}
+.favoritesHead h2{font-size:30px}
+.favoritesHead button{border:0;background:none;font-size:9px;letter-spacing:1.5px;font-weight:900;color:#1b1512;white-space:nowrap}
+.favoritesRail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(145px,42vw);gap:9px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
+.favoritesRail::-webkit-scrollbar{display:none}
+.favoriteMini{position:relative;background:#fffaf2;border:1px solid rgba(35,25,20,.12);border-radius:13px;overflow:hidden;min-height:255px}
+.favoriteMini>img{width:100%;height:116px;object-fit:cover}
+.favoriteMini>div{padding:10px 10px 13px;display:flex;flex-direction:column}
+.favoriteMini b{font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.05}
+.favoriteMini small{font-size:10px;line-height:1.25;color:#62564e;margin:5px 0 8px;min-height:25px}
+.favoriteMini span{font-size:17px;font-weight:900}
+.favoriteMini>button{position:absolute;right:9px;bottom:9px;border:0;width:32px;height:32px;border-radius:50%;background:#c92b36;color:white;font-size:23px;line-height:1}
+.comboBanner{margin:16px 18px 0;width:calc(100% - 36px);min-height:100px;border:0;border-radius:16px;background:#0d0b0a;color:white;display:grid;grid-template-columns:90px 1fr auto;align-items:center;gap:8px;overflow:hidden;padding:0 13px 0 0;text-align:left}
+.comboBanner img{width:100px;height:100px;object-fit:contain;align-self:end}
+.comboBanner span{display:flex;flex-direction:column;gap:3px}.comboBanner span b{font-size:11px;letter-spacing:1.2px}.comboBanner span strong{font-size:14px;line-height:1.1}
+.comboBanner>i{font-style:normal;background:#c92b36;border-radius:999px;padding:11px 12px;font-size:10px;font-weight:800;white-space:nowrap}
+@media(max-width:380px){.quickCard{height:136px}.quickCopy b{font-size:20px}.comboBanner{grid-template-columns:74px 1fr}.comboBanner img{width:84px}.comboBanner>i{display:none}}
