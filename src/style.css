@@ -3640,3 +3640,29 @@ body:has(.homeEditorial) .editorialActions,
   body:has(.homeEditorial) .editorialActions,
   .topbar.topbarConcept .editorialActions{right:12px!important}
 }
+
+
+/* Chucky header integrado: el archivo trae fondo propio, lo fundimos con la barra */
+.topbar.topbarConcept.editorialTopbar{
+  overflow:hidden!important;
+}
+.topbar.topbarConcept .editorialBrand{
+  width:min(74vw,430px)!important;
+  height:96px!important;
+  overflow:hidden!important;
+  border-radius:0!important;
+}
+.topbar.topbarConcept .chuckyNewHeaderLogo{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  transform:scale(1.16)!important;
+  transform-origin:center!important;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 10%,#000 90%,transparent 100%)!important;
+  mask-image:linear-gradient(90deg,transparent 0%,#000 10%,#000 90%,transparent 100%)!important;
+}
+@media(max-width:420px){
+  .topbar.topbarConcept .editorialBrand{width:72vw!important;height:90px!important}
+  .topbar.topbarConcept .chuckyNewHeaderLogo{transform:scale(1.18)!important}
+}
