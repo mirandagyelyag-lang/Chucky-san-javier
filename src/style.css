@@ -3297,3 +3297,29 @@ body:has(.cartSmart .smartEmpty) main.cartSmart{
  background:#090706!important;
  background-image:none!important;
 }
+
+
+/* Dedicated empty Pedido canvas */
+main.cartSmart.cartSmartEmpty{
+ width:100vw!important;
+ max-width:none!important;
+ min-height:100dvh!important;
+ margin:0!important;
+ padding:0 24px 120px!important;
+ display:flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+ background:#090706!important;
+}
+.cartSmartEmpty .smartEmpty{
+ width:100%!important;
+ min-height:0!important;
+ margin:0!important;
+ padding:0!important;
+ background:transparent!important;
+}
+body:has(.cartSmartEmpty) .app{
+ min-height:100dvh!important;
+ width:100%!important;
+ background:#090706!important;
+}
