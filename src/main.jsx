@@ -181,27 +181,34 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
   <p>El pedido fue enviado al negocio. Te contactaremos al teléfono indicado para confirmarlo.</p>
   <button className="backHome" onClick={()=>setScreen('home')}>VOLVER AL INICIO <ChevronRight/></button>
  </main>;
- return <main className="content cart">
- <div className="cartTop"><div><small>PEDIDO CHUCKY</small><h1>TU PEDIDO</h1></div><button className="close" onClick={()=>setScreen('home')}><X/></button></div>
- {items.length?items.map(p=><article className="cartItem" key={p.id}><img src={p.img}/><div className="cartCopy"><small>{p.cat}</small><b>{p.name}</b><strong>{money(p.price)}</strong></div><div className="qty"><button onClick={()=>sub(p.id)}><Minus/></button><span>{cart[p.id]}</span><button onClick={e=>add(p.id,e)}><Plus/></button></div></article>):<div className="empty"><span>空</span><b>ESTÁ VACÍO.</b><p>Eso se arregla rápido.</p><button onClick={()=>setScreen('menu')}>IR AL MENÚ <ChevronRight/></button></div>}
- {items.length>0&&<section className="customerForm">
-  <div className="orderFormHead"><small>DATOS DEL CLIENTE</small><h2>¿A QUIÉN ENTREGAMOS?</h2></div>
-  <label>Nombre<input name="name" value={customer.name} onChange={change} placeholder="Tu nombre" autoComplete="name"/></label>
-  <label>Teléfono<input name="phone" value={customer.phone} onChange={change} placeholder="+56 9..." inputMode="tel" autoComplete="tel"/></label>
-  <label>Correo <span className="optionalTag">OPCIONAL · PARA RECIBIR COMPROBANTE</span><input type="email" name="email" value={customer.email} onChange={change} placeholder="tu@correo.com" inputMode="email" autoComplete="email"/>{customer.email&&!emailOk&&<small className="fieldError">Escribe un correo válido.</small>}</label>
-  <label>Tipo de entrega<select name="delivery" value={customer.delivery} onChange={change}><option>Retiro en local</option><option>Despacho</option></select></label>
-  {customer.delivery==='Despacho'&&<label>Dirección<input name="address" value={customer.address} onChange={change} placeholder="Calle, número y comuna" autoComplete="street-address"/></label>}
-  <label>Notas<textarea name="notes" value={customer.notes} onChange={change} placeholder="Salsas, indicaciones o alergias..."/></label>
- </section>}
- <div className="bill"><div><span>Subtotal</span><b>{money(subtotal)}</b></div><div className="billTotal"><span>TOTAL</span><b>{money(subtotal)}</b></div></div>
- {items.length>0&&<section className="orderRecap">
-  <div className="orderRecapHead"><small>CONFIRMA TU PEDIDO</small><span>{items.reduce((sum,p)=>sum+cart[p.id],0)} productos</span></div>
-  {items.map(p=><div className="orderRecapLine" key={'recap-'+p.id}><span><b>{cart[p.id]}×</b> {p.name}</span><strong>{money(cart[p.id]*p.price)}</strong></div>)}
- </section>}
- {error&&<p className="orderError">{error}</p>}
- <button className="checkout" disabled={!canSend||sending} onClick={sendOrder}>{sending?'ENVIANDO...':'FINALIZAR PEDIDO'} {!sending&&<ChevronRight/>}</button>
- </main>
-}
+ return <main className="content cart cartSmart">
+ <div className="smartCartHead"><small>TU PEDIDO</small><h1>RESUMEN</h1><p>${items.length?items.reduce((s,p)=>s+cart[p.id],0):0} productos</p></div>
+ {items.length?<>
+  <section className="smartSummary">
+   <div className="smartSummaryTop"><b>Productos</b><strong>{money(subtotal)}</strong></div>
+   {items.map(p=><article className="smartCartItem" key={p.id}>
+    <img src={p.img} alt={p.name}/>
+    <div className="smartItemCopy"><b>{p.name}</b><span>{money(p.price)}</span></div>
+    <div className="smartQty"><button onClick={()=>sub(p.id)}><Minus/></button><strong>{cart[p.id]}</strong><button onClick={e=>add(p.id,e)}><Plus/></button></div>
+   </article>)}
+   <div className="smartDelivery"><span>Entrega</span><b>Se calcula al confirmar</b></div>
+   <div className="smartTotal"><span>TOTAL</span><strong>{money(subtotal)}</strong></div>
+  </section>
+  <button className="smartCheckoutJump" onClick={()=>document.querySelector('.customerForm')?.scrollIntoView({behavior:'smooth'})}>FINALIZAR PEDIDO <ChevronRight/></button>
+  <section className="smartExtras"><div><small>¿ALGO MÁS?</small><b>Antes de terminar</b></div><button onClick={()=>setScreen('menu')}>+ AGREGAR PRODUCTOS</button></section>
+  <section className="customerForm smartCustomer">
+   <div className="orderFormHead"><small>DATOS DEL CLIENTE</small><h2>¿A QUIÉN ENTREGAMOS?</h2></div>
+   <label>Nombre<input name="name" value={customer.name} onChange={change} placeholder="Tu nombre" autoComplete="name"/></label>
+   <label>Teléfono<input name="phone" value={customer.phone} onChange={change} placeholder="+56 9..." inputMode="tel" autoComplete="tel"/></label>
+   <label>Correo <span className="optionalTag">OPCIONAL</span><input type="email" name="email" value={customer.email} onChange={change} placeholder="tu@correo.com" inputMode="email" autoComplete="email"/>{customer.email&&!emailOk&&<small className="fieldError">Escribe un correo válido.</small>}</label>
+   <label>Tipo de entrega<select name="delivery" value={customer.delivery} onChange={change}><option>Retiro en local</option><option>Despacho</option></select></label>
+   {customer.delivery==='Despacho'&&<label>Dirección<input name="address" value={customer.address} onChange={change} placeholder="Calle, número y comuna" autoComplete="street-address"/></label>}
+   <label>Notas<textarea name="notes" value={customer.notes} onChange={change} placeholder="Salsas o indicaciones..."/></label>
+  </section>
+  {error&&<p className="orderError">{error}</p>}
+  <button className="checkout smartFinal" disabled={!canSend||sending} onClick={sendOrder}>{sending?'ENVIANDO...':'HACER PEDIDO'} {!sending&&<ChevronRight/>}</button>
+ </>:<div className="smartEmpty"><small>PEDIDO CHUCKY</small><h1>TU PEDIDO<br/>ESTÁ VACÍO</h1><p>Agrega lo que quieras y vuelve por aquí.</p><button onClick={()=>setScreen('menu')}>VER MENÚ <ChevronRight/></button></div>}
+ </main>}
 
 function Shell({children,screen,setScreen,count}){return <div className="app"><div className="grain"/>{children}<nav className="nav chuckyNav">
  <button className={screen==='home'?'on':''} onClick={()=>setScreen('home')}><Home/><b>Inicio</b></button>
