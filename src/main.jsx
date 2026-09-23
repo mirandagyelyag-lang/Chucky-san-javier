@@ -181,9 +181,8 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
   <p>El pedido fue enviado al negocio. Te contactaremos al teléfono indicado para confirmarlo.</p>
   <button className="backHome" onClick={()=>setScreen('home')}>VOLVER AL INICIO <ChevronRight/></button>
  </main>;
- return <main className="content cart cartSmart">
- <div className="smartCartHead"><small>TU PEDIDO</small><h1>RESUMEN</h1><p>${items.length?items.reduce((s,p)=>s+cart[p.id],0):0} productos</p></div>
- {items.length?<>
+ return <main className={"content cart cartSmart"+(!items.length?" cartSmartEmpty":"")}>
+ {items.length?<><div className="smartCartHead"><small>TU PEDIDO</small><h1>RESUMEN</h1><p>${items.reduce((s,p)=>s+cart[p.id],0)} productos</p></div>
   <section className="smartSummary">
    <div className="smartSummaryTop"><b>Productos</b><strong>{money(subtotal)}</strong></div>
    {items.map(p=><article className="smartCartItem" key={p.id}>
