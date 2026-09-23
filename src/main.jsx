@@ -115,8 +115,8 @@ function SearchPage({q,setQ,filtered,add,setSelected}){
   </section>
   <label className="searchBox02"><Search/><input autoFocus value={q} onChange={e=>setQ(e.target.value)} placeholder="Buscar pollo, sushi, combos..."/>{q&&<button onClick={()=>setQ('')} aria-label="Limpiar búsqueda"><X/></button>}</label>
   <nav className="searchFilters02">
-   {['Todo','Pollo frito','Sushi','Bebidas'].map((c,i)=><button key={c} className={searchCat===c?'on':''} onClick={()=>setSearchCat(c)}>
-    <span>{i===0?'▦':i===1?'♧':i===2?'▣':'▱'}</span>{c==='Pollo frito'?'Pollo':c}
+   {['Todo','Pollo frito','Sushi','Bebidas'].map(c=><button key={c} className={searchCat===c?'on':''} onClick={()=>setSearchCat(c)}>
+    {c==='Pollo frito'?'Pollo':c}
    </button>)}
   </nav>
   <div className="searchSectionHead02"><b>{q?'RESULTADOS':'PRODUCTOS DESTACADOS'}</b><span>{visible.length} {visible.length===1?'producto':'productos'}</span></div>
