@@ -54,7 +54,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
  const favorites=[products[0],products[2],products[4],products[3]];
  return <main className="content homeEditorial homeSales exactHome">
   <section className="exactHero">
-   <img className="exactHeroImg" src="/chucky-hero.png?v=exact2" alt="Pollo frito y sushi Chucky"/>
+   <img className="exactHeroImg" src="/chucky-hero-food.png?v=1" alt="Pollo frito y sushi Chucky"/>
    <div className="exactHeroShade"/>
    <button className="exactMenu" onClick={()=>setScreen('menu')} aria-label="Menú"><Menu/></button>
    <img className="exactLogo" src="/chucky-header.png" alt="Chucky"/>
