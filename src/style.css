@@ -2366,3 +2366,26 @@ body:has(.homeMockExact) .topbar.topbarConcept{
     padding-bottom:112px!important;
   }
 }
+
+
+/* HOME CATEGORY EXPLORER V13 — approved editorial dark concept */
+.homeMockExact .mockExplore{margin-top:28px!important}
+.homeMockExact .exploreHead{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:0 4px 16px}
+.homeMockExact .exploreHead small{display:block;margin:0 0 4px;color:#ef5558;font-size:7px;font-weight:900;letter-spacing:.16em}
+.homeMockExact .exploreHead h2{position:relative;margin:0;color:#fff;font:italic 700 27px/.95 Georgia,serif;letter-spacing:-.045em}
+.homeMockExact .exploreHead h2:after{content:"";position:absolute;width:88px;right:0;bottom:-8px;border-top:2px solid #ef3338;transform:rotate(-4deg)}
+.homeMockExact .exploreHead p{margin:0 0 1px;color:#a9958b;font-size:8px;line-height:1.3;text-align:right}
+.homeMockExact .exploreGrid{display:grid!important;grid-template-columns:1fr 1fr!important;gap:9px!important}
+.homeMockExact .exploreGrid button{position:relative;height:82px!important;padding:12px 12px!important;border:1px solid rgba(239,51,56,.48)!important;border-radius:17px!important;background:linear-gradient(135deg,rgba(72,25,22,.28),rgba(29,14,12,.58))!important;display:grid!important;grid-template-columns:34px 1fr 18px!important;grid-template-rows:18px 1fr!important;column-gap:8px!important;align-items:center!important;text-align:left!important;box-shadow:inset 0 0 22px rgba(179,39,39,.035)!important}
+.homeMockExact .exploreNum{grid-column:1;grid-row:1;color:#ef4b50;font-size:8px!important;font-weight:900}
+.homeMockExact .exploreIcon{grid-column:1;grid-row:2;color:#ef4146;font-size:22px!important;line-height:1}
+.homeMockExact .exploreCopy{grid-column:2;grid-row:1/3;display:block!important}
+.homeMockExact .exploreCopy b{display:block;color:#fff;font-size:12px!important;line-height:1.1}
+.homeMockExact .exploreCopy i{display:block;margin-top:5px;color:#aa9890;font-size:8px;font-style:normal;line-height:1.15}
+.homeMockExact .exploreArrow{grid-column:3;grid-row:1/3;color:#fff;font-size:18px!important;font-weight:300}
+@media(max-width:380px){
+ .homeMockExact .exploreHead h2{font-size:24px}
+ .homeMockExact .exploreHead p{font-size:7px}
+ .homeMockExact .exploreGrid button{padding:10px!important;grid-template-columns:29px 1fr 15px!important}
+ .homeMockExact .exploreCopy b{font-size:11px!important}
+}
