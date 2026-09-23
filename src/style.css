@@ -3138,3 +3138,37 @@ body:has(.homeEditorial) #root{
    transform:none!important;
  }
 }
+
+/* HOME mobile shell fix: full-width dark canvas, matching Menu */
+@media(max-width:767px){
+ body:has(.homeEditorial),
+ body:has(.homeEditorial) #root,
+ body:has(.homeEditorial) .app{
+   width:100%!important;
+   max-width:none!important;
+   margin:0!important;
+   background:#090706!important;
+   background-image:none!important;
+ }
+ body:has(.homeEditorial) #root{
+   display:block!important;
+ }
+ body:has(.homeEditorial) .app{
+   min-height:0!important;
+   padding-bottom:0!important;
+   box-shadow:none!important;
+ }
+ body:has(.homeEditorial) main.content.homeEditorial{
+   width:100%!important;
+   max-width:none!important;
+   margin:0!important;
+   box-sizing:border-box!important;
+ }
+ body:has(.homeEditorial) .nav{
+   width:auto!important;
+   max-width:none!important;
+   left:28px!important;
+   right:28px!important;
+   transform:none!important;
+ }
+}
