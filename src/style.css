@@ -3812,3 +3812,55 @@ body:has(.homeEditorial) .editorialActions,
 @media(max-width:420px){
  .topbar.topbarConcept .cleanChuckyBrand{width:69vw!important;max-width:calc(100% - 76px)!important;height:84px!important}
 }
+
+/* EXACT APPROVED HOME COMPOSITION */
+@media(max-width:600px){
+ body:has(.homeSales) .topbar.editorialTopbar{
+  position:absolute!important;top:0!important;left:0!important;right:0!important;z-index:20!important;
+  height:92px!important;min-height:92px!important;padding:8px 17px!important;
+  background:linear-gradient(180deg,rgba(8,6,5,.68),rgba(8,6,5,0))!important;border:0!important;
+ }
+ .heroMenuBtn{display:grid!important;place-items:center!important;position:absolute!important;left:17px!important;top:31px!important;width:32px!important;height:32px!important;padding:0!important;border:0!important;background:transparent!important;color:#fff!important;z-index:4!important}
+ .heroMenuBtn svg{width:27px!important;height:27px!important;stroke-width:1.8!important}
+ .topbar.topbarConcept .cleanChuckyBrand{width:48vw!important;max-width:215px!important;height:72px!important;margin:auto!important}
+ .chuckyHeaderTransparent{width:100%!important;height:100%!important;object-fit:contain!important}
+ body:has(.homeSales) .editorialActions{right:18px!important;top:47px!important}
+ body:has(.homeSales) .premiumCart{width:38px!important;height:38px!important;color:#fff!important}
+ body:has(.homeSales) .premiumCart svg{width:25px!important;height:25px!important}
+ .homeSales .salesHero{height:535px!important;min-height:535px!important;margin-top:0!important}
+ .homeSales .salesHero>img{object-fit:cover!important;object-position:57% center!important}
+ .homeSales .editorialHeroShade{background:linear-gradient(90deg,rgba(5,4,3,.91) 0%,rgba(5,4,3,.61) 42%,rgba(5,4,3,.12) 72%),linear-gradient(180deg,rgba(0,0,0,.22),transparent 32%,rgba(0,0,0,.12))!important}
+ .homeSales .editorialHeroCopy{left:17px!important;right:auto!important;top:116px!important;bottom:auto!important;width:57%!important}
+ .homeSales .editorialHeroCopy>small{font-size:10px!important;line-height:1.55!important;letter-spacing:3px!important}
+ .homeSales .editorialHeroCopy h1{font-size:clamp(43px,12.7vw,58px)!important;line-height:.91!important;letter-spacing:-2px!important;margin:13px 0 9px!important}
+ .homeSales .editorialStroke{width:185px!important;height:4px!important;margin:0 0 20px!important}
+ .homeSales .editorialHeroCopy p{font-size:9px!important;line-height:1.6!important;letter-spacing:2.4px!important}
+ .homeSales .editorialHeroCopy button{margin-top:18px!important;min-width:0!important;width:202px!important;height:55px!important;border:0!important;background:#e52635!important;color:#fff!important;border-radius:999px!important;font-size:21px!important;padding:0 15px 0 20px!important;justify-content:space-between!important}
+ .homeSales .editorialHeroCopy button span{background:transparent!important;width:auto!important;height:auto!important;font-size:28px!important}
+ .heroCrown{display:block!important;position:absolute!important;left:calc(100% + 48px)!important;top:71px!important;color:#e52635!important;font-size:43px!important;line-height:1!important;transform:rotate(8deg)!important}
+ .heroSideNote{display:block!important;position:absolute!important;left:calc(100% + 100px)!important;top:69px!important;width:100px!important;color:#fff!important;font-family:Arial,sans-serif!important;font-size:8px!important;font-weight:900!important;font-style:italic!important;line-height:1.2!important;transform:rotate(-10deg)!important}
+ .quickShop{padding:18px 16px 8px!important}
+ .quickTitle h2{font-size:38px!important;line-height:1!important;letter-spacing:-1.8px!important}
+ .quickTitle p{font-size:8px!important;margin:5px 0 13px!important;letter-spacing:4px!important}
+ .quickGrid{gap:8px!important}
+ .quickCard{height:111px!important;border-radius:10px!important}
+ .quickCopy{left:10px!important;right:38px!important;bottom:9px!important}
+ .quickCopy b{font-size:20px!important}
+ .quickCopy small{font-size:6.5px!important;line-height:1.35!important;letter-spacing:1.5px!important}
+ .quickCard>i{width:28px!important;height:28px!important;font-size:16px!important;right:8px!important;bottom:8px!important}
+ .homeFavorites{padding:16px 16px 8px!important}
+ .favoritesHead{margin-bottom:9px!important}
+ .favoritesHead h2{font-size:24px!important}
+ .favoritesHead h2 span{font-size:18px!important}
+ .favoritesHead button{font-size:12px!important}
+ .favoritesRail{grid-auto-columns:calc((100vw - 56px)/4)!important;gap:8px!important;overflow:visible!important}
+ .favoriteMini{min-height:145px!important;border-radius:8px!important}
+ .favoriteMini>img{height:78px!important}
+ .favoriteMini>div{padding:6px!important}
+ .favoriteMini b{font-size:10px!important}
+ .favoriteMini span{font-size:14px!important;margin-top:4px!important}
+ .favoriteMini>button{width:26px!important;height:26px!important;right:5px!important;bottom:5px!important;font-size:19px!important}
+ .chuckyNav{height:72px!important;min-height:72px!important;left:14px!important;right:14px!important;bottom:12px!important;border-radius:38px!important}
+ .chuckyNav button svg{width:22px!important;height:22px!important}.chuckyNav button b{font-size:11px!important}
+}
+@media(min-width:601px){.heroMenuBtn,.heroCrown,.heroSideNote{display:none!important}}
