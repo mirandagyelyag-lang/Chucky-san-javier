@@ -4495,3 +4495,42 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    padding:0!important;margin:0!important;transform:none!important;
  }
 }
+
+
+/* NEW CATEGORY PHOTOGRAPHY — clean restaurant cards */
+@media(max-width:600px){
+ .exactShop{padding:26px 22px 26px!important}
+ .exactTitle{margin-bottom:18px!important}
+ .exactGrid{gap:10px!important}
+ .exactCat{
+   height:150px!important;
+   border-radius:18px!important;
+   border:1px solid rgba(255,255,255,.18)!important;
+   background:#100b09!important;
+   box-shadow:0 8px 22px rgba(0,0,0,.22)!important;
+ }
+ .exactCat img{
+   position:absolute!important;inset:0!important;
+   width:100%!important;height:100%!important;
+   object-fit:cover!important;object-position:center!important;
+   transform:none!important
+ }
+ .exactCatShade{
+   background:linear-gradient(180deg,rgba(0,0,0,0) 38%,rgba(0,0,0,.82) 100%)!important
+ }
+ .exactCat>.exactCatCopy{
+   left:13px!important;right:44px!important;bottom:12px!important
+ }
+ .exactCat>.exactCatCopy>strong{
+   font-size:20px!important;line-height:1!important;letter-spacing:-.4px!important
+ }
+ .exactCat>.exactCatCopy>small{
+   margin-top:4px!important;font-size:6.5px!important;
+   letter-spacing:1px!important;color:rgba(255,255,255,.82)!important
+ }
+ .exactCat>b{
+   width:31px!important;height:31px!important;min-width:31px!important;
+   right:10px!important;bottom:10px!important;font-size:17px!important;
+   background:rgba(0,0,0,.42)!important
+ }
+}
