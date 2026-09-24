@@ -5455,3 +5455,31 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    background-repeat:no-repeat!important;
  }
 }
+
+
+/* PEDIDO EMPTY V5 — stable mobile viewport, no resize while browser chrome collapses */
+@media(max-width:600px){
+ body:has(main.cartSmartEmpty),
+ body:has(main.cartSmartEmpty) #root,
+ body:has(main.cartSmartEmpty) .app{
+   min-height:100svh!important;
+   height:100svh!important;
+   overflow:hidden!important;
+ }
+ body:has(main.cartSmartEmpty) main.content.cartSmart.cartSmartEmpty{
+   width:100%!important;
+   height:100svh!important;
+   min-height:100svh!important;
+   max-height:100svh!important;
+   overflow:hidden!important;
+   background-image:url('/pedido-fondo.png?v=5')!important;
+   background-size:cover!important;
+   background-position:center center!important;
+   background-repeat:no-repeat!important;
+   background-attachment:scroll!important;
+ }
+ body:has(main.cartSmartEmpty) .smartEmpty{
+   min-height:100%!important;
+   height:100%!important;
+ }
+}
