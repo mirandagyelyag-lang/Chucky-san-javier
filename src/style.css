@@ -5627,3 +5627,14 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    border-radius:15px!important;
  }
 }
+
+
+/* PEDIDO EMPTY V8 — remove fake transparency baked into logo image */
+@media(max-width:600px){
+ .cartSmartEmpty .pedidoChuckyLogo{
+   mix-blend-mode:screen!important;
+   width:min(74vw,340px)!important;
+   top:45%!important;
+   filter:contrast(1.12) drop-shadow(0 8px 18px rgba(0,0,0,.45))!important;
+ }
+}
