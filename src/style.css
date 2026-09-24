@@ -4123,3 +4123,37 @@ body:has(.menuShowcase) .chuckyNav{position:fixed!important}
  background:rgba(0,0,0,.16)!important;
  backdrop-filter:blur(2px);
 }
+
+
+/* CHUCKY IZAKAYA HERO + CTA 03 */
+.exactHero{height:500px!important;background:#080504!important}
+.exactHeroImg{
+ object-position:center!important;
+ filter:brightness(.52) saturate(.92)!important;
+}
+.exactHeroShade{
+ background:linear-gradient(90deg,rgba(3,2,2,.78) 0%,rgba(3,2,2,.54) 44%,rgba(3,2,2,.18) 76%),linear-gradient(180deg,rgba(0,0,0,.22),transparent 35%,rgba(0,0,0,.14))!important;
+}
+.exactLogo{width:235px!important;height:88px!important;top:9px!important}
+.exactMenu,.exactCart{top:35px!important}
+.exactCopy{top:133px!important;left:27px!important;width:73%!important}
+.exactCopy h1{font-size:45px!important;line-height:.92!important}
+.exactCopy>i{width:215px!important}
+.exactOrderCta{
+ margin-top:18px!important;width:225px!important;height:48px!important;
+ display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;
+ padding:0 17px!important;border:1.5px solid #ef2437!important;border-radius:999px!important;
+ background:rgba(8,5,4,.86)!important;color:#fff!important;
+ box-shadow:0 0 0 3px rgba(239,36,55,.07),0 8px 24px rgba(0,0,0,.24)!important;
+ font-family:Georgia,serif!important;
+}
+.exactOrderCta svg{width:18px!important;height:18px!important;color:#ef2437!important;stroke-width:2.2!important}
+.exactOrderCta strong{font-size:17px!important;font-weight:700!important;white-space:nowrap!important}
+.exactOrderCta span{font:400 24px/1 Arial,sans-serif!important;color:#fff!important}
+@media(max-width:430px){
+ .exactHero{height:500px!important}
+ .exactLogo{width:235px!important;height:88px!important}
+ .exactCopy{top:133px!important;width:76%!important}
+ .exactCopy h1{font-size:44px!important}
+ .exactOrderCta{width:225px!important;height:48px!important}
+}
