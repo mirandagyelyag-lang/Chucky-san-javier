@@ -5858,3 +5858,31 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    padding-bottom:0!important;
  }
 }
+
+
+/* PEDIDO EMPTY V15 — dynamic Chrome viewport without the temporary light gutter */
+@media(max-width:600px){
+ html:has(body main.cartSmartEmpty),
+ body:has(main.cartSmartEmpty),
+ body:has(main.cartSmartEmpty) #root,
+ body:has(main.cartSmartEmpty) .app{
+   min-height:100dvh!important;
+   height:100dvh!important;
+   background:#050303!important;
+   overflow:hidden!important;
+ }
+ body:has(main.cartSmartEmpty) main.content.cartSmart.cartSmartEmpty{
+   height:100dvh!important;
+   min-height:100dvh!important;
+   max-height:100dvh!important;
+   background:#050303 url('/pedido-oficial.png?v=15') center top/cover no-repeat!important;
+ }
+ body:has(main.cartSmartEmpty) .mobileNavSpace{
+   display:none!important;
+   height:0!important;
+   min-height:0!important;
+   flex:0 0 0!important;
+   margin:0!important;
+   padding:0!important;
+ }
+}
