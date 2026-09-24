@@ -5420,3 +5420,26 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    box-shadow:0 10px 28px rgba(0,0,0,.35)!important;
  }
 }
+
+
+/* PEDIDO EMPTY V3 — apply artwork to the actual full app layer */
+@media(max-width:600px){
+ body:has(main.cartSmartEmpty),
+ body:has(main.cartSmartEmpty) #root,
+ body:has(main.cartSmartEmpty) .app{
+   background-image:
+     linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.18)),
+     url('/pedido-fondo.png?v=3')!important;
+   background-size:cover!important;
+   background-position:center center!important;
+   background-repeat:no-repeat!important;
+   background-attachment:fixed!important;
+ }
+ body:has(main.cartSmartEmpty) main.cartSmartEmpty{
+   min-height:100dvh!important;
+   background:transparent!important;
+ }
+ body:has(main.cartSmartEmpty) .smartEmpty{
+   background:transparent!important;
+ }
+}
