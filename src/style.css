@@ -4005,3 +4005,34 @@ body:has(.exactHome) .chuckyNav button.on svg{color:#ef2437!important}
   overflow:hidden!important;
   text-overflow:ellipsis!important;
 }
+
+
+/* APPROVED HOME COMPOSITION */
+.exactHero{height:465px!important}
+.exactHeroImg{object-position:center center!important}
+.exactHeroShade{
+ background:linear-gradient(90deg,rgba(4,3,2,.82) 0%,rgba(4,3,2,.50) 38%,rgba(4,3,2,.08) 72%),linear-gradient(180deg,rgba(0,0,0,.18),transparent 34%,rgba(0,0,0,.05))!important;
+}
+.exactLogo{top:17px!important;width:190px!important;height:70px!important}
+.exactMenu,.exactCart{top:39px!important}
+.exactCopy{left:28px!important;top:126px!important;width:66%!important}
+.exactCopy>small{font-size:8px!important;line-height:2.25!important;letter-spacing:2.7px!important}
+.exactCopy h1{margin:12px 0 8px!important;font-size:43px!important;line-height:.93!important;letter-spacing:-2px!important}
+.exactCopy h1 span{display:block!important;white-space:nowrap!important}
+.exactCopy>i{width:198px!important;margin-bottom:15px!important}
+.exactCopy p{font-size:7px!important;line-height:1.55!important;letter-spacing:2.3px!important}
+.exactCopy>button{
+ margin-top:16px!important;width:215px!important;height:45px!important;
+ font-size:17px!important;white-space:nowrap!important;padding:0 18px 0 22px!important;
+}
+.exactCopy>button span{font-size:25px!important}
+.exactCrown,.exactNote{display:none!important}
+.exactShop{padding-top:24px!important}
+.exactCat>span{left:12px!important;bottom:10px!important;right:43px!important}
+.exactCat strong{font-size:20px!important}
+.exactCat small{font-size:6px!important;letter-spacing:1.35px!important}
+@media(max-width:430px){
+ .exactHero{height:465px!important}
+ .exactCopy{left:27px!important;top:126px!important;width:70%!important}
+ .exactCopy h1{font-size:42px!important}
+}
