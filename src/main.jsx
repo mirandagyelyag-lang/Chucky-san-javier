@@ -55,10 +55,10 @@ function Topbar({setScreen,count}){return <header className="topbar topbarConcep
 function HomePage({setScreen,setCat,add,setSelected}){
  const go=cat=>{setCat(cat);setScreen('menu')};
  const categoryItems=[
-  ['Sushi','ROLLS, HANDROLLS Y MÁS.','/sushi-principal.png?v=2','Sushi'],
-  ['Pollo frito','PIEZAS, ALITAS Y COMBOS.','/pollo-frito-principal.png?v=2','Pollo frito'],
-  ['Bebidas','PARA ACOMPAÑAR.','/bebidas-principal.png?v=2','Bebidas'],
-  ['Salsas','EL TOQUE FINAL.','/salsas-principal.png?v=2','Salsas']
+  ['Sushi','ROLLS, HANDROLLS Y MÁS.','/sushi-principal.png','Sushi'],
+  ['Pollo frito','PIEZAS, ALITAS Y COMBOS.','/pollo-frito-principal.png','Pollo frito'],
+  ['Bebidas','PARA ACOMPAÑAR.','/bebidas-principal.png','Bebidas'],
+  ['Salsas','EL TOQUE FINAL.','/salsas-principal.png','Salsas']
  ];
  return <main className="content homeEditorial homeSales exactHome chuckyContinuous">
   <section className="exactHero">
@@ -69,13 +69,9 @@ function HomePage({setScreen,setCat,add,setSelected}){
    <button className="exactCart" onClick={()=>setScreen('cart')} aria-label="Pedido"><ShoppingBag/></button>
    <div className="exactCopy"><small>DOS ANTOJOS.<br/>UN SOLO CHUCKY.</small><h1><span>Pollo frito</span><span>y sushi.</span></h1><i></i><p>MITAD CRUJIENTE<br/>MITAD FRESCO<br/>100% CHUCKY</p><button className="exactOrderCta" onClick={()=>setScreen('menu')}><ShoppingBag/> <strong>Pide ahora</strong> <span>→</span></button></div>
   </section>
-  <div className="heroShopGap" aria-hidden="true"/>
   <section className="exactShop">
-   <div className="exactTitle"><span>ELIGE TU ANTOJO</span><h2>¿Qué vas a pedir?</h2><p>POLLO, SUSHI Y ALGO PARA ACOMPAÑAR.</p></div>
-   <div className="exactGrid">{categoryItems.map(([name,sub,img,target])=><button key={name} className="exactCat" onClick={()=>go(target)} aria-label={name}>
-    <img src={img} alt="" loading="lazy" decoding="async"/><span className="exactCatShade"/><span className="exactCatCopy"><strong>{name}</strong><small>{sub}</small></span><b aria-hidden="true">→</b>
-   </button>)}</div>
-   <div className="homeNavClearance" aria-hidden="true"/>
+   <div className="exactTitle"><h2>¿Qué vas a pedir?<b>⌁</b></h2><p>TODO A UN TOQUE.</p></div>
+   <div className="exactGrid">{categoryItems.map(([name,sub,img,target])=><button key={name} className="exactCat" onClick={()=>go(target)} aria-label={name}><img src={img} alt=""/><b aria-hidden="true">→</b></button>)}</div>
   </section>
 
  </main>
