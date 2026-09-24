@@ -4656,6 +4656,6 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
  }
  body:has(.chuckyContinuous) .chuckyContinuous .exactShop{
    margin-top:0!important;
-   padding-top:2px!important;
+   padding-top:1.5px!important;
  }
 }
