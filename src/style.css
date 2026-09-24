@@ -4339,3 +4339,22 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    font-size:11px!important;line-height:12px!important;
  }
 }
+
+
+/* REAL NAV CLEARANCE: spacer participates in document flow */
+.mobileNavSpace{display:none}
+@media(max-width:600px){
+ .mobileNavSpace{
+   display:block!important;
+   position:relative!important;
+   width:100%!important;
+   height:96px!important;
+   flex:0 0 96px!important;
+   pointer-events:none!important;
+ }
+ .chuckyNav{
+   height:56px!important;
+   min-height:56px!important;
+   bottom:8px!important;
+ }
+}
