@@ -6124,3 +6124,24 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    background-color:#080707!important;
  }
 }
+
+
+/* MENU CATALOG V10 — approved abstract background below tabs */
+@media(max-width:600px){
+ body:has(.menuShowcase) .menuShowcase{
+   background:#090807!important;
+ }
+ body:has(.menuShowcase) .menuShowSection,
+ body:has(.menuShowcase) .menuCatalogSection{
+   background:
+     linear-gradient(rgba(5,5,5,.12),rgba(5,5,5,.12)),
+     url('/menu-catalogo-fondo.png?v=1') center top/cover repeat-y!important;
+   border:0!important;
+   box-shadow:none!important;
+ }
+ body:has(.menuShowcase) .menuShowSection + .menuShowSection,
+ body:has(.menuShowcase) .menuCatalogSection + .menuCatalogSection{
+   margin-top:0!important;
+   border-top:0!important;
+ }
+}
