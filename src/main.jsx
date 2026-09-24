@@ -1,4 +1,4 @@
-import React,{useEffect,useMemo,useState}from'react';
+import React,{useMemo,useState}from'react';
 import{createRoot}from'react-dom/client';
 import{Menu,Search,ShoppingBag,Plus,Minus,X,ArrowLeft,Heart,Drumstick,ChevronRight,Sparkles,Home,UtensilsCrossed}from'lucide-react';
 import'./style.css';
@@ -16,14 +16,6 @@ const cats=['Pollo frito','Sushi','Combos','Bebidas','Salsas'];
 const money=n=>'$'+n.toLocaleString('es-CL');
 
 function App(){
- useEffect(()=>{
-  // Keep first paint light on mobile: only warm tiny/shared assets.
-  // Large Menu/Pedido backgrounds and food photos load only when their screen needs them.
-  const local=['/fondo-chucky-street.png'];
-  const warm=()=>local.forEach(src=>{const img=new Image();img.decoding='async';img.loading='lazy';img.src=src});
-  if('requestIdleCallback'in window){const id=window.requestIdleCallback(warm,{timeout:5000});return()=>window.cancelIdleCallback?.(id)}
-  const id=setTimeout(warm,3500);return()=>clearTimeout(id);
- },[]);
  const initialScreen=()=>{try{const hash=window.location.hash.replace('#/','').replace('#','');return ['home','menu','search','cart'].includes(hash)?hash:'home'}catch{return 'home'}};
  const[screen,setScreenState]=useState(initialScreen),[cat,setCat]=useState('Todo'),[q,setQ]=useState(''),[cart,setCart]=useState({}),[selected,setSelected]=useState(null);
  const setScreen=next=>{setScreenState(next);try{history.replaceState(null,'',next==='home'?window.location.pathname:window.location.pathname+'#/'+next)}catch{}};
@@ -62,7 +54,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
  ];
  return <main className="content homeEditorial homeSales exactHome chuckyContinuous">
   <section className="exactHero">
-   <img className="exactHeroImg" src="/fondo-chucky-street.png?v=1" alt="Chucky"/>
+   <img className="exactHeroImg" src="/fondo-chucky-street.png?v=1" alt="Chucky" loading="eager" decoding="async" fetchPriority="high"/>
    <div className="exactHeroShade"/>
    <button className="exactMenu" onClick={()=>setScreen('menu')} aria-label="Menú"><Menu/></button>
    <span className="exactLogo exactLogoText">CHUCKY<small>POLLO FRITO × SUSHI</small></span>
@@ -71,7 +63,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
   </section>
   <section className="exactShop">
    <div className="exactTitle"><h2>¿Qué vas a pedir?<b>⌁</b></h2><p>TODO A UN TOQUE.</p></div>
-   <div className="exactGrid">{categoryItems.map(([name,sub,img,target])=><button key={name} className="exactCat" onClick={()=>go(target)} aria-label={name}><img src={img} alt=""/><b aria-hidden="true">→</b></button>)}</div>
+   <div className="exactGrid">{categoryItems.map(([name,sub,img,target])=><button key={name} className="exactCat" onClick={()=>go(target)} aria-label={name}><img src={img} alt="" loading="lazy" decoding="async" fetchPriority="low"/><b aria-hidden="true">→</b></button>)}</div>
   </section>
 
  </main>
@@ -87,7 +79,7 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
  return <main className="content menuContent menuShowcase">
   <section className="menuShowHero"><button className="menuSearchJump" onClick={()=>setScreen('search')} aria-label="Buscar"><Search/></button>
    <div className="menuShowShade"/>
-   <div className="menuShowCopy"><span className="menuCrown" aria-hidden="true">♕</span><h1>MENÚ</h1><i></i></div><img className="menuApprovedStamp" src="/aprobado-con-fondo.png" alt="Aprobado por Chucky"/>
+   <div className="menuShowCopy"><span className="menuCrown" aria-hidden="true">♕</span><h1>MENÚ</h1><i></i></div><img className="menuApprovedStamp" src="/aprobado-con-fondo.png" alt="Aprobado por Chucky" loading="lazy" decoding="async" fetchPriority="low"/>
   </section>
   <nav className="menuShowTabs">{menuCats.map(c=><button key={c} className={cat===c?'on':''} onClick={()=>jump(c)}><b>{c}</b></button>)}</nav>
   {cats.map(c=>{
@@ -136,7 +128,7 @@ function Card({p,add,setSelected,featured,wide}){return <article className={'foo
  </article>}
 
 function Detail({p,close,add}){return <div className="detail">
- <div className="detailPhoto"><img src={p.img}/><div className="detailShade"/><button onClick={close}><ArrowLeft/></button><button className="heart"><Heart/></button><span>{p.cat}</span></div>
+ <div className="detailPhoto"><img src={p.img} decoding="async"/><div className="detailShade"/><button onClick={close}><ArrowLeft/></button><button className="heart"><Heart/></button><span>{p.cat}</span></div>
  <div className="detailBody"><small>SELECCIÓN CHUCKY</small><h1>{p.name}</h1><p>{p.desc}</p><div className="detailPrice"><strong>{money(p.price)}</strong><span>IVA incl.</span></div><button className="bigAdd" onClick={e=>{add(p.id,e);close()}}>AGREGAR AL PEDIDO <Plus/></button></div>
  </div>}
 
