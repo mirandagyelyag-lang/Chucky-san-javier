@@ -54,7 +54,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
  ];
  return <main className="content homeEditorial homeSales exactHome chuckyContinuous">
   <section className="exactHero">
-   <img className="exactHeroImg" src="/fondo-chucky-street.webp?v=1" alt="Chucky" loading="eager" decoding="async" fetchPriority="high"/>
+   <img className="exactHeroImg" src="/fondo-chucky-street.webp?v=2" alt="Chucky" loading="eager" decoding="async" fetchPriority="high"/>
    <div className="exactHeroShade"/>
    <button className="exactMenu" onClick={()=>setScreen('menu')} aria-label="Menú"><Menu/></button>
    <span className="exactLogo exactLogoText">CHUCKY<small>POLLO FRITO × SUSHI</small></span>
