@@ -6167,3 +6167,31 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    opacity:0!important;
  }
 }
+
+
+/* CLEAN ASSET PASS — current public files only */
+.chuckyTextBrand,.exactLogoText{
+ display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+ color:#fff!important;font-family:Arial,sans-serif!important;font-weight:1000!important;font-style:italic!important;
+ letter-spacing:-2px!important;text-shadow:2px 2px 0 #ef2437!important
+}
+.chuckyTextBrand small,.exactLogoText small{
+ display:block!important;margin-top:1px!important;font-size:6px!important;line-height:1!important;
+ letter-spacing:2px!important;font-style:normal!important;text-shadow:none!important
+}
+.exactLogoText{font-size:32px!important;line-height:.9!important}
+.chuckyTextBrand{font-size:26px!important;line-height:.9!important}
+.successMark b{font:1000 22px/1 Arial,sans-serif!important;font-style:italic!important;color:#fff!important}
+@media(max-width:600px){
+ body:has(.menuShowcase) .menuShowHero{
+   background:
+    linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.30)),
+    url('/menu-hero-fondo.png?v=clean-1') left center/auto 100% no-repeat!important;
+   background-color:#080706!important;
+ }
+ body:has(.menuShowcase) .menuShowSection,
+ body:has(.menuShowcase) .menuCatalogSection{
+   background:#242321!important;
+   border:0!important;box-shadow:none!important
+ }
+}
