@@ -4157,3 +4157,42 @@ body:has(.menuShowcase) .chuckyNav{position:fixed!important}
  .exactCopy h1{font-size:44px!important}
  .exactOrderCta{width:225px!important;height:48px!important}
 }
+
+
+/* CONTINUOUS CHUCKY HOME — design 02 */
+.chuckyContinuous{
+ position:relative!important;
+ background:#090605 url('/fondo-chucky-completo.png') center top/cover fixed no-repeat!important;
+ color:#fff!important;
+}
+.chuckyContinuous:before{
+ content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+ background:linear-gradient(180deg,rgba(3,2,2,.12),rgba(3,2,2,.26) 48%,rgba(3,2,2,.46) 100%);
+}
+.chuckyContinuous>section{position:relative;z-index:1}
+.chuckyContinuous .exactHero{background:transparent!important}
+.chuckyContinuous .exactHeroImg{opacity:0!important}
+.chuckyContinuous .exactHeroShade{background:linear-gradient(90deg,rgba(3,2,2,.68),rgba(3,2,2,.12) 78%)!important}
+.chuckyContinuous .exactShop,.chuckyContinuous .exactFav{background:transparent!important;color:#fff!important}
+.chuckyContinuous .exactTitle h2,.chuckyContinuous .exactFavHead h2,.chuckyContinuous .exactFavHead button{color:#fff!important}
+.chuckyContinuous .exactTitle p{color:#fff!important}
+.chuckyContinuous .exactCat{
+ border:1px solid rgba(239,36,55,.9)!important;
+ box-shadow:0 9px 25px rgba(0,0,0,.25)!important;
+ background:#100a08!important;
+}
+.chuckyContinuous .exactCat:after{background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.82))!important}
+.chuckyContinuous .exactProduct{
+ background:rgba(10,7,6,.88)!important;color:#fff!important;
+ border:1px solid rgba(239,36,55,.42)!important;
+ box-shadow:0 8px 24px rgba(0,0,0,.25)!important;
+}
+.chuckyContinuous .exactProduct strong,.chuckyContinuous .exactProduct span{color:#fff!important}
+.chuckyContinuous .exactFav{padding-bottom:26px!important}
+body:has(.chuckyContinuous){background:#090605!important}
+body:has(.chuckyContinuous) .app{background:#090605!important}
+@media(max-width:600px){
+ .chuckyContinuous{background-attachment:scroll!important;background-size:auto 100%!important;background-position:center top!important}
+ .chuckyContinuous .exactShop{padding-top:22px!important}
+ .chuckyContinuous .exactFav{padding-top:18px!important}
+}
