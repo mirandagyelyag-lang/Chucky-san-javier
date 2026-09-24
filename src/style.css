@@ -4639,3 +4639,11 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    z-index:3!important;
  }
 }
+
+
+/* HOME HERO → CATEGORY GAP */
+@media(max-width:600px){
+ body:has(.chuckyContinuous) .exactHero{
+   margin-bottom:3px!important;
+ }
+}
