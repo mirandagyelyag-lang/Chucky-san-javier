@@ -4272,3 +4272,35 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
  .chuckyScreen,.menuShowcase{background-attachment:scroll!important;background-size:auto 100%!important}
  .menuShowHero{height:210px!important}
 }
+
+
+/* MOBILE BOTTOM NAV: compact + reserve space so it never covers content */
+@media(max-width:600px){
+ body:has(.exactHome) .exactHome{
+   padding-bottom:128px!important;
+ }
+ body:has(.exactHome) .chuckyNav{
+   left:18px!important;
+   right:18px!important;
+   width:auto!important;
+   transform:none!important;
+   bottom:10px!important;
+   height:68px!important;
+   min-height:68px!important;
+   border-radius:34px!important;
+   padding:4px 10px!important;
+ }
+ body:has(.exactHome) .chuckyNav button{
+   min-height:58px!important;
+   padding:5px 4px!important;
+   gap:2px!important;
+ }
+ body:has(.exactHome) .chuckyNav button svg{
+   width:23px!important;
+   height:23px!important;
+ }
+ body:has(.exactHome) .chuckyNav button b{
+   font-size:13px!important;
+   line-height:1!important;
+ }
+}
