@@ -4109,3 +4109,17 @@ body:has(.menuShowcase) .chuckyNav{position:fixed!important}
     left:12px!important;right:12px!important;width:auto!important;max-width:none!important;transform:none!important
   }
 }
+
+
+/* CATEGORY ARTWORK: text is baked into the images; overlay only the responsive arrow */
+.exactCat>i,.exactCat>span{display:none!important}
+.exactCat>b{
+ right:clamp(8px,3vw,12px)!important;
+ bottom:clamp(8px,3vw,12px)!important;
+ width:clamp(28px,9vw,38px)!important;
+ height:clamp(28px,9vw,38px)!important;
+ font-size:clamp(15px,5vw,20px)!important;
+ border:1.25px solid rgba(255,255,255,.95)!important;
+ background:rgba(0,0,0,.16)!important;
+ backdrop-filter:blur(2px);
+}
