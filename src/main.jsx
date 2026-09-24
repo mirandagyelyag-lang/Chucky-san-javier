@@ -52,7 +52,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
   ['Salsas','EL TOQUE FINAL.','/salsas-principal.png','Salsas']
  ];
  const favorites=[products[0],products[2],products[4],products[3]];
- return <main className="content homeEditorial homeSales exactHome">
+ return <main className="content homeEditorial homeSales exactHome chuckyContinuous">
   <section className="exactHero">
    <img className="exactHeroImg" src="/fondo-hero.png?v=1" alt="Pollo frito y sushi Chucky"/>
    <div className="exactHeroShade"/>
