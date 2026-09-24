@@ -5770,3 +5770,20 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    box-shadow:0 0 12px rgba(243,38,63,.8)!important;
  }
 }
+
+
+/* GLOBAL NAV V12 — Pedido must inherit the exact same shell as Inicio */
+@media(max-width:600px){
+ body:has(main.cartSmart) .nav.chuckyNav{
+   left:50%!important;
+   right:auto!important;
+   width:calc(100vw - 48px)!important;
+   max-width:430px!important;
+   height:76px!important;
+   min-height:76px!important;
+   transform:translateX(-50%)!important;
+   bottom:10px!important;
+   padding:5px 12px!important;
+   border-radius:42px!important;
+ }
+}
