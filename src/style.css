@@ -4461,3 +4461,37 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    color:#fff!important;font-size:19px!important;font-weight:400!important
  }
 }
+
+
+/* CATEGORY CARD HOTFIX — legacy .exactCat b was clipping the new copy */
+@media(max-width:600px){
+ .exactGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;width:100%!important}
+ .exactCat{min-width:0!important;width:100%!important}
+ .exactCat>.exactCatCopy{
+   display:flex!important;
+   position:absolute!important;
+   left:14px!important;right:48px!important;bottom:12px!important;
+   width:auto!important;height:auto!important;
+   border:0!important;border-radius:0!important;background:transparent!important;
+   transform:none!important;overflow:visible!important;
+   align-items:flex-start!important;justify-content:flex-end!important;
+ }
+ .exactCat>.exactCatCopy>strong{
+   display:block!important;position:static!important;
+   width:auto!important;height:auto!important;max-width:100%!important;
+   border:0!important;border-radius:0!important;background:transparent!important;
+   transform:none!important;overflow:visible!important;
+   white-space:nowrap!important;font-size:21px!important;
+ }
+ .exactCat>.exactCatCopy>small{
+   display:block!important;position:static!important;
+   width:auto!important;height:auto!important;max-width:100%!important;
+   overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important;
+ }
+ .exactCat>b{
+   position:absolute!important;left:auto!important;right:11px!important;
+   top:auto!important;bottom:11px!important;
+   width:34px!important;height:34px!important;min-width:34px!important;
+   padding:0!important;margin:0!important;transform:none!important;
+ }
+}
