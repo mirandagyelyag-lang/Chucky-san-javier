@@ -3299,7 +3299,7 @@ body:has(.cartSmart .smartEmpty) main.cartSmart{
 /* Pedido vacío: el arte generado ocupa el fondo completo */
 body:has(.cartSmart .smartEmpty) main.cartSmart.cartSmartEmpty{
  background-color:#050403!important;
- background-image:url('/pedido-vacio-bg.png')!important;
+ background-image:url('/pedido-fondo.png?v=4')!important;
  background-position:center center!important;
  background-size:cover!important;
  background-repeat:no-repeat!important;
@@ -3494,7 +3494,7 @@ main.cartSmart.cartSmartEmpty{
  width:min(390px,100%)!important;
  height:330px!important;
  margin:30px auto 18px!important;
- background:url('/pedido-vacio-bg.png') center center/contain no-repeat!important;
+ background:url('/pedido-fondo.png?v=4') center center/contain no-repeat!important;
  flex:0 0 auto!important;
 }
 @media(max-width:420px){
@@ -3507,7 +3507,7 @@ main.cartSmart.cartSmartEmpty{
  position:relative!important;
  isolation:isolate!important;
  overflow:hidden!important;
- background:#050403 url('/pedido-vacio-bg.png') center top/cover no-repeat!important;
+ background:#050403 url('/pedido-fondo.png?v=4') center top/cover no-repeat!important;
 }
 main.cartSmart.cartSmartEmpty:after{
  content:""!important;
@@ -3548,7 +3548,7 @@ main.cartSmart.cartSmartEmpty:after{
 /* Pedido background visibility fix: keep generated art visible */
 main.cartSmart.cartSmartEmpty{
  background-color:#050403!important;
- background-image:url('/pedido-vacio-bg.png')!important;
+ background-image:url('/pedido-fondo.png?v=4')!important;
  background-position:center center!important;
  background-size:cover!important;
  background-repeat:no-repeat!important;
@@ -5441,5 +5441,17 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
  }
  body:has(main.cartSmartEmpty) .smartEmpty{
    background:transparent!important;
+ }
+}
+
+
+/* PEDIDO EMPTY V4 — definitive artwork override */
+@media(max-width:600px){
+ body:has(main.cartSmartEmpty) main.content.cartSmart.cartSmartEmpty{
+   background-color:#050403!important;
+   background-image:url('/pedido-fondo.png?v=4')!important;
+   background-position:center center!important;
+   background-size:cover!important;
+   background-repeat:no-repeat!important;
  }
 }
