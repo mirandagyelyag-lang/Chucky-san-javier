@@ -5348,3 +5348,20 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    display:block!important;
  }
 }
+
+
+/* MENU HERO V10 — remove empty top space */
+@media(max-width:600px){
+ body:has(.menuShowcase) .menuShowHero{
+   height:178px!important;
+   min-height:178px!important;
+ }
+ body:has(.menuShowcase) .menuShowCopy{
+   bottom:15px!important;
+ }
+ body:has(.menuShowcase) .menuApprovedStamp{
+   bottom:13px!important;
+   width:112px!important;
+   height:112px!important;
+ }
+}
