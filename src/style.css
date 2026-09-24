@@ -4358,3 +4358,20 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    bottom:8px!important;
  }
 }
+
+
+/* PHONE FULL-BLEED BACKGROUND — enlarge existing image in app, no new asset */
+@media(max-width:600px){
+ html,body,#root,.app{width:100%!important;max-width:none!important;margin:0!important}
+ body:has(.chuckyContinuous) .app{
+   width:100vw!important;max-width:100vw!important;margin:0!important;
+   box-shadow:none!important;overflow-x:hidden!important
+ }
+ .chuckyContinuous{
+   width:100vw!important;max-width:none!important;margin:0!important;
+   background-image:url('/fondo-chucky-street.png')!important;
+   background-size:cover!important;
+   background-position:center top!important;
+   background-repeat:no-repeat!important;
+ }
+}
