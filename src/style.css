@@ -5787,3 +5787,56 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    border-radius:42px!important;
  }
 }
+
+
+/* GLOBAL NAV V13 — compact version, identical on all 3 screens */
+@media(max-width:600px){
+ .app>.nav.chuckyNav,
+ body:has(.menuShowcase) .nav.chuckyNav,
+ body:has(.cartSmart) .nav.chuckyNav,
+ body:has(.chuckyContinuous) .nav.chuckyNav{
+   left:50%!important;
+   right:auto!important;
+   bottom:10px!important;
+   width:calc(100vw - 72px)!important;
+   max-width:430px!important;
+   height:58px!important;
+   min-height:58px!important;
+   transform:translateX(-50%)!important;
+   padding:2px 8px!important;
+   border-radius:30px!important;
+ }
+ .app>.nav.chuckyNav button,
+ body:has(.menuShowcase) .nav.chuckyNav button,
+ body:has(.cartSmart) .nav.chuckyNav button,
+ body:has(.chuckyContinuous) .nav.chuckyNav button{
+   height:52px!important;
+   min-height:52px!important;
+   padding:3px 2px 7px!important;
+   gap:0!important;
+   border-radius:26px!important;
+ }
+ .app>.nav.chuckyNav button svg,
+ body:has(.menuShowcase) .nav.chuckyNav button svg,
+ body:has(.cartSmart) .nav.chuckyNav button svg,
+ body:has(.chuckyContinuous) .nav.chuckyNav button svg{
+   width:20px!important;
+   height:20px!important;
+ }
+ .app>.nav.chuckyNav button b,
+ body:has(.menuShowcase) .nav.chuckyNav button b,
+ body:has(.cartSmart) .nav.chuckyNav button b,
+ body:has(.chuckyContinuous) .nav.chuckyNav button b{
+   font-size:11px!important;
+   line-height:12px!important;
+ }
+ .app>.nav.chuckyNav button.on:after,
+ body:has(.menuShowcase) .nav.chuckyNav button.on:after,
+ body:has(.cartSmart) .nav.chuckyNav button.on:after,
+ body:has(.chuckyContinuous) .nav.chuckyNav button.on:after{
+   width:6px!important;
+   height:6px!important;
+   margin-left:-3px!important;
+   bottom:3px!important;
+ }
+}
