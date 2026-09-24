@@ -66,6 +66,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
    <div className="exactGrid">{categoryItems.map(([name,sub,img,target])=><button key={name} className="exactCat" onClick={()=>go(target)} aria-label={name}>
     <img src={img} alt=""/><span className="exactCatShade"/><span className="exactCatCopy"><strong>{name}</strong><small>{sub}</small></span><b aria-hidden="true">→</b>
    </button>)}</div>
+   <div className="homeNavClearance" aria-hidden="true"/>
   </section>
 
  </main>
