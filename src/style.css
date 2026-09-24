@@ -4559,3 +4559,29 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    background-attachment:scroll!important;
  }
 }
+
+
+/* NAV GAP FINAL — no artificial strip under Home */
+@media(max-width:600px){
+ body:has(.chuckyContinuous) .mobileNavSpace{
+   display:none!important;
+   height:0!important;
+   min-height:0!important;
+   flex:0 0 0!important;
+ }
+ body:has(.chuckyContinuous) .exactHome{
+   padding-bottom:86px!important;
+   background:transparent!important;
+ }
+ body:has(.chuckyContinuous) .exactShop{
+   padding-bottom:26px!important;
+ }
+ body:has(.chuckyContinuous) .app{
+   padding-bottom:0!important;
+   min-height:100dvh!important;
+   background-image:url('/fondo-chucky-street.png')!important;
+   background-size:cover!important;
+   background-position:center bottom!important;
+   background-repeat:no-repeat!important;
+ }
+}
