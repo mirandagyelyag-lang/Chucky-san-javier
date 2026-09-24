@@ -6100,3 +6100,13 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    margin-top:0!important;
  }
 }
+
+
+/* MENU HERO V8 — approved neon crown background */
+@media(max-width:600px){
+ body:has(.menuShowcase) .menuShowHero{
+   background:
+     linear-gradient(180deg,rgba(0,0,0,.06) 0%,rgba(0,0,0,.10) 62%,rgba(0,0,0,.34) 100%),
+     url('/menu-hero-fondo.png?v=1') center center/cover no-repeat!important;
+ }
+}
