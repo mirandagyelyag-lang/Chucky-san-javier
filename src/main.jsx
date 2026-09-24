@@ -86,7 +86,7 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
    <img src="/sushi-pollo-header.png?v=menu2" alt="Pollo frito y sushi Chucky"/>
    <div className="menuShowShade"/>
    <div className="menuShowBrand"><img src="/chucky-header.png" alt="Chucky"/></div>
-   <div className="menuShowCopy"><h1>MENÚ</h1><i></i><p>POLLO FRITO · SUSHI · COMBOS<br/>BEBIDAS · SALSAS</p></div>
+   <div className="menuShowCopy"><h1>MENÚ</h1><i></i><p>POLLO FRITO · SUSHI · COMBOS<br/>BEBIDAS · SALSAS</p></div><img className="menuApprovedStamp" src="/aprobado-con-fondo.png" alt="Aprobado por Chucky"/>
   </section>
   <nav className="menuShowTabs">{menuCats.map(c=><button key={c} className={cat===c?'on':''} onClick={()=>jump(c)}><b>{c}</b></button>)}</nav>
   <section className="menuShowSection">
