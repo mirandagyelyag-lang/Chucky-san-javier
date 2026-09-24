@@ -5226,3 +5226,13 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    right:108px!important;
  }
 }
+
+
+/* MENU TITLE V7 — larger without restoring the oversized hero */
+@media(max-width:600px){
+ body:has(.menuShowcase) .menuShowCopy h1{
+   font-size:44px!important;
+   line-height:.94!important;
+   letter-spacing:-1.4px!important;
+ }
+}
