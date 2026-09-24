@@ -4599,3 +4599,18 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    bottom:10px!important;
  }
 }
+
+
+/* REAL HOME CLEARANCE — actual content after cards, not parent padding */
+.homeNavClearance{display:none}
+@media(max-width:600px){
+ body:has(.chuckyContinuous) .exactHome{padding-bottom:0!important}
+ body:has(.chuckyContinuous) .exactShop{padding-bottom:0!important}
+ body:has(.chuckyContinuous) .homeNavClearance{
+   display:block!important;
+   width:100%!important;
+   height:118px!important;
+   background:transparent!important;
+   pointer-events:none!important;
+ }
+}
