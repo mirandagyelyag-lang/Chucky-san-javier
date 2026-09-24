@@ -4196,3 +4196,11 @@ body:has(.chuckyContinuous) .app{background:#090605!important}
  .chuckyContinuous .exactShop{padding-top:22px!important}
  .chuckyContinuous .exactFav{padding-top:18px!important}
 }
+
+
+/* LIFT HOME CONTENT CLOSER TO HERO */
+@media(max-width:600px){
+ .chuckyContinuous .exactHero{height:430px!important}
+ .chuckyContinuous .exactShop{margin-top:-34px!important;padding-top:0!important}
+ .chuckyContinuous .exactTitle{margin-top:0!important}
+}
