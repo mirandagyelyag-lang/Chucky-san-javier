@@ -62,8 +62,10 @@ function HomePage({setScreen,setCat,add,setSelected}){
    <div className="exactCopy"><small>DOS ANTOJOS.<br/>UN SOLO CHUCKY.</small><h1><span>Pollo frito</span><span>y sushi.</span></h1><i></i><p>MITAD CRUJIENTE<br/>MITAD FRESCO<br/>100% CHUCKY</p><button className="exactOrderCta" onClick={()=>setScreen('menu')}><ShoppingBag/> <strong>Pide ahora</strong> <span>→</span></button></div>
   </section>
   <section className="exactShop">
-   <div className="exactTitle"><h2>¿Qué vas a pedir?<b>⌁</b></h2><p>TODO A UN TOQUE.</p></div>
-   <div className="exactGrid">{categoryItems.map(([name,sub,img,target])=><button key={name} className="exactCat" onClick={()=>go(target)} aria-label={name}><img src={img} alt=""/><b aria-hidden="true">→</b></button>)}</div>
+   <div className="exactTitle"><span>ELIGE TU ANTOJO</span><h2>¿Qué vas a pedir?</h2><p>POLLO, SUSHI Y ALGO PARA ACOMPAÑAR.</p></div>
+   <div className="exactGrid">{categoryItems.map(([name,sub,img,target])=><button key={name} className="exactCat" onClick={()=>go(target)} aria-label={name}>
+    <img src={img} alt=""/><span className="exactCatShade"/><span className="exactCatCopy"><strong>{name}</strong><small>{sub}</small></span><b aria-hidden="true">→</b>
+   </button>)}</div>
   </section>
 
  </main>
