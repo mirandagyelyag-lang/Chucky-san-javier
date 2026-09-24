@@ -5320,3 +5320,31 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    padding:9px 18px!important;
  }
 }
+
+
+/* APPROVAL SEAL V9 — force visible above hero overlays */
+@media(max-width:600px){
+ body:has(.menuShowcase) .menuShowHero{
+   position:relative!important;
+ }
+ body:has(.menuShowcase) .menuApprovedStamp{
+   display:block!important;
+   visibility:visible!important;
+   opacity:1!important;
+   position:absolute!important;
+   z-index:50!important;
+   right:18px!important;
+   left:auto!important;
+   top:auto!important;
+   bottom:20px!important;
+   width:126px!important;
+   height:126px!important;
+   max-width:none!important;
+   object-fit:contain!important;
+   transform:rotate(4deg)!important;
+   pointer-events:none!important;
+ }
+ body:has(.menuShowcase) .menuShowHero>.menuApprovedStamp{
+   display:block!important;
+ }
+}
