@@ -5688,3 +5688,85 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    align-self:stretch!important;
  }
 }
+
+
+/* GLOBAL NAV V11 — one identical bar across Inicio, Menú and Pedido */
+@media(max-width:600px){
+ .app>.chuckyNav,
+ body:has(.menuShowcase) .chuckyNav,
+ body:has(.cartSmart) .chuckyNav,
+ body:has(.chuckyContinuous) .chuckyNav{
+   position:fixed!important;
+   z-index:100!important;
+   left:50%!important;
+   right:auto!important;
+   bottom:10px!important;
+   width:calc(100vw - 48px)!important;
+   max-width:430px!important;
+   height:76px!important;
+   min-height:76px!important;
+   transform:translateX(-50%)!important;
+   grid-template-columns:repeat(3,minmax(0,1fr))!important;
+   padding:5px 12px!important;
+   border:1px solid rgba(255,255,255,.14)!important;
+   border-radius:42px!important;
+   background:rgba(8,7,6,.96)!important;
+   box-shadow:0 14px 36px rgba(0,0,0,.52)!important;
+   backdrop-filter:blur(14px)!important;
+   -webkit-backdrop-filter:blur(14px)!important;
+ }
+ .app>.chuckyNav button,
+ body:has(.menuShowcase) .chuckyNav button,
+ body:has(.cartSmart) .chuckyNav button,
+ body:has(.chuckyContinuous) .chuckyNav button{
+   position:relative!important;
+   height:66px!important;
+   min-height:66px!important;
+   min-width:0!important;
+   padding:6px 3px 10px!important;
+   gap:2px!important;
+   border-radius:32px!important;
+   color:#aaa!important;
+   background:transparent!important;
+ }
+ .app>.chuckyNav button svg,
+ body:has(.menuShowcase) .chuckyNav button svg,
+ body:has(.cartSmart) .chuckyNav button svg,
+ body:has(.chuckyContinuous) .chuckyNav button svg{
+   width:27px!important;
+   height:27px!important;
+   color:currentColor!important;
+   stroke-width:2.15!important;
+ }
+ .app>.chuckyNav button b,
+ body:has(.menuShowcase) .chuckyNav button b,
+ body:has(.cartSmart) .chuckyNav button b,
+ body:has(.chuckyContinuous) .chuckyNav button b{
+   font-size:14px!important;
+   line-height:15px!important;
+   font-weight:800!important;
+   color:currentColor!important;
+ }
+ .app>.chuckyNav button.on,
+ body:has(.menuShowcase) .chuckyNav button.on,
+ body:has(.cartSmart) .chuckyNav button.on,
+ body:has(.chuckyContinuous) .chuckyNav button.on{
+   color:#f3263f!important;
+   background:radial-gradient(circle at 50% 48%,rgba(243,38,63,.17),transparent 65%)!important;
+ }
+ .app>.chuckyNav button.on:after,
+ body:has(.menuShowcase) .chuckyNav button.on:after,
+ body:has(.cartSmart) .chuckyNav button.on:after,
+ body:has(.chuckyContinuous) .chuckyNav button.on:after{
+   content:""!important;
+   position:absolute!important;
+   left:50%!important;
+   bottom:4px!important;
+   width:7px!important;
+   height:7px!important;
+   margin-left:-3.5px!important;
+   border-radius:50%!important;
+   background:#f3263f!important;
+   box-shadow:0 0 12px rgba(243,38,63,.8)!important;
+ }
+}
