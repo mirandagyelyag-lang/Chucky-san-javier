@@ -17,10 +17,12 @@ const money=n=>'$'+n.toLocaleString('es-CL');
 
 function App(){
  useEffect(()=>{
-  const local=['/sushi-principal.png?v=2','/pollo-frito-principal.png?v=2','/bebidas-principal.png?v=2','/salsas-principal.png?v=2','/sushi-pollo-header.png?v=menu2','/aprobado-con-fondo.png','/pedido-oficial.png?v=15','/letras-sin-fondo.png?v=1'];
-  const warm=()=>local.forEach(src=>{const img=new Image();img.decoding='async';img.src=src});
-  if('requestIdleCallback'in window){const id=window.requestIdleCallback(warm,{timeout:1800});return()=>window.cancelIdleCallback?.(id)}
-  const id=setTimeout(warm,500);return()=>clearTimeout(id);
+  // Keep first paint light on mobile: only warm tiny/shared assets.
+  // Large Menu/Pedido backgrounds and food photos load only when their screen needs them.
+  const local=['/chucky-header.png'];
+  const warm=()=>local.forEach(src=>{const img=new Image();img.decoding='async';img.loading='lazy';img.src=src});
+  if('requestIdleCallback'in window){const id=window.requestIdleCallback(warm,{timeout:5000});return()=>window.cancelIdleCallback?.(id)}
+  const id=setTimeout(warm,3500);return()=>clearTimeout(id);
  },[]);
  const initialScreen=()=>{try{const hash=window.location.hash.replace('#/','').replace('#','');return ['home','menu','search','cart'].includes(hash)?hash:'home'}catch{return 'home'}};
  const[screen,setScreenState]=useState(initialScreen),[cat,setCat]=useState('Todo'),[q,setQ]=useState(''),[cart,setCart]=useState({}),[selected,setSelected]=useState(null);
