@@ -209,7 +209,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
  </>:<div className="smartEmpty"><small>TU PEDIDO</small><div className="emptyPedidoArtwork" aria-hidden="true"></div><h1>Tu pedido está vacío.</h1><p>Toda buena historia empieza<br/>con algo delicioso.</p><button onClick={()=>setScreen('menu')}>IR AL MENÚ <ChevronRight/></button></div>}
  </main>}
 
-function Shell({children,screen,setScreen,count}){return <div className="app"><div className="grain"/>{children}<nav className="nav chuckyNav">
+function Shell({children,screen,setScreen,count}){return <div className="app"><div className="grain"/>{children}<div className="mobileNavSpace" aria-hidden="true"/><nav className="nav chuckyNav">
  <button className={screen==='home'?'on':''} onClick={()=>setScreen('home')}><Home/><b>Inicio</b></button>
  <button className={screen==='menu'?'on':''} onClick={()=>setScreen('menu')}><UtensilsCrossed/><b>Menú</b></button>
  <button className={screen==='cart'?'on':''} onClick={()=>setScreen('cart')}><ShoppingBag/><b>Pedido</b>{count>0&&<i>{count}</i>}</button>
