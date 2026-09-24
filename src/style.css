@@ -6203,3 +6203,35 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
   contain-intrinsic-size:1px 700px;
 }
 img{content-visibility:auto}
+
+
+/* HOME BACKGROUND DEFINITIVE V3 */
+body:has(.chuckyContinuous),
+body:has(.chuckyContinuous) #root,
+body:has(.chuckyContinuous) .app,
+body:has(.chuckyContinuous) .exactHome,
+.chuckyContinuous{
+  background-color:#090605!important;
+  background-image:url('/fondo-chucky-street.webp?v=3')!important;
+  background-size:100% auto!important;
+  background-position:center top!important;
+  background-repeat:no-repeat!important;
+  background-attachment:scroll!important;
+}
+.chuckyContinuous .exactHero{
+  background:transparent!important;
+}
+.chuckyContinuous .exactHeroImg{
+  opacity:0!important;
+  visibility:hidden!important;
+}
+@media(min-width:601px){
+  body:has(.chuckyContinuous),
+  body:has(.chuckyContinuous) #root,
+  body:has(.chuckyContinuous) .app,
+  body:has(.chuckyContinuous) .exactHome,
+  .chuckyContinuous{
+    background-size:cover!important;
+    background-position:center top!important;
+  }
+}
