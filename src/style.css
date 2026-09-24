@@ -6076,3 +6076,27 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    background-color:#fffaf2!important;
  }
 }
+
+
+/* MENU V7 — continuous clean canvas, remove section seams */
+@media(max-width:600px){
+ body:has(.menuShowcase),
+ body:has(.menuShowcase) .app,
+ body:has(.menuShowcase) .menuShowcase{
+   background:#575652!important;
+   background-image:none!important;
+ }
+ body:has(.menuShowcase) .menuShowSection,
+ body:has(.menuShowcase) .menuCatalogSection{
+   background:transparent!important;
+   background-image:none!important;
+   border-top:0!important;
+   border-bottom:0!important;
+   box-shadow:none!important;
+ }
+ body:has(.menuShowcase) .menuShowSection + .menuShowSection,
+ body:has(.menuShowcase) .menuCatalogSection + .menuCatalogSection{
+   border-top:0!important;
+   margin-top:0!important;
+ }
+}
