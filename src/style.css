@@ -4614,3 +4614,28 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    pointer-events:none!important;
  }
 }
+
+
+/* CATEGORY CARDS V2 — elegant bottom gradient for readable white labels */
+@media(max-width:600px){
+ body:has(.chuckyContinuous) .exactCatShade{
+   display:block!important;
+   position:absolute!important;
+   inset:0!important;
+   z-index:1!important;
+   background:linear-gradient(
+     180deg,
+     rgba(0,0,0,0) 35%,
+     rgba(0,0,0,.08) 50%,
+     rgba(0,0,0,.48) 72%,
+     rgba(0,0,0,.82) 100%
+   )!important;
+   pointer-events:none!important;
+ }
+ body:has(.chuckyContinuous) .exactCatCopy{
+   z-index:2!important;
+ }
+ body:has(.chuckyContinuous) .exactCat>b{
+   z-index:3!important;
+ }
+}
