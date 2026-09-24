@@ -6145,3 +6145,25 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    border-top:0!important;
  }
 }
+
+
+/* HOME STREET FINAL — force the approved Inicio artwork above legacy rules */
+@media(max-width:600px){
+ html body:has(.chuckyContinuous),
+ html body:has(.chuckyContinuous) #root,
+ html body:has(.chuckyContinuous) .app,
+ html body:has(.chuckyContinuous) main.chuckyContinuous{
+   background-color:#080706!important;
+   background-image:url('/fondo-chucky-street.png?v=street-final-1')!important;
+   background-position:center top!important;
+   background-repeat:no-repeat!important;
+   background-size:cover!important;
+ }
+ html body:has(.chuckyContinuous) main.chuckyContinuous .exactHero{
+   background:transparent!important;
+ }
+ html body:has(.chuckyContinuous) main.chuckyContinuous .exactHeroImg{
+   display:none!important;
+   opacity:0!important;
+ }
+}
