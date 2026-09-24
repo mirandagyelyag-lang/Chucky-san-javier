@@ -218,7 +218,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
   </section>
   {error&&<p className="orderError">{error}</p>}
   <button className="checkout smartFinal" disabled={!canSend||sending} onClick={sendOrder}>{sending?'ENVIANDO...':'HACER PEDIDO'} {!sending&&<ChevronRight/>}</button>
- </>:<div className="smartEmpty"><small>TU PEDIDO</small><div className="emptyPedidoArtwork" aria-hidden="true"></div><img className="pedidoChuckyLogo" src="/chucky-sin-fondo.png" alt="Chucky"/><div className="pedidoEmptyCopy"><h1>Tu pedido está <em>vacío.</em></h1><p>¿Lo arreglamos?</p><button onClick={()=>setScreen('menu')}>IR AL MENÚ <ChevronRight/></button></div></div>}
+ </>:<div className="smartEmpty"><small>TU PEDIDO</small><div className="emptyPedidoArtwork" aria-hidden="true"></div><img className="pedidoChuckyLogo" src="/letras-sin-fondo.png?v=1" alt="Chucky"/><div className="pedidoEmptyCopy"><h1>Tu pedido está <em>vacío.</em></h1><p>¿Lo arreglamos?</p><button onClick={()=>setScreen('menu')}>IR AL MENÚ <ChevronRight/></button></div></div>}
  </main>}
 
 function Shell({children,screen,setScreen,count}){return <div className="app"><div className="grain"/>{children}<div className="mobileNavSpace" aria-hidden="true"/><nav className="nav chuckyNav">
