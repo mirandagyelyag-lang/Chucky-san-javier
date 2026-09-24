@@ -4585,3 +4585,17 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    background-repeat:no-repeat!important;
  }
 }
+
+
+/* HOME NAV CLEARANCE FINAL — keep all 4 cards fully visible above nav */
+@media(max-width:600px){
+ body:has(.chuckyContinuous) .exactHome{
+   padding-bottom:150px!important;
+ }
+ body:has(.chuckyContinuous) .exactShop{
+   padding-bottom:22px!important;
+ }
+ body:has(.chuckyContinuous) .chuckyNav{
+   bottom:10px!important;
+ }
+}
