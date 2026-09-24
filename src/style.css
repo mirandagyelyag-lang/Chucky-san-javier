@@ -4097,3 +4097,15 @@ body:has(.menuShowcase) .chuckyNav{position:fixed!important}
    transform:none!important;
  }
 }
+
+
+/* MOBILE EDGE-TO-EDGE HARD RESET */
+@media (max-width:600px){
+  html,body,#root{width:100%!important;min-width:100%!important;max-width:100%!important;margin:0!important;padding:0!important}
+  #root>.app{width:100%!important;min-width:100%!important;max-width:100%!important;margin:0!important;padding-left:0!important;padding-right:0!important}
+  #root>.app>.exactHome,#root>.app>.menuShowcase{width:100%!important;min-width:100%!important;max-width:100%!important;margin:0!important}
+  .exactShop,.exactFav{padding-left:16px!important;padding-right:16px!important}
+  body:has(.exactHome) .chuckyNav,body:has(.menuShowcase) .chuckyNav{
+    left:12px!important;right:12px!important;width:auto!important;max-width:none!important;transform:none!important
+  }
+}
