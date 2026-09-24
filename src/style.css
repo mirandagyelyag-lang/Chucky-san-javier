@@ -4872,3 +4872,15 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    bottom:20px!important;
  }
 }
+
+
+/* MENU HERO MOBILE — remove excess empty air above title */
+@media(max-width:600px){
+ body:has(.menuShowcase) .menuShowHero{
+   height:245px!important;
+ }
+ body:has(.menuShowcase) .menuShowCopy{
+   left:34px!important;
+   bottom:20px!important;
+ }
+}
