@@ -52,7 +52,6 @@ function HomePage({setScreen,setCat,add,setSelected}){
   ['Bebidas','PARA ACOMPAÑAR.','/bebidas-principal.png','Bebidas'],
   ['Salsas','EL TOQUE FINAL.','/salsas-principal.png','Salsas']
  ];
- const favorites=[products[0],products[2],products[4],products[3]];
  return <main className="content homeEditorial homeSales exactHome chuckyContinuous">
   <section className="exactHero">
    <img className="exactHeroImg" src="/fondo-hero.png?v=1" alt="Pollo frito y sushi Chucky"/>
@@ -66,10 +65,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
    <div className="exactTitle"><h2>¿Qué vas a pedir?<b>⌁</b></h2><p>TODO A UN TOQUE.</p></div>
    <div className="exactGrid">{categoryItems.map(([name,sub,img,target])=><button key={name} className="exactCat" onClick={()=>go(target)} aria-label={name}><img src={img} alt=""/><b aria-hidden="true">→</b></button>)}</div>
   </section>
-  <section className="exactFav">
-   <div className="exactFavHead"><h2>Los más pedidos <b>♛</b></h2><button onClick={()=>setScreen('menu')}>Ver todos&nbsp; →</button></div>
-   <div className="exactFavGrid">{favorites.map((p,i)=><article className="exactProduct" key={p.id} onClick={()=>setSelected(p)}>{i===0&&<em>MÁS PEDIDO</em>}<img src={p.img} alt={p.name}/><strong>{p.name}</strong><span>{money(p.price)}</span><button onClick={e=>add(p.id,e)}>+</button></article>)}</div>
-  </section>
+
  </main>
 }
 function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
