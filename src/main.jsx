@@ -1,4 +1,4 @@
-import React,{useMemo,useState}from'react';
+import React,{useEffect,useMemo,useState}from'react';
 import{createRoot}from'react-dom/client';
 import{Menu,Search,ShoppingBag,Plus,Minus,X,ArrowLeft,Heart,Drumstick,ChevronRight,Sparkles,Home,UtensilsCrossed}from'lucide-react';
 import'./style.css';
@@ -16,6 +16,12 @@ const cats=['Pollo frito','Sushi','Combos','Bebidas','Salsas'];
 const money=n=>'$'+n.toLocaleString('es-CL');
 
 function App(){
+ useEffect(()=>{
+  const local=['/sushi-principal.png?v=2','/pollo-frito-principal.png?v=2','/bebidas-principal.png?v=2','/salsas-principal.png?v=2','/sushi-pollo-header.png?v=menu2','/aprobado-con-fondo.png','/pedido-oficial.png?v=15','/letras-sin-fondo.png?v=1'];
+  const warm=()=>local.forEach(src=>{const img=new Image();img.decoding='async';img.src=src});
+  if('requestIdleCallback'in window){const id=window.requestIdleCallback(warm,{timeout:1800});return()=>window.cancelIdleCallback?.(id)}
+  const id=setTimeout(warm,500);return()=>clearTimeout(id);
+ },[]);
  const initialScreen=()=>{try{const hash=window.location.hash.replace('#/','').replace('#','');return ['home','menu','search','cart'].includes(hash)?hash:'home'}catch{return 'home'}};
  const[screen,setScreenState]=useState(initialScreen),[cat,setCat]=useState('Todo'),[q,setQ]=useState(''),[cart,setCart]=useState({}),[selected,setSelected]=useState(null);
  const setScreen=next=>{setScreenState(next);try{history.replaceState(null,'',next==='home'?window.location.pathname:window.location.pathname+'#/'+next)}catch{}};
@@ -65,7 +71,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
   <section className="exactShop">
    <div className="exactTitle"><span>ELIGE TU ANTOJO</span><h2>¿Qué vas a pedir?</h2><p>POLLO, SUSHI Y ALGO PARA ACOMPAÑAR.</p></div>
    <div className="exactGrid">{categoryItems.map(([name,sub,img,target])=><button key={name} className="exactCat" onClick={()=>go(target)} aria-label={name}>
-    <img src={img} alt=""/><span className="exactCatShade"/><span className="exactCatCopy"><strong>{name}</strong><small>{sub}</small></span><b aria-hidden="true">→</b>
+    <img src={img} alt="" loading="lazy" decoding="async"/><span className="exactCatShade"/><span className="exactCatCopy"><strong>{name}</strong><small>{sub}</small></span><b aria-hidden="true">→</b>
    </button>)}</div>
    <div className="homeNavClearance" aria-hidden="true"/>
   </section>
@@ -92,7 +98,7 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
   <section className="menuShowSection">
    <div className="menuShowHeading"><h2>Nuestros favoritos <b>⌁</b></h2></div>
    <div className="menuShowFeatured">{fav.map((p,i)=><article key={p.id} className="menuShowFeature" onClick={()=>setSelected(p)}>
-    <img src={i===0?'/pollo-frito-principal.png?v=2':'/sushi-principal.png?v=2'} alt={p.name}/><i></i>
+    <img src={i===0?'/pollo-frito-principal.png?v=2':'/sushi-principal.png?v=2'} alt={p.name} loading="lazy" decoding="async"/><i></i>
     {i===0&&<em>♛ &nbsp; MÁS PEDIDO</em>}
     <div><h3>{i===0?'Combo Chucky':'Sushi Chucky'}</h3><p>{i===0?'Pollo crujiente + papas + salsa de la casa.':'Selección de sushi Chucky, fresca y llena de sabor.'}</p><strong>{i===0?'$8.990':money(p.price)}</strong></div>
     <button onClick={e=>add(p.id,e)}>+</button>
@@ -105,7 +111,7 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
    return <section id={id} key={c} className="menuShowSection menuCatalogSection">
     <div className="menuShowHeading"><h2>{c} <b>⌁</b></h2></div>
     <div className="menuShowList">{items.map((p,i)=><article className="menuShowFeature" key={p.id} onClick={()=>setSelected(p)}>
-     <img src={imageFor(p)} alt={p.name}/><i></i>{i===0&&<em>♛ &nbsp; DESTACADO</em>}
+     <img src={imageFor(p)} alt={p.name} loading="lazy" decoding="async"/><i></i>{i===0&&<em>♛ &nbsp; DESTACADO</em>}
      <div><h3>{p.name}</h3><p>{p.desc}</p><strong>{money(p.price)}</strong></div>
      <button onClick={e=>add(p.id,e)}>+</button>
     </article>)}</div>
@@ -139,7 +145,7 @@ function SearchPage({q,setQ,filtered,add,setSelected}){
 function Headline({kicker,title,note}){return <div className="headline"><small>{kicker}</small><div><h2>{title}</h2>{note&&<p>{note}</p>}</div></div>}
 
 function Card({p,add,setSelected,featured,wide}){return <article className={'foodCard '+(wide?'wide':'')} onClick={()=>setSelected(p)}>
- <div className="foodPhoto"><img src={p.img}/><div className="photoShade"/>{featured&&<span className="pickTag"><Sparkles/> FAVORITO CHUCKY</span>}<span className="cardCat">{p.cat}</span></div>
+ <div className="foodPhoto"><img src={p.img} loading="lazy" decoding="async"/><div className="photoShade"/>{featured&&<span className="pickTag"><Sparkles/> FAVORITO CHUCKY</span>}<span className="cardCat">{p.cat}</span></div>
  <div className="foodInfo"><div><h3>{p.name}</h3><p>{p.desc}</p></div><div className="priceRow"><strong>{money(p.price)}</strong><button onClick={e=>add(p.id,e)} aria-label={'Agregar '+p.name}><Plus/></button></div></div>
  </article>}
 
@@ -196,7 +202,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
   <section className="smartSummary">
    <div className="smartSummaryTop"><b>Productos</b><strong>{money(subtotal)}</strong></div>
    {items.map(p=><article className="smartCartItem" key={p.id}>
-    <img src={p.img} alt={p.name}/>
+    <img src={p.img} alt={p.name} loading="lazy" decoding="async"/>
     <div className="smartItemCopy"><b>{p.name}</b><span>{money(p.price)}</span></div>
     <div className="smartQty"><button onClick={()=>sub(p.id)}><Minus/></button><strong>{cart[p.id]}</strong><button onClick={e=>add(p.id,e)}><Plus/></button></div>
    </article>)}
@@ -205,7 +211,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
   </section>
   <button className="smartCheckoutJump" onClick={()=>document.querySelector('.customerForm')?.scrollIntoView({behavior:'smooth'})}>FINALIZAR PEDIDO <ChevronRight/></button>
   <section className="smartExtras"><div><small>¿ALGO MÁS?</small><b>Completa tu pedido</b></div><div className="smartSuggestions">
-   {products.filter(p=>!cart[p.id]).slice(0,3).map(p=><button className="smartSuggest" key={p.id} onClick={e=>add(p.id,e)}><img src={p.img} alt=""/><span><b>{p.name}</b><small>{money(p.price)}</small></span><i>+</i></button>)}
+   {products.filter(p=>!cart[p.id]).slice(0,3).map(p=><button className="smartSuggest" key={p.id} onClick={e=>add(p.id,e)}><img src={p.img} alt="" loading="lazy" decoding="async"/><span><b>{p.name}</b><small>{money(p.price)}</small></span><i>+</i></button>)}
   </div><button className="smartMore" onClick={()=>setScreen('menu')}>VER MÁS</button></section>
   <section className="customerForm smartCustomer">
    <div className="orderFormHead"><small>DATOS DEL CLIENTE</small><h2>¿A QUIÉN ENTREGAMOS?</h2></div>
