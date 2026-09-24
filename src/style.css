@@ -4704,3 +4704,159 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    pointer-events:none!important;
  }
 }
+
+
+/* MENU MOBILE V2 — spacious, large cards, intentional horizontal tabs */
+@media(max-width:600px){
+ body:has(.menuShowcase),
+ body:has(.menuShowcase) .app,
+ body:has(.menuShowcase) .menuShowcase{
+   background:#080706 url('/fondo-chucky-street.png') center top/cover fixed no-repeat!important;
+   color:#fff!important;
+ }
+ .menuShowcase{
+   padding-bottom:0!important;
+   min-height:100dvh!important;
+ }
+ .menuShowTabs{
+   gap:10px!important;
+   padding:16px 28px 15px!important;
+   background:rgba(8,7,6,.88)!important;
+   scroll-padding-left:28px!important;
+   overscroll-behavior-x:contain!important;
+ }
+ .menuShowTabs button{
+   padding:13px 22px!important;
+   min-height:48px!important;
+   border:1px solid rgba(255,255,255,.20)!important;
+   background:rgba(25,20,18,.84)!important;
+   color:#fff!important;
+   font-size:13px!important;
+ }
+ .menuShowTabs button.on{
+   border-color:#ef2437!important;
+   background:#ef2437!important;
+ }
+ .menuShowSection{
+   padding:28px 34px 8px!important;
+   background:transparent!important;
+ }
+ .menuShowHeading{
+   align-items:center!important;
+   margin-bottom:20px!important;
+   gap:18px!important;
+ }
+ .menuShowHeading h2{
+   color:#fff!important;
+   font-size:37px!important;
+   line-height:.94!important;
+   letter-spacing:-1.6px!important;
+ }
+ .menuShowHeading>button{
+   flex:0 0 auto!important;
+   min-width:108px!important;
+   min-height:45px!important;
+   padding:10px 17px!important;
+   border-color:rgba(255,255,255,.78)!important;
+   color:#fff!important;
+   background:rgba(0,0,0,.20)!important;
+   font-size:11px!important;
+ }
+ .menuShowFeatured{
+   gap:14px!important;
+ }
+ .menuShowFeature{
+   height:280px!important;
+   border-radius:16px!important;
+   border:1px solid rgba(255,255,255,.30)!important;
+ }
+ .menuShowFeature>i{
+   background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,.92) 100%)!important;
+ }
+ .menuShowFeature>em{
+   left:13px!important;
+   top:13px!important;
+   padding:8px 12px!important;
+   font-size:8px!important;
+ }
+ .menuShowFeature>div{
+   left:16px!important;
+   right:60px!important;
+   bottom:16px!important;
+ }
+ .menuShowFeature h3{
+   font-size:25px!important;
+   line-height:.92!important;
+   margin-bottom:8px!important;
+ }
+ .menuShowFeature p{
+   font-size:9px!important;
+   line-height:1.35!important;
+   margin-bottom:8px!important;
+ }
+ .menuShowFeature strong{
+   font-size:24px!important;
+ }
+ .menuShowFeature>button{
+   right:13px!important;
+   bottom:14px!important;
+   width:46px!important;
+   height:46px!important;
+   font-size:34px!important;
+ }
+ .menuShowChicken{
+   padding-top:38px!important;
+   padding-bottom:12px!important;
+ }
+ .menuShowMini{
+   gap:14px!important;
+ }
+ .menuShowMini article{
+   padding-bottom:16px!important;
+   border-radius:15px!important;
+   border:1px solid rgba(255,255,255,.24)!important;
+   background:rgba(10,8,7,.80)!important;
+   color:#fff!important;
+ }
+ .menuShowMini img{
+   height:165px!important;
+ }
+ .menuShowMini h3{
+   padding:0 14px!important;
+   margin:12px 0 6px!important;
+   font-size:19px!important;
+ }
+ .menuShowMini strong{
+   padding:0 14px 3px!important;
+   font-size:19px!important;
+ }
+ .menuShowMini button{
+   right:11px!important;
+   bottom:11px!important;
+   width:40px!important;
+   height:40px!important;
+   font-size:27px!important;
+ }
+ .menuShowList{
+   gap:14px!important;
+ }
+ .menuShowList .menuShowFeature{
+   height:280px!important;
+ }
+ .menuShowcase::after{
+   content:""!important;
+   display:block!important;
+   width:100%!important;
+   height:118px!important;
+   pointer-events:none!important;
+ }
+ body:has(.menuShowcase) .mobileNavSpace{
+   display:none!important;
+   height:0!important;
+   min-height:0!important;
+   flex:0 0 0!important;
+ }
+ body:has(.menuShowcase) .chuckyNav{
+   bottom:10px!important;
+ }
+}
