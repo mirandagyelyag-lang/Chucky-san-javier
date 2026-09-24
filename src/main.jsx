@@ -63,7 +63,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
   </section>
   <section className="exactShop">
    <div className="exactTitle"><h2>¿Qué vas a pedir?<b>⌁</b></h2><p>TODO A UN TOQUE.</p></div>
-   <div className="exactGrid">{categoryItems.map(([name,sub,img,target])=><button key={name} className="exactCat" onClick={()=>go(target)}><img src={img} alt={name}/><i></i><span><strong>{name}</strong><small>{sub}</small></span><b>→</b></button>)}</div>
+   <div className="exactGrid">{categoryItems.map(([name,sub,img,target])=><button key={name} className="exactCat" onClick={()=>go(target)} aria-label={name}><img src={img} alt=""/><b aria-hidden="true">→</b></button>)}</div>
   </section>
   <section className="exactFav">
    <div className="exactFavHead"><h2>Los más pedidos <b>♛</b></h2><button onClick={()=>setScreen('menu')}>Ver todos&nbsp; →</button></div>
