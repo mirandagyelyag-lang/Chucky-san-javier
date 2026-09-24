@@ -5886,3 +5886,38 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    padding:0!important;
  }
 }
+
+
+/* PEDIDO NAV V16 — force the same compact geometry as Inicio */
+@media(max-width:600px){
+ html body:has(main.cartSmartEmpty) .app > nav.nav.chuckyNav{
+   box-sizing:border-box!important;
+   left:50%!important;
+   right:auto!important;
+   bottom:10px!important;
+   width:calc(100vw - 72px)!important;
+   max-width:430px!important;
+   height:58px!important;
+   min-height:58px!important;
+   max-height:58px!important;
+   transform:translateX(-50%)!important;
+   padding:2px 8px!important;
+   border-radius:30px!important;
+ }
+ html body:has(main.cartSmartEmpty) .app > nav.nav.chuckyNav > button{
+   box-sizing:border-box!important;
+   height:52px!important;
+   min-height:52px!important;
+   max-height:52px!important;
+   padding:3px 2px 7px!important;
+   gap:0!important;
+ }
+ html body:has(main.cartSmartEmpty) .app > nav.nav.chuckyNav > button svg{
+   width:20px!important;
+   height:20px!important;
+ }
+ html body:has(main.cartSmartEmpty) .app > nav.nav.chuckyNav > button b{
+   font-size:11px!important;
+   line-height:12px!important;
+ }
+}
