@@ -4304,3 +4304,38 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    line-height:1!important;
  }
 }
+
+
+/* MOBILE NAV V2 — deliberately small, no content obstruction */
+@media(max-width:600px){
+ body:has(.exactHome) .exactHome{padding-bottom:104px!important}
+ body:has(.exactHome) .chuckyNav,
+ body:has(.chuckyContinuous) .chuckyNav{
+   position:fixed!important;
+   left:50%!important;
+   right:auto!important;
+   bottom:8px!important;
+   width:calc(100vw - 72px)!important;
+   max-width:430px!important;
+   height:58px!important;
+   min-height:58px!important;
+   transform:translateX(-50%)!important;
+   border-radius:29px!important;
+   padding:2px 8px!important;
+   grid-template-columns:repeat(3,minmax(0,1fr))!important;
+ }
+ body:has(.exactHome) .chuckyNav button,
+ body:has(.chuckyContinuous) .chuckyNav button{
+   height:52px!important;min-height:52px!important;
+   padding:3px 2px!important;gap:0!important;
+   border-radius:24px!important;
+ }
+ body:has(.exactHome) .chuckyNav button svg,
+ body:has(.chuckyContinuous) .chuckyNav button svg{
+   width:20px!important;height:20px!important;
+ }
+ body:has(.exactHome) .chuckyNav button b,
+ body:has(.chuckyContinuous) .chuckyNav button b{
+   font-size:11px!important;line-height:12px!important;
+ }
+}
