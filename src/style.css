@@ -4609,7 +4609,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
  body:has(.chuckyContinuous) .homeNavClearance{
    display:block!important;
    width:100%!important;
-   height:118px!important;
+   height:100px!important;
    background:transparent!important;
    pointer-events:none!important;
  }
