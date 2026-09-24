@@ -4162,7 +4162,7 @@ body:has(.menuShowcase) .chuckyNav{position:fixed!important}
 /* CONTINUOUS CHUCKY HOME — design 02 */
 .chuckyContinuous{
  position:relative!important;
- background:#090605 url('/fondo-chucky-completo.png') center top/cover fixed no-repeat!important;
+ background:#090605 url('/fondo-chucky-street.png') center top/cover fixed no-repeat!important;
  color:#fff!important;
 }
 .chuckyContinuous:before{
