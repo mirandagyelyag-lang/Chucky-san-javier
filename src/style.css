@@ -5638,3 +5638,16 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    filter:contrast(1.12) drop-shadow(0 8px 18px rgba(0,0,0,.45))!important;
  }
 }
+
+
+/* PEDIDO EMPTY V9 — real transparent Chucky logo */
+@media(max-width:600px){
+ .cartSmartEmpty .pedidoChuckyLogo{
+   mix-blend-mode:normal!important;
+   width:min(72vw,330px)!important;
+   height:auto!important;
+   top:45%!important;
+   background:transparent!important;
+   filter:drop-shadow(0 8px 18px rgba(0,0,0,.45))!important;
+ }
+}
