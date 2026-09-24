@@ -4375,3 +4375,16 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    background-repeat:no-repeat!important;
  }
 }
+
+
+/* FULL HEIGHT EXISTING BACKGROUND IN THE APP ONLY */
+@media(max-width:600px){
+ body:has(.chuckyContinuous) .app{min-height:100dvh!important;background:#080706!important}
+ .chuckyContinuous{
+   min-height:100dvh!important;
+   background-image:url('/fondo-chucky-street.png')!important;
+   background-size:100% 100%!important;
+   background-position:center top!important;
+   background-repeat:no-repeat!important;
+ }
+}
