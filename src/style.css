@@ -6033,3 +6033,23 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    min-height:44px!important;
  }
 }
+
+
+/* PEDIDO EMPTY V20 — fixed composition anchors, no bottom-based drift */
+@media(max-width:600px){
+ .cartSmartEmpty .smartEmpty>small{
+   top:25%!important;
+   bottom:auto!important;
+ }
+ .cartSmartEmpty .pedidoChuckyLogo{
+   top:39%!important;
+   bottom:auto!important;
+   width:min(57vw,265px)!important;
+ }
+ .cartSmartEmpty .pedidoEmptyCopy{
+   top:56%!important;
+   bottom:auto!important;
+   left:28px!important;
+   right:28px!important;
+ }
+}
