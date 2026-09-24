@@ -47,10 +47,10 @@ function Topbar({setScreen,count}){return <header className="topbar topbarConcep
 function HomePage({setScreen,setCat,add,setSelected}){
  const go=cat=>{setCat(cat);setScreen('menu')};
  const categoryItems=[
-  ['Sushi','ROLLS, HANDROLLS Y MÁS.','/sushi-principal.png','Sushi'],
-  ['Pollo frito','PIEZAS, ALITAS Y COMBOS.','/pollo-frito-principal.png','Pollo frito'],
-  ['Bebidas','PARA ACOMPAÑAR.','/bebidas-principal.png','Bebidas'],
-  ['Salsas','EL TOQUE FINAL.','/salsas-principal.png','Salsas']
+  ['Sushi','ROLLS, HANDROLLS Y MÁS.','/sushi-principal.png?v=2','Sushi'],
+  ['Pollo frito','PIEZAS, ALITAS Y COMBOS.','/pollo-frito-principal.png?v=2','Pollo frito'],
+  ['Bebidas','PARA ACOMPAÑAR.','/bebidas-principal.png?v=2','Bebidas'],
+  ['Salsas','EL TOQUE FINAL.','/salsas-principal.png?v=2','Salsas']
  ];
  return <main className="content homeEditorial homeSales exactHome chuckyContinuous">
   <section className="exactHero">
@@ -87,7 +87,7 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
    <section className="menuShowSection">
     <div className="menuShowHeading"><h2>Nuestros favoritos <b>⌁</b></h2><button onClick={()=>setCat('Pollo frito')}>Ver todo <span>→</span></button></div>
     <div className="menuShowFeatured">{fav.map((p,i)=><article key={p.id} className="menuShowFeature" onClick={()=>setSelected(p)}>
-     <img src={i===0?'/pollo-frito-principal.png':'/sushi-principal.png'} alt={p.name}/><i></i>
+     <img src={i===0?'/pollo-frito-principal.png?v=2':'/sushi-principal.png?v=2'} alt={p.name}/><i></i>
      {i===0&&<em>♛ &nbsp; MÁS PEDIDO</em>}
      <div><h3>{i===0?'Combo Chucky':'Sushi Chucky'}</h3><p>{i===0?'Pollo crujiente + papas + salsa de la casa.':'Selección de sushi Chucky, fresca y llena de sabor.'}</p><strong>{i===0?'$8.990':money(p.price)}</strong></div>
      <button onClick={e=>add(p.id,e)}>+</button>
