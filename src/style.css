@@ -4388,3 +4388,18 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    background-repeat:no-repeat!important;
  }
 }
+
+
+/* HOME BOTTOM: keep the same Chucky artwork behind the floating nav */
+@media(max-width:600px){
+ body:has(.chuckyContinuous),
+ body:has(.chuckyContinuous) .app{
+   background-image:url('/fondo-chucky-street.png')!important;
+   background-size:100% 100%!important;
+   background-position:center top!important;
+   background-repeat:no-repeat!important;
+ }
+ body:has(.chuckyContinuous) .mobileNavSpace{
+   background:transparent!important;
+ }
+}
