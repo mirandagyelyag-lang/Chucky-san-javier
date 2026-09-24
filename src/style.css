@@ -4938,3 +4938,63 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
  }
  html{scroll-behavior:smooth}
 }
+
+
+/* MENU HEADER V4 — compact integrated header, no heavy tab band */
+@media(max-width:600px){
+ body:has(.menuShowcase) .menuShowHero{
+   height:168px!important;
+   min-height:168px!important;
+ }
+ body:has(.menuShowcase) .menuShowCopy{
+   left:30px!important;
+   right:92px!important;
+   bottom:13px!important;
+ }
+ body:has(.menuShowcase) .menuShowCopy h1{
+   font-size:43px!important;
+   line-height:.88!important;
+   letter-spacing:-1.8px!important;
+ }
+ body:has(.menuShowcase) .menuShowCopy i{
+   width:92px!important;
+   height:3px!important;
+   margin:7px 0 8px!important;
+ }
+ body:has(.menuShowcase) .menuShowCopy p{
+   font-size:7.5px!important;
+   line-height:1.55!important;
+   letter-spacing:2px!important;
+ }
+ body:has(.menuShowcase) .menuSearchJump{
+   top:14px!important;
+   right:16px!important;
+   width:48px!important;
+   height:48px!important;
+ }
+ body:has(.menuShowcase) .menuShowTabs{
+   position:sticky!important;
+   top:0!important;
+   z-index:20!important;
+   gap:8px!important;
+   padding:9px 22px 10px!important;
+   background:linear-gradient(180deg,rgba(8,7,6,.68),rgba(8,7,6,.30))!important;
+   backdrop-filter:blur(8px)!important;
+   -webkit-backdrop-filter:blur(8px)!important;
+   border:0!important;
+   box-shadow:none!important;
+ }
+ body:has(.menuShowcase) .menuShowTabs button{
+   min-height:40px!important;
+   padding:9px 17px!important;
+   font-size:11px!important;
+   border-radius:999px!important;
+   background:rgba(17,14,13,.70)!important;
+ }
+ body:has(.menuShowcase) .menuShowTabs button.on{
+   background:#ef2437!important;
+ }
+ body:has(.menuShowcase) .menuShowSection:first-of-type{
+   padding-top:14px!important;
+ }
+}
