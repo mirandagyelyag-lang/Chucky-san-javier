@@ -5651,3 +5651,40 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    filter:drop-shadow(0 8px 18px rgba(0,0,0,.45))!important;
  }
 }
+
+
+/* PEDIDO EMPTY V10 — tighter editorial composition */
+@media(max-width:600px){
+ .cartSmartEmpty .pedidoChuckyLogo{
+   width:min(58vw,270px)!important;
+   left:37%!important;
+   top:43%!important;
+   transform:translate(-50%,-50%)!important;
+   filter:drop-shadow(0 7px 16px rgba(0,0,0,.48))!important;
+ }
+ .cartSmartEmpty .pedidoEmptyCopy{
+   left:22px!important;
+   right:22px!important;
+   bottom:92px!important;
+   align-items:flex-start!important;
+   text-align:left!important;
+ }
+ .cartSmartEmpty .pedidoEmptyCopy h1{
+   max-width:280px!important;
+   margin:0 0 5px!important;
+   font-size:23px!important;
+   line-height:1.05!important;
+   text-align:left!important;
+ }
+ .cartSmartEmpty .pedidoEmptyCopy p{
+   margin:0 0 15px!important;
+   font-size:13px!important;
+   text-align:left!important;
+ }
+ .cartSmartEmpty .pedidoEmptyCopy button{
+   width:100%!important;
+   height:48px!important;
+   border-radius:15px!important;
+   align-self:stretch!important;
+ }
+}
