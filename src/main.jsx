@@ -80,7 +80,6 @@ function HomePage({setScreen,setCat,add,setSelected}){
 }
 function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
  const menuCats=['Todo',...cats];
- const fav=[products[0],products[2]];
  const imageFor=(p)=>p.img||(p.cat==='Pollo frito'?'/pollo-frito-principal.png':p.cat==='Sushi'?'/sushi-principal.png':p.cat==='Bebidas'?'/bebidas-principal.png':p.cat==='Salsas'?'/salsas-principal.png':'/pollo-frito-principal.png');
  const jump=(c)=>{
   setCat(c);
@@ -95,15 +94,6 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
    <div className="menuShowCopy"><span className="menuCrown" aria-hidden="true">♕</span><h1>MENÚ</h1><i></i></div><img className="menuApprovedStamp" src="/aprobado-con-fondo.png" alt="Aprobado por Chucky"/>
   </section>
   <nav className="menuShowTabs">{menuCats.map(c=><button key={c} className={cat===c?'on':''} onClick={()=>jump(c)}><b>{c}</b></button>)}</nav>
-  <section className="menuShowSection">
-   <div className="menuShowHeading"><h2>Nuestros favoritos <b>⌁</b></h2></div>
-   <div className="menuShowFeatured">{fav.map((p,i)=><article key={p.id} className="menuShowFeature" onClick={()=>setSelected(p)}>
-    <img src={i===0?'/pollo-frito-principal.png?v=2':'/sushi-principal.png?v=2'} alt={p.name} loading="lazy" decoding="async"/><i></i>
-    {i===0&&<em>♛ &nbsp; MÁS PEDIDO</em>}
-    <div><h3>{i===0?'Combo Chucky':'Sushi Chucky'}</h3><p>{i===0?'Pollo crujiente + papas + salsa de la casa.':'Selección de sushi Chucky, fresca y llena de sabor.'}</p><strong>{i===0?'$8.990':money(p.price)}</strong></div>
-    <button onClick={e=>add(p.id,e)}>+</button>
-   </article>)}</div>
-  </section>
   {cats.map(c=>{
    const items=products.filter(p=>p.cat===c);
    if(!items.length)return null;
