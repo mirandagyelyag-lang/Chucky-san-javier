@@ -74,9 +74,13 @@ function HomePage({setScreen,setCat,add,setSelected}){
 }
 function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
  const menuCats=['Todo',...cats];
- const visible=cat==='Todo'?products:filtered;
  const fav=[products[0],products[2]];
- const chicken=products.filter(p=>p.cat==='Pollo frito');
+ const imageFor=(p)=>p.img||(p.cat==='Pollo frito'?'/pollo-frito-principal.png':p.cat==='Sushi'?'/sushi-principal.png':p.cat==='Bebidas'?'/bebidas-principal.png':p.cat==='Salsas'?'/salsas-principal.png':'/pollo-frito-principal.png');
+ const jump=(c)=>{
+  setCat(c);
+  if(c==='Todo'){window.scrollTo({top:0,behavior:'smooth'});return}
+  document.getElementById('menu-'+c.toLowerCase().replace(/\s+/g,'-'))?.scrollIntoView({behavior:'smooth',block:'start'});
+ };
  return <main className="content menuContent menuShowcase">
   <section className="menuShowHero"><button className="menuSearchJump" onClick={()=>setScreen('search')} aria-label="Buscar"><Search/></button>
    <img src="/sushi-pollo-header.png?v=menu2" alt="Pollo frito y sushi Chucky"/>
@@ -84,25 +88,29 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
    <div className="menuShowBrand"><img src="/chucky-header.png" alt="Chucky"/></div>
    <div className="menuShowCopy"><h1>MENÚ</h1><i></i><p>POLLO FRITO · SUSHI · COMBOS<br/>BEBIDAS · SALSAS</p></div>
   </section>
-  <nav className="menuShowTabs">{menuCats.map(c=><button key={c} className={cat===c?'on':''} onClick={()=>setCat(c)}><b>{c}</b></button>)}</nav>
-  {cat==='Todo'?<>
-   <section className="menuShowSection">
-    <div className="menuShowHeading"><h2>Nuestros favoritos <b>⌁</b></h2><button onClick={()=>setCat('Pollo frito')}>Ver todo <span>→</span></button></div>
-    <div className="menuShowFeatured">{fav.map((p,i)=><article key={p.id} className="menuShowFeature" onClick={()=>setSelected(p)}>
-     <img src={i===0?'/pollo-frito-principal.png?v=2':'/sushi-principal.png?v=2'} alt={p.name}/><i></i>
-     {i===0&&<em>♛ &nbsp; MÁS PEDIDO</em>}
-     <div><h3>{i===0?'Combo Chucky':'Sushi Chucky'}</h3><p>{i===0?'Pollo crujiente + papas + salsa de la casa.':'Selección de sushi Chucky, fresca y llena de sabor.'}</p><strong>{i===0?'$8.990':money(p.price)}</strong></div>
+  <nav className="menuShowTabs">{menuCats.map(c=><button key={c} className={cat===c?'on':''} onClick={()=>jump(c)}><b>{c}</b></button>)}</nav>
+  <section className="menuShowSection">
+   <div className="menuShowHeading"><h2>Nuestros favoritos <b>⌁</b></h2></div>
+   <div className="menuShowFeatured">{fav.map((p,i)=><article key={p.id} className="menuShowFeature" onClick={()=>setSelected(p)}>
+    <img src={i===0?'/pollo-frito-principal.png?v=2':'/sushi-principal.png?v=2'} alt={p.name}/><i></i>
+    {i===0&&<em>♛ &nbsp; MÁS PEDIDO</em>}
+    <div><h3>{i===0?'Combo Chucky':'Sushi Chucky'}</h3><p>{i===0?'Pollo crujiente + papas + salsa de la casa.':'Selección de sushi Chucky, fresca y llena de sabor.'}</p><strong>{i===0?'$8.990':money(p.price)}</strong></div>
+    <button onClick={e=>add(p.id,e)}>+</button>
+   </article>)}</div>
+  </section>
+  {cats.map(c=>{
+   const items=products.filter(p=>p.cat===c);
+   if(!items.length)return null;
+   const id='menu-'+c.toLowerCase().replace(/\s+/g,'-');
+   return <section id={id} key={c} className="menuShowSection menuCatalogSection">
+    <div className="menuShowHeading"><h2>{c} <b>⌁</b></h2></div>
+    <div className="menuShowList">{items.map((p,i)=><article className="menuShowFeature" key={p.id} onClick={()=>setSelected(p)}>
+     <img src={imageFor(p)} alt={p.name}/><i></i>{i===0&&<em>♛ &nbsp; DESTACADO</em>}
+     <div><h3>{p.name}</h3><p>{p.desc}</p><strong>{money(p.price)}</strong></div>
      <button onClick={e=>add(p.id,e)}>+</button>
     </article>)}</div>
    </section>
-   <section className="menuShowSection menuShowChicken">
-    <div className="menuShowHeading"><h2>Pollo frito <b>⌁</b></h2><button onClick={()=>setCat('Pollo frito')}>Ver todo <span>→</span></button></div>
-    <div className="menuShowMini">{chicken.map(p=><article key={p.id} onClick={()=>setSelected(p)}><img src="/pollo-frito-principal.png" alt={p.name}/><h3>{p.name}</h3><strong>{money(p.price)}</strong><button onClick={e=>add(p.id,e)}>+</button></article>)}</div>
-   </section>
-  </>:<section className="menuShowSection">
-   <div className="menuShowHeading"><h2>{cat} <b>⌁</b></h2><button onClick={()=>setCat('Todo')}>Ver todo <span>→</span></button></div>
-   <div className="menuShowList">{visible.map((p,i)=><article className="menuShowFeature" key={p.id} onClick={()=>setSelected(p)}><img src={p.img} alt={p.name}/><i></i>{i===0&&<em>♛ &nbsp; DESTACADO</em>}<div><h3>{p.name}</h3><p>{p.desc}</p><strong>{money(p.price)}</strong></div><button onClick={e=>add(p.id,e)}>+</button></article>)}</div>
-  </section>}
+  })}
  </main>
 }
 
