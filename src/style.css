@@ -5840,3 +5840,21 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    bottom:3px!important;
  }
 }
+
+
+/* PEDIDO EMPTY V14 — remove light strip behind floating nav */
+@media(max-width:600px){
+ body:has(main.cartSmartEmpty),
+ body:has(main.cartSmartEmpty) html,
+ body:has(main.cartSmartEmpty) #root,
+ body:has(main.cartSmartEmpty) .app,
+ body:has(main.cartSmartEmpty) .mobileNavSpace{
+   background-color:#050303!important;
+ }
+ body:has(main.cartSmartEmpty) .mobileNavSpace{
+   background:transparent!important;
+ }
+ body:has(main.cartSmartEmpty) main.content.cartSmart.cartSmartEmpty{
+   padding-bottom:0!important;
+ }
+}
