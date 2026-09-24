@@ -4204,3 +4204,71 @@ body:has(.chuckyContinuous) .app{background:#090605!important}
  .chuckyContinuous .exactShop{margin-top:-34px!important;padding-top:0!important}
  .chuckyContinuous .exactTitle{margin-top:0!important}
 }
+
+
+/* COMPLETE CHUCKY APP — approved 5-screen direction */
+:root{--chucky-red:#f3263b;--chucky-black:#080706;--chucky-panel:rgba(16,14,13,.92);--chucky-line:rgba(255,255,255,.13)}
+.chuckyScreen,.menuShowcase{
+ background:#080706 url('/fondo-chucky-street.png') center top/cover fixed no-repeat!important;
+ color:#fff!important;min-height:100dvh!important
+}
+.chuckyScreen:before,.menuShowcase:before{content:"";position:fixed;inset:0;background:rgba(0,0,0,.52);pointer-events:none;z-index:0}
+.chuckyScreen>*{position:relative;z-index:1}
+body:has(.chuckyScreen),body:has(.menuShowcase){background:#080706!important}
+body:has(.chuckyScreen) .app,body:has(.menuShowcase) .app{background:#080706!important}
+.menuShowcase{position:relative}
+.menuShowcase>*{position:relative;z-index:1}
+.menuShowHero{height:220px!important;background:transparent!important}
+.menuShowHero>img{display:none!important}
+.menuShowShade{background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.66))!important}
+.menuShowBrand{display:none!important}
+.menuShowCopy{left:22px!important;bottom:20px!important}
+.menuShowCopy h1{font-size:43px!important;letter-spacing:-2px!important}
+.menuShowCopy i{width:110px!important;height:3px!important}
+.menuSearchJump{position:absolute;z-index:5;right:18px;top:20px;width:43px;height:43px;border:1px solid var(--chucky-line);border-radius:50%;background:rgba(8,7,6,.68);color:#fff;display:grid;place-items:center}
+.menuSearchJump svg{width:20px}
+.menuShowTabs{background:rgba(8,7,6,.96)!important;padding:12px 16px!important}
+.menuShowTabs button{background:#181513!important;color:#ddd!important;border:1px solid var(--chucky-line)!important}
+.menuShowTabs button.on{background:var(--chucky-red)!important;color:#fff!important;border-color:var(--chucky-red)!important}
+.menuShowSection{background:rgba(8,7,6,.82)!important;color:#fff!important}
+.menuShowHeading h2,.menuShowHeading>button{color:#fff!important}
+.menuShowHeading>button{border-color:rgba(255,255,255,.7)!important}
+.menuShowMini article{background:var(--chucky-panel)!important;color:#fff!important;border-color:var(--chucky-line)!important}
+.menuShowFeature{border:1px solid var(--chucky-line)!important}
+.searchRedesign02{padding:28px 18px 112px!important}
+.searchIntro02 small,.searchIntro02 h1,.searchIntro02 p,.searchSectionHead02{color:#fff!important}
+.searchIntro02 h1{font-family:Georgia,serif!important}
+.searchBox02{background:rgba(20,18,17,.94)!important;border:1px solid var(--chucky-line)!important;color:#fff!important}
+.searchBox02 input{color:#fff!important;background:transparent!important}
+.searchFilters02 button{background:#171412!important;color:#ddd!important;border:1px solid var(--chucky-line)!important}
+.searchFilters02 button.on{background:var(--chucky-red)!important;color:#fff!important}
+.searchResults02 .foodCard{background:var(--chucky-panel)!important;border:1px solid var(--chucky-line)!important;color:#fff!important}
+.searchResults02 .foodInfo h3,.searchResults02 .foodInfo p,.searchResults02 .foodInfo strong{color:#fff!important}
+.searchEmpty02{min-height:430px!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center!important;color:#fff!important}
+.searchEmpty02:before{content:"♛";font-size:78px;color:var(--chucky-red);line-height:1;margin-bottom:22px}
+.cartSmart{padding:30px 18px 120px!important}
+.cartSmart .smartCartHead,.cartSmart .smartSummary,.cartSmart .smartExtras,.cartSmart .smartCustomer{color:#fff!important}
+.smartSummary,.smartExtras,.smartCustomer{background:var(--chucky-panel)!important;border:1px solid var(--chucky-line)!important}
+.smartCartItem{border-color:var(--chucky-line)!important}
+.smartCartItem img{border-radius:10px!important}
+.smartCheckoutJump,.smartFinal{background:var(--chucky-red)!important;color:#fff!important}
+.smartSuggest{background:#171412!important;color:#fff!important;border-color:var(--chucky-line)!important}
+.smartCustomer input,.smartCustomer select,.smartCustomer textarea{background:#171615!important;color:#fff!important;border:1px solid var(--chucky-line)!important}
+.cartSmartEmpty{display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important}
+.smartEmpty{width:100%;min-height:72dvh;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;color:#fff!important}
+.smartEmpty:before{content:"♛";font-size:88px;line-height:1;color:var(--chucky-red);text-shadow:0 0 30px rgba(243,38,59,.32)}
+.smartEmpty .emptyPedidoArtwork{display:none!important}
+.smartEmpty h1{font-family:Georgia,serif!important;font-size:31px!important;color:#fff!important}
+.smartEmpty p{color:#ddd!important}
+.smartEmpty button{background:var(--chucky-red)!important;color:#fff!important;border:0!important;border-radius:999px!important}
+.orderSuccess{background:#080706 url('/fondo-chucky-street.png') center/cover no-repeat!important;color:#fff!important;min-height:100dvh!important}
+body:has(.chuckyScreen) .chuckyNav,body:has(.menuShowcase) .chuckyNav{
+ background:rgba(9,8,7,.96)!important;border:1px solid rgba(255,255,255,.12)!important;
+ box-shadow:0 16px 40px rgba(0,0,0,.5)!important
+}
+body:has(.chuckyScreen) .chuckyNav button,body:has(.menuShowcase) .chuckyNav button{color:#999!important}
+body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav button.on{color:var(--chucky-red)!important}
+@media(max-width:600px){
+ .chuckyScreen,.menuShowcase{background-attachment:scroll!important;background-size:auto 100%!important}
+ .menuShowHero{height:210px!important}
+}
