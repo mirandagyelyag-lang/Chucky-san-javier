@@ -4681,3 +4681,26 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    padding-top:0!important;
  }
 }
+
+
+/* CATEGORY TITLE READABILITY — localized shadow, keeps street background visible */
+@media(max-width:600px){
+ body:has(.chuckyContinuous) .exactTitle{
+   position:relative!important;
+   isolation:isolate!important;
+ }
+ body:has(.chuckyContinuous) .exactTitle::before{
+   content:""!important;
+   position:absolute!important;
+   z-index:-1!important;
+   inset:-22px -18px -18px -18px!important;
+   background:radial-gradient(
+     ellipse at left center,
+     rgba(0,0,0,.72) 0%,
+     rgba(0,0,0,.48) 45%,
+     rgba(0,0,0,0) 78%
+   )!important;
+   filter:blur(8px)!important;
+   pointer-events:none!important;
+ }
+}
