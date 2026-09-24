@@ -4076,3 +4076,24 @@ body:has(.menuShowcase) .app{max-width:600px;margin:0 auto;background:#f7f1e7!im
 .menuShowMini strong{padding-bottom:2px!important}
 body:has(.menuShowcase) .app{min-height:100dvh!important}
 body:has(.menuShowcase) .chuckyNav{position:fixed!important}
+
+
+/* TRUE PHONE FULL-BLEED */
+@media(max-width:600px){
+ html,body,#root{width:100%!important;max-width:none!important;margin:0!important;padding:0!important}
+ body .app,
+ body:has(.exactHome) .app,
+ body:has(.menuShowcase) .app{
+   width:100%!important;max-width:none!important;margin:0!important;
+   border:0!important;box-shadow:none!important;
+ }
+ .exactHome,.menuShowcase{width:100%!important;max-width:none!important;margin:0!important}
+ .exactHero,.menuShowHero{width:100vw!important;max-width:none!important;margin-left:0!important;margin-right:0!important}
+ .exactShop,.exactFav,.menuShowSection{width:100%!important}
+ .chuckyNav{
+   width:calc(100% - 24px)!important;
+   max-width:none!important;
+   left:12px!important;right:12px!important;
+   transform:none!important;
+ }
+}
