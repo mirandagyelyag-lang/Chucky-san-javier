@@ -4998,3 +4998,163 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    padding-top:14px!important;
  }
 }
+
+
+/* MENU ART DIRECTION V5 — menu-fondo.png + generated mockup composition */
+@media(max-width:600px){
+ body:has(.menuShowcase),
+ body:has(.menuShowcase) .app,
+ body:has(.menuShowcase) .menuShowcase{
+   background-color:#090604!important;
+   background-image:
+     linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.18)),
+     url('/menu-fondo.png')!important;
+   background-size:100% auto!important;
+   background-position:center top!important;
+   background-repeat:repeat-y!important;
+   background-attachment:scroll!important;
+ }
+ body:has(.menuShowcase) .menuShowHero{
+   height:330px!important;
+   min-height:330px!important;
+   background:transparent!important;
+   overflow:hidden!important;
+ }
+ body:has(.menuShowcase) .menuShowHero>img,
+ body:has(.menuShowcase) .menuShowBrand{
+   display:none!important;
+ }
+ body:has(.menuShowcase) .menuShowShade{
+   background:linear-gradient(180deg,rgba(0,0,0,.03) 25%,rgba(0,0,0,.72) 100%)!important;
+ }
+ body:has(.menuShowcase) .menuShowCopy{
+   left:28px!important;
+   right:90px!important;
+   bottom:28px!important;
+ }
+ body:has(.menuShowcase) .menuShowCopy h1{
+   font-family:Georgia,serif!important;
+   font-size:58px!important;
+   line-height:.88!important;
+   font-weight:800!important;
+   letter-spacing:-2.5px!important;
+   color:#fff!important;
+   transform:rotate(-2deg)!important;
+   transform-origin:left bottom!important;
+ }
+ body:has(.menuShowcase) .menuShowCopy i{
+   width:132px!important;
+   height:4px!important;
+   margin:10px 0 10px!important;
+   background:#f3263f!important;
+   transform:rotate(-2deg)!important;
+ }
+ body:has(.menuShowcase) .menuShowCopy p{
+   font-size:8px!important;
+   line-height:1.55!important;
+   letter-spacing:2.1px!important;
+   color:#fff!important;
+ }
+ body:has(.menuShowcase) .menuSearchJump{
+   top:18px!important;
+   right:18px!important;
+   width:54px!important;
+   height:54px!important;
+   background:rgba(5,5,5,.82)!important;
+   border:1px solid rgba(255,255,255,.22)!important;
+ }
+ body:has(.menuShowcase) .menuShowTabs{
+   position:sticky!important;
+   top:0!important;
+   z-index:30!important;
+   gap:8px!important;
+   padding:10px 20px 12px!important;
+   background:linear-gradient(180deg,rgba(8,5,4,.92),rgba(8,5,4,.76))!important;
+   backdrop-filter:blur(10px)!important;
+   -webkit-backdrop-filter:blur(10px)!important;
+ }
+ body:has(.menuShowcase) .menuShowTabs button{
+   min-height:42px!important;
+   padding:9px 17px!important;
+   background:rgba(10,9,8,.82)!important;
+   border:1px solid rgba(255,255,255,.26)!important;
+   border-radius:999px!important;
+   color:#fff!important;
+   font-size:11px!important;
+ }
+ body:has(.menuShowcase) .menuShowTabs button.on{
+   background:#f3263f!important;
+   border-color:#f3263f!important;
+ }
+ body:has(.menuShowcase) .menuShowSection{
+   padding-left:28px!important;
+   padding-right:28px!important;
+   padding-top:22px!important;
+   background:linear-gradient(90deg,rgba(0,0,0,.42),rgba(0,0,0,.20),rgba(0,0,0,.42))!important;
+ }
+ body:has(.menuShowcase) .menuShowHeading{
+   margin-bottom:15px!important;
+ }
+ body:has(.menuShowcase) .menuShowHeading h2{
+   font-size:34px!important;
+   line-height:.96!important;
+   color:#fff!important;
+   text-shadow:0 2px 14px rgba(0,0,0,.8)!important;
+ }
+ body:has(.menuShowcase) .menuShowHeading h2>b{
+   color:#f3263f!important;
+ }
+ body:has(.menuShowcase) .menuShowFeatured{
+   gap:12px!important;
+ }
+ body:has(.menuShowcase) .menuShowFeature{
+   height:276px!important;
+   border-radius:15px!important;
+   border:1px solid rgba(255,255,255,.42)!important;
+   background:#100b08!important;
+   box-shadow:0 12px 28px rgba(0,0,0,.28)!important;
+ }
+ body:has(.menuShowcase) .menuShowFeature>i{
+   background:linear-gradient(180deg,transparent 28%,rgba(0,0,0,.94) 100%)!important;
+ }
+ body:has(.menuShowcase) .menuShowFeature h3{
+   color:#fff!important;
+   font-size:25px!important;
+ }
+ body:has(.menuShowcase) .menuShowFeature p{
+   color:rgba(255,255,255,.90)!important;
+ }
+ body:has(.menuShowcase) .menuShowFeature strong{
+   color:#fff!important;
+   font-size:24px!important;
+ }
+ body:has(.menuShowcase) .menuShowFeature>button{
+   background:#f3263f!important;
+   color:#fff!important;
+   border:0!important;
+ }
+ body:has(.menuShowcase) .menuCatalogSection{
+   padding-top:28px!important;
+   scroll-margin-top:68px!important;
+ }
+ body:has(.menuShowcase) .menuShowList{
+   display:grid!important;
+   grid-template-columns:repeat(2,minmax(0,1fr))!important;
+   gap:12px!important;
+ }
+ body:has(.menuShowcase) .menuShowList .menuShowFeature{
+   height:245px!important;
+ }
+ body:has(.menuShowcase) .menuShowList .menuShowFeature h3{
+   font-size:21px!important;
+ }
+ body:has(.menuShowcase) .menuShowList .menuShowFeature p{
+   font-size:8px!important;
+ }
+ body:has(.menuShowcase) .menuShowList .menuShowFeature strong{
+   font-size:21px!important;
+ }
+ body:has(.menuShowcase) .menuShowcase::after{
+   height:126px!important;
+ }
+}
