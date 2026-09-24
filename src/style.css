@@ -4054,3 +4054,25 @@ body:has(.menuShowcase) .topbar{display:none!important}
 body:has(.menuShowcase){background:#f7f1e7!important}
 body:has(.menuShowcase) .app{max-width:600px;margin:0 auto;background:#f7f1e7!important;overflow:visible!important}
 @media(max-width:430px){.menuShowHero{height:285px}.menuShowCopy h1{font-size:60px}.menuShowSection{padding-left:18px;padding-right:18px}.menuShowTabs{padding-left:18px}.menuShowFeature{height:210px}}
+
+
+/* MENU CLEANUP — remove legacy card ghosts + compact ending */
+.menuShowcase{min-height:0!important;padding-bottom:104px!important}
+.menuShowcase .menuShowFeature span,
+.menuShowcase .menuShowFeature small{display:none!important}
+.menuShowFeature{isolation:isolate!important}
+.menuShowFeature>img{z-index:0!important}
+.menuShowFeature>i{z-index:1!important}
+.menuShowFeature>div{z-index:2!important}
+.menuShowFeature>em,.menuShowFeature>button{z-index:3!important}
+.menuShowFeature h3,.menuShowFeature p,.menuShowFeature strong{
+ position:static!important;transform:none!important;text-shadow:none!important;
+}
+.menuShowChicken{padding-bottom:10px!important}
+.menuShowMini{align-items:start!important}
+.menuShowMini article{min-height:0!important;padding-bottom:13px!important}
+.menuShowMini img{height:112px!important}
+.menuShowMini h3{margin:9px 0 5px!important;line-height:1.05!important}
+.menuShowMini strong{padding-bottom:2px!important}
+body:has(.menuShowcase) .app{min-height:100dvh!important}
+body:has(.menuShowcase) .chuckyNav{position:fixed!important}
