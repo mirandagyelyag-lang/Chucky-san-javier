@@ -4659,3 +4659,25 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    padding-top:1.5px!important;
  }
 }
+
+
+/* EXPLICIT HERO → SHOP GAP — independent of legacy section spacing */
+@media(max-width:600px){
+ body:has(.chuckyContinuous) .chuckyContinuous .exactHero{
+   margin-bottom:0!important;
+ }
+ body:has(.chuckyContinuous) .chuckyContinuous .heroShopGap{
+   display:block!important;
+   position:relative!important;
+   z-index:1!important;
+   width:100%!important;
+   height:1.5px!important;
+   min-height:1.5px!important;
+   flex:0 0 1.5px!important;
+   background:transparent!important;
+ }
+ body:has(.chuckyContinuous) .chuckyContinuous .exactShop{
+   margin-top:0!important;
+   padding-top:0!important;
+ }
+}
