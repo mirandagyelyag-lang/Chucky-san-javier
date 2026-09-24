@@ -4884,3 +4884,33 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    bottom:20px!important;
  }
 }
+
+
+/* MENU DENSITY V3 — preserve large food cards, tighten only empty vertical rhythm */
+@media(max-width:600px){
+ body:has(.menuShowcase) .menuShowHero{
+   height:215px!important;
+ }
+ body:has(.menuShowcase) .menuShowCopy{
+   bottom:14px!important;
+ }
+ body:has(.menuShowcase) .menuShowCopy h1{
+   font-size:52px!important;
+ }
+ body:has(.menuShowcase) .menuShowCopy i{
+   margin:7px 0 10px!important;
+ }
+ body:has(.menuShowcase) .menuShowTabs{
+   padding-top:10px!important;
+   padding-bottom:10px!important;
+ }
+ body:has(.menuShowcase) .menuShowSection{
+   padding-top:18px!important;
+ }
+ body:has(.menuShowcase) .menuShowHeading{
+   margin-bottom:12px!important;
+ }
+ body:has(.menuShowcase) .menuShowChicken{
+   padding-top:22px!important;
+ }
+}
