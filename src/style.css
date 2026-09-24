@@ -6053,3 +6053,15 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    right:28px!important;
  }
 }
+
+
+/* PEDIDO EMPTY V21 — close the logo/copy gap from the real-device screenshot */
+@media(max-width:600px){
+ .cartSmartEmpty .pedidoChuckyLogo{
+   top:39%!important;
+ }
+ .cartSmartEmpty .pedidoEmptyCopy{
+   top:49%!important;
+   bottom:auto!important;
+ }
+}
