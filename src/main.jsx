@@ -19,7 +19,7 @@ function App(){
  useEffect(()=>{
   // Keep first paint light on mobile: only warm tiny/shared assets.
   // Large Menu/Pedido backgrounds and food photos load only when their screen needs them.
-  const local=['/chucky-header.png'];
+  const local=['/fondo-chucky-street.png'];
   const warm=()=>local.forEach(src=>{const img=new Image();img.decoding='async';img.loading='lazy';img.src=src});
   if('requestIdleCallback'in window){const id=window.requestIdleCallback(warm,{timeout:5000});return()=>window.cancelIdleCallback?.(id)}
   const id=setTimeout(warm,3500);return()=>clearTimeout(id);
@@ -45,7 +45,7 @@ function App(){
 function Topbar({setScreen,count}){return <header className="topbar topbarConcept editorialTopbar">
  <button className="heroMenuBtn" aria-label="Abrir menú" onClick={()=>setScreen('menu')}><Menu/></button>
  <button className="brand brandConcept editorialBrand cleanChuckyBrand" onClick={()=>setScreen('home')} aria-label="Chucky · Pollo frito y sushi">
-  <img className="chuckyHeaderTransparent" src="/chucky-header.png" alt="Chucky · Pollo frito x sushi"/>
+  <span className="chuckyTextBrand">CHUCKY<small>POLLO FRITO × SUSHI</small></span>
  </button>
  <div className="topActions editorialActions">
   <button className="ghostBtn cartBtn premiumCart" onClick={()=>setScreen('cart')} aria-label="Ver pedido"><ShoppingBag/>{count>0&&<i>{count}</i>}</button>
@@ -65,7 +65,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
    <img className="exactHeroImg" src="/fondo-chucky-street.png?v=1" alt="Chucky"/>
    <div className="exactHeroShade"/>
    <button className="exactMenu" onClick={()=>setScreen('menu')} aria-label="Menú"><Menu/></button>
-   <img className="exactLogo" src="/chucky-header.png" alt="Chucky"/>
+   <span className="exactLogo exactLogoText">CHUCKY<small>POLLO FRITO × SUSHI</small></span>
    <button className="exactCart" onClick={()=>setScreen('cart')} aria-label="Pedido"><ShoppingBag/></button>
    <div className="exactCopy"><small>DOS ANTOJOS.<br/>UN SOLO CHUCKY.</small><h1><span>Pollo frito</span><span>y sushi.</span></h1><i></i><p>MITAD CRUJIENTE<br/>MITAD FRESCO<br/>100% CHUCKY</p><button className="exactOrderCta" onClick={()=>setScreen('menu')}><ShoppingBag/> <strong>Pide ahora</strong> <span>→</span></button></div>
   </section>
@@ -86,9 +86,7 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
  };
  return <main className="content menuContent menuShowcase">
   <section className="menuShowHero"><button className="menuSearchJump" onClick={()=>setScreen('search')} aria-label="Buscar"><Search/></button>
-   <img src="/sushi-pollo-header.png?v=menu2" alt="Pollo frito y sushi Chucky"/>
    <div className="menuShowShade"/>
-   <div className="menuShowBrand"><img src="/chucky-header.png" alt="Chucky"/></div>
    <div className="menuShowCopy"><span className="menuCrown" aria-hidden="true">♕</span><h1>MENÚ</h1><i></i></div><img className="menuApprovedStamp" src="/aprobado-con-fondo.png" alt="Aprobado por Chucky"/>
   </section>
   <nav className="menuShowTabs">{menuCats.map(c=><button key={c} className={cat===c?'on':''} onClick={()=>jump(c)}><b>{c}</b></button>)}</nav>
@@ -179,7 +177,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
   }finally{setSending(false)}
  };
  if(sent)return <main className="content cart orderSuccess">
-  <div className="successMark"><img src="/chucky-nuevo.png" alt="Chucky"/></div>
+  <div className="successMark"><b>CHUCKY</b></div>
   <small>PEDIDO ENVIADO</small>
   <h1>¡RECIBIDO!</h1>
   <p>El pedido fue enviado al negocio. Te contactaremos al teléfono indicado para confirmarlo.</p>
