@@ -4162,7 +4162,7 @@ body:has(.menuShowcase) .chuckyNav{position:fixed!important}
 /* CONTINUOUS CHUCKY HOME — design 02 */
 .chuckyContinuous{
  position:relative!important;
- background:#090605 url('/fondo-chucky-street.png') center top/cover fixed no-repeat!important;
+ background:#090605 url('/fondo-chucky-street.webp?v=2') center top/cover fixed no-repeat!important;
  color:#fff!important;
 }
 .chuckyContinuous:before{
@@ -4209,7 +4209,7 @@ body:has(.chuckyContinuous) .app{background:#090605!important}
 /* COMPLETE CHUCKY APP — approved 5-screen direction */
 :root{--chucky-red:#f3263b;--chucky-black:#080706;--chucky-panel:rgba(16,14,13,.92);--chucky-line:rgba(255,255,255,.13)}
 .chuckyScreen,.menuShowcase{
- background:#080706 url('/fondo-chucky-street.png') center top/cover fixed no-repeat!important;
+ background:#080706 url('/fondo-chucky-street.webp?v=2') center top/cover fixed no-repeat!important;
  color:#fff!important;min-height:100dvh!important
 }
 .chuckyScreen:before,.menuShowcase:before{content:"";position:fixed;inset:0;background:rgba(0,0,0,.52);pointer-events:none;z-index:0}
@@ -4261,7 +4261,7 @@ body:has(.chuckyScreen) .app,body:has(.menuShowcase) .app{background:#080706!imp
 .smartEmpty h1{font-family:Georgia,serif!important;font-size:31px!important;color:#fff!important}
 .smartEmpty p{color:#ddd!important}
 .smartEmpty button{background:var(--chucky-red)!important;color:#fff!important;border:0!important;border-radius:999px!important}
-.orderSuccess{background:#080706 url('/fondo-chucky-street.png') center/cover no-repeat!important;color:#fff!important;min-height:100dvh!important}
+.orderSuccess{background:#080706 url('/fondo-chucky-street.webp?v=2') center/cover no-repeat!important;color:#fff!important;min-height:100dvh!important}
 body:has(.chuckyScreen) .chuckyNav,body:has(.menuShowcase) .chuckyNav{
  background:rgba(9,8,7,.96)!important;border:1px solid rgba(255,255,255,.12)!important;
  box-shadow:0 16px 40px rgba(0,0,0,.5)!important
@@ -4369,7 +4369,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
  }
  .chuckyContinuous{
    width:100vw!important;max-width:none!important;margin:0!important;
-   background-image:url('/fondo-chucky-street.png')!important;
+   background-image:url('/fondo-chucky-street.webp?v=2')!important;
    background-size:cover!important;
    background-position:center top!important;
    background-repeat:no-repeat!important;
@@ -4382,7 +4382,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
  body:has(.chuckyContinuous) .app{min-height:100dvh!important;background:#080706!important}
  .chuckyContinuous{
    min-height:100dvh!important;
-   background-image:url('/fondo-chucky-street.png')!important;
+   background-image:url('/fondo-chucky-street.webp?v=2')!important;
    background-size:100% 100%!important;
    background-position:center top!important;
    background-repeat:no-repeat!important;
@@ -4394,7 +4394,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
 @media(max-width:600px){
  body:has(.chuckyContinuous),
  body:has(.chuckyContinuous) .app{
-   background-image:url('/fondo-chucky-street.png')!important;
+   background-image:url('/fondo-chucky-street.webp?v=2')!important;
    background-size:100% 100%!important;
    background-position:center top!important;
    background-repeat:no-repeat!important;
@@ -4553,7 +4553,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    background:transparent!important;
  }
  body:has(.chuckyContinuous) .app{
-   background-image:url('/fondo-chucky-street.png')!important;
+   background-image:url('/fondo-chucky-street.webp?v=2')!important;
    background-size:cover!important;
    background-position:center bottom!important;
    background-attachment:scroll!important;
@@ -4579,7 +4579,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
  body:has(.chuckyContinuous) .app{
    padding-bottom:0!important;
    min-height:100dvh!important;
-   background-image:url('/fondo-chucky-street.png')!important;
+   background-image:url('/fondo-chucky-street.webp?v=2')!important;
    background-size:cover!important;
    background-position:center bottom!important;
    background-repeat:no-repeat!important;
@@ -4711,7 +4711,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
  body:has(.menuShowcase),
  body:has(.menuShowcase) .app,
  body:has(.menuShowcase) .menuShowcase{
-   background:#080706 url('/fondo-chucky-street.png') center top/cover fixed no-repeat!important;
+   background:#080706 url('/fondo-chucky-street.webp?v=2') center top/cover fixed no-repeat!important;
    color:#fff!important;
  }
  .menuShowcase{
@@ -6154,7 +6154,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
  html body:has(.chuckyContinuous) .app,
  html body:has(.chuckyContinuous) main.chuckyContinuous{
    background-color:#080706!important;
-   background-image:url('/fondo-chucky-street.png?v=street-final-1')!important;
+   background-image:url('/fondo-chucky-street.webp?v=2?v=street-final-1')!important;
    background-position:center top!important;
    background-repeat:no-repeat!important;
    background-size:cover!important;
