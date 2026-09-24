@@ -6002,3 +6002,34 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    border-radius:14px!important;
  }
 }
+
+
+/* PEDIDO EMPTY V19 — match the approved mockup on the real Chrome viewport */
+@media(max-width:600px){
+ .cartSmartEmpty .smartEmpty>small{
+   top:24%!important;
+   left:28px!important;
+ }
+ .cartSmartEmpty .pedidoChuckyLogo{
+   width:min(57vw,265px)!important;
+   left:38%!important;
+   top:36%!important;
+   transform:translate(-50%,-50%)!important;
+ }
+ .cartSmartEmpty .pedidoEmptyCopy{
+   left:28px!important;
+   right:28px!important;
+   bottom:24%!important;
+ }
+ .cartSmartEmpty .pedidoEmptyCopy h1{
+   font-size:22px!important;
+   margin-bottom:4px!important;
+ }
+ .cartSmartEmpty .pedidoEmptyCopy p{
+   margin-bottom:14px!important;
+ }
+ .cartSmartEmpty .pedidoEmptyCopy button{
+   height:44px!important;
+   min-height:44px!important;
+ }
+}
