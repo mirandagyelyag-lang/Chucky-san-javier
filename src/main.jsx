@@ -17,7 +17,7 @@ const money=n=>'$'+n.toLocaleString('es-CL');
 
 function App(){
  const initialScreen=()=>{try{const hash=window.location.hash.replace('#/','').replace('#','');return ['home','menu','cart'].includes(hash)?hash:(hash==='search'?'menu':'home')}catch{return 'home'}};
- const[screen,setScreenState]=useState(initialScreen),[cat,setCat]=useState('Pollo frito'),[q,setQ]=useState(''),[cart,setCart]=useState({}),[selected,setSelected]=useState(null);
+ const[screen,setScreenState]=useState(initialScreen),[cat,setCat]=useState('Todo'),[q,setQ]=useState(''),[cart,setCart]=useState({}),[selected,setSelected]=useState(null);
  const setScreen=next=>{setScreenState(next);try{history.replaceState(null,'',next==='home'?window.location.pathname:window.location.pathname+'#/'+next)}catch{}};
  const add=(id,e)=>{e?.stopPropagation();setCart(c=>({...c,[id]:(c[id]||0)+1}))};
  const sub=id=>setCart(c=>({...c,[id]:Math.max(0,(c[id]||0)-1)}));
@@ -26,7 +26,7 @@ function App(){
  const filtered=useMemo(()=>products.filter(p=>p.cat===cat),[cat]);
  if(screen==='cart')return <Shell screen={screen} setScreen={setScreen} count={count}><Cart cart={cart} setCart={setCart} add={add} sub={sub} subtotal={subtotal} setScreen={setScreen}/></Shell>;
  return <Shell screen={screen} setScreen={setScreen} count={count}>
-  {screen!=='home'&&<Topbar setScreen={setScreen} count={count}/>}
+  {screen!=='home'&&screen!=='menu'&&<Topbar setScreen={setScreen} count={count}/>}
   {screen==='home'&&<HomePage setScreen={setScreen} setCat={setCat} add={add} setSelected={setSelected}/>}
   {screen==='menu'&&<MenuPage cat={cat} setCat={setCat} filtered={filtered} add={add} setSelected={setSelected}/>}
   {selected&&<Detail p={selected} close={()=>setSelected(null)} add={add}/>}
