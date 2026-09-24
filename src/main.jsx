@@ -54,13 +54,12 @@ function HomePage({setScreen,setCat,add,setSelected}){
  const favorites=[products[0],products[2],products[4],products[3]];
  return <main className="content homeEditorial homeSales exactHome">
   <section className="exactHero">
-   <img className="exactHeroImg" src="/sushi-pollo-hero.png?v=1" alt="Pollo frito y sushi Chucky"/>
+   <img className="exactHeroImg" src="/sushi-pollo-header.png?v=2" alt="Pollo frito y sushi Chucky"/>
    <div className="exactHeroShade"/>
    <button className="exactMenu" onClick={()=>setScreen('menu')} aria-label="Menú"><Menu/></button>
    <img className="exactLogo" src="/chucky-header.png" alt="Chucky"/>
    <button className="exactCart" onClick={()=>setScreen('cart')} aria-label="Pedido"><ShoppingBag/></button>
-   <div className="exactCopy"><small>DOS ANTOJOS.<br/>UN SOLO CHUCKY.</small><h1>Pollo frito<br/>y sushi.</h1><i></i><p>MITAD CRUJIENTE<br/>MITAD FRESCO<br/>100% CHUCKY</p><button onClick={()=>setScreen('menu')}>Haz tu pedido <span>→</span></button></div>
-   <b className="exactCrown">♛</b><em className="exactNote">MISMAS GANAS.<br/>MEJOR COMIDA.</em>
+   <div className="exactCopy"><small>DOS ANTOJOS.<br/>UN SOLO CHUCKY.</small><h1><span>Pollo frito</span><span>y sushi.</span></h1><i></i><p>MITAD CRUJIENTE<br/>MITAD FRESCO<br/>100% CHUCKY</p><button onClick={()=>setScreen('menu')}>Haz tu pedido <span>→</span></button></div>
   </section>
   <section className="exactShop">
    <div className="exactTitle"><h2>¿Qué vas a pedir?<b>⌁</b></h2><p>TODO A UN TOQUE.</p></div>
