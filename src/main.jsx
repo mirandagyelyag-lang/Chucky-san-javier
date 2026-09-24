@@ -71,24 +71,40 @@ function HomePage({setScreen,setCat,add,setSelected}){
   </section>
  </main>
 }
-function MenuPage({cat,setCat,filtered,add,setSelected}){return <main className="content menuContent menuRedesign02">
- <section className="menuHero02">
-  <img src="/chucky-pollo-hero.png" alt="" loading="eager"/>
-  <div className="menuHero02Shade"/>
-  <div className="menuHero02Copy">
-   <small>DOS ANTOJOS. UN SOLO CHUCKY.</small>
-   <h1>MENÚ</h1>
-   <i aria-hidden="true"></i>
-   <p>POLLO FRITO · SUSHI<br/>COMBOS · BEBIDAS</p>
-  </div>
-  <div className="menuHero02Note">POLLO<br/>+ SUSHI<br/>CHUCKY</div>
- </section>
- <nav className="menuTabs02">{cats.map(c=><button key={c} className={cat===c?'on':''} onClick={()=>setCat(c)}>
-  <b>{c}</b>
- </button>)}</nav>
- <div className="menuTitle02"><div><small>MENÚ CHUCKY</small><h2>{cat}</h2></div><p>{filtered.length} opciones disponibles</p></div>
- <div className="menuList menuList02">{filtered.map((p,i)=><Card key={p.id} p={p} add={add} setSelected={setSelected} featured={i===0} wide/>)}</div>
- </main>}
+function MenuPage({cat,setCat,filtered,add,setSelected}){
+ const menuCats=['Todo',...cats];
+ const visible=cat==='Todo'?products:filtered;
+ const fav=[products[0],products[2]];
+ const chicken=products.filter(p=>p.cat==='Pollo frito');
+ return <main className="content menuContent menuShowcase">
+  <section className="menuShowHero">
+   <img src="/sushi-pollo-header.png?v=menu2" alt="Pollo frito y sushi Chucky"/>
+   <div className="menuShowShade"/>
+   <div className="menuShowBrand"><img src="/chucky-header.png" alt="Chucky"/></div>
+   <div className="menuShowCopy"><h1>MENÚ</h1><i></i><p>POLLO FRITO · SUSHI · COMBOS<br/>BEBIDAS · SALSAS</p></div>
+  </section>
+  <nav className="menuShowTabs">{menuCats.map(c=><button key={c} className={cat===c?'on':''} onClick={()=>setCat(c)}><b>{c}</b></button>)}</nav>
+  {cat==='Todo'?<>
+   <section className="menuShowSection">
+    <div className="menuShowHeading"><h2>Nuestros favoritos <b>⌁</b></h2><button onClick={()=>setCat('Pollo frito')}>Ver todo <span>→</span></button></div>
+    <div className="menuShowFeatured">{fav.map((p,i)=><article key={p.id} className="menuShowFeature" onClick={()=>setSelected(p)}>
+     <img src={i===0?'/pollo-frito-principal.png':'/sushi-principal.png'} alt={p.name}/><i></i>
+     {i===0&&<em>♛ &nbsp; MÁS PEDIDO</em>}
+     <div><h3>{i===0?'Combo Chucky':'Sushi Chucky'}</h3><p>{i===0?'Pollo crujiente + papas + salsa de la casa.':'Selección de sushi Chucky, fresca y llena de sabor.'}</p><strong>{i===0?'$8.990':money(p.price)}</strong></div>
+     <button onClick={e=>add(p.id,e)}>+</button>
+    </article>)}</div>
+   </section>
+   <section className="menuShowSection menuShowChicken">
+    <div className="menuShowHeading"><h2>Pollo frito <b>⌁</b></h2><button onClick={()=>setCat('Pollo frito')}>Ver todo <span>→</span></button></div>
+    <div className="menuShowMini">{chicken.map(p=><article key={p.id} onClick={()=>setSelected(p)}><img src="/pollo-frito-principal.png" alt={p.name}/><h3>{p.name}</h3><strong>{money(p.price)}</strong><button onClick={e=>add(p.id,e)}>+</button></article>)}</div>
+   </section>
+  </>:<section className="menuShowSection">
+   <div className="menuShowHeading"><h2>{cat} <b>⌁</b></h2><button onClick={()=>setCat('Todo')}>Ver todo <span>→</span></button></div>
+   <div className="menuShowList">{visible.map((p,i)=><article className="menuShowFeature" key={p.id} onClick={()=>setSelected(p)}><img src={p.img} alt={p.name}/><i></i>{i===0&&<em>♛ &nbsp; DESTACADO</em>}<div><h3>{p.name}</h3><p>{p.desc}</p><strong>{money(p.price)}</strong></div><button onClick={e=>add(p.id,e)}>+</button></article>)}</div>
+  </section>}
+ </main>
+}
+
 function SearchPage({q,setQ,filtered,add,setSelected}){
  const[searchCat,setSearchCat]=useState('Todo');
  const visible=filtered.filter(p=>searchCat==='Todo'||p.cat===searchCat);
