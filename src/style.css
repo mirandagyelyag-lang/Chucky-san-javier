@@ -6065,3 +6065,14 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    bottom:auto!important;
  }
 }
+
+
+/* MENU V6 — remove decorative page background */
+@media(max-width:600px){
+ body:has(.menuShowcase),
+ body:has(.menuShowcase) .app,
+ body:has(.menuShowcase) .menuShowcase{
+   background-image:none!important;
+   background-color:#fffaf2!important;
+ }
+}
