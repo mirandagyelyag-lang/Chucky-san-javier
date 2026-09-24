@@ -5921,3 +5921,42 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    line-height:12px!important;
  }
 }
+
+
+/* PEDIDO EMPTY V17 — balanced vertical composition */
+@media(max-width:600px){
+ .cartSmartEmpty .smartEmpty>small{
+   top:72px!important;
+   left:5px!important;
+ }
+ .cartSmartEmpty .pedidoChuckyLogo{
+   width:min(55vw,255px)!important;
+   left:35%!important;
+   top:39%!important;
+   transform:translate(-50%,-50%)!important;
+ }
+ .cartSmartEmpty .pedidoEmptyCopy{
+   left:22px!important;
+   right:22px!important;
+   bottom:86px!important;
+   align-items:flex-start!important;
+   text-align:left!important;
+ }
+ .cartSmartEmpty .pedidoEmptyCopy h1{
+   max-width:100%!important;
+   margin:0 0 5px!important;
+   font-size:22px!important;
+   line-height:1.08!important;
+   white-space:nowrap!important;
+ }
+ .cartSmartEmpty .pedidoEmptyCopy p{
+   margin:0 0 14px!important;
+   font-size:13px!important;
+ }
+ .cartSmartEmpty .pedidoEmptyCopy button{
+   width:100%!important;
+   height:44px!important;
+   min-height:44px!important;
+   border-radius:14px!important;
+ }
+}
