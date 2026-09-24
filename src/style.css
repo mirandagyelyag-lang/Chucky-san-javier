@@ -4914,3 +4914,27 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    padding-top:22px!important;
  }
 }
+
+
+/* SINGLE-PAGE MENU CATALOG */
+@media(max-width:600px){
+ body:has(.menuShowcase) .menuShowTabs{
+   position:sticky!important;
+   top:0!important;
+   z-index:20!important;
+ }
+ body:has(.menuShowcase) .menuCatalogSection{
+   scroll-margin-top:78px!important;
+   padding-top:24px!important;
+ }
+ body:has(.menuShowcase) .menuCatalogSection+.menuCatalogSection{
+   margin-top:8px!important;
+ }
+ body:has(.menuShowcase) .menuCatalogSection .menuShowHeading{
+   margin-bottom:14px!important;
+ }
+ body:has(.menuShowcase) .menuShowcase::after{
+   height:125px!important;
+ }
+ html{scroll-behavior:smooth}
+}
