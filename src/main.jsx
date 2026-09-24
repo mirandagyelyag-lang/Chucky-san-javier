@@ -16,7 +16,7 @@ const cats=['Pollo frito','Sushi','Combos','Bebidas','Salsas'];
 const money=n=>'$'+n.toLocaleString('es-CL');
 
 function App(){
- const initialScreen=()=>{try{const hash=window.location.hash.replace('#/','').replace('#','');return ['home','menu','cart'].includes(hash)?hash:(hash==='search'?'menu':'home')}catch{return 'home'}};
+ const initialScreen=()=>{try{const hash=window.location.hash.replace('#/','').replace('#','');return ['home','menu','search','cart'].includes(hash)?hash:'home'}catch{return 'home'}};
  const[screen,setScreenState]=useState(initialScreen),[cat,setCat]=useState('Todo'),[q,setQ]=useState(''),[cart,setCart]=useState({}),[selected,setSelected]=useState(null);
  const setScreen=next=>{setScreenState(next);try{history.replaceState(null,'',next==='home'?window.location.pathname:window.location.pathname+'#/'+next)}catch{}};
  const add=(id,e)=>{e?.stopPropagation();setCart(c=>({...c,[id]:(c[id]||0)+1}))};
@@ -28,7 +28,8 @@ function App(){
  return <Shell screen={screen} setScreen={setScreen} count={count}>
   {screen!=='home'&&screen!=='menu'&&<Topbar setScreen={setScreen} count={count}/>}
   {screen==='home'&&<HomePage setScreen={setScreen} setCat={setCat} add={add} setSelected={setSelected}/>}
-  {screen==='menu'&&<MenuPage cat={cat} setCat={setCat} filtered={filtered} add={add} setSelected={setSelected}/>}
+  {screen==='menu'&&<MenuPage cat={cat} setCat={setCat} filtered={filtered} add={add} setSelected={setSelected} setScreen={setScreen}/>} 
+  {screen==='search'&&<SearchPage q={q} setQ={setQ} filtered={products.filter(p=>p.name.toLowerCase().includes(q.toLowerCase())||p.desc.toLowerCase().includes(q.toLowerCase())||p.cat.toLowerCase().includes(q.toLowerCase()))} add={add} setSelected={setSelected}/>}
   {selected&&<Detail p={selected} close={()=>setSelected(null)} add={add}/>}
  </Shell>
 }
@@ -71,13 +72,13 @@ function HomePage({setScreen,setCat,add,setSelected}){
   </section>
  </main>
 }
-function MenuPage({cat,setCat,filtered,add,setSelected}){
+function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
  const menuCats=['Todo',...cats];
  const visible=cat==='Todo'?products:filtered;
  const fav=[products[0],products[2]];
  const chicken=products.filter(p=>p.cat==='Pollo frito');
  return <main className="content menuContent menuShowcase">
-  <section className="menuShowHero">
+  <section className="menuShowHero"><button className="menuSearchJump" onClick={()=>setScreen('search')} aria-label="Buscar"><Search/></button>
    <img src="/sushi-pollo-header.png?v=menu2" alt="Pollo frito y sushi Chucky"/>
    <div className="menuShowShade"/>
    <div className="menuShowBrand"><img src="/chucky-header.png" alt="Chucky"/></div>
@@ -108,7 +109,7 @@ function MenuPage({cat,setCat,filtered,add,setSelected}){
 function SearchPage({q,setQ,filtered,add,setSelected}){
  const[searchCat,setSearchCat]=useState('Todo');
  const visible=filtered.filter(p=>searchCat==='Todo'||p.cat===searchCat);
- return <main className="content searchPage searchRedesign02">
+ return <main className="content searchPage searchRedesign02 chuckyScreen">
   <section className="searchIntro02">
    <small>BUSCAR</small>
    <div className="searchIntroRow02"><h1>¿QUÉ SE TE<br/>ANTOJA?</h1><p>POLLO<br/>SUSHI<br/>COMBOS<br/>BEBIDAS</p></div>
@@ -182,7 +183,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
   <p>El pedido fue enviado al negocio. Te contactaremos al teléfono indicado para confirmarlo.</p>
   <button className="backHome" onClick={()=>setScreen('home')}>VOLVER AL INICIO <ChevronRight/></button>
  </main>;
- return <main className={"content cart cartSmart"+(!items.length?" cartSmartEmpty":"")}>
+ return <main className={"content cart cartSmart chuckyScreen"+(!items.length?" cartSmartEmpty":"")}>
  {items.length?<><div className="smartCartHead"><small>TU PEDIDO</small><h1>RESUMEN</h1><p>${items.reduce((s,p)=>s+cart[p.id],0)} productos</p></div>
   <section className="smartSummary">
    <div className="smartSummaryTop"><b>Productos</b><strong>{money(subtotal)}</strong></div>
