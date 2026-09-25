@@ -82,33 +82,38 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
   if(c==='Todo'){window.scrollTo({top:0,behavior:'smooth'});return}
   document.getElementById('menu-'+c.toLowerCase().replace(/\s+/g,'-'))?.scrollIntoView({behavior:'smooth',block:'start'});
  };
- return <main className="content menuContent menuShowcase">
-  <section className="menuShowHero menuCleanHero menuHero04">
-   <div className="menuHero04Bar">
-    <img className="menuHero04Stamp" src="/aprobado-con-fondo.png?v=5" alt="Aprobado por Chucky" loading="eager" decoding="async"/>
-    <div className="menuHero04Title">
-     <small>CHUCKY</small>
-     <h1>MENÚ</h1>
-     <span>POLLO FRITO · SUSHI · SALSAS · BEBIDAS</span>
-    </div>
-    <span className="menuHero04Crown" aria-hidden="true">♕</span>
-    <button className="menuSearchJump menuHero04Search" onClick={()=>setScreen('search')} aria-label="Buscar"><Search/></button>
+ return <main className="content menuShowcase menuFinal">
+  <section className="menuFinalHero">
+   <img className="menuFinalStamp" src="/aprobado-con-fondo.png?v=6" alt="Aprobado por Chucky" loading="eager" decoding="async"/>
+   <div className="menuFinalCopy">
+    <small>CHUCKY</small>
+    <h1>MENÚ</h1>
+    <span>POLLO FRITO · SUSHI · SALSAS · BEBIDAS</span>
    </div>
+   <button className="menuFinalSearch" onClick={()=>setScreen('search')} aria-label="Buscar"><Search/></button>
   </section>
-  <nav className="menuShowTabs">{menuCats.map(c=><button key={c} className={cat===c?'on':''} onClick={()=>jump(c)}><b>{c}</b></button>)}</nav>
-  {cats.map(c=>{
-   const items=products.filter(p=>p.cat===c);
-   if(!items.length)return null;
-   const id='menu-'+c.toLowerCase().replace(/\s+/g,'-');
-   return <section id={id} key={c} className="menuShowSection menuCatalogSection">
-    <div className="menuShowHeading"><h2>{c} <b>⌁</b></h2></div>
-    <div className="menuShowList">{items.map((p,i)=><article className="menuShowFeature" key={p.id} onClick={()=>setSelected(p)}>
-     <img src={imageFor(p)} alt={p.name} loading="lazy" decoding="async"/><i></i>{i===0&&<em>♛ &nbsp; DESTACADO</em>}
-     <div><h3>{p.name}</h3><p>{p.desc}</p><strong>{money(p.price)}</strong></div>
-     <button onClick={e=>add(p.id,e)}>+</button>
-    </article>)}</div>
-   </section>
-  })}
+
+  <nav className="menuFinalTabs">{menuCats.map(c=><button key={c} className={cat===c?'on':''} onClick={()=>jump(c)}>{c}</button>)}</nav>
+
+  <div className="menuFinalBody">
+   {cats.map(c=>{
+    const items=products.filter(p=>p.cat===c);
+    if(!items.length)return null;
+    const id='menu-'+c.toLowerCase().replace(/\s+/g,'-');
+    return <section id={id} key={c} className="menuFinalSection">
+     <header className="menuFinalHeading"><h2>{c}</h2></header>
+     <div className="menuFinalRail">{items.map(p=><article className="menuFinalCard" key={p.id} onClick={()=>setSelected(p)}>
+      <img src={imageFor(p)} alt={p.name} loading="lazy" decoding="async"/>
+      <div className="menuFinalCardBody">
+       <h3>{p.name}</h3>
+       <p>{p.desc}</p>
+       <strong>{money(p.price)}</strong>
+      </div>
+      <button onClick={e=>add(p.id,e)} aria-label={'Agregar '+p.name}>+</button>
+     </article>)}</div>
+    </section>
+   })}
+  </div>
  </main>
 }
 
