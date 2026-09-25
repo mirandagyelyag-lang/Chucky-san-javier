@@ -6198,7 +6198,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
 
 
 /* PERFORMANCE: defer off-screen rendering without changing the design */
-.exactShop,.menuCatalogSection,.searchResults02,.smartExtras,.customerForm{
+.menuCatalogSection,.searchResults02,.smartExtras,.customerForm{
   content-visibility:auto;
   contain-intrinsic-size:1px 700px;
 }
