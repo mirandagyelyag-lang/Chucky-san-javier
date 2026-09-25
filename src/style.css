@@ -7055,3 +7055,50 @@ body:has(.menuShowcase) .app,
     text-transform:uppercase;
   }
 }
+
+
+/* DESKTOP HARD BLOCK REACT */
+.desktopOnlyBlock{
+  position:fixed!important;
+  inset:0!important;
+  z-index:2147483647!important;
+  min-height:100dvh!important;
+  width:100%!important;
+  display:grid!important;
+  place-items:center!important;
+  padding:32px!important;
+  box-sizing:border-box!important;
+  overflow:hidden!important;
+  background:
+    radial-gradient(circle at 50% 38%,rgba(239,41,64,.16),transparent 28%),
+    #090706!important;
+  color:#fff5ec!important;
+  text-align:center!important;
+}
+
+.desktopOnlyBlock>div{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  gap:18px!important;
+}
+
+.desktopOnlyBlock strong{
+  font-family:Impact,'Arial Narrow',Arial,sans-serif!important;
+  font-size:clamp(64px,10vw,150px)!important;
+  font-style:italic!important;
+  font-weight:900!important;
+  line-height:.8!important;
+  letter-spacing:-3px!important;
+  text-shadow:5px 5px 0 #ef2940!important;
+}
+
+.desktopOnlyBlock p{
+  margin:0!important;
+  color:#cbbab0!important;
+  font-family:Arial,sans-serif!important;
+  font-size:14px!important;
+  font-weight:800!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+}
