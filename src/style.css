@@ -8686,3 +8686,23 @@ body:has(.menuShowcase) .app,
     padding-top:8px!important;
   }
 }
+
+
+/* MENU CARD GAP FINAL */
+@media(max-width:600px){
+  .menuShowcase .menuShowList{
+    gap:14px!important;
+    column-gap:14px!important;
+  }
+
+  .menuShowcase .menuShowFeature{
+    flex-shrink:0!important;
+  }
+}
+
+@media(max-width:390px){
+  .menuShowcase .menuShowList{
+    gap:12px!important;
+    column-gap:12px!important;
+  }
+}
