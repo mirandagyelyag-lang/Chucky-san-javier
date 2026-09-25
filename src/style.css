@@ -8577,3 +8577,17 @@ body:has(.menuShowcase) .app,
     font-size: 15px !important;
   }
 }
+
+
+/* MENU SEARCH ONLY UP */
+@media(max-width:600px){
+  .menuHero04Search{
+    transform:translateY(-4px)!important;
+  }
+}
+
+@media(max-width:390px){
+  .menuHero04Search{
+    transform:translateY(-4px)!important;
+  }
+}
