@@ -9294,3 +9294,41 @@ body:has(.menuShowcase) .app,
     font-weight:900!important;
   }
 }
+
+
+/* MENU REMOVE EMPTY BLACK SPACE */
+@media(max-width:767px){
+  body:has(.menuFinal),
+  body:has(.menuFinal) #root,
+  body:has(.menuFinal) .app{
+    min-height:100dvh!important;
+    height:auto!important;
+  }
+
+  .menuFinal{
+    min-height:0!important;
+    height:auto!important;
+    padding-bottom:92px!important;
+  }
+
+  .menuFinalBody{
+    min-height:0!important;
+    height:auto!important;
+  }
+
+  .menuFinalSection{
+    min-height:0!important;
+    height:auto!important;
+  }
+
+  .menuFinalRail{
+    min-height:0!important;
+    height:auto!important;
+  }
+
+  body:has(.menuFinal) .mobileNavSpace{
+    height:72px!important;
+    min-height:72px!important;
+    flex-basis:72px!important;
+  }
+}
