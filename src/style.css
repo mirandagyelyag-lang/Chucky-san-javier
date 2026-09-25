@@ -6412,14 +6412,13 @@ body:has(.chuckyContinuous) .exactHome,
   z-index:60!important;
 }
 
-
 /* CHUCKY HEADER IMAGE FINAL */
 .exactLogoImg{
   position:absolute!important;
-  top:14px!important;
+  top:8px!important;
   left:50%!important;
   transform:translateX(-50%)!important;
-  width:min(240px,42vw)!important;
+  width:min(360px,58vw)!important;
   height:auto!important;
   z-index:30!important;
   display:block!important;
@@ -6428,8 +6427,15 @@ body:has(.chuckyContinuous) .exactHome,
 
 @media(max-width:600px){
   .exactLogoImg{
-    top:12px!important;
-    width:220px!important;
-    max-width:42vw!important;
+    top:7px!important;
+    width:300px!important;
+    max-width:68vw!important;
+  }
+}
+
+@media(max-width:390px){
+  .exactLogoImg{
+    width:275px!important;
+    max-width:70vw!important;
   }
 }
