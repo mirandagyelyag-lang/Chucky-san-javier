@@ -8510,3 +8510,17 @@ body:has(.menuShowcase) .app,
     font-size:28px!important;
   }
 }
+
+
+/* MENU SEARCH NUDGE UP 2PX */
+@media(max-width:600px){
+  .menuHero04Search{
+    transform:translateY(-2px)!important;
+  }
+}
+
+@media(max-width:390px){
+  .menuHero04Search{
+    transform:translateY(-2px)!important;
+  }
+}
