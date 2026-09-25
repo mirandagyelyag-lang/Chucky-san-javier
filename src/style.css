@@ -7707,3 +7707,55 @@ body:has(.menuShowcase) .app,
     height:38px!important;
   }
 }
+
+
+/* MENU TITLE CENTERED MOBILE V7 */
+@media(max-width:600px){
+  .menuHero02 .menuHeroLeft{
+    position:absolute!important;
+    left:0!important;
+    right:86px!important;
+    top:14px!important;
+    width:auto!important;
+    display:flex!important;
+    justify-content:center!important;
+    z-index:3!important;
+  }
+
+  .menuHero02 .menuCleanTitle{
+    width:max-content!important;
+    max-width:100%!important;
+    text-align:center!important;
+  }
+
+  .menuHero02 .menuHeroBrush{
+    margin:5px auto 5px!important;
+  }
+
+  .menuHero02 .menuCleanTitle span{
+    text-align:center!important;
+  }
+}
+
+@media(max-width:390px){
+  .menuHero02 .menuHeroLeft{
+    left:0!important;
+    right:80px!important;
+    top:13px!important;
+    width:auto!important;
+    display:flex!important;
+    justify-content:center!important;
+  }
+
+  .menuHero02 .menuCleanTitle{
+    text-align:center!important;
+  }
+
+  .menuHero02 .menuHeroBrush{
+    margin:5px auto 5px!important;
+  }
+
+  .menuHero02 .menuCleanTitle span{
+    text-align:center!important;
+  }
+}
