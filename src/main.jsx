@@ -49,7 +49,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
  const categoryItems=[
   ['Sushi','ROLLS, HANDROLLS Y MÁS.','/sushi-principal.webp?v=2','Sushi'],
   ['Pollo frito','PIEZAS, ALITAS Y COMBOS.','/pollo-frito-principal.webp?v=2','Pollo frito'],
-  ['Bebidas','PARA ACOMPAÑAR.','/bebidas-principal.webp?v=2','Bebidas'],
+  ['Bebidas','PARA ACOMPAÑAR.','/bebidas-principal.webp?v=3','Bebidas'],
   ['Salsas','EL TOQUE FINAL.','/salsas-principal.webp?v=2','Salsas']
  ];
  return <main className="content homeEditorial homeSales exactHome chuckyContinuous">
@@ -63,14 +63,14 @@ function HomePage({setScreen,setCat,add,setSelected}){
   </section>
   <section className="exactShop">
    <div className="exactTitle"><h2>¿Qué vas a pedir?<b>⌁</b></h2><p>TODO A UN TOQUE.</p></div>
-   <div className="exactGrid">{categoryItems.map(([name,sub,img,target])=><button key={name} className="exactCat" onClick={()=>go(target)} aria-label={name}><img src={img} alt="" loading="eager" decoding="async" fetchPriority="high"/><b aria-hidden="true">→</b></button>)}</div>
+   <div className="exactGrid">{categoryItems.map(([name,sub,img,target])=><button key={name} className="exactCat" onClick={()=>go(target)} aria-label={name}><img src={img} alt="" loading="eager" decoding="async" fetchPriority="high" onError={(e)=>{console.log("No cargó esta imagen:",e.currentTarget.src)}}/><b aria-hidden="true">→</b></button>)}</div>
   </section>
 
  </main>
 }
 function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
  const menuCats=['Todo',...cats];
- const imageFor=(p)=>p.img||(p.cat==='Pollo frito'?'/pollo-frito-principal.webp?v=2':p.cat==='Sushi'?'/sushi-principal.webp?v=2':p.cat==='Bebidas'?'/bebidas-principal.webp?v=2':p.cat==='Salsas'?'/salsas-principal.webp?v=2':'/pollo-frito-principal.webp?v=2');
+ const imageFor=(p)=>p.img||(p.cat==='Pollo frito'?'/pollo-frito-principal.webp?v=2':p.cat==='Sushi'?'/sushi-principal.webp?v=2':p.cat==='Bebidas'?'/bebidas-principal.webp?v=3':p.cat==='Salsas'?'/salsas-principal.webp?v=2':'/pollo-frito-principal.webp?v=2');
  const jump=(c)=>{
   setCat(c);
   if(c==='Todo'){window.scrollTo({top:0,behavior:'smooth'});return}
