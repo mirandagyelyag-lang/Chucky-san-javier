@@ -7809,3 +7809,206 @@ body:has(.menuShowcase) .app,
     font-size:19px!important;
   }
 }
+
+
+/* MENU CONCEPT 04 WEB FINAL */
+@media(max-width:600px){
+  .menuShowcase .menuShowHero.menuHero04{
+    position:relative!important;
+    min-height:136px!important;
+    height:136px!important;
+    padding:14px 12px!important;
+    box-sizing:border-box!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    overflow:hidden!important;
+    background:
+      linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.24)),
+      url('/menu-hero-fondo.png?v=8') center center/cover no-repeat!important;
+    border-bottom:0!important;
+  }
+
+  .menuHero04Bar{
+    width:100%!important;
+    height:94px!important;
+    display:grid!important;
+    grid-template-columns:58px minmax(0,1fr) 28px 46px!important;
+    align-items:center!important;
+    gap:7px!important;
+    padding:10px 10px 10px 12px!important;
+    box-sizing:border-box!important;
+    border-radius:26px!important;
+    background:linear-gradient(180deg,rgba(18,14,13,.88),rgba(7,5,5,.94))!important;
+    border:1px solid rgba(255,255,255,.18)!important;
+    box-shadow:
+      0 12px 28px rgba(0,0,0,.34),
+      inset 0 1px 0 rgba(255,255,255,.05)!important;
+    backdrop-filter:blur(4px)!important;
+    -webkit-backdrop-filter:blur(4px)!important;
+  }
+
+  .menuHero04Stamp{
+    width:56px!important;
+    height:56px!important;
+    object-fit:contain!important;
+    display:block!important;
+    transform:rotate(-4deg)!important;
+    filter:drop-shadow(0 5px 10px rgba(0,0,0,.38))!important;
+  }
+
+  .menuHero04Title{
+    min-width:0!important;
+    text-align:center!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+  }
+
+  .menuHero04Title small{
+    display:block!important;
+    margin:0 0 2px!important;
+    color:#ff2a42!important;
+    font-family:Impact,'Arial Narrow',Arial,sans-serif!important;
+    font-size:8px!important;
+    line-height:1!important;
+    font-weight:900!important;
+    letter-spacing:.28em!important;
+    text-transform:uppercase!important;
+  }
+
+  .menuHero04Title h1{
+    margin:0!important;
+    color:#fff5ec!important;
+    font-family:Impact,'Arial Narrow',Arial,sans-serif!important;
+    font-size:36px!important;
+    line-height:.84!important;
+    font-weight:900!important;
+    font-style:italic!important;
+    letter-spacing:-.9px!important;
+    text-transform:uppercase!important;
+    transform:skew(-3deg)!important;
+    text-shadow:0 5px 14px rgba(0,0,0,.42)!important;
+    white-space:nowrap!important;
+  }
+
+  .menuHero04Title span{
+    display:block!important;
+    margin-top:7px!important;
+    color:#f0e4dc!important;
+    font-family:Arial,sans-serif!important;
+    font-size:5.2px!important;
+    line-height:1.15!important;
+    font-weight:900!important;
+    letter-spacing:.09em!important;
+    white-space:nowrap!important;
+  }
+
+  .menuHero04Crown{
+    display:block!important;
+    color:#ff2a42!important;
+    font-family:Arial,sans-serif!important;
+    font-size:25px!important;
+    line-height:1!important;
+    text-align:center!important;
+    transform:rotate(-6deg)!important;
+    text-shadow:0 3px 10px rgba(0,0,0,.45)!important;
+  }
+
+  .menuHero04Search{
+    position:relative!important;
+    inset:auto!important;
+    width:44px!important;
+    height:44px!important;
+    border-radius:50%!important;
+    border:1px solid rgba(255,255,255,.20)!important;
+    background:#0c0908!important;
+    color:#fff!important;
+    display:grid!important;
+    place-items:center!important;
+    margin:0!important;
+  }
+
+  .menuHero04Search svg{
+    width:20px!important;
+    height:20px!important;
+  }
+
+  .menuShowcase .menuShowTabs{
+    display:flex!important;
+    gap:7px!important;
+    padding:10px 12px 12px!important;
+    margin:0!important;
+    overflow-x:auto!important;
+    scrollbar-width:none!important;
+    background:#090706!important;
+    border-top:1px solid rgba(255,255,255,.04)!important;
+  }
+
+  .menuShowcase .menuShowTabs::-webkit-scrollbar{
+    display:none!important;
+  }
+
+  .menuShowcase .menuShowTabs button{
+    flex:0 0 auto!important;
+    height:38px!important;
+    min-width:auto!important;
+    padding:0 15px!important;
+    border-radius:999px!important;
+    border:1px solid rgba(255,255,255,.20)!important;
+    background:#0c0908!important;
+    color:#f4eae3!important;
+  }
+
+  .menuShowcase .menuShowTabs button.on{
+    background:#ff263e!important;
+    border-color:#ff263e!important;
+    color:#fff!important;
+  }
+
+  .menuShowcase .menuShowTabs button b{
+    font-family:Arial,sans-serif!important;
+    font-size:11px!important;
+    font-weight:800!important;
+  }
+}
+
+@media(max-width:390px){
+  .menuShowcase .menuShowHero.menuHero04{
+    min-height:130px!important;
+    height:130px!important;
+    padding:12px 10px!important;
+  }
+
+  .menuHero04Bar{
+    height:90px!important;
+    grid-template-columns:52px minmax(0,1fr) 25px 42px!important;
+    gap:5px!important;
+    padding:9px 8px 9px 10px!important;
+    border-radius:24px!important;
+  }
+
+  .menuHero04Stamp{
+    width:50px!important;
+    height:50px!important;
+  }
+
+  .menuHero04Title h1{
+    font-size:33px!important;
+  }
+
+  .menuHero04Title span{
+    font-size:4.8px!important;
+    letter-spacing:.07em!important;
+  }
+
+  .menuHero04Crown{
+    font-size:22px!important;
+  }
+
+  .menuHero04Search{
+    width:40px!important;
+    height:40px!important;
+  }
+}
