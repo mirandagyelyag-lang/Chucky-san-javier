@@ -7603,3 +7603,107 @@ body:has(.menuShowcase) .app,
     left:22px!important;
   }
 }
+
+
+/* MENU MOBILE TIGHTEN V6 */
+@media(max-width:600px){
+  .menuShowcase .menuShowHero.menuHero02{
+    min-height:118px!important;
+    height:118px!important;
+    padding:0!important;
+    margin:0!important;
+    overflow:hidden!important;
+  }
+
+  .menuHero02 .menuHeroLeft{
+    left:26px!important;
+    top:14px!important;
+    width:56%!important;
+  }
+
+  .menuHero02 .menuCleanTitle small{
+    margin-bottom:3px!important;
+    font-size:8px!important;
+  }
+
+  .menuHero02 .menuCleanTitle h1{
+    font-size:38px!important;
+    line-height:.82!important;
+  }
+
+  .menuHero02 .menuHeroBrush{
+    width:100px!important;
+    height:4px!important;
+    margin:5px 0 5px!important;
+  }
+
+  .menuHero02 .menuCleanTitle span{
+    font-size:5.4px!important;
+    line-height:1.1!important;
+  }
+
+  .menuHero02 .menuApprovedStampClean{
+    top:26px!important;
+    left:64%!important;
+    width:46px!important;
+  }
+
+  .menuHero02 .menuHeroCrown{
+    top:24px!important;
+    left:75%!important;
+    font-size:21px!important;
+  }
+
+  .menuHero02 .menuSearchJump{
+    top:31px!important;
+    right:14px!important;
+    width:40px!important;
+    height:40px!important;
+  }
+
+  .menuHero02 .menuSearchJump svg{
+    width:18px!important;
+    height:18px!important;
+  }
+
+  .menuShowcase .menuShowTabs{
+    margin-top:0!important;
+    padding-top:8px!important;
+    padding-bottom:9px!important;
+  }
+}
+
+@media(max-width:390px){
+  .menuShowcase .menuShowHero.menuHero02{
+    min-height:112px!important;
+    height:112px!important;
+  }
+
+  .menuHero02 .menuHeroLeft{
+    left:22px!important;
+    top:13px!important;
+  }
+
+  .menuHero02 .menuCleanTitle h1{
+    font-size:35px!important;
+  }
+
+  .menuHero02 .menuApprovedStampClean{
+    top:25px!important;
+    left:64%!important;
+    width:42px!important;
+  }
+
+  .menuHero02 .menuHeroCrown{
+    top:23px!important;
+    left:75%!important;
+    font-size:19px!important;
+  }
+
+  .menuHero02 .menuSearchJump{
+    top:30px!important;
+    right:12px!important;
+    width:38px!important;
+    height:38px!important;
+  }
+}
