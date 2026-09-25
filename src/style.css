@@ -8590,3 +8590,33 @@ body:has(.menuShowcase) .app,
     transform:translateY(-10px)!important;
   }
 }
+
+
+/* MENU PURE BLACK BACKGROUND FINAL */
+@media(max-width:600px){
+  body:has(.menuShowcase),
+  body:has(.menuShowcase) #root,
+  body:has(.menuShowcase) .app,
+  body:has(.menuShowcase) .content,
+  body:has(.menuShowcase) .menuShowcase,
+  body:has(.menuShowcase) .menuShowSection,
+  body:has(.menuShowcase) .menuCatalogSection,
+  body:has(.menuShowcase) .menuShowList,
+  body:has(.menuShowcase) .menuShowHeading,
+  body:has(.menuShowcase) .mobileNavSpace{
+    background:#000!important;
+    background-image:none!important;
+  }
+
+  body:has(.menuShowcase) .menuShowTabs{
+    background:#000!important;
+  }
+
+  body:has(.menuShowcase) .menuShowFeature{
+    background:#070707!important;
+  }
+
+  body:has(.menuShowcase) .menuShowFeature>div{
+    background:#070707!important;
+  }
+}
