@@ -9273,3 +9273,24 @@ body:has(.menuShowcase) .app,
     min-height:150px!important;
   }
 }
+
+
+/* MENU ADD FEEDBACK */
+@media(max-width:767px){
+  .menuFinalCard>button{
+    transition:transform .16s ease,background .16s ease,box-shadow .16s ease!important;
+  }
+
+  .menuFinalCard>button:active{
+    transform:scale(.90)!important;
+  }
+
+  .menuFinalCard>button.added{
+    background:#21c36b!important;
+    color:#fff!important;
+    transform:scale(1.08)!important;
+    box-shadow:0 0 0 6px rgba(33,195,107,.13)!important;
+    font-size:22px!important;
+    font-weight:900!important;
+  }
+}
