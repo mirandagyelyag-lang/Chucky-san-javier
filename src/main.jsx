@@ -102,11 +102,13 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
    const id='menu-'+c.toLowerCase().replace(/\s+/g,'-');
    return <section id={id} key={c} className="menuShowSection menuCatalogSection">
     <div className="menuShowHeading"><h2>{c} <b>⌁</b></h2></div>
-    <div className="menuShowList">{items.map((p,i)=><article className="menuShowFeature" key={p.id} onClick={()=>setSelected(p)}>
+    <div className="menuShowList">{items.map((p,i)=><div className="menuCardSlot" key={p.id}>
+    <article className="menuShowFeature" onClick={()=>setSelected(p)}>
      <img src={imageFor(p)} alt={p.name} loading="lazy" decoding="async"/><i></i>{i===0&&<em>♛ &nbsp; DESTACADO</em>}
      <div><h3>{p.name}</h3><p>{p.desc}</p><strong>{money(p.price)}</strong></div>
      <button onClick={e=>add(p.id,e)}>+</button>
-    </article>)}</div>
+    </article>
+   </div>)}</div>
    </section>
   })}
  </main>
