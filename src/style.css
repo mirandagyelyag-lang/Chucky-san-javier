@@ -8861,3 +8861,61 @@ body:has(.menuShowcase) .app,
     padding-right:0!important;
   }
 }
+
+
+/* MENU CARDS NO OVERLAP FINAL */
+@media(max-width:600px){
+  .menuShowcase .menuShowList{
+    display:grid!important;
+    grid-auto-flow:column!important;
+    grid-auto-columns:206px!important;
+    grid-template-columns:none!important;
+    gap:14px!important;
+    width:100%!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    padding:0 18px 14px!important;
+    margin:0!important;
+    box-sizing:border-box!important;
+    scroll-snap-type:x proximity!important;
+    -webkit-overflow-scrolling:touch!important;
+    scrollbar-width:none!important;
+  }
+
+  .menuShowcase .menuShowList::-webkit-scrollbar{
+    display:none!important;
+  }
+
+  .menuShowcase .menuShowList > .menuShowFeature{
+    width:206px!important;
+    min-width:206px!important;
+    max-width:206px!important;
+    margin:0!important;
+    padding:0!important;
+    position:relative!important;
+    left:auto!important;
+    right:auto!important;
+    top:auto!important;
+    bottom:auto!important;
+    inset:auto!important;
+    transform:none!important;
+    box-sizing:border-box!important;
+    scroll-snap-align:start!important;
+  }
+}
+
+@media(max-width:390px){
+  .menuShowcase .menuShowList{
+    grid-auto-columns:190px!important;
+    gap:12px!important;
+    padding-left:14px!important;
+    padding-right:14px!important;
+    padding-bottom:12px!important;
+  }
+
+  .menuShowcase .menuShowList > .menuShowFeature{
+    width:190px!important;
+    min-width:190px!important;
+    max-width:190px!important;
+  }
+}
