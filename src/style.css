@@ -6598,3 +6598,19 @@ body:has(.menuShowcase) .app,
     padding-right:18px!important;
   }
 }
+
+
+/* MENU HERO BACKGROUND IMAGE FINAL */
+.menuShowcase .menuShowHero.menuCleanHero{
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.22) 0%,rgba(0,0,0,.48) 100%),
+    url('/menu-hero-fondo.png?v=2') center center/cover no-repeat!important;
+}
+
+@media(max-width:600px){
+  .menuShowcase .menuShowHero.menuCleanHero{
+    background:
+      linear-gradient(180deg,rgba(0,0,0,.22) 0%,rgba(0,0,0,.52) 100%),
+      url('/menu-hero-fondo.png?v=2') center center/cover no-repeat!important;
+  }
+}
