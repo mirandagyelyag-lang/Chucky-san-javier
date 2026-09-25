@@ -47,10 +47,10 @@ function Topbar({setScreen,count}){return <header className="topbar topbarConcep
 function HomePage({setScreen,setCat,add,setSelected}){
  const go=cat=>{setCat(cat);setScreen('menu')};
  const categoryItems=[
-  ['Sushi','ROLLS, HANDROLLS Y MÁS.','/sushi-principal.webp','Sushi'],
-  ['Pollo frito','PIEZAS, ALITAS Y COMBOS.','/pollo-frito-principal.webp','Pollo frito'],
-  ['Bebidas','PARA ACOMPAÑAR.','/bebidas-principal.webp','Bebidas'],
-  ['Salsas','EL TOQUE FINAL.','/salsas-principal.webp','Salsas']
+  ['Sushi','ROLLS, HANDROLLS Y MÁS.','/sushi-principal.webp?v=2','Sushi'],
+  ['Pollo frito','PIEZAS, ALITAS Y COMBOS.','/pollo-frito-principal.webp?v=2','Pollo frito'],
+  ['Bebidas','PARA ACOMPAÑAR.','/bebidas-principal.webp?v=2','Bebidas'],
+  ['Salsas','EL TOQUE FINAL.','/salsas-principal.webp?v=2','Salsas']
  ];
  return <main className="content homeEditorial homeSales exactHome chuckyContinuous">
   <section className="exactHero">
@@ -63,14 +63,14 @@ function HomePage({setScreen,setCat,add,setSelected}){
   </section>
   <section className="exactShop">
    <div className="exactTitle"><h2>¿Qué vas a pedir?<b>⌁</b></h2><p>TODO A UN TOQUE.</p></div>
-   <div className="exactGrid">{categoryItems.map(([name,sub,img,target])=><button key={name} className="exactCat" onClick={()=>go(target)} aria-label={name}><img src={img} alt="" loading="lazy" decoding="async" fetchPriority="low"/><b aria-hidden="true">→</b></button>)}</div>
+   <div className="exactGrid">{categoryItems.map(([name,sub,img,target])=><button key={name} className="exactCat" onClick={()=>go(target)} aria-label={name}><img src={img} alt="" loading="eager" decoding="async" fetchPriority="high"/><b aria-hidden="true">→</b></button>)}</div>
   </section>
 
  </main>
 }
 function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
  const menuCats=['Todo',...cats];
- const imageFor=(p)=>p.img||(p.cat==='Pollo frito'?'/pollo-frito-principal.webp':p.cat==='Sushi'?'/sushi-principal.webp':p.cat==='Bebidas'?'/bebidas-principal.webp':p.cat==='Salsas'?'/salsas-principal.webp':'/pollo-frito-principal.webp');
+ const imageFor=(p)=>p.img||(p.cat==='Pollo frito'?'/pollo-frito-principal.webp?v=2':p.cat==='Sushi'?'/sushi-principal.webp?v=2':p.cat==='Bebidas'?'/bebidas-principal.webp?v=2':p.cat==='Salsas'?'/salsas-principal.webp?v=2':'/pollo-frito-principal.webp?v=2');
  const jump=(c)=>{
   setCat(c);
   if(c==='Todo'){window.scrollTo({top:0,behavior:'smooth'});return}
