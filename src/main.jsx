@@ -8,11 +8,10 @@ const products=[
 {id:2,cat:'Pollo frito',name:'Balde Chucky',desc:'Balde para compartir con piezas de pollo crujiente.',price:12990,img:'https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1000&q=90'},
 {id:3,cat:'Sushi',name:'Roll Chucky',desc:'Roll de la casa, cremoso, fresco y lleno de sabor.',price:6990,img:'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=1000&q=90'},
 {id:4,cat:'Sushi',name:'Roll Crocante',desc:'Roll crocante con cubierta y salsa de la casa.',price:7490,img:'https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?auto=format&fit=crop&w=1000&q=90'},
-{id:5,cat:'Combos',name:'Dúo Chucky',desc:'Pollo frito + roll para mezclar los dos mundos.',price:13990,img:'https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1000&q=90'},
 {id:6,cat:'Bebidas',name:'Bebida',desc:'Elige entre los sabores disponibles.',price:2000,img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=1000&q=90'},
 {id:7,cat:'Salsas',name:'Salsa Chucky',desc:'El toque final para tu pedido.',price:800,img:'https://images.unsplash.com/photo-1472476443507-c7a5948772fc?auto=format&fit=crop&w=1000&q=90'}
 ];
-const cats=['Pollo frito','Sushi','Combos','Bebidas','Salsas'];
+const cats=['Pollo frito','Sushi','Salsas','Bebidas'];
 const money=n=>'$'+n.toLocaleString('es-CL');
 
 function App(){
@@ -77,9 +76,9 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
   document.getElementById('menu-'+c.toLowerCase().replace(/\s+/g,'-'))?.scrollIntoView({behavior:'smooth',block:'start'});
  };
  return <main className="content menuContent menuShowcase">
-  <section className="menuShowHero"><button className="menuSearchJump" onClick={()=>setScreen('search')} aria-label="Buscar"><Search/></button>
-   <div className="menuShowShade"/>
-   <div className="menuShowCopy"><span className="menuCrown" aria-hidden="true">♕</span><h1>MENÚ</h1><i></i></div><img className="menuApprovedStamp" src="/aprobado-con-fondo.png" alt="Aprobado por Chucky" loading="lazy" decoding="async" fetchPriority="low"/>
+  <section className="menuShowHero menuCleanHero">
+   <div className="menuCleanTitle"><small>CHUCKY</small><h1>MENÚ</h1><span>POLLO FRITO · SUSHI · SALSAS · BEBIDAS</span></div>
+   <button className="menuSearchJump" onClick={()=>setScreen('search')} aria-label="Buscar"><Search/></button>
   </section>
   <nav className="menuShowTabs">{menuCats.map(c=><button key={c} className={cat===c?'on':''} onClick={()=>jump(c)}><b>{c}</b></button>)}</nav>
   {cats.map(c=>{
