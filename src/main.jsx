@@ -49,7 +49,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
  const categoryItems=[
   ['Sushi','ROLLS, HANDROLLS Y MÁS.','/sushi-principal.webp?v=2','Sushi'],
   ['Pollo frito','PIEZAS, ALITAS Y COMBOS.','/pollo-frito-principal.webp?v=2','Pollo frito'],
-  ['Bebidas','PARA ACOMPAÑAR.','/bebidas-principal.webp?v=3','Bebidas'],
+  ['Bebidas','PARA ACOMPAÑAR.','/bebidas-chucky.webp?v=1','Bebidas'],
   ['Salsas','EL TOQUE FINAL.','/salsas-principal.webp?v=2','Salsas']
  ];
  return <main className="content homeEditorial homeSales exactHome chuckyContinuous">
@@ -70,7 +70,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
 }
 function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
  const menuCats=['Todo',...cats];
- const imageFor=(p)=>p.img||(p.cat==='Pollo frito'?'/pollo-frito-principal.webp?v=2':p.cat==='Sushi'?'/sushi-principal.webp?v=2':p.cat==='Bebidas'?'/bebidas-principal.webp?v=3':p.cat==='Salsas'?'/salsas-principal.webp?v=2':'/pollo-frito-principal.webp?v=2');
+ const imageFor=(p)=>p.img||(p.cat==='Pollo frito'?'/pollo-frito-principal.webp?v=2':p.cat==='Sushi'?'/sushi-principal.webp?v=2':p.cat==='Bebidas'?'/bebidas-chucky.webp?v=1':p.cat==='Salsas'?'/salsas-principal.webp?v=2':'/pollo-frito-principal.webp?v=2');
  const jump=(c)=>{
   setCat(c);
   if(c==='Todo'){window.scrollTo({top:0,behavior:'smooth'});return}
