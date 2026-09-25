@@ -7102,3 +7102,140 @@ body:has(.menuShowcase) .app,
   letter-spacing:.16em!important;
   text-transform:uppercase!important;
 }
+
+
+/* MOBILE MENU RESCUE V5 */
+@media(max-width:600px){
+  .menuShowcase .menuShowHero.menuCleanHero{
+    min-height:132px!important;
+    height:132px!important;
+    padding:16px 16px 14px!important;
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) 86px!important;
+    align-items:center!important;
+    gap:10px!important;
+    background:
+      linear-gradient(180deg,rgba(0,0,0,.16) 0%,rgba(0,0,0,.42) 100%),
+      url('/menu-hero-fondo.png?v=5') center center/cover no-repeat!important;
+  }
+
+  .menuHeroLeft{
+    min-width:0!important;
+    align-self:center!important;
+  }
+
+  .menuCleanTitle{
+    max-width:100%!important;
+    min-width:0!important;
+  }
+
+  .menuCleanTitle small{
+    margin:0 0 4px!important;
+    font-size:8px!important;
+    letter-spacing:.30em!important;
+  }
+
+  .menuCleanTitle h1{
+    margin:0!important;
+    font-size:38px!important;
+    line-height:.88!important;
+    letter-spacing:-.8px!important;
+    transform:skew(-3deg)!important;
+    white-space:nowrap!important;
+  }
+
+  .menuCleanTitle span{
+    margin-top:8px!important;
+    max-width:100%!important;
+    font-size:5.7px!important;
+    line-height:1.25!important;
+    letter-spacing:.10em!important;
+    white-space:nowrap!important;
+  }
+
+  .menuHeroRight{
+    width:86px!important;
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    align-items:center!important;
+    justify-items:center!important;
+    gap:6px!important;
+  }
+
+  .menuShowcase .menuSearchJump{
+    width:42px!important;
+    height:42px!important;
+    border-radius:50%!important;
+  }
+
+  .menuShowcase .menuSearchJump svg{
+    width:19px!important;
+    height:19px!important;
+  }
+
+  .menuShowcase .menuApprovedStampClean{
+    width:42px!important;
+    transform:rotate(-5deg)!important;
+    filter:drop-shadow(0 5px 10px rgba(0,0,0,.38))!important;
+  }
+
+  .menuShowcase .menuShowTabs{
+    gap:7px!important;
+    padding:10px 12px 12px!important;
+    overflow-x:auto!important;
+    background:#0a0706!important;
+  }
+
+  .menuShowcase .menuShowTabs button{
+    height:40px!important;
+    padding:0 16px!important;
+    min-width:auto!important;
+    border-radius:999px!important;
+  }
+
+  .menuShowcase .menuShowTabs button b{
+    font-family:Arial,sans-serif!important;
+    font-size:12px!important;
+    font-weight:800!important;
+  }
+}
+
+@media(max-width:390px){
+  .menuShowcase .menuShowHero.menuCleanHero{
+    min-height:124px!important;
+    height:124px!important;
+    grid-template-columns:minmax(0,1fr) 80px!important;
+    padding:14px 14px 12px!important;
+  }
+
+  .menuCleanTitle h1{
+    font-size:35px!important;
+  }
+
+  .menuCleanTitle span{
+    font-size:5.2px!important;
+    letter-spacing:.08em!important;
+  }
+
+  .menuHeroRight{
+    width:80px!important;
+  }
+
+  .menuShowcase .menuSearchJump{
+    width:39px!important;
+    height:39px!important;
+  }
+
+  .menuShowcase .menuApprovedStampClean{
+    width:38px!important;
+  }
+
+  .menuShowcase .menuShowTabs button{
+    height:38px!important;
+    padding:0 14px!important;
+  }
+
+  .menuShowcase .menuShowTabs button b{
+    font-size:11px!important;
+  }
+}
