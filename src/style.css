@@ -6439,3 +6439,21 @@ body:has(.chuckyContinuous) .exactHome,
     max-width:70vw!important;
   }
 }
+
+
+/* MOBILE NAV V22 — reserve real content space so the floating bar never covers cards */
+@media(max-width:600px){
+ body .app > .mobileNavSpace{
+   display:block!important;
+   width:100%!important;
+   height:96px!important;
+   min-height:96px!important;
+   flex:0 0 96px!important;
+   background:transparent!important;
+   pointer-events:none!important;
+ }
+ body:has(.chuckyContinuous) .chuckyContinuous,
+ body:has(.menuShowcase) .menuShowcase{
+   padding-bottom:110px!important;
+ }
+}
