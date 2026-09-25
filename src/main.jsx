@@ -83,13 +83,16 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
   document.getElementById('menu-'+c.toLowerCase().replace(/\s+/g,'-'))?.scrollIntoView({behavior:'smooth',block:'start'});
  };
  return <main className="content menuContent menuShowcase">
-  <section className="menuShowHero menuCleanHero menuHero02">
-   <div className="menuHeroLeft">
-    <div className="menuCleanTitle"><small>CHUCKY</small><h1>MENÚ</h1><i className="menuHeroBrush"/><span>POLLO FRITO · SUSHI · SALSAS · BEBIDAS</span></div>
-   </div>
-   <div className="menuHeroRight">
-    <span className="menuHeroCrown" aria-hidden="true">♕</span>
-    <button className="menuSearchJump" onClick={()=>setScreen('search')} aria-label="Buscar"><Search/></button>
+  <section className="menuShowHero menuCleanHero menuHero04">
+   <div className="menuHero04Bar">
+    <img className="menuHero04Stamp" src="/aprobado-con-fondo.png?v=5" alt="Aprobado por Chucky" loading="eager" decoding="async"/>
+    <div className="menuHero04Title">
+     <small>CHUCKY</small>
+     <h1>MENÚ</h1>
+     <span>POLLO FRITO · SUSHI · SALSAS · BEBIDAS</span>
+    </div>
+    <span className="menuHero04Crown" aria-hidden="true">♕</span>
+    <button className="menuSearchJump menuHero04Search" onClick={()=>setScreen('search')} aria-label="Buscar"><Search/></button>
    </div>
   </section>
   <nav className="menuShowTabs">{menuCats.map(c=><button key={c} className={cat===c?'on':''} onClick={()=>jump(c)}><b>{c}</b></button>)}</nav>
