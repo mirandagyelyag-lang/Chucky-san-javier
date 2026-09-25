@@ -88,7 +88,6 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
     <div className="menuCleanTitle"><small>CHUCKY</small><h1>MENÚ</h1><i className="menuHeroBrush"/><span>POLLO FRITO · SUSHI · SALSAS · BEBIDAS</span></div>
    </div>
    <div className="menuHeroRight">
-    <img className="menuApprovedStampClean" src="/aprobado-con-fondo.png?v=4" alt="Aprobado por Chucky" loading="eager" decoding="async"/>
     <span className="menuHeroCrown" aria-hidden="true">♕</span>
     <button className="menuSearchJump" onClick={()=>setScreen('search')} aria-label="Buscar"><Search/></button>
    </div>
