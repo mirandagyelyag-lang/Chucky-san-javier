@@ -8620,3 +8620,69 @@ body:has(.menuShowcase) .app,
     background:#070707!important;
   }
 }
+
+
+/* MENU MOBILE SPACING TIGHT FINAL */
+@media(max-width:600px){
+  .menuShowcase .menuShowTabs{
+    padding-bottom:8px!important;
+    margin-bottom:0!important;
+  }
+
+  .menuShowcase .menuShowSection{
+    padding-top:8px!important;
+    padding-bottom:6px!important;
+    margin:0!important;
+  }
+
+  .menuShowcase .menuShowHeading{
+    min-height:0!important;
+    padding:0 18px 8px!important;
+    margin:0!important;
+  }
+
+  .menuShowcase .menuShowHeading h2{
+    margin:0!important;
+  }
+
+  .menuShowcase .menuShowList{
+    padding-top:0!important;
+    padding-bottom:8px!important;
+    margin:0!important;
+  }
+
+  .menuShowcase .menuShowSection + .menuShowSection{
+    margin-top:6px!important;
+    padding-top:10px!important;
+  }
+
+  .menuShowcase .menuShowFeature{
+    margin-bottom:0!important;
+  }
+}
+
+@media(max-width:390px){
+  .menuShowcase .menuShowTabs{
+    padding-bottom:7px!important;
+  }
+
+  .menuShowcase .menuShowSection{
+    padding-top:7px!important;
+    padding-bottom:5px!important;
+  }
+
+  .menuShowcase .menuShowHeading{
+    padding-left:14px!important;
+    padding-right:14px!important;
+    padding-bottom:7px!important;
+  }
+
+  .menuShowcase .menuShowList{
+    padding-bottom:7px!important;
+  }
+
+  .menuShowcase .menuShowSection + .menuShowSection{
+    margin-top:4px!important;
+    padding-top:8px!important;
+  }
+}
