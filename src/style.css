@@ -5564,7 +5564,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    min-height:100svh!important;
    padding:0 22px 108px!important;
    overflow:hidden!important;
-   background:#050303 url('/pedido-oficial.png?v=7') center top/cover no-repeat!important;
+   background:#050303 url('/chucky-door.webp?v=1') center top/cover no-repeat!important;
  }
  .cartSmartEmpty .smartEmpty{
    position:relative!important;
@@ -5875,7 +5875,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    height:100dvh!important;
    min-height:100dvh!important;
    max-height:100dvh!important;
-   background:#050303 url('/pedido-oficial.png?v=15') center top/cover no-repeat!important;
+   background:#050303 url('/chucky-door.webp?v=1') center top/cover no-repeat!important;
  }
  body:has(main.cartSmartEmpty) .mobileNavSpace{
    display:none!important;
