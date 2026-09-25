@@ -9332,3 +9332,49 @@ body:has(.menuShowcase) .app,
     flex-basis:72px!important;
   }
 }
+
+
+/* MENU NAV FOLLOWS CONTENT FINAL */
+@media(max-width:767px){
+  body:has(.menuFinal){
+    overflow-y:auto!important;
+  }
+
+  body:has(.menuFinal) .app{
+    min-height:0!important;
+    height:auto!important;
+    display:block!important;
+    padding-bottom:0!important;
+  }
+
+  body:has(.menuFinal) .menuFinal{
+    min-height:0!important;
+    height:auto!important;
+    padding-bottom:18px!important;
+  }
+
+  body:has(.menuFinal) .mobileNavSpace{
+    display:none!important;
+    height:0!important;
+    min-height:0!important;
+    flex:0 0 0!important;
+    margin:0!important;
+    padding:0!important;
+  }
+
+  body:has(.menuFinal) .app > nav.nav.chuckyNav{
+    position:relative!important;
+    left:auto!important;
+    right:auto!important;
+    bottom:auto!important;
+    top:auto!important;
+    transform:none!important;
+    width:calc(100% - 36px)!important;
+    max-width:430px!important;
+    height:58px!important;
+    min-height:58px!important;
+    margin:10px auto 14px!important;
+    flex:0 0 auto!important;
+    z-index:100!important;
+  }
+}
