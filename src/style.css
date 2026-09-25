@@ -7589,3 +7589,17 @@ body:has(.menuShowcase) .app,
     height:42px!important;
   }
 }
+
+
+/* MENU TITLE NUDGE RIGHT */
+@media(max-width:600px){
+  .menuHero02 .menuHeroLeft{
+    left:26px!important;
+  }
+}
+
+@media(max-width:390px){
+  .menuHero02 .menuHeroLeft{
+    left:22px!important;
+  }
+}
