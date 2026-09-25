@@ -77,9 +77,13 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
  };
  return <main className="content menuContent menuShowcase">
   <section className="menuShowHero menuCleanHero">
-   <div className="menuCleanTitle"><small>CHUCKY</small><h1>MENÚ</h1><span>POLLO FRITO · SUSHI · SALSAS · BEBIDAS</span></div>
-   <img className="menuApprovedStampClean" src="/aprobado-con-fondo.png?v=2" alt="Aprobado por Chucky" loading="eager" decoding="async"/>
-   <button className="menuSearchJump" onClick={()=>setScreen('search')} aria-label="Buscar"><Search/></button>
+   <div className="menuHeroLeft">
+    <div className="menuCleanTitle"><small>CHUCKY</small><h1>MENÚ</h1><span>POLLO FRITO · SUSHI · SALSAS · BEBIDAS</span></div>
+   </div>
+   <div className="menuHeroRight">
+    <button className="menuSearchJump" onClick={()=>setScreen('search')} aria-label="Buscar"><Search/></button>
+    <img className="menuApprovedStampClean" src="/aprobado-con-fondo.png?v=3" alt="Aprobado por Chucky" loading="eager" decoding="async"/>
+   </div>
   </section>
   <nav className="menuShowTabs">{menuCats.map(c=><button key={c} className={cat===c?'on':''} onClick={()=>jump(c)}><b>{c}</b></button>)}</nav>
   {cats.map(c=>{
