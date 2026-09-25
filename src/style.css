@@ -6411,3 +6411,25 @@ body:has(.chuckyContinuous) .exactHome,
 .exactGrid .exactCat > b{
   z-index:60!important;
 }
+
+
+/* CHUCKY HEADER IMAGE FINAL */
+.exactLogoImg{
+  position:absolute!important;
+  top:14px!important;
+  left:50%!important;
+  transform:translateX(-50%)!important;
+  width:min(240px,42vw)!important;
+  height:auto!important;
+  z-index:30!important;
+  display:block!important;
+  object-fit:contain!important;
+}
+
+@media(max-width:600px){
+  .exactLogoImg{
+    top:12px!important;
+    width:220px!important;
+    max-width:42vw!important;
+  }
+}
