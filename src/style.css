@@ -6723,3 +6723,41 @@ body:has(.menuShowcase) .app,
    display:none!important;
  }
 }
+
+
+/* MENU APPROVED STAMP POSITION V2 */
+.menuShowcase .menuApprovedStampClean{
+  position:absolute!important;
+  top:22px!important;
+  right:118px!important;
+  width:104px!important;
+  height:auto!important;
+  transform:rotate(-7deg)!important;
+  z-index:8!important;
+  display:block!important;
+  opacity:1!important;
+  visibility:visible!important;
+  object-fit:contain!important;
+  filter:drop-shadow(0 8px 18px rgba(0,0,0,.48))!important;
+  pointer-events:none!important;
+}
+
+.menuShowcase .menuSearchJump{
+  z-index:12!important;
+}
+
+@media(max-width:600px){
+  .menuShowcase .menuApprovedStampClean{
+    top:24px!important;
+    right:78px!important;
+    width:82px!important;
+  }
+}
+
+@media(max-width:390px){
+  .menuShowcase .menuApprovedStampClean{
+    top:26px!important;
+    right:70px!important;
+    width:72px!important;
+  }
+}
