@@ -7001,3 +7001,57 @@ body:has(.menuShowcase) .app,
     width:62px!important;
   }
 }
+
+
+/* TEMP DESKTOP BLOCK */
+@media (min-width:768px){
+  html,
+  body{
+    min-height:100%;
+    background:#090706!important;
+    overflow:hidden!important;
+  }
+
+  body #root{
+    display:none!important;
+  }
+
+  body::before{
+    content:"CHUCKY";
+    position:fixed;
+    inset:0;
+    z-index:999998;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding-bottom:86px;
+    box-sizing:border-box;
+    background:
+      radial-gradient(circle at 50% 32%,rgba(239,41,64,.16),transparent 30%),
+      #090706;
+    color:#fff5ec;
+    font-family:Impact,'Arial Narrow',Arial,sans-serif;
+    font-size:72px;
+    font-style:italic;
+    font-weight:900;
+    letter-spacing:-2px;
+    text-shadow:4px 4px 0 #ef2940;
+  }
+
+  body::after{
+    content:"Disponible solo en celular por ahora";
+    position:fixed;
+    left:50%;
+    top:50%;
+    z-index:999999;
+    transform:translate(-50%,34px);
+    width:min(520px,80vw);
+    text-align:center;
+    color:#cbbab0;
+    font-family:Arial,sans-serif;
+    font-size:15px;
+    font-weight:800;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+  }
+}
