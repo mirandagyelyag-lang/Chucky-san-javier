@@ -7239,3 +7239,198 @@ body:has(.menuShowcase) .app,
     font-size:11px!important;
   }
 }
+
+
+/* MENU CONCEPT 02 FINAL */
+.menuShowcase .menuShowHero.menuHero02{
+  position:relative!important;
+  min-height:154px!important;
+  height:auto!important;
+  padding:18px 16px 16px!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) 126px!important;
+  align-items:center!important;
+  gap:12px!important;
+  overflow:hidden!important;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.18) 0%,rgba(0,0,0,.30) 52%,rgba(0,0,0,.12) 100%),
+    url('/menu-hero-fondo.png?v=6') center center/cover no-repeat!important;
+}
+
+.menuHero02 .menuHeroLeft{
+  min-width:0!important;
+  align-self:center!important;
+}
+
+.menuHero02 .menuCleanTitle{
+  max-width:100%!important;
+}
+
+.menuHero02 .menuCleanTitle small{
+  display:block!important;
+  margin:0 0 5px!important;
+  color:#ff2940!important;
+  font-family:Impact,'Arial Narrow',Arial,sans-serif!important;
+  font-size:10px!important;
+  font-weight:900!important;
+  letter-spacing:.28em!important;
+  line-height:1!important;
+}
+
+.menuHero02 .menuCleanTitle h1{
+  margin:0!important;
+  color:#fff5ec!important;
+  font-family:Impact,'Arial Narrow',Arial,sans-serif!important;
+  font-size:46px!important;
+  font-weight:900!important;
+  font-style:italic!important;
+  line-height:.82!important;
+  letter-spacing:-1.4px!important;
+  transform:skew(-4deg)!important;
+  transform-origin:left center!important;
+  text-shadow:0 8px 20px rgba(0,0,0,.35)!important;
+  white-space:nowrap!important;
+}
+
+.menuHero02 .menuHeroBrush{
+  display:block!important;
+  width:118px!important;
+  height:5px!important;
+  margin:8px 0 7px 2px!important;
+  border-radius:999px 25% 999px 25%!important;
+  background:#ff2038!important;
+  transform:skew(-20deg) rotate(-2deg)!important;
+  box-shadow:18px 1px 0 -2px #ff2038!important;
+}
+
+.menuHero02 .menuCleanTitle span{
+  display:block!important;
+  margin:0!important;
+  color:#f3e8df!important;
+  font-family:Arial,sans-serif!important;
+  font-size:6.6px!important;
+  font-weight:900!important;
+  line-height:1.25!important;
+  letter-spacing:.13em!important;
+  white-space:nowrap!important;
+  text-shadow:0 2px 8px rgba(0,0,0,.7)!important;
+}
+
+.menuHero02 .menuHeroRight{
+  width:126px!important;
+  min-width:126px!important;
+  display:grid!important;
+  grid-template-columns:50px 24px 46px!important;
+  align-items:center!important;
+  justify-content:end!important;
+  gap:3px!important;
+  position:relative!important;
+  z-index:4!important;
+}
+
+.menuHero02 .menuApprovedStampClean{
+  position:relative!important;
+  inset:auto!important;
+  width:50px!important;
+  height:auto!important;
+  transform:rotate(-5deg)!important;
+  display:block!important;
+  opacity:1!important;
+  visibility:visible!important;
+  filter:drop-shadow(0 6px 12px rgba(0,0,0,.42))!important;
+}
+
+.menuHero02 .menuHeroCrown{
+  display:block!important;
+  color:#ff2940!important;
+  font-family:Arial,sans-serif!important;
+  font-size:26px!important;
+  line-height:1!important;
+  transform:rotate(-6deg)!important;
+  text-align:center!important;
+  text-shadow:0 2px 10px rgba(0,0,0,.5)!important;
+}
+
+.menuHero02 .menuSearchJump{
+  position:relative!important;
+  inset:auto!important;
+  width:46px!important;
+  height:46px!important;
+  border-radius:50%!important;
+  border:1px solid rgba(255,255,255,.22)!important;
+  background:rgba(9,7,6,.86)!important;
+  color:#fff!important;
+  display:grid!important;
+  place-items:center!important;
+  z-index:6!important;
+}
+
+.menuHero02 .menuSearchJump svg{
+  width:20px!important;
+  height:20px!important;
+}
+
+.menuShowcase .menuShowTabs{
+  gap:7px!important;
+  padding:10px 12px 12px!important;
+  background:#090706!important;
+  border-top:1px solid rgba(255,255,255,.04)!important;
+}
+
+.menuShowcase .menuShowTabs button{
+  height:39px!important;
+  padding:0 15px!important;
+  min-width:auto!important;
+  border-radius:999px!important;
+  border:1px solid rgba(255,255,255,.22)!important;
+  background:#0b0908!important;
+  color:#f7eee7!important;
+}
+
+.menuShowcase .menuShowTabs button.on{
+  background:#ff263e!important;
+  border-color:#ff263e!important;
+}
+
+.menuShowcase .menuShowTabs button b{
+  font-family:Arial,sans-serif!important;
+  font-size:11px!important;
+  font-weight:800!important;
+}
+
+@media(max-width:390px){
+  .menuShowcase .menuShowHero.menuHero02{
+    min-height:144px!important;
+    grid-template-columns:minmax(0,1fr) 112px!important;
+    padding:16px 14px 14px!important;
+  }
+
+  .menuHero02 .menuCleanTitle h1{
+    font-size:42px!important;
+  }
+
+  .menuHero02 .menuCleanTitle span{
+    font-size:5.8px!important;
+    letter-spacing:.10em!important;
+  }
+
+  .menuHero02 .menuHeroRight{
+    width:112px!important;
+    min-width:112px!important;
+    grid-template-columns:44px 22px 42px!important;
+    gap:2px!important;
+  }
+
+  .menuHero02 .menuApprovedStampClean{
+    width:44px!important;
+  }
+
+  .menuHero02 .menuHeroCrown{
+    font-size:22px!important;
+  }
+
+  .menuHero02 .menuSearchJump{
+    width:42px!important;
+    height:42px!important;
+  }
+}
