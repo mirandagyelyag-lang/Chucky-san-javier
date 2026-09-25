@@ -6614,3 +6614,67 @@ body:has(.menuShowcase) .app,
       url('/menu-hero-fondo.png?v=2') center center/cover no-repeat!important;
   }
 }
+
+
+/* MENU TYPOGRAPHY UPGRADE V2 */
+.menuCleanTitle small{
+  color:#ff2d43!important;
+  font-family:Impact,'Arial Narrow',Arial,sans-serif!important;
+  font-size:12px!important;
+  font-weight:900!important;
+  line-height:1!important;
+  letter-spacing:.34em!important;
+  text-transform:uppercase!important;
+  text-shadow:0 2px 12px rgba(0,0,0,.7)!important;
+}
+
+.menuCleanTitle h1{
+  margin:8px 0 0!important;
+  color:#fff5ec!important;
+  font-family:Impact,'Arial Narrow',Arial,sans-serif!important;
+  font-size:66px!important;
+  font-weight:900!important;
+  font-style:italic!important;
+  line-height:.8!important;
+  letter-spacing:-1.8px!important;
+  text-transform:uppercase!important;
+  text-shadow:
+    0 3px 0 rgba(0,0,0,.15),
+    0 8px 22px rgba(0,0,0,.48)!important;
+  transform:skew(-4deg)!important;
+  transform-origin:left center!important;
+}
+
+.menuCleanTitle span{
+  margin-top:15px!important;
+  color:#d9c9bf!important;
+  font-family:Arial,sans-serif!important;
+  font-size:8px!important;
+  font-weight:900!important;
+  line-height:1.35!important;
+  letter-spacing:.2em!important;
+  text-transform:uppercase!important;
+  text-shadow:0 2px 10px rgba(0,0,0,.72)!important;
+}
+
+@media(max-width:600px){
+  .menuCleanTitle small{
+    font-size:10px!important;
+  }
+
+  .menuCleanTitle h1{
+    font-size:54px!important;
+    letter-spacing:-1.3px!important;
+  }
+
+  .menuCleanTitle span{
+    font-size:6.8px!important;
+    letter-spacing:.15em!important;
+  }
+}
+
+@media(max-width:390px){
+  .menuCleanTitle h1{
+    font-size:48px!important;
+  }
+}
