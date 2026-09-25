@@ -76,6 +76,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
 }
 function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
  const menuCats=['Todo',...cats];
+ const[justAdded,setJustAdded]=useState(null);
  const imageFor=(p)=>p.img||(p.cat==='Pollo frito'?'/pollo-frito-principal.webp?v=2':p.cat==='Sushi'?'/sushi-principal.webp?v=2':p.cat==='Bebidas'?'/bebidas-chucky.webp?v=1':p.cat==='Salsas'?'/salsas-principal.webp?v=2':'/pollo-frito-principal.webp?v=2');
  const jump=(c)=>{
   setCat(c);
@@ -109,7 +110,7 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
        <p>{p.desc}</p>
        <strong>{money(p.price)}</strong>
       </div>
-      <button onClick={e=>add(p.id,e)} aria-label={'Agregar '+p.name}>+</button>
+      <button className={justAdded===p.id?'added':''} onClick={e=>{add(p.id,e);setJustAdded(p.id);setTimeout(()=>setJustAdded(null),900)}} aria-label={'Agregar '+p.name}>{justAdded===p.id?'✓':'+'}</button>
      </article>)}</div>
     </section>
    })}
