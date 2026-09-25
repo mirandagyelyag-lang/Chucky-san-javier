@@ -8581,12 +8581,12 @@ body:has(.menuShowcase) .app,
 /* MENU SEARCH ONLY UP */
 @media(max-width:600px){
   .menuHero04Search{
-    transform:translateY(-7px)!important;
+    transform:translateY(-10px)!important;
   }
 }
 
 @media(max-width:390px){
   .menuHero04Search{
-    transform:translateY(-7px)!important;
+    transform:translateY(-10px)!important;
   }
 }
