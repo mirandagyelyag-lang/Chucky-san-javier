@@ -6275,3 +6275,53 @@ body:has(.chuckyContinuous) .exactHome,
   .exactCatLabel strong{font-size:18px}
   .exactCatLabel small{font-size:5.5px}
 }
+
+
+/* EXACT USER BACKGROUND HOME V4 */
+body:has(.chuckyContinuous),
+body:has(.chuckyContinuous) #root,
+body:has(.chuckyContinuous) .app,
+body:has(.chuckyContinuous) .exactHome,
+.chuckyContinuous{
+  background-color:#080403!important;
+  background-image:url('/fondo-chucky-street.webp?v=4')!important;
+  background-repeat:no-repeat!important;
+  background-position:center top!important;
+  background-size:100% auto!important;
+  background-attachment:scroll!important;
+}
+
+/* Nothing old is allowed to cover the uploaded street artwork */
+.chuckyContinuous::before,
+.chuckyContinuous::after,
+.chuckyContinuous .exactHero::before,
+.chuckyContinuous .exactHero::after,
+.chuckyContinuous .exactShop::before,
+.chuckyContinuous .exactShop::after{
+  background-image:none!important;
+}
+
+.chuckyContinuous .exactHero,
+.chuckyContinuous .exactShop{
+  background:transparent!important;
+}
+
+.chuckyContinuous .exactHeroImg{
+  display:none!important;
+}
+
+/* Keep content readable while preserving the actual artwork */
+.chuckyContinuous .exactHeroShade{
+  background:linear-gradient(180deg,rgba(0,0,0,.08) 0%,rgba(0,0,0,.12) 55%,rgba(0,0,0,.32) 100%)!important;
+}
+
+@media(min-width:601px){
+  body:has(.chuckyContinuous),
+  body:has(.chuckyContinuous) #root,
+  body:has(.chuckyContinuous) .app,
+  body:has(.chuckyContinuous) .exactHome,
+  .chuckyContinuous{
+    background-size:cover!important;
+    background-position:center top!important;
+  }
+}
