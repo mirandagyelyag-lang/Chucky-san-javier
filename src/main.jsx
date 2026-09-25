@@ -14,7 +14,14 @@ const products=[
 const cats=['Pollo frito','Sushi','Salsas','Bebidas'];
 const money=n=>'$'+n.toLocaleString('es-CL');
 
+function DesktopOnlyBlock(){return <main className="desktopOnlyBlock"><div><strong>CHUCKY</strong><p>Disponible solo en celular por ahora</p></div></main>}
+
 function App(){
+ const isDesktopDevice=typeof window!=='undefined'&&(
+  window.matchMedia?.('(hover: hover) and (pointer: fine)').matches ||
+  window.innerWidth>=900
+ );
+ if(isDesktopDevice)return <DesktopOnlyBlock/>;
  const initialScreen=()=>{try{const hash=window.location.hash.replace('#/','').replace('#','');return ['home','menu','search','cart'].includes(hash)?hash:'home'}catch{return 'home'}};
  const[screen,setScreenState]=useState(initialScreen),[cat,setCat]=useState('Todo'),[q,setQ]=useState(''),[cart,setCart]=useState({}),[selected,setSelected]=useState(null);
  const setScreen=next=>{setScreenState(next);try{history.replaceState(null,'',next==='home'?window.location.pathname:window.location.pathname+'#/'+next)}catch{}};
