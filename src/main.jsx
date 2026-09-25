@@ -47,10 +47,10 @@ function Topbar({setScreen,count}){return <header className="topbar topbarConcep
 function HomePage({setScreen,setCat,add,setSelected}){
  const go=cat=>{setCat(cat);setScreen('menu')};
  const categoryItems=[
-  ['Sushi','ROLLS, HANDROLLS Y MÁS.','/sushi-principal.png','Sushi'],
-  ['Pollo frito','PIEZAS, ALITAS Y COMBOS.','/pollo-frito-principal.png','Pollo frito'],
-  ['Bebidas','PARA ACOMPAÑAR.','/bebidas-principal.png','Bebidas'],
-  ['Salsas','EL TOQUE FINAL.','/salsas-principal.png','Salsas']
+  ['Sushi','ROLLS, HANDROLLS Y MÁS.','/sushi-principal.webp','Sushi'],
+  ['Pollo frito','PIEZAS, ALITAS Y COMBOS.','/pollo-frito-principal.webp','Pollo frito'],
+  ['Bebidas','PARA ACOMPAÑAR.','/bebidas-principal.webp','Bebidas'],
+  ['Salsas','EL TOQUE FINAL.','/salsas-principal.webp','Salsas']
  ];
  return <main className="content homeEditorial homeSales exactHome chuckyContinuous">
   <section className="exactHero">
@@ -70,7 +70,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
 }
 function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
  const menuCats=['Todo',...cats];
- const imageFor=(p)=>p.img||(p.cat==='Pollo frito'?'/pollo-frito-principal.png':p.cat==='Sushi'?'/sushi-principal.png':p.cat==='Bebidas'?'/bebidas-principal.png':p.cat==='Salsas'?'/salsas-principal.png':'/pollo-frito-principal.png');
+ const imageFor=(p)=>p.img||(p.cat==='Pollo frito'?'/pollo-frito-principal.webp':p.cat==='Sushi'?'/sushi-principal.webp':p.cat==='Bebidas'?'/bebidas-principal.webp':p.cat==='Salsas'?'/salsas-principal.webp':'/pollo-frito-principal.webp');
  const jump=(c)=>{
   setCat(c);
   if(c==='Todo'){window.scrollTo({top:0,behavior:'smooth'});return}
