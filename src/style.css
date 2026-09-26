@@ -10528,3 +10528,40 @@ body:has(.menuShowcase) .app,
     z-index:100!important;
   }
 }
+
+
+/* MENU REMOVE BLACK TAIL FINAL */
+@media(max-width:767px){
+  html:has(.menuRef),
+  body:has(.menuRef),
+  body:has(.menuRef) #root{
+    min-height:0!important;
+    height:auto!important;
+    background:#020202!important;
+  }
+
+  body:has(.menuRef) .app{
+    min-height:0!important;
+    height:auto!important;
+    padding-bottom:0!important;
+    margin-bottom:0!important;
+    background:#020202!important;
+  }
+
+  .menuRef{
+    min-height:0!important;
+    height:auto!important;
+    padding-bottom:8px!important;
+    margin-bottom:0!important;
+  }
+
+  body:has(.menuRef) .app > nav.nav.chuckyNav{
+    margin:8px auto 0!important;
+  }
+
+  body:has(.menuRef) .app::after,
+  body:has(.menuRef) #root::after{
+    display:none!important;
+    content:none!important;
+  }
+}
