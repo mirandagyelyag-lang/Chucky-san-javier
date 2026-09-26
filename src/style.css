@@ -9960,3 +9960,23 @@ body:has(.menuShowcase) .app,
     min-height:166px!important;
   }
 }
+
+
+/* MENU HERO BACKGROUND LIMIT */
+@media(max-width:767px){
+  .menuRef{
+    background:
+      linear-gradient(180deg,#120204 0%,#050505 22%,#020202 100%)!important;
+  }
+
+  .menuRefSmoke{
+    display:none!important;
+    background:none!important;
+  }
+
+  .menuRefHero{
+    background:
+      linear-gradient(180deg,rgba(16,11,11,.82),rgba(3,3,3,.94)),
+      url('/menu-hero-fondo.png?v=11') center center/cover no-repeat!important;
+  }
+}
