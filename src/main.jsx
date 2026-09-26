@@ -30,6 +30,26 @@ function App(){
  const count=Object.values(cart).reduce((a,b)=>a+b,0);
  const subtotal=products.reduce((s,p)=>s+(cart[p.id]||0)*p.price,0);
  const filtered=useMemo(()=>products.filter(p=>p.cat===cat),[cat]);
+ useEffect(()=>{
+  if(!selected)return;
+  const y=window.scrollY;
+  const body=document.body;
+  const html=document.documentElement;
+  const prev={position:body.style.position,top:body.style.top,width:body.style.width,overflow:body.style.overflow,htmlOverflow:html.style.overflow};
+  body.style.position='fixed';
+  body.style.top=`-${y}px`;
+  body.style.width='100%';
+  body.style.overflow='hidden';
+  html.style.overflow='hidden';
+  return ()=>{
+   body.style.position=prev.position;
+   body.style.top=prev.top;
+   body.style.width=prev.width;
+   body.style.overflow=prev.overflow;
+   html.style.overflow=prev.htmlOverflow;
+   window.scrollTo(0,y);
+  };
+ },[selected]);
  if(screen==='cart')return <Shell screen={screen} setScreen={setScreen} count={count}><Cart cart={cart} setCart={setCart} add={add} sub={sub} subtotal={subtotal} setScreen={setScreen}/></Shell>;
  return <Shell screen={screen} setScreen={setScreen} count={count}>
   {screen!=='home'&&screen!=='menu'&&<Topbar setScreen={setScreen} count={count}/>}
