@@ -11088,3 +11088,49 @@ body:has(.menuShowcase) .app,
     z-index:4!important;
   }
 }
+
+
+/* PRODUCT CARD READABILITY FIX — 2026-09-26 */
+@media(max-width:767px){
+  .menuRefCardBody{
+    padding:11px 11px 58px!important;
+  }
+  .menuRefCardBody h3,
+  .menuRefCardBody p{
+    max-width:100%!important;
+    padding-right:28px!important;
+  }
+  .menuRefCardBody h3{
+    margin:0 0 6px!important;
+  }
+  .menuRefCardBody p{
+    margin:0!important;
+    line-height:1.28!important;
+  }
+  .menuRefCardBody>strong{
+    position:absolute!important;
+    left:11px!important;
+    bottom:15px!important;
+    z-index:5!important;
+    max-width:none!important;
+    margin:0!important;
+    line-height:1!important;
+  }
+  .menuRefAdd{
+    right:10px!important;
+    bottom:9px!important;
+    z-index:6!important;
+  }
+  .chuckyCardDoodles{
+    right:5px!important;
+    top:7px!important;
+    width:32px!important;
+    opacity:.48!important;
+  }
+  .chuckyCardDoodles i{
+    font-size:23px!important;
+  }
+  .chuckyCardDoodles b{
+    display:none!important;
+  }
+}
