@@ -9383,3 +9383,95 @@ body:has(.menuShowcase) .app,
 /* PRODUCTION DEPLOY TRIGGER */
 /* sync main with antonia.miranda.acmmo Vercel project */
 /* END PRODUCTION DEPLOY TRIGGER */
+
+
+/* MENU HEADER INSET CARD */
+@media(max-width:767px){
+  .menuFinalHeroWrap{
+    width:100%!important;
+    padding:14px 14px 10px!important;
+    margin:0!important;
+    box-sizing:border-box!important;
+    background:#000!important;
+  }
+
+  .menuFinalHero{
+    position:relative!important;
+    width:100%!important;
+    height:122px!important;
+    min-height:122px!important;
+    margin:0!important;
+    padding:12px 13px!important;
+    display:grid!important;
+    grid-template-columns:58px minmax(0,1fr) 46px!important;
+    align-items:center!important;
+    gap:10px!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+    border-radius:24px!important;
+    border:1px solid rgba(255,255,255,.10)!important;
+    background:
+      linear-gradient(90deg,rgba(0,0,0,.34),rgba(0,0,0,.16)),
+      url('/menu-hero-fondo.png?v=10') center center/cover no-repeat!important;
+    box-shadow:0 10px 26px rgba(0,0,0,.32)!important;
+  }
+
+  .menuFinalStamp{
+    width:56px!important;
+    height:56px!important;
+  }
+
+  .menuFinalCopy{
+    align-items:flex-start!important;
+    text-align:left!important;
+  }
+
+  .menuFinalCopy h1{
+    font-size:36px!important;
+  }
+
+  .menuFinalCopy span{
+    font-size:5.5px!important;
+    letter-spacing:.10em!important;
+  }
+
+  .menuFinalSearch{
+    width:42px!important;
+    height:42px!important;
+    justify-self:end!important;
+  }
+}
+
+@media(max-width:390px){
+  .menuFinalHeroWrap{
+    padding:12px 12px 9px!important;
+  }
+
+  .menuFinalHero{
+    height:114px!important;
+    min-height:114px!important;
+    grid-template-columns:52px minmax(0,1fr) 40px!important;
+    gap:8px!important;
+    padding:10px 11px!important;
+    border-radius:22px!important;
+  }
+
+  .menuFinalStamp{
+    width:50px!important;
+    height:50px!important;
+  }
+
+  .menuFinalCopy h1{
+    font-size:33px!important;
+  }
+
+  .menuFinalCopy span{
+    font-size:5px!important;
+    letter-spacing:.08em!important;
+  }
+
+  .menuFinalSearch{
+    width:38px!important;
+    height:38px!important;
+  }
+}
