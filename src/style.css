@@ -10998,3 +10998,22 @@ body:has(.menuShowcase) .app,
     margin-top:0!important;
   }
 }
+
+
+/* HERO TITLE SCALE TUNE — 2026-09-26 */
+@media(max-width:767px){
+  .exactCopy{
+    top:150px!important;
+    left:27px!important;
+    width:72%!important;
+    gap:5px!important;
+  }
+  .exactHeroTitleImg{
+    width:68%!important;
+    max-width:255px!important;
+    height:auto!important;
+  }
+  .exactCopy .exactOrderCta{
+    margin-top:2px!important;
+  }
+}
