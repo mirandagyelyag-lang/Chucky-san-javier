@@ -162,9 +162,16 @@ function Card({p,add,setSelected,featured,wide}){return <article className={'foo
  <div className="foodInfo"><div><h3>{p.name}</h3><p>{p.desc}</p></div><div className="priceRow"><strong>{money(p.price)}</strong><button onClick={e=>add(p.id,e)} aria-label={'Agregar '+p.name}><Plus/></button></div></div>
  </article>}
 
-function Detail({p,close,add}){return <div className="detail">
- <div className="detailPhoto"><img src={p.img} decoding="async"/><div className="detailShade"/><button onClick={close}><ArrowLeft/></button><button className="heart"><Heart/></button><span>{p.cat}</span></div>
- <div className="detailBody"><small>SELECCIÓN CHUCKY</small><h1>{p.name}</h1><p>{p.desc}</p><div className="detailPrice"><strong>{money(p.price)}</strong><span>IVA incl.</span></div><button className="bigAdd" onClick={e=>{add(p.id,e);close()}}>AGREGAR AL PEDIDO <Plus/></button></div>
+function Detail({p,close,add}){return <div className="detail detailChalk">
+ <div className="detailPhoto"><img src={p.img} decoding="async"/><div className="detailShade"/><button onClick={close} aria-label="Volver"><ArrowLeft/></button><button className="heart" aria-label="Favorito"><Heart/></button></div>
+ <div className="detailBody">
+  <span className="detailCat">{p.cat}</span>
+  <span className="detailDoodles" aria-hidden="true"><b>♛</b><i>×</i></span>
+  <h1>{p.name}</h1>
+  <p>{p.desc}</p>
+  <div className="detailPrice"><strong>{money(p.price)}</strong></div>
+  <button className="bigAdd" onClick={e=>{add(p.id,e);close()}}><Plus/><span>Agregar al pedido</span></button>
+ </div>
  </div>}
 
 function Cart({cart,setCart,add,sub,subtotal,setScreen}){
