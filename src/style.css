@@ -11299,3 +11299,122 @@ body:has(.menuShowcase) .app,
   }
   .detailChalk .bigAdd svg{width:21px!important;height:21px!important}
 }
+
+
+/* PRODUCT DETAIL 01 REBUILD — closer to selected Pizarra Original */
+@media(max-width:767px){
+  .detailChalk .detailBody{
+    margin-top:-12px!important;
+    padding:24px 26px 30px!important;
+    min-height:365px!important;
+    border-radius:18px 18px 0 0!important;
+    background:
+      radial-gradient(ellipse at 0% 18%,rgba(235,32,48,.08),transparent 35%),
+      radial-gradient(ellipse at 100% 82%,rgba(235,32,48,.07),transparent 34%),
+      linear-gradient(180deg,#0b0a0a 0%,#080707 100%)!important;
+  }
+  .detailChalk .detailBody::before{
+    content:""!important;
+    position:absolute!important;
+    inset:0!important;
+    pointer-events:none!important;
+    opacity:.16!important;
+    background-image:
+      repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 4px),
+      repeating-linear-gradient(90deg,rgba(255,255,255,.014) 0 1px,transparent 1px 7px)!important;
+    mix-blend-mode:screen!important;
+  }
+  .detailChalk .detailBody::after{display:none!important}
+  .detailChalk .detailDoodles{display:none!important}
+
+  .detailChalk .detailCat{
+    margin:0 0 13px 2px!important;
+    padding:5px 10px 4px!important;
+    border-radius:2px!important;
+    background:#e9273c!important;
+    font-size:10px!important;
+    line-height:1!important;
+    letter-spacing:.12em!important;
+    transform:rotate(-1.5deg)!important;
+    box-shadow:none!important;
+  }
+
+  .detailChalk .detailBody h1{
+    max-width:82%!important;
+    margin:0 0 15px!important;
+    font-family:"Brush Script MT","Segoe Print","Arial Black",sans-serif!important;
+    font-size:37px!important;
+    line-height:.94!important;
+    font-weight:900!important;
+    letter-spacing:-.035em!important;
+    text-transform:uppercase!important;
+    transform:rotate(-1.2deg)!important;
+    text-shadow:none!important;
+  }
+  .detailChalk .detailBody h1::after{
+    content:""!important;
+    display:block!important;
+    width:72%!important;
+    height:6px!important;
+    margin-top:5px!important;
+    background:#e9273c!important;
+    clip-path:polygon(0 35%,100% 0,94% 70%,3% 100%)!important;
+    opacity:.95!important;
+  }
+  .detailChalk .detailBody p{
+    max-width:84%!important;
+    margin:0 0 20px!important;
+    color:rgba(255,255,255,.76)!important;
+    font-size:14px!important;
+    line-height:1.42!important;
+  }
+  .detailChalk .detailPrice{margin:0 0 19px!important}
+  .detailChalk .detailPrice strong{
+    font-size:34px!important;
+    letter-spacing:-.025em!important;
+  }
+
+  .detailChalk .bigAdd{
+    min-height:55px!important;
+    border-radius:12px!important;
+    background:#ed263d!important;
+    box-shadow:none!important;
+    font-size:15px!important;
+    letter-spacing:.01em!important;
+  }
+
+  .detailChalkMarks{
+    position:absolute!important;
+    z-index:1!important;
+    pointer-events:none!important;
+    opacity:.7!important;
+  }
+  .detailChalkMarksA{
+    right:18px!important;
+    top:26px!important;
+    width:38px!important;
+    height:31px!important;
+    border-top:3px solid #e9273c!important;
+    border-right:3px solid #e9273c!important;
+    transform:skew(-14deg) rotate(8deg)!important;
+  }
+  .detailChalkMarksA::before,
+  .detailChalkMarksA::after{
+    content:""!important;
+    position:absolute!important;
+    background:#e9273c!important;
+    height:3px!important;
+    transform-origin:left center!important;
+  }
+  .detailChalkMarksA::before{width:25px!important;right:3px!important;top:8px!important;transform:rotate(-32deg)!important}
+  .detailChalkMarksA::after{width:18px!important;right:11px!important;top:17px!important;transform:rotate(-58deg)!important}
+  .detailChalkMarksB{
+    right:-5px!important;
+    bottom:76px!important;
+    width:88px!important;
+    height:48px!important;
+    background:repeating-linear-gradient(168deg,transparent 0 8px,rgba(233,39,60,.72) 9px 11px,transparent 12px 17px)!important;
+    transform:rotate(-8deg)!important;
+    opacity:.42!important;
+  }
+}
