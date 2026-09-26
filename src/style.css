@@ -10825,3 +10825,18 @@ body:has(.menuShowcase) .app,
     transform:none!important;
   }
 }
+
+
+/* UNIFIED NAV EXACT BOTTOM OFFSET */
+@media(max-width:767px){
+  html body .app > nav.nav.chuckyNav,
+  html body:has(.homeEditorial) .app > nav.nav.chuckyNav,
+  html body:has(.menuRef) .app > nav.nav.chuckyNav,
+  html body:has(.cartSmart) .app > nav.nav.chuckyNav,
+  html body:has(main.cartSmartEmpty) .app > nav.nav.chuckyNav{
+    top:auto!important;
+    bottom:10px!important;
+    margin-top:0!important;
+    margin-bottom:0!important;
+  }
+}
