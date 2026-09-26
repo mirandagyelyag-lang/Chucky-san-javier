@@ -10799,3 +10799,29 @@ body:has(.menuShowcase) .app,
     padding-bottom:max(92px,calc(82px + env(safe-area-inset-bottom,0px)))!important;
   }
 }
+
+
+/* UNIFIED NAV EXACT SCREEN WIDTH */
+@media(max-width:767px){
+  html body .app > nav.nav.chuckyNav{
+    left:36px!important;
+    right:36px!important;
+    width:auto!important;
+    max-width:none!important;
+    min-width:0!important;
+    transform:none!important;
+    box-sizing:border-box!important;
+  }
+
+  html body:has(.homeEditorial) .app > nav.nav.chuckyNav,
+  html body:has(.menuRef) .app > nav.nav.chuckyNav,
+  html body:has(.cartSmart) .app > nav.nav.chuckyNav,
+  html body:has(main.cartSmartEmpty) .app > nav.nav.chuckyNav{
+    left:36px!important;
+    right:36px!important;
+    width:auto!important;
+    max-width:none!important;
+    min-width:0!important;
+    transform:none!important;
+  }
+}
