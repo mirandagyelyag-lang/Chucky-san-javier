@@ -53,17 +53,17 @@ function Topbar({setScreen,count}){return <header className="topbar topbarConcep
 function HomePage({setScreen,setCat,add,setSelected}){
  const go=cat=>{setCat(cat);setScreen('menu')};
  const categoryItems=[
-  ['Sushi','ROLLS, HANDROLLS Y MÁS.','/sushi-principal.webp?v=2','Sushi'],
-  ['Pollo frito','PIEZAS, ALITAS Y COMBOS.','/pollo-frito-principal.webp?v=2','Pollo frito'],
-  ['Bebidas','PARA ACOMPAÑAR.','/bebidas-chucky.webp?v=1','Bebidas'],
-  ['Salsas','EL TOQUE FINAL.','/salsas-principal.webp?v=2','Salsas']
+  ['Sushi','ROLLS, HANDROLLS Y MÁS.','./sushi-principal.webp?v=2','Sushi'],
+  ['Pollo frito','PIEZAS, ALITAS Y COMBOS.','./pollo-frito-principal.webp?v=2','Pollo frito'],
+  ['Bebidas','PARA ACOMPAÑAR.','./bebidas-chucky.webp?v=1','Bebidas'],
+  ['Salsas','EL TOQUE FINAL.','./salsas-principal.webp?v=2','Salsas']
  ];
  return <main className="content homeEditorial homeSales exactHome chuckyContinuous">
   <section className="exactHero">
-   <img className="exactHeroImg" src="/fondo-chucky-street.webp?v=5" alt="Chucky" loading="eager" decoding="async" fetchPriority="high"/>
+   <img className="exactHeroImg" src="./fondo-chucky-street.webp?v=5" alt="Chucky" loading="eager" decoding="async" fetchPriority="high"/>
    <div className="exactHeroShade"/>
    <button className="exactMenu" onClick={()=>setScreen('menu')} aria-label="Menú"><Menu/></button>
-   <img className="exactLogo exactLogoImg" src="/chucky-header.png?v=1" alt="Chucky" loading="eager" decoding="async" fetchPriority="high"/>
+   <img className="exactLogo exactLogoImg" src="./chucky-header.png?v=1" alt="Chucky" loading="eager" decoding="async" fetchPriority="high"/>
    <button className="exactCart" onClick={()=>setScreen('cart')} aria-label="Pedido"><ShoppingBag/></button>
    <div className="exactCopy"><small>DOS ANTOJOS.<br/>UN SOLO CHUCKY.</small><h1><span>Pollo frito</span><span>y sushi.</span></h1><i></i><p>MITAD CRUJIENTE<br/>MITAD FRESCO<br/>100% CHUCKY</p><button className="exactOrderCta" onClick={()=>setScreen('menu')}><ShoppingBag/> <strong>Pide ahora</strong> <span>→</span></button></div>
   </section>
@@ -77,7 +77,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
 function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
  const menuCats=['Todo',...cats];
  const[justAdded,setJustAdded]=useState(null);
- const imageFor=(p)=>p.img||(p.cat==='Pollo frito'?'/pollo-frito-principal.webp?v=2':p.cat==='Sushi'?'/sushi-principal.webp?v=2':p.cat==='Bebidas'?'/bebidas-chucky.webp?v=1':p.cat==='Salsas'?'/salsas-principal.webp?v=2':'/pollo-frito-principal.webp?v=2');
+ const imageFor=(p)=>p.img||(p.cat==='Pollo frito'?'./pollo-frito-principal.webp?v=2':p.cat==='Sushi'?'./sushi-principal.webp?v=2':p.cat==='Bebidas'?'./bebidas-chucky.webp?v=1':p.cat==='Salsas'?'./salsas-principal.webp?v=2':'./pollo-frito-principal.webp?v=2');
  const jump=(c)=>{
   setCat(c);
   if(c==='Todo'){window.scrollTo({top:0,behavior:'smooth'});return}
@@ -85,7 +85,7 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
  };
  return <main className="content menuShowcase menuFinal">
   <section className="menuFinalHero">
-   <img className="menuFinalStamp" src="/aprobado-con-fondo.png?v=6" alt="Aprobado por Chucky" loading="eager" decoding="async"/>
+   <img className="menuFinalStamp" src="./aprobado-con-fondo.png?v=6" alt="Aprobado por Chucky" loading="eager" decoding="async"/>
    <div className="menuFinalCopy">
     <small>CHUCKY</small>
     <h1>MENÚ</h1>
@@ -222,7 +222,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
   </section>
   {error&&<p className="orderError">{error}</p>}
   <button className="checkout smartFinal" disabled={!canSend||sending} onClick={sendOrder}>{sending?'ENVIANDO...':'HACER PEDIDO'} {!sending&&<ChevronRight/>}</button>
- </>:<div className="smartEmpty"><small>TU PEDIDO</small><div className="emptyPedidoArtwork" aria-hidden="true"></div><img className="pedidoChuckyLogo" src="/chucky-logo.webp?v=1" alt="Chucky"/><div className="pedidoEmptyCopy"><h1>Tu pedido está <em>vacío.</em></h1><p>¿Lo arreglamos?</p><button onClick={()=>setScreen('menu')}>IR AL MENÚ <ChevronRight/></button></div></div>}
+ </>:<div className="smartEmpty"><small>TU PEDIDO</small><div className="emptyPedidoArtwork" aria-hidden="true"></div><img className="pedidoChuckyLogo" src="./chucky-logo.webp?v=1" alt="Chucky"/><div className="pedidoEmptyCopy"><h1>Tu pedido está <em>vacío.</em></h1><p>¿Lo arreglamos?</p><button onClick={()=>setScreen('menu')}>IR AL MENÚ <ChevronRight/></button></div></div>}
  </main>}
 
 function Shell({children,screen,setScreen,count}){return <div className="app"><div className="grain"/>{children}<div className="mobileNavSpace" aria-hidden="true"/><nav className="nav chuckyNav">
