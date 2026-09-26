@@ -6338,12 +6338,8 @@ body:has(.chuckyContinuous) .exactHome,
 
   .chuckyContinuous.exactHome,
   .exactHome.chuckyContinuous{
-    background-color:#080403!important;
-    background-image:url('/fondo-chucky-street.webp?v=5')!important;
-    background-repeat:no-repeat!important;
-    background-position:center top!important;
-    background-size:100% auto!important;
-    background-attachment:scroll!important;
+    position:relative!important;
+    background:#070403!important;
   }
 }
 
