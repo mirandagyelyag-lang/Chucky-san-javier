@@ -11616,3 +11616,9 @@ body:has(.menuShowcase) .app,
     transform:rotate(-9deg)!important;
   }
 }
+
+
+/* REMOVE BROKEN DETAIL CROWN — 2026-09-26 */
+@media(max-width:767px){
+  .detailChalkMarksA{display:none!important}
+}
