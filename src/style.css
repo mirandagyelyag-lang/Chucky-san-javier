@@ -10895,3 +10895,64 @@ body:has(.menuShowcase) .app,
     line-height:12px!important;
   }
 }
+
+
+/* HOME CHUCKY DOOR BACKGROUND — 2026-09-26 */
+@media(max-width:767px){
+  body:has(.exactHome),
+  body:has(.exactHome) #root,
+  body:has(.exactHome) .app{
+    background:#070403!important;
+  }
+
+  .exactHome.chuckyContinuous{
+    position:relative!important;
+    background:
+      linear-gradient(180deg,rgba(0,0,0,.10) 0%,rgba(0,0,0,.22) 48%,rgba(0,0,0,.50) 100%),
+      url("./chucky-door-bg.webp?v=1") center top / cover fixed no-repeat!important;
+  }
+
+  .exactHero{
+    position:relative!important;
+    background:#070403!important;
+  }
+
+  .exactHeroImg{
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    object-position:center 38%!important;
+  }
+
+  .exactHeroShade{
+    background:
+      linear-gradient(90deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.32) 52%,rgba(0,0,0,.12) 100%),
+      linear-gradient(180deg,rgba(0,0,0,.08) 0%,rgba(0,0,0,.10) 56%,rgba(0,0,0,.62) 100%)!important;
+  }
+
+  .exactShop{
+    position:relative!important;
+    background:
+      linear-gradient(180deg,rgba(4,2,2,.44),rgba(5,2,2,.64)),
+      url("./chucky-door-bg.webp?v=1") center 62% / cover fixed no-repeat!important;
+  }
+
+  .exactShop::before{
+    content:""!important;
+    position:absolute!important;
+    inset:0!important;
+    pointer-events:none!important;
+    background:linear-gradient(180deg,rgba(0,0,0,.10),rgba(0,0,0,.34))!important;
+  }
+
+  .exactShop > *{
+    position:relative!important;
+    z-index:1!important;
+  }
+
+  .exactTitle h2,
+  .exactTitle p{
+    color:#fff!important;
+    text-shadow:0 2px 14px rgba(0,0,0,.72)!important;
+  }
+}
