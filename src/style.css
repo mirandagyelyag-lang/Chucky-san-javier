@@ -9980,3 +9980,63 @@ body:has(.menuShowcase) .app,
       url('/menu-hero-fondo.png?v=11') center center/cover no-repeat!important;
   }
 }
+
+
+/* MENU TOP ARTWORK CUTOFF FINAL */
+@media(max-width:767px){
+  .menuRef{
+    background:#020202!important;
+    background-image:none!important;
+    padding-top:0!important;
+  }
+
+  .menuRefSmoke{
+    display:none!important;
+  }
+
+  .menuRefTop{
+    position:relative!important;
+    width:100%!important;
+    margin:0!important;
+    padding:18px 0 10px!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+    background:
+      linear-gradient(180deg,rgba(0,0,0,.08) 0%,rgba(0,0,0,.12) 74%,rgba(0,0,0,.58) 100%),
+      url('/menu-hero-fondo.png?v=12') center center/cover no-repeat!important;
+    border-bottom:1px solid rgba(255,255,255,.05)!important;
+  }
+
+  .menuRefHero{
+    background:linear-gradient(180deg,rgba(12,9,9,.88),rgba(3,3,3,.95))!important;
+  }
+
+  .menuRefTabs{
+    background:transparent!important;
+    padding-top:0!important;
+    padding-bottom:0!important;
+  }
+
+  .menuRefBody,
+  .menuRefSection,
+  .menuRefHeading,
+  .menuRefRail{
+    background:#020202!important;
+    background-image:none!important;
+  }
+
+  .menuRefBody{
+    padding-top:10px!important;
+  }
+
+  .menuRefSection:first-child{
+    padding-top:10px!important;
+  }
+}
+
+@media(max-width:390px){
+  .menuRefTop{
+    padding-top:14px!important;
+    padding-bottom:9px!important;
+  }
+}
