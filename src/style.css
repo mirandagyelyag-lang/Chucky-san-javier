@@ -11622,3 +11622,25 @@ body:has(.menuShowcase) .app,
 @media(max-width:767px){
   .detailChalkMarksA{display:none!important}
 }
+
+
+/* PRODUCT DETAIL — USE SHARED APROBADO POR CHUCKY ART */
+@media(max-width:767px){
+  .detailChalk .detailBody{
+    background:
+      linear-gradient(90deg,rgba(7,7,7,.12),rgba(7,7,7,.04)),
+      url("./aprobado-con-fondo.png") center top / cover no-repeat,
+      #090808!important;
+  }
+  .detailChalk .detailBody::before{display:none!important}
+  .detailChalk .detailBody h1,
+  .detailChalk .detailBody p,
+  .detailChalk .detailPrice,
+  .detailChalk .detailCat,
+  .detailChalk .bigAdd{
+    position:relative!important;
+    z-index:3!important;
+  }
+  .detailChalkMarksA,
+  .detailChalkMarksB{display:none!important}
+}
