@@ -10366,3 +10366,16 @@ body:has(.menuShowcase) .app,
     font-size:10px!important;
   }
 }
+
+
+/* MENU FOUR CORNER RED GLOW */
+@media(max-width:767px){
+  .menuRef{
+    background:
+      radial-gradient(circle at 0% 0%,rgba(255,24,55,.22) 0%,rgba(255,24,55,.10) 18%,transparent 34%),
+      radial-gradient(circle at 100% 0%,rgba(255,24,55,.20) 0%,rgba(255,24,55,.09) 18%,transparent 34%),
+      radial-gradient(circle at 0% 100%,rgba(255,24,55,.20) 0%,rgba(255,24,55,.08) 17%,transparent 33%),
+      radial-gradient(circle at 100% 100%,rgba(255,24,55,.22) 0%,rgba(255,24,55,.10) 18%,transparent 34%),
+      linear-gradient(180deg,#030303 0%,#050505 100%)!important;
+  }
+}
