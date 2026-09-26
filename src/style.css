@@ -10641,3 +10641,60 @@ body:has(.menuShowcase) .app,
     padding-bottom:104px!important;
   }
 }
+
+
+/* MENU NAV THREE EVEN COLUMNS FINAL */
+@media(max-width:767px){
+  body:has(.menuRef) .app > nav.nav.chuckyNav{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    align-items:stretch!important;
+    justify-items:stretch!important;
+    column-gap:0!important;
+    padding:3px 10px!important;
+    box-sizing:border-box!important;
+  }
+
+  body:has(.menuRef) .app > nav.nav.chuckyNav > button{
+    position:relative!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:none!important;
+    height:58px!important;
+    min-height:58px!important;
+    margin:0!important;
+    padding:5px 2px 8px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:2px!important;
+    box-sizing:border-box!important;
+    background:transparent!important;
+    border:0!important;
+    transform:none!important;
+  }
+
+  body:has(.menuRef) .app > nav.nav.chuckyNav > button svg{
+    width:22px!important;
+    height:22px!important;
+    margin:0!important;
+    flex:0 0 auto!important;
+  }
+
+  body:has(.menuRef) .app > nav.nav.chuckyNav > button b{
+    margin:0!important;
+    font-size:11px!important;
+    line-height:12px!important;
+    text-align:center!important;
+    white-space:nowrap!important;
+  }
+
+  body:has(.menuRef) .app > nav.nav.chuckyNav > button.on::after{
+    left:50%!important;
+    right:auto!important;
+    bottom:2px!important;
+    transform:translateX(-50%)!important;
+    margin:0!important;
+  }
+}
