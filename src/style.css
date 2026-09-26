@@ -11749,3 +11749,18 @@ body:has(.menuShowcase) .app,
   .detailChalk .detailBody h1{order:7!important}
   .detailChalk .detailCat{order:6!important}
 }
+
+
+/* PRODUCT DETAIL — HARD LOCK INTERNAL SCROLL — 2026-09-26 */
+@media(max-width:767px){
+  .detail.detailChalk{
+    overflow:hidden!important;
+    overscroll-behavior:none!important;
+    touch-action:pan-x!important;
+  }
+  .detailChalk .detailPhoto,
+  .detailChalk .detailBody{
+    overflow:hidden!important;
+    overscroll-behavior:none!important;
+  }
+}
