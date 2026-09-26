@@ -84,15 +84,17 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
   document.getElementById('menu-'+c.toLowerCase().replace(/\s+/g,'-'))?.scrollIntoView({behavior:'smooth',block:'start'});
  };
  return <main className="content menuShowcase menuFinal">
-  <section className="menuFinalHero">
-   <img className="menuFinalStamp" src="./aprobado-con-fondo.png?v=6" alt="Aprobado por Chucky" loading="eager" decoding="async"/>
-   <div className="menuFinalCopy">
-    <small>CHUCKY</small>
-    <h1>MENÚ</h1>
-    <span>POLLO FRITO · SUSHI · SALSAS · BEBIDAS</span>
-   </div>
-   <button className="menuFinalSearch" onClick={()=>setScreen('search')} aria-label="Buscar"><Search/></button>
-  </section>
+  <div className="menuFinalHeroWrap">
+   <section className="menuFinalHero">
+    <img className="menuFinalStamp" src="./aprobado-con-fondo.png?v=6" alt="Aprobado por Chucky" loading="eager" decoding="async"/>
+    <div className="menuFinalCopy">
+     <small>CHUCKY</small>
+     <h1>MENÚ</h1>
+     <span>POLLO FRITO · SUSHI · SALSAS · BEBIDAS</span>
+    </div>
+    <button className="menuFinalSearch" onClick={()=>setScreen('search')} aria-label="Buscar"><Search/></button>
+   </section>
+  </div>
 
   <nav className="menuFinalTabs">{menuCats.map(c=><button key={c} className={cat===c?'on':''} onClick={()=>jump(c)}>{c}</button>)}</nav>
 
