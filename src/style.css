@@ -10443,3 +10443,88 @@ body:has(.menuShowcase) .app,
     transform:rotate(10deg)!important;
   }
 }
+
+
+/* MENU CLEAN DARK RECOVERY */
+@media(max-width:767px){
+  body:has(.menuRef),
+  body:has(.menuRef) #root,
+  body:has(.menuRef) .app{
+    min-height:0!important;
+    height:auto!important;
+    background:#020202!important;
+    background-image:none!important;
+  }
+
+  .menuRef{
+    min-height:0!important;
+    height:auto!important;
+    padding-bottom:20px!important;
+    background:
+      radial-gradient(circle at 0% 0%,rgba(255,28,58,.12),transparent 28%),
+      radial-gradient(circle at 100% 0%,rgba(255,28,58,.10),transparent 28%),
+      radial-gradient(circle at 0% 100%,rgba(255,28,58,.10),transparent 26%),
+      radial-gradient(circle at 100% 100%,rgba(255,28,58,.12),transparent 26%),
+      #020202!important;
+  }
+
+  .menuRef::before,
+  .menuRef::after{
+    display:none!important;
+  }
+
+  .menuRefBody{
+    min-height:0!important;
+    height:auto!important;
+    padding-bottom:8px!important;
+    background:transparent!important;
+  }
+
+  .menuRefSection{
+    min-height:0!important;
+    height:auto!important;
+    background:
+      linear-gradient(180deg,rgba(12,12,12,.98),rgba(5,5,5,.99))!important;
+    border-color:rgba(255,39,68,.42)!important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.02),
+      0 8px 20px rgba(0,0,0,.22)!important;
+  }
+
+  .menuRefSection::before{
+    display:none!important;
+  }
+
+  .menuRefRail{
+    min-height:0!important;
+    height:auto!important;
+  }
+
+  .menuRefSection:last-child{
+    margin-bottom:8px!important;
+  }
+
+  body:has(.menuRef) .mobileNavSpace{
+    display:none!important;
+    height:0!important;
+    min-height:0!important;
+    flex:0 0 0!important;
+    margin:0!important;
+    padding:0!important;
+  }
+
+  body:has(.menuRef) .app > nav.nav.chuckyNav{
+    position:relative!important;
+    left:auto!important;
+    right:auto!important;
+    bottom:auto!important;
+    top:auto!important;
+    transform:none!important;
+    width:calc(100% - 36px)!important;
+    max-width:430px!important;
+    height:58px!important;
+    min-height:58px!important;
+    margin:10px auto 14px!important;
+    z-index:100!important;
+  }
+}
