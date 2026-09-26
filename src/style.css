@@ -11134,3 +11134,168 @@ body:has(.menuShowcase) .app,
     display:none!important;
   }
 }
+
+
+/* PRODUCT DETAIL — PIZARRA ORIGINAL 01 — 2026-09-26 */
+@media(max-width:767px){
+  .detail.detailChalk{
+    position:fixed!important;
+    inset:0!important;
+    z-index:80!important;
+    overflow-y:auto!important;
+    background:#090808!important;
+    color:#fff!important;
+    padding-bottom:118px!important;
+  }
+  .detailChalk .detailPhoto{
+    position:relative!important;
+    height:48vh!important;
+    min-height:330px!important;
+    max-height:470px!important;
+    background:#080808!important;
+    overflow:hidden!important;
+  }
+  .detailChalk .detailPhoto>img{
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    display:block!important;
+  }
+  .detailChalk .detailShade{
+    position:absolute!important;
+    inset:0!important;
+    background:linear-gradient(180deg,rgba(0,0,0,.06) 0%,rgba(0,0,0,.02) 62%,rgba(9,8,8,.96) 100%)!important;
+  }
+  .detailChalk .detailPhoto>button{
+    position:absolute!important;
+    top:24px!important;
+    width:48px!important;
+    height:48px!important;
+    border-radius:50%!important;
+    border:1px solid rgba(255,255,255,.48)!important;
+    background:rgba(5,5,5,.68)!important;
+    color:#fff!important;
+    display:grid!important;
+    place-items:center!important;
+    backdrop-filter:blur(8px)!important;
+    z-index:3!important;
+  }
+  .detailChalk .detailPhoto>button:first-of-type{left:20px!important}
+  .detailChalk .detailPhoto>button.heart{right:20px!important}
+  .detailChalk .detailBody{
+    position:relative!important;
+    margin-top:-18px!important;
+    padding:21px 28px 28px!important;
+    min-height:390px!important;
+    border-radius:22px 22px 0 0!important;
+    overflow:hidden!important;
+    background:
+      radial-gradient(circle at 92% 18%,rgba(235,31,49,.10),transparent 28%),
+      repeating-linear-gradient(115deg,rgba(255,255,255,.012) 0 1px,transparent 1px 6px),
+      #0b0a0a!important;
+    color:#fff!important;
+    box-sizing:border-box!important;
+  }
+  .detailChalk .detailBody::after{
+    content:""!important;
+    position:absolute!important;
+    right:-20px!important;
+    bottom:70px!important;
+    width:170px!important;
+    height:90px!important;
+    opacity:.42!important;
+    transform:rotate(-8deg)!important;
+    pointer-events:none!important;
+    background:repeating-linear-gradient(168deg,transparent 0 12px,rgba(235,31,49,.30) 13px 15px,transparent 16px 22px)!important;
+  }
+  .detailChalk .detailCat{
+    display:inline-block!important;
+    position:relative!important;
+    z-index:2!important;
+    margin-bottom:10px!important;
+    padding:5px 10px!important;
+    border-radius:4px!important;
+    background:#ed2639!important;
+    color:#fff!important;
+    font-size:11px!important;
+    font-weight:900!important;
+    letter-spacing:.08em!important;
+    text-transform:uppercase!important;
+    transform:rotate(-1deg)!important;
+  }
+  .detailChalk .detailDoodles{
+    position:absolute!important;
+    right:24px!important;
+    top:15px!important;
+    color:#ed2639!important;
+    opacity:.82!important;
+    pointer-events:none!important;
+  }
+  .detailChalk .detailDoodles b{
+    display:block!important;
+    font:900 38px/1 Arial,sans-serif!important;
+    transform:rotate(8deg)!important;
+  }
+  .detailChalk .detailDoodles i{
+    position:absolute!important;
+    right:47px!important;
+    top:35px!important;
+    font:900 22px/1 Arial,sans-serif!important;
+    font-style:normal!important;
+  }
+  .detailChalk .detailBody h1{
+    position:relative!important;
+    z-index:2!important;
+    max-width:86%!important;
+    margin:0 0 12px!important;
+    color:#fff!important;
+    font-size:42px!important;
+    line-height:.88!important;
+    font-weight:1000!important;
+    letter-spacing:-.045em!important;
+    text-transform:uppercase!important;
+    transform:rotate(-1deg)!important;
+    text-shadow:2px 2px 0 rgba(237,38,57,.28)!important;
+  }
+  .detailChalk .detailBody p{
+    position:relative!important;
+    z-index:2!important;
+    max-width:86%!important;
+    margin:0 0 18px!important;
+    color:rgba(255,255,255,.78)!important;
+    font-size:15px!important;
+    line-height:1.4!important;
+  }
+  .detailChalk .detailPrice{
+    position:relative!important;
+    z-index:2!important;
+    margin:0 0 18px!important;
+  }
+  .detailChalk .detailPrice strong{
+    color:#fff!important;
+    font-size:35px!important;
+    line-height:1!important;
+    font-weight:950!important;
+  }
+  .detailChalk .detailPrice span{display:none!important}
+  .detailChalk .bigAdd{
+    position:relative!important;
+    z-index:4!important;
+    width:100%!important;
+    min-height:58px!important;
+    margin:0!important;
+    border:0!important;
+    border-radius:15px!important;
+    background:linear-gradient(135deg,#ed2639,#ff3449)!important;
+    color:#fff!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:10px!important;
+    font-size:16px!important;
+    font-weight:900!important;
+    text-transform:none!important;
+    box-shadow:0 10px 28px rgba(237,38,57,.24)!important;
+  }
+  .detailChalk .bigAdd svg{width:21px!important;height:21px!important}
+}
