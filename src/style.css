@@ -10604,3 +10604,40 @@ body:has(.menuShowcase) .app,
     -webkit-backdrop-filter:blur(16px)!important;
   }
 }
+
+
+/* MENU NAV ALWAYS VISIBLE */
+@media(max-width:767px){
+  body:has(.menuRef) .app{
+    position:relative!important;
+    overflow:visible!important;
+  }
+
+  body:has(.menuRef) .chuckyNav{
+    display:flex!important;
+    visibility:visible!important;
+    opacity:1!important;
+    position:fixed!important;
+    left:50%!important;
+    right:auto!important;
+    top:auto!important;
+    bottom:calc(12px + env(safe-area-inset-bottom, 0px))!important;
+    transform:translateX(-50%)!important;
+    width:calc(100% - 32px)!important;
+    max-width:430px!important;
+    height:64px!important;
+    min-height:64px!important;
+    margin:0!important;
+    z-index:2147483000!important;
+    pointer-events:auto!important;
+    border:1px solid rgba(255,255,255,.16)!important;
+    background:rgba(7,7,7,.97)!important;
+    box-shadow:0 12px 34px rgba(0,0,0,.50)!important;
+    backdrop-filter:blur(18px)!important;
+    -webkit-backdrop-filter:blur(18px)!important;
+  }
+
+  body:has(.menuRef) .menuRef{
+    padding-bottom:104px!important;
+  }
+}
