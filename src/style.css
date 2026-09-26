@@ -10952,3 +10952,24 @@ body:has(.menuShowcase) .app,
     text-shadow:0 2px 14px rgba(0,0,0,.72)!important;
   }
 }
+
+
+/* HOME LOWER BACKGROUND HARD OVERRIDE — 2026-09-26 */
+@media(max-width:767px){
+  html body .exactHome .exactShop{
+    position:relative!important;
+    isolation:isolate!important;
+    background-image:
+      linear-gradient(rgba(0,0,0,.18),rgba(0,0,0,.30)),
+      url("/chucky-door-bg.webp?v=202609261436")!important;
+    background-size:auto,cover!important;
+    background-position:center,center top!important;
+    background-repeat:no-repeat,no-repeat!important;
+    background-attachment:scroll,scroll!important;
+    background-color:#080403!important;
+  }
+  html body .exactHome .exactShop::before{
+    content:none!important;
+    display:none!important;
+  }
+}
