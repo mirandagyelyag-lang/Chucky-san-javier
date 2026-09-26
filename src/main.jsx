@@ -77,43 +77,55 @@ function HomePage({setScreen,setCat,add,setSelected}){
 function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
  const menuCats=['Todo',...cats];
  const[justAdded,setJustAdded]=useState(null);
- const imageFor=(p)=>p.img||(p.cat==='Pollo frito'?'./pollo-frito-principal.webp?v=2':p.cat==='Sushi'?'./sushi-principal.webp?v=2':p.cat==='Bebidas'?'./bebidas-chucky.webp?v=1':p.cat==='Salsas'?'./salsas-principal.webp?v=2':'./pollo-frito-principal.webp?v=2');
+ const sectionIcon=c=>c==='Pollo frito'?'🍗':c==='Sushi'?'🍣':c==='Salsas'?'◉':'🥤';
  const jump=(c)=>{
   setCat(c);
   if(c==='Todo'){window.scrollTo({top:0,behavior:'smooth'});return}
   document.getElementById('menu-'+c.toLowerCase().replace(/\s+/g,'-'))?.scrollIntoView({behavior:'smooth',block:'start'});
  };
- return <main className="content menuShowcase menuFinal">
-  <div className="menuFinalHeroWrap">
-   <section className="menuFinalHero">
-    <img className="menuFinalStamp" src="./aprobado-con-fondo.png?v=6" alt="Aprobado por Chucky" loading="eager" decoding="async"/>
-    <div className="menuFinalCopy">
-     <small>CHUCKY</small>
-     <h1>MENÚ</h1>
-     <span>POLLO FRITO · SUSHI · SALSAS · BEBIDAS</span>
-    </div>
-    <button className="menuFinalSearch" onClick={()=>setScreen('search')} aria-label="Buscar"><Search/></button>
-   </section>
-  </div>
+ return <main className="content menuRef">
+  <div className="menuRefSmoke" aria-hidden="true"></div>
 
-  <nav className="menuFinalTabs">{menuCats.map(c=><button key={c} className={cat===c?'on':''} onClick={()=>jump(c)}>{c}</button>)}</nav>
+  <section className="menuRefHero">
+   <img className="menuRefStamp" src="./aprobado-con-fondo.png?v=6" alt="Aprobado por Chucky" loading="eager" decoding="async"/>
+   <div className="menuRefHeroCopy">
+    <small>CHUCKY</small>
+    <h1>MENÚ</h1>
+    <span>POLLO FRITO · SUSHI · SALSAS · BEBIDAS</span>
+   </div>
+   <span className="menuRefCrown" aria-hidden="true">♕</span>
+   <button className="menuRefSearch" onClick={()=>setScreen('search')} aria-label="Buscar"><Search/></button>
+  </section>
 
-  <div className="menuFinalBody">
+  <nav className="menuRefTabs">
+   {menuCats.map(c=><button key={c} className={cat===c?'on':''} onClick={()=>jump(c)}>{c}</button>)}
+  </nav>
+
+  <div className="menuRefBody">
    {cats.map(c=>{
     const items=products.filter(p=>p.cat===c);
     if(!items.length)return null;
     const id='menu-'+c.toLowerCase().replace(/\s+/g,'-');
-    return <section id={id} key={c} className="menuFinalSection">
-     <header className="menuFinalHeading"><h2>{c}</h2></header>
-     <div className="menuFinalRail">{items.map(p=><article className="menuFinalCard" key={p.id} onClick={()=>setSelected(p)}>
-      <img src={imageFor(p)} alt={p.name} loading="lazy" decoding="async"/>
-      <div className="menuFinalCardBody">
-       <h3>{p.name}</h3>
-       <p>{p.desc}</p>
-       <strong>{money(p.price)}</strong>
-      </div>
-      <button className={justAdded===p.id?'added':''} onClick={e=>{add(p.id,e);setJustAdded(p.id);setTimeout(()=>setJustAdded(null),900)}} aria-label={'Agregar '+p.name}>{justAdded===p.id?'✓':'+'}</button>
-     </article>)}</div>
+    return <section id={id} key={c} className="menuRefSection">
+     <header className="menuRefHeading">
+      <div><span className="menuRefSectionIcon" aria-hidden="true">{sectionIcon(c)}</span><h2>{c}</h2></div>
+      <button onClick={()=>jump(c)}>Ver todo <ChevronRight/></button>
+     </header>
+
+     <div className="menuRefRail">
+      {items.map(p=><article className="menuRefCard" key={p.id} onClick={()=>setSelected(p)}>
+       <div className="menuRefPhoto">
+        <img src={p.img} alt={p.name} loading="lazy" decoding="async"/>
+        <button className="menuRefHeart" onClick={e=>e.stopPropagation()} aria-label={'Favorito '+p.name}><Heart/></button>
+       </div>
+       <div className="menuRefCardBody">
+        <h3>{p.name}</h3>
+        <p>{p.desc}</p>
+        <strong>{money(p.price)}</strong>
+       </div>
+       <button className={'menuRefAdd '+(justAdded===p.id?'added':'')} onClick={e=>{add(p.id,e);setJustAdded(p.id);setTimeout(()=>setJustAdded(null),900)}} aria-label={'Agregar '+p.name}>{justAdded===p.id?'✓':'+'}</button>
+      </article>)}
+     </div>
     </section>
    })}
   </div>
