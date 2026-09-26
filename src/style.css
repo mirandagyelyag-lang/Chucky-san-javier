@@ -692,7 +692,7 @@ img{display:block}
 .app{
   background-image:
     linear-gradient(180deg,rgba(7,6,5,.28),rgba(8,6,5,.46)),
-    url('./chucky-minimal-wallpaper.webp')!important;
+    url('/chucky-minimal-wallpaper.webp')!important;
   background-position:center top,center top!important;
   background-size:cover,cover!important;
   background-repeat:no-repeat,no-repeat!important;
@@ -747,7 +747,7 @@ img{display:block}
     pointer-events:none;
     background-image:
       linear-gradient(180deg,rgba(7,6,5,.28),rgba(8,6,5,.46)),
-      url('./chucky-minimal-wallpaper.webp');
+      url('/chucky-minimal-wallpaper.webp');
     background-position:center top,center top;
     background-size:auto,100vw auto;
     background-repeat:no-repeat,no-repeat;
@@ -3299,7 +3299,7 @@ body:has(.cartSmart .smartEmpty) main.cartSmart{
 /* Pedido vacío: el arte generado ocupa el fondo completo */
 body:has(.cartSmart .smartEmpty) main.cartSmart.cartSmartEmpty{
  background-color:#050403!important;
- background-image:url('./pedido-fondo.png?v=4')!important;
+ background-image:url('/pedido-fondo.png?v=4')!important;
  background-position:center center!important;
  background-size:cover!important;
  background-repeat:no-repeat!important;
@@ -3494,7 +3494,7 @@ main.cartSmart.cartSmartEmpty{
  width:min(390px,100%)!important;
  height:330px!important;
  margin:30px auto 18px!important;
- background:url('./pedido-fondo.png?v=4') center center/contain no-repeat!important;
+ background:url('/pedido-fondo.png?v=4') center center/contain no-repeat!important;
  flex:0 0 auto!important;
 }
 @media(max-width:420px){
@@ -3507,7 +3507,7 @@ main.cartSmart.cartSmartEmpty{
  position:relative!important;
  isolation:isolate!important;
  overflow:hidden!important;
- background:#050403 url('./pedido-fondo.png?v=4') center top/cover no-repeat!important;
+ background:#050403 url('/pedido-fondo.png?v=4') center top/cover no-repeat!important;
 }
 main.cartSmart.cartSmartEmpty:after{
  content:""!important;
@@ -3548,7 +3548,7 @@ main.cartSmart.cartSmartEmpty:after{
 /* Pedido background visibility fix: keep generated art visible */
 main.cartSmart.cartSmartEmpty{
  background-color:#050403!important;
- background-image:url('./pedido-fondo.png?v=4')!important;
+ background-image:url('/pedido-fondo.png?v=4')!important;
  background-position:center center!important;
  background-size:cover!important;
  background-repeat:no-repeat!important;
@@ -4162,7 +4162,7 @@ body:has(.menuShowcase) .chuckyNav{position:fixed!important}
 /* CONTINUOUS CHUCKY HOME — design 02 */
 .chuckyContinuous{
  position:relative!important;
- background:#090605 url('./fondo-chucky-street.webp?v=2') center top/cover fixed no-repeat!important;
+ background:#090605 url('/fondo-chucky-street.webp?v=2') center top/cover fixed no-repeat!important;
  color:#fff!important;
 }
 .chuckyContinuous:before{
@@ -4209,7 +4209,7 @@ body:has(.chuckyContinuous) .app{background:#090605!important}
 /* COMPLETE CHUCKY APP — approved 5-screen direction */
 :root{--chucky-red:#f3263b;--chucky-black:#080706;--chucky-panel:rgba(16,14,13,.92);--chucky-line:rgba(255,255,255,.13)}
 .chuckyScreen,.menuShowcase{
- background:#080706 url('./fondo-chucky-street.webp?v=2') center top/cover fixed no-repeat!important;
+ background:#080706 url('/fondo-chucky-street.webp?v=2') center top/cover fixed no-repeat!important;
  color:#fff!important;min-height:100dvh!important
 }
 .chuckyScreen:before,.menuShowcase:before{content:"";position:fixed;inset:0;background:rgba(0,0,0,.52);pointer-events:none;z-index:0}
@@ -4261,7 +4261,7 @@ body:has(.chuckyScreen) .app,body:has(.menuShowcase) .app{background:#080706!imp
 .smartEmpty h1{font-family:Georgia,serif!important;font-size:31px!important;color:#fff!important}
 .smartEmpty p{color:#ddd!important}
 .smartEmpty button{background:var(--chucky-red)!important;color:#fff!important;border:0!important;border-radius:999px!important}
-.orderSuccess{background:#080706 url('./fondo-chucky-street.webp?v=2') center/cover no-repeat!important;color:#fff!important;min-height:100dvh!important}
+.orderSuccess{background:#080706 url('/fondo-chucky-street.webp?v=2') center/cover no-repeat!important;color:#fff!important;min-height:100dvh!important}
 body:has(.chuckyScreen) .chuckyNav,body:has(.menuShowcase) .chuckyNav{
  background:rgba(9,8,7,.96)!important;border:1px solid rgba(255,255,255,.12)!important;
  box-shadow:0 16px 40px rgba(0,0,0,.5)!important
@@ -4369,7 +4369,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
  }
  .chuckyContinuous{
    width:100vw!important;max-width:none!important;margin:0!important;
-   background-image:url('./fondo-chucky-street.webp?v=2')!important;
+   background-image:url('/fondo-chucky-street.webp?v=2')!important;
    background-size:cover!important;
    background-position:center top!important;
    background-repeat:no-repeat!important;
@@ -4382,7 +4382,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
  body:has(.chuckyContinuous) .app{min-height:100dvh!important;background:#080706!important}
  .chuckyContinuous{
    min-height:100dvh!important;
-   background-image:url('./fondo-chucky-street.webp?v=2')!important;
+   background-image:url('/fondo-chucky-street.webp?v=2')!important;
    background-size:100% 100%!important;
    background-position:center top!important;
    background-repeat:no-repeat!important;
@@ -4394,7 +4394,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
 @media(max-width:600px){
  body:has(.chuckyContinuous),
  body:has(.chuckyContinuous) .app{
-   background-image:url('./fondo-chucky-street.webp?v=2')!important;
+   background-image:url('/fondo-chucky-street.webp?v=2')!important;
    background-size:100% 100%!important;
    background-position:center top!important;
    background-repeat:no-repeat!important;
@@ -4553,7 +4553,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    background:transparent!important;
  }
  body:has(.chuckyContinuous) .app{
-   background-image:url('./fondo-chucky-street.webp?v=2')!important;
+   background-image:url('/fondo-chucky-street.webp?v=2')!important;
    background-size:cover!important;
    background-position:center bottom!important;
    background-attachment:scroll!important;
@@ -4579,7 +4579,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
  body:has(.chuckyContinuous) .app{
    padding-bottom:0!important;
    min-height:100dvh!important;
-   background-image:url('./fondo-chucky-street.webp?v=2')!important;
+   background-image:url('/fondo-chucky-street.webp?v=2')!important;
    background-size:cover!important;
    background-position:center bottom!important;
    background-repeat:no-repeat!important;
@@ -4711,7 +4711,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
  body:has(.menuShowcase),
  body:has(.menuShowcase) .app,
  body:has(.menuShowcase) .menuShowcase{
-   background:#080706 url('./fondo-chucky-street.webp?v=2') center top/cover fixed no-repeat!important;
+   background:#080706 url('/fondo-chucky-street.webp?v=2') center top/cover fixed no-repeat!important;
    color:#fff!important;
  }
  .menuShowcase{
@@ -5008,7 +5008,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    background-color:#090604!important;
    background-image:
      linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.18)),
-     url('./menu-fondo.png')!important;
+     url('/menu-fondo.png')!important;
    background-size:100% auto!important;
    background-position:center top!important;
    background-repeat:repeat-y!important;
@@ -5379,7 +5379,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    min-height:100dvh!important;
    background:
      linear-gradient(180deg,rgba(0,0,0,.08) 0%,rgba(0,0,0,.14) 55%,rgba(0,0,0,.34) 100%),
-     url('./pedido-fondo.png') center/cover no-repeat!important;
+     url('/pedido-fondo.png') center/cover no-repeat!important;
  }
  .cartSmartEmpty .smartEmpty{
    min-height:calc(100dvh - 92px)!important;
@@ -5429,7 +5429,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
  body:has(main.cartSmartEmpty) .app{
    background-image:
      linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.18)),
-     url('./pedido-fondo.png?v=3')!important;
+     url('/pedido-fondo.png?v=3')!important;
    background-size:cover!important;
    background-position:center center!important;
    background-repeat:no-repeat!important;
@@ -5449,7 +5449,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
 @media(max-width:600px){
  body:has(main.cartSmartEmpty) main.content.cartSmart.cartSmartEmpty{
    background-color:#050403!important;
-   background-image:url('./pedido-fondo.png?v=4')!important;
+   background-image:url('/pedido-fondo.png?v=4')!important;
    background-position:center center!important;
    background-size:cover!important;
    background-repeat:no-repeat!important;
@@ -5472,7 +5472,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    min-height:100svh!important;
    max-height:100svh!important;
    overflow:hidden!important;
-   background-image:url('./pedido-fondo.png?v=5')!important;
+   background-image:url('/pedido-fondo.png?v=5')!important;
    background-size:cover!important;
    background-position:center center!important;
    background-repeat:no-repeat!important;
@@ -5491,7 +5491,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    padding:0 22px 112px!important;
    background-image:
      linear-gradient(180deg,rgba(0,0,0,.02) 0%,rgba(0,0,0,.02) 58%,rgba(0,0,0,.42) 100%),
-     url('./pedido-fondo.png?v=6')!important;
+     url('/pedido-fondo.png?v=6')!important;
    background-size:cover!important;
    background-position:center top!important;
  }
@@ -5564,7 +5564,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    min-height:100svh!important;
    padding:0 22px 108px!important;
    overflow:hidden!important;
-   background:#050303 url('./chucky-door.webp?v=1') center top/cover no-repeat!important;
+   background:#050303 url('/chucky-door.webp?v=1') center top/cover no-repeat!important;
  }
  .cartSmartEmpty .smartEmpty{
    position:relative!important;
@@ -5875,7 +5875,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
    height:100dvh!important;
    min-height:100dvh!important;
    max-height:100dvh!important;
-   background:#050303 url('./chucky-door.webp?v=1') center top/cover no-repeat!important;
+   background:#050303 url('/chucky-door.webp?v=1') center top/cover no-repeat!important;
  }
  body:has(main.cartSmartEmpty) .mobileNavSpace{
    display:none!important;
@@ -6107,7 +6107,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
  body:has(.menuShowcase) .menuShowHero{
    background:
      linear-gradient(180deg,rgba(0,0,0,.06) 0%,rgba(0,0,0,.10) 62%,rgba(0,0,0,.34) 100%),
-     url('./menu-hero-fondo.png?v=1') center center/cover no-repeat!important;
+     url('/menu-hero-fondo.png?v=1') center center/cover no-repeat!important;
  }
 }
 
@@ -6117,7 +6117,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
  body:has(.menuShowcase) .menuShowHero{
    background-image:
      linear-gradient(180deg,rgba(0,0,0,.06) 0%,rgba(0,0,0,.10) 62%,rgba(0,0,0,.34) 100%),
-     url('./menu-hero-fondo.png?v=2')!important;
+     url('/menu-hero-fondo.png?v=2')!important;
    background-size:auto 100%!important;
    background-position:left center!important;
    background-repeat:no-repeat!important;
@@ -6135,7 +6135,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
  body:has(.menuShowcase) .menuCatalogSection{
    background:
      linear-gradient(rgba(5,5,5,.12),rgba(5,5,5,.12)),
-     url('./menu-catalogo-fondo.png?v=1') center top/cover repeat-y!important;
+     url('/menu-catalogo-fondo.png?v=1') center top/cover repeat-y!important;
    border:0!important;
    box-shadow:none!important;
  }
@@ -6154,7 +6154,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
  html body:has(.chuckyContinuous) .app,
  html body:has(.chuckyContinuous) main.chuckyContinuous{
    background-color:#080706!important;
-   background-image:url('./fondo-chucky-street.webp?v=2?v=street-final-1')!important;
+   background-image:url('/fondo-chucky-street.webp?v=2?v=street-final-1')!important;
    background-position:center top!important;
    background-repeat:no-repeat!important;
    background-size:cover!important;
@@ -6186,7 +6186,7 @@ body:has(.chuckyScreen) .chuckyNav button.on,body:has(.menuShowcase) .chuckyNav 
  body:has(.menuShowcase) .menuShowHero{
    background:
     linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.30)),
-    url('./menu-hero-fondo.png?v=clean-1') left center/auto 100% no-repeat!important;
+    url('/menu-hero-fondo.png?v=clean-1') left center/auto 100% no-repeat!important;
    background-color:#080706!important;
  }
  body:has(.menuShowcase) .menuShowSection,
@@ -6212,7 +6212,7 @@ body:has(.chuckyContinuous) .app,
 body:has(.chuckyContinuous) .exactHome,
 .chuckyContinuous{
   background-color:#090605!important;
-  background-image:url('./fondo-chucky-street.webp?v=3')!important;
+  background-image:url('/fondo-chucky-street.webp?v=3')!important;
   background-size:100% auto!important;
   background-position:center top!important;
   background-repeat:no-repeat!important;
@@ -6284,7 +6284,7 @@ body:has(.chuckyContinuous) .app,
 body:has(.chuckyContinuous) .exactHome,
 .chuckyContinuous{
   background-color:#080403!important;
-  background-image:url('./fondo-chucky-street.webp?v=4')!important;
+  background-image:url('/fondo-chucky-street.webp?v=4')!important;
   background-repeat:no-repeat!important;
   background-position:center top!important;
   background-size:100% auto!important;
@@ -6339,7 +6339,7 @@ body:has(.chuckyContinuous) .exactHome,
   .chuckyContinuous.exactHome,
   .exactHome.chuckyContinuous{
     background-color:#080403!important;
-    background-image:url('./fondo-chucky-street.webp?v=5')!important;
+    background-image:url('/fondo-chucky-street.webp?v=5')!important;
     background-repeat:no-repeat!important;
     background-position:center top!important;
     background-size:100% auto!important;
@@ -6354,7 +6354,7 @@ body:has(.chuckyContinuous) .exactHome,
   .chuckyContinuous.exactHome,
   .exactHome.chuckyContinuous{
     background-color:#080403!important;
-    background-image:url('./fondo-chucky-street.webp?v=5')!important;
+    background-image:url('/fondo-chucky-street.webp?v=5')!important;
     background-repeat:no-repeat!important;
     background-position:center top!important;
     background-size:100% auto!important;
@@ -6604,14 +6604,14 @@ body:has(.menuShowcase) .app,
 .menuShowcase .menuShowHero.menuCleanHero{
   background:
     linear-gradient(180deg,rgba(0,0,0,.22) 0%,rgba(0,0,0,.48) 100%),
-    url('./menu-hero-fondo.png?v=2') center center/cover no-repeat!important;
+    url('/menu-hero-fondo.png?v=2') center center/cover no-repeat!important;
 }
 
 @media(max-width:600px){
   .menuShowcase .menuShowHero.menuCleanHero{
     background:
       linear-gradient(180deg,rgba(0,0,0,.22) 0%,rgba(0,0,0,.52) 100%),
-      url('./menu-hero-fondo.png?v=2') center center/cover no-repeat!important;
+      url('/menu-hero-fondo.png?v=2') center center/cover no-repeat!important;
   }
 }
 
@@ -6714,7 +6714,7 @@ body:has(.menuShowcase) .app,
  body:has(.menuShowcase) .menuShowHero{
    background:
      linear-gradient(180deg,rgba(0,0,0,.05) 0%,rgba(0,0,0,.10) 65%,rgba(0,0,0,.28) 100%),
-     url('./menu-hero-fondo.png?v=3') center center/cover no-repeat!important;
+     url('/menu-hero-fondo.png?v=3') center center/cover no-repeat!important;
  }
  body:has(.menuShowcase) .menuShowCopy{
    padding-top:0!important;
@@ -6833,7 +6833,7 @@ body:has(.menuShowcase) .app,
   border-bottom:1px solid rgba(255,255,255,.07)!important;
   background:
     linear-gradient(180deg,rgba(0,0,0,.22) 0%,rgba(0,0,0,.50) 100%),
-    url('./menu-hero-fondo.png?v=4') center center/cover no-repeat!important;
+    url('/menu-hero-fondo.png?v=4') center center/cover no-repeat!important;
 }
 
 .menuHeroLeft{
@@ -7116,7 +7116,7 @@ body:has(.menuShowcase) .app,
     gap:10px!important;
     background:
       linear-gradient(180deg,rgba(0,0,0,.16) 0%,rgba(0,0,0,.42) 100%),
-      url('./menu-hero-fondo.png?v=5') center center/cover no-repeat!important;
+      url('/menu-hero-fondo.png?v=5') center center/cover no-repeat!important;
   }
 
   .menuHeroLeft{
@@ -7254,7 +7254,7 @@ body:has(.menuShowcase) .app,
   overflow:hidden!important;
   background:
     linear-gradient(90deg,rgba(0,0,0,.18) 0%,rgba(0,0,0,.30) 52%,rgba(0,0,0,.12) 100%),
-    url('./menu-hero-fondo.png?v=6') center center/cover no-repeat!important;
+    url('/menu-hero-fondo.png?v=6') center center/cover no-repeat!important;
 }
 
 .menuHero02 .menuHeroLeft{
@@ -7447,7 +7447,7 @@ body:has(.menuShowcase) .app,
     overflow:hidden!important;
     background:
       linear-gradient(90deg,rgba(0,0,0,.10),rgba(0,0,0,.16)),
-      url('./menu-hero-fondo.png?v=7') center center/cover no-repeat!important;
+      url('/menu-hero-fondo.png?v=7') center center/cover no-repeat!important;
   }
 
   .menuHero02 .menuHeroLeft{
@@ -7825,7 +7825,7 @@ body:has(.menuShowcase) .app,
     overflow:hidden!important;
     background:
       linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.24)),
-      url('./menu-hero-fondo.png?v=8') center center/cover no-repeat!important;
+      url('/menu-hero-fondo.png?v=8') center center/cover no-repeat!important;
     border-bottom:0!important;
   }
 
@@ -8025,7 +8025,7 @@ body:has(.menuShowcase) .app,
     justify-content: center !important;
     background:
       linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.20)),
-      url('./menu-hero-fondo.png?v=9') center center / cover no-repeat !important;
+      url('/menu-hero-fondo.png?v=9') center center / cover no-repeat !important;
   }
 
   .menuHero04Bar {
@@ -8953,7 +8953,7 @@ body:has(.menuShowcase) .app,
     overflow:hidden!important;
     background:
       linear-gradient(90deg,rgba(0,0,0,.18),rgba(0,0,0,.38)),
-      url('./menu-hero-fondo.png?v=10') center center/cover no-repeat!important;
+      url('/menu-hero-fondo.png?v=10') center center/cover no-repeat!important;
     border-bottom:1px solid rgba(255,255,255,.08)!important;
   }
 
