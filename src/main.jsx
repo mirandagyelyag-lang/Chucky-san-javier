@@ -31,6 +31,15 @@ function App(){
  const subtotal=products.reduce((s,p)=>s+(cart[p.id]||0)*p.price,0);
  const filtered=useMemo(()=>products.filter(p=>p.cat===cat),[cat]);
  useEffect(()=>{
+  const localAssets=[
+   './fondo-chucky-street.webp','./chucky-header.png','./pollo-sushi-titulo.png',
+   './sushi-principal.webp','./pollo-frito-principal.webp','./bebidas-chucky.webp',
+   './salsas-principal.webp','./aprobado-con-fondo.png','./chucky-logo.webp'
+  ];
+  const urls=[...localAssets,...products.map(p=>p.img)];
+  urls.forEach(src=>{const im=new Image();im.decoding='async';im.src=src;});
+ },[]);
+ useEffect(()=>{
   if(!selected)return;
   const y=window.scrollY;
   const body=document.body;
