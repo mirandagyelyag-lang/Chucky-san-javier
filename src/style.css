@@ -11418,3 +11418,36 @@ body:has(.menuShowcase) .app,
     opacity:.42!important;
   }
 }
+
+
+/* DETAIL LEGIBILITY FINAL OVERRIDE — 2026-09-26 */
+@media(max-width:767px){
+  .detailChalk .detailBody h1{
+    max-width:100%!important;
+    margin:0 0 14px!important;
+    font-family:Impact,"Arial Black",Arial,sans-serif!important;
+    font-size:36px!important;
+    line-height:1.02!important;
+    font-weight:900!important;
+    font-style:normal!important;
+    letter-spacing:-.02em!important;
+    text-transform:uppercase!important;
+    transform:none!important;
+    color:#fff!important;
+    -webkit-text-stroke:0!important;
+    text-shadow:none!important;
+  }
+  .detailChalk .detailBody h1::after{
+    width:46%!important;
+    height:4px!important;
+    margin-top:8px!important;
+  }
+  .detailChalk .detailBody p{
+    max-width:100%!important;
+    padding-right:20px!important;
+    font-size:15px!important;
+    line-height:1.45!important;
+  }
+  .detailChalkMarksA{opacity:.35!important;right:12px!important}
+  .detailChalkMarksB{opacity:.20!important}
+}
