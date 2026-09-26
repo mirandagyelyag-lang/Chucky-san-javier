@@ -11017,3 +11017,74 @@ body:has(.menuShowcase) .app,
     margin-top:2px!important;
   }
 }
+
+
+/* CHUCKY CHALK PRODUCT CARDS — 2026-09-26 */
+@media(max-width:767px){
+  .menuRefCard{
+    border:1px solid rgba(239,36,55,.62)!important;
+    background:#0b0909!important;
+    box-shadow:0 10px 24px rgba(0,0,0,.30),inset 0 0 0 1px rgba(255,255,255,.015)!important;
+  }
+  .menuRefCardBody{
+    position:relative!important;
+    isolation:isolate!important;
+    overflow:hidden!important;
+    background:
+      radial-gradient(circle at 88% 20%,rgba(225,24,43,.10),transparent 32%),
+      radial-gradient(circle at 15% 90%,rgba(225,24,43,.07),transparent 34%),
+      repeating-linear-gradient(115deg,rgba(255,255,255,.012) 0 1px,transparent 1px 5px),
+      #0b0a0a!important;
+  }
+  .menuRefCardBody::before{
+    content:""!important;
+    position:absolute!important;
+    inset:0!important;
+    z-index:-1!important;
+    opacity:.42!important;
+    pointer-events:none!important;
+    background:
+      linear-gradient(165deg,transparent 0 76%,rgba(232,31,49,.18) 76.5% 77%,transparent 77.5%),
+      linear-gradient(170deg,transparent 0 82%,rgba(232,31,49,.11) 82.5% 83%,transparent 83.5%)!important;
+  }
+  .chuckyCardDoodles{
+    position:absolute!important;
+    right:9px!important;
+    top:9px!important;
+    bottom:8px!important;
+    width:46px!important;
+    z-index:-1!important;
+    color:rgba(239,36,55,.52)!important;
+    pointer-events:none!important;
+    font-family:Arial,sans-serif!important;
+  }
+  .chuckyCardDoodles i{
+    position:absolute!important;
+    right:2px!important;
+    top:0!important;
+    font-size:31px!important;
+    line-height:1!important;
+    font-style:normal!important;
+    transform:rotate(8deg)!important;
+  }
+  .chuckyCardDoodles b{
+    position:absolute!important;
+    right:5px!important;
+    bottom:2px!important;
+    font-size:21px!important;
+    line-height:1!important;
+    font-weight:800!important;
+    opacity:.62!important;
+    transform:rotate(-10deg)!important;
+  }
+  .menuRefCardBody h3,
+  .menuRefCardBody p,
+  .menuRefCardBody>strong{
+    position:relative!important;
+    z-index:2!important;
+    max-width:78%!important;
+  }
+  .menuRefAdd{
+    z-index:4!important;
+  }
+}
