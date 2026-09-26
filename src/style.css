@@ -11716,3 +11716,36 @@ body:has(.menuShowcase) .app,
   .detailChalk .detailPrice{margin-bottom:7px!important}
   .detailChalk .detailPrice strong{font-size:27px!important}
 }
+
+
+/* DETAIL — REMOVE DEAD SPACE, ANCHOR CONTENT TO NAV — 2026-09-26 */
+@media(max-width:767px){
+  .detailChalk .detailBody{
+    justify-content:flex-start!important;
+    padding-bottom:calc(92px + env(safe-area-inset-bottom))!important;
+  }
+  .detailChalk .bigAdd{
+    margin-bottom:0!important;
+  }
+  .detailChalk .detailPrice{
+    margin-bottom:10px!important;
+  }
+  .detailChalk .detailBody{
+    background-size:cover!important;
+    background-position:center center!important;
+  }
+  .detailChalk .detailBody::after{
+    content:""!important;
+    display:block!important;
+    flex:1 1 auto!important;
+    min-height:0!important;
+  }
+  .detailChalk .bigAdd{
+    order:10!important;
+    margin-top:auto!important;
+  }
+  .detailChalk .detailPrice{order:9!important}
+  .detailChalk .detailBody p{order:8!important}
+  .detailChalk .detailBody h1{order:7!important}
+  .detailChalk .detailCat{order:6!important}
+}
