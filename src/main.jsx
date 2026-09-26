@@ -166,7 +166,8 @@ function Detail({p,close,add}){return <div className="detail detailChalk">
  <div className="detailPhoto"><img src={p.img} decoding="async"/><div className="detailShade"/><button onClick={close} aria-label="Volver"><ArrowLeft/></button><button className="heart" aria-label="Favorito"><Heart/></button></div>
  <div className="detailBody">
   <span className="detailCat">{p.cat}</span>
-  <span className="detailDoodles" aria-hidden="true"><b>♛</b><i>×</i></span>
+  <span className="detailChalkMarks detailChalkMarksA" aria-hidden="true"></span>
+  <span className="detailChalkMarks detailChalkMarksB" aria-hidden="true"></span>
   <h1>{p.name}</h1>
   <p>{p.desc}</p>
   <div className="detailPrice"><strong>{money(p.price)}</strong></div>
