@@ -9475,3 +9475,488 @@ body:has(.menuShowcase) .app,
     height:38px!important;
   }
 }
+
+
+/* MENU APPROVED REFERENCE V1 */
+@media(max-width:767px){
+  body:has(.menuRef),
+  body:has(.menuRef) #root,
+  body:has(.menuRef) .app{
+    background:#020202!important;
+    background-image:none!important;
+  }
+
+  .menuRef{
+    position:relative!important;
+    isolation:isolate!important;
+    width:100%!important;
+    min-height:100dvh!important;
+    margin:0!important;
+    padding:18px 0 112px!important;
+    overflow:hidden!important;
+    background:
+      radial-gradient(circle at 8% 4%,rgba(255,22,58,.26),transparent 23%),
+      radial-gradient(circle at 92% 13%,rgba(255,30,64,.18),transparent 20%),
+      radial-gradient(circle at 38% 42%,rgba(110,0,18,.16),transparent 24%),
+      #020202!important;
+    color:#fff!important;
+    box-sizing:border-box!important;
+  }
+
+  .menuRefSmoke{
+    position:absolute!important;
+    inset:0!important;
+    z-index:-1!important;
+    pointer-events:none!important;
+    opacity:.30!important;
+    background:
+      url('/menu-hero-fondo.png?v=10') center top/100% 360px no-repeat!important;
+    filter:saturate(1.18) contrast(1.08)!important;
+  }
+
+  .menuRefHero{
+    position:relative!important;
+    width:calc(100% - 28px)!important;
+    height:118px!important;
+    margin:0 14px 16px!important;
+    padding:12px 12px!important;
+    display:grid!important;
+    grid-template-columns:72px minmax(0,1fr) 36px 48px!important;
+    align-items:center!important;
+    gap:7px!important;
+    overflow:hidden!important;
+    box-sizing:border-box!important;
+    border-radius:30px!important;
+    border:1px solid rgba(255,255,255,.22)!important;
+    background:
+      linear-gradient(180deg,rgba(16,11,11,.82),rgba(3,3,3,.94)),
+      url('/menu-hero-fondo.png?v=10') center/cover no-repeat!important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.06),
+      0 14px 34px rgba(0,0,0,.38)!important;
+    backdrop-filter:blur(7px)!important;
+    -webkit-backdrop-filter:blur(7px)!important;
+  }
+
+  .menuRefStamp{
+    width:70px!important;
+    height:70px!important;
+    display:block!important;
+    object-fit:contain!important;
+    transform:rotate(-4deg)!important;
+    filter:drop-shadow(0 5px 10px rgba(0,0,0,.45))!important;
+  }
+
+  .menuRefHeroCopy{
+    min-width:0!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+    text-align:center!important;
+  }
+
+  .menuRefHeroCopy small{
+    margin:0 0 2px!important;
+    color:#ff2947!important;
+    font:900 10px/1 Arial,sans-serif!important;
+    letter-spacing:.42em!important;
+    text-transform:uppercase!important;
+  }
+
+  .menuRefHeroCopy h1{
+    margin:0!important;
+    color:#fff5ee!important;
+    font-family:Impact,'Arial Narrow',Arial,sans-serif!important;
+    font-size:46px!important;
+    line-height:.82!important;
+    font-weight:900!important;
+    font-style:italic!important;
+    letter-spacing:-1px!important;
+    text-transform:uppercase!important;
+    transform:skew(-4deg)!important;
+    text-shadow:0 5px 14px rgba(0,0,0,.42)!important;
+  }
+
+  .menuRefHeroCopy span{
+    margin-top:8px!important;
+    color:#f3e5dd!important;
+    font:800 6.5px/1 Arial,sans-serif!important;
+    letter-spacing:.13em!important;
+    white-space:nowrap!important;
+  }
+
+  .menuRefCrown{
+    color:#ff2a49!important;
+    font-size:28px!important;
+    line-height:1!important;
+    transform:rotate(-7deg)!important;
+    text-align:center!important;
+    text-shadow:0 0 14px rgba(255,42,73,.38)!important;
+  }
+
+  .menuRefSearch{
+    position:relative!important;
+    inset:auto!important;
+    width:46px!important;
+    height:46px!important;
+    margin:0!important;
+    padding:0!important;
+    display:grid!important;
+    place-items:center!important;
+    border-radius:50%!important;
+    border:1px solid rgba(255,255,255,.24)!important;
+    background:#090808!important;
+    color:#fff!important;
+    box-shadow:0 0 0 1px rgba(255,38,67,.08),0 0 18px rgba(255,38,67,.12)!important;
+    transform:none!important;
+  }
+
+  .menuRefSearch svg{
+    width:22px!important;
+    height:22px!important;
+  }
+
+  .menuRefTabs{
+    display:flex!important;
+    flex-wrap:nowrap!important;
+    gap:8px!important;
+    width:100%!important;
+    padding:0 14px 12px!important;
+    margin:0!important;
+    overflow-x:auto!important;
+    box-sizing:border-box!important;
+    scrollbar-width:none!important;
+    -webkit-overflow-scrolling:touch!important;
+  }
+
+  .menuRefTabs::-webkit-scrollbar{display:none!important}
+
+  .menuRefTabs button{
+    flex:0 0 auto!important;
+    height:48px!important;
+    min-width:0!important;
+    padding:0 22px!important;
+    margin:0!important;
+    border-radius:999px!important;
+    border:1px solid rgba(255,255,255,.26)!important;
+    background:rgba(15,15,15,.90)!important;
+    color:#fff!important;
+    font:800 13px/1 Arial,sans-serif!important;
+    white-space:nowrap!important;
+    box-shadow:none!important;
+    transform:none!important;
+  }
+
+  .menuRefTabs button.on{
+    background:#ff2845!important;
+    border-color:#ff2845!important;
+    color:#fff!important;
+  }
+
+  .menuRefBody{
+    width:100%!important;
+    padding:0!important;
+    margin:0!important;
+  }
+
+  .menuRefSection{
+    width:100%!important;
+    margin:0!important;
+    padding:11px 0 14px!important;
+    background:transparent!important;
+    scroll-margin-top:12px!important;
+  }
+
+  .menuRefHeading{
+    width:100%!important;
+    padding:0 18px 11px!important;
+    margin:0!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    box-sizing:border-box!important;
+  }
+
+  .menuRefHeading>div{
+    display:flex!important;
+    align-items:center!important;
+    gap:9px!important;
+    min-width:0!important;
+  }
+
+  .menuRefSectionIcon{
+    width:30px!important;
+    height:30px!important;
+    display:grid!important;
+    place-items:center!important;
+    flex:0 0 30px!important;
+    border:0!important;
+    color:#ff2a49!important;
+    font-size:20px!important;
+    filter:grayscale(1) sepia(1) saturate(7) hue-rotate(315deg)!important;
+  }
+
+  .menuRefHeading h2{
+    margin:0!important;
+    color:#fff!important;
+    font-family:Impact,'Arial Narrow',Arial,sans-serif!important;
+    font-size:31px!important;
+    line-height:1!important;
+    font-weight:900!important;
+    font-style:italic!important;
+    letter-spacing:-.6px!important;
+    text-transform:uppercase!important;
+  }
+
+  .menuRefHeading>button{
+    height:auto!important;
+    padding:0!important;
+    margin:0!important;
+    display:flex!important;
+    align-items:center!important;
+    gap:2px!important;
+    border:0!important;
+    background:transparent!important;
+    color:#ff3150!important;
+    font:800 12px/1 Arial,sans-serif!important;
+  }
+
+  .menuRefHeading>button svg{
+    width:16px!important;
+    height:16px!important;
+  }
+
+  .menuRefRail{
+    display:flex!important;
+    flex-direction:row!important;
+    flex-wrap:nowrap!important;
+    gap:12px!important;
+    width:100%!important;
+    padding:0 18px 4px!important;
+    margin:0!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    box-sizing:border-box!important;
+    scroll-snap-type:x proximity!important;
+    scrollbar-width:none!important;
+    -webkit-overflow-scrolling:touch!important;
+  }
+
+  .menuRefRail::-webkit-scrollbar{display:none!important}
+
+  .menuRefCard{
+    position:relative!important;
+    flex:0 0 215px!important;
+    width:215px!important;
+    min-width:215px!important;
+    max-width:215px!important;
+    height:328px!important;
+    margin:0!important;
+    padding:0!important;
+    display:flex!important;
+    flex-direction:column!important;
+    overflow:hidden!important;
+    border:1px solid rgba(255,255,255,.20)!important;
+    border-radius:18px!important;
+    background:#070707!important;
+    color:#fff!important;
+    box-sizing:border-box!important;
+    box-shadow:0 10px 24px rgba(0,0,0,.24)!important;
+    scroll-snap-align:start!important;
+  }
+
+  .menuRefPhoto{
+    position:relative!important;
+    width:100%!important;
+    height:178px!important;
+    min-height:178px!important;
+    overflow:hidden!important;
+    background:#111!important;
+  }
+
+  .menuRefPhoto>img{
+    width:100%!important;
+    height:100%!important;
+    display:block!important;
+    object-fit:cover!important;
+    filter:saturate(1.08) contrast(1.03)!important;
+  }
+
+  .menuRefHeart{
+    position:absolute!important;
+    top:10px!important;
+    right:10px!important;
+    width:38px!important;
+    height:38px!important;
+    display:grid!important;
+    place-items:center!important;
+    padding:0!important;
+    margin:0!important;
+    border-radius:50%!important;
+    border:1px solid rgba(255,255,255,.55)!important;
+    background:rgba(5,5,5,.72)!important;
+    color:#fff!important;
+    backdrop-filter:blur(5px)!important;
+    -webkit-backdrop-filter:blur(5px)!important;
+  }
+
+  .menuRefHeart svg{
+    width:19px!important;
+    height:19px!important;
+  }
+
+  .menuRefCardBody{
+    position:relative!important;
+    flex:1!important;
+    min-height:0!important;
+    padding:13px 14px 54px!important;
+    box-sizing:border-box!important;
+    background:linear-gradient(180deg,#0b0b0b,#050505)!important;
+    text-align:left!important;
+  }
+
+  .menuRefCardBody h3{
+    margin:0 0 5px!important;
+    color:#fff!important;
+    font:900 17px/1.06 Arial,sans-serif!important;
+    letter-spacing:-.25px!important;
+  }
+
+  .menuRefCardBody p{
+    margin:0!important;
+    color:rgba(255,255,255,.64)!important;
+    font:400 11.5px/1.35 Arial,sans-serif!important;
+    display:-webkit-box!important;
+    -webkit-line-clamp:3!important;
+    -webkit-box-orient:vertical!important;
+    overflow:hidden!important;
+  }
+
+  .menuRefCardBody strong{
+    position:absolute!important;
+    left:14px!important;
+    bottom:15px!important;
+    color:#fff!important;
+    font:900 22px/1 Arial,sans-serif!important;
+  }
+
+  .menuRefAdd{
+    position:absolute!important;
+    right:12px!important;
+    bottom:10px!important;
+    width:44px!important;
+    height:44px!important;
+    padding:0!important;
+    margin:0!important;
+    display:grid!important;
+    place-items:center!important;
+    border:0!important;
+    border-radius:50%!important;
+    background:#ff2845!important;
+    color:#fff!important;
+    font:300 31px/1 Arial,sans-serif!important;
+    box-shadow:0 8px 20px rgba(255,40,69,.18)!important;
+    z-index:4!important;
+    transition:transform .16s ease,background .16s ease!important;
+  }
+
+  .menuRefAdd:active{
+    transform:scale(.90)!important;
+  }
+
+  .menuRefAdd.added{
+    background:#21c36b!important;
+    transform:scale(1.08)!important;
+    font-size:22px!important;
+    font-weight:900!important;
+  }
+
+  body:has(.menuRef) .mobileNavSpace{
+    background:transparent!important;
+  }
+}
+
+@media(max-width:390px){
+  .menuRef{
+    padding-top:14px!important;
+  }
+
+  .menuRefHero{
+    width:calc(100% - 22px)!important;
+    height:108px!important;
+    margin-left:11px!important;
+    margin-right:11px!important;
+    grid-template-columns:62px minmax(0,1fr) 30px 42px!important;
+    gap:5px!important;
+    padding:10px!important;
+    border-radius:26px!important;
+  }
+
+  .menuRefStamp{
+    width:60px!important;
+    height:60px!important;
+  }
+
+  .menuRefHeroCopy small{
+    font-size:8px!important;
+  }
+
+  .menuRefHeroCopy h1{
+    font-size:40px!important;
+  }
+
+  .menuRefHeroCopy span{
+    margin-top:6px!important;
+    font-size:5.5px!important;
+    letter-spacing:.08em!important;
+  }
+
+  .menuRefCrown{
+    font-size:23px!important;
+  }
+
+  .menuRefSearch{
+    width:40px!important;
+    height:40px!important;
+  }
+
+  .menuRefTabs{
+    padding-left:11px!important;
+    padding-right:11px!important;
+  }
+
+  .menuRefTabs button{
+    height:44px!important;
+    padding:0 18px!important;
+    font-size:12px!important;
+  }
+
+  .menuRefHeading{
+    padding-left:14px!important;
+    padding-right:14px!important;
+  }
+
+  .menuRefHeading h2{
+    font-size:28px!important;
+  }
+
+  .menuRefRail{
+    gap:10px!important;
+    padding-left:14px!important;
+    padding-right:14px!important;
+  }
+
+  .menuRefCard{
+    flex-basis:200px!important;
+    width:200px!important;
+    min-width:200px!important;
+    max-width:200px!important;
+    height:314px!important;
+  }
+
+  .menuRefPhoto{
+    height:166px!important;
+    min-height:166px!important;
+  }
+}
