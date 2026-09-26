@@ -118,7 +118,8 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
         <img src={p.img} alt={p.name} loading="lazy" decoding="async"/>
         <button className="menuRefHeart" onClick={e=>e.stopPropagation()} aria-label={'Favorito '+p.name}><Heart/></button>
        </div>
-       <div className="menuRefCardBody">
+       <div className="menuRefCardBody" data-cat={p.cat}>
+        <span className="chuckyCardDoodles" aria-hidden="true"><i>♛</i><b>{p.cat==='Salsas'?'🌶':p.cat==='Bebidas'?'✦':p.cat==='Sushi'?'⌁':'×'}</b></span>
         <h3>{p.name}</h3>
         <p>{p.desc}</p>
         <strong>{money(p.price)}</strong>
