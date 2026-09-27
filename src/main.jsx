@@ -1,4 +1,4 @@
-import React,{useMemo,useState}from'react';
+import React,{useEffect,useMemo,useState}from'react';
 import{createRoot}from'react-dom/client';
 import{Menu,Search,ShoppingBag,Plus,Minus,X,ArrowLeft,Heart,Drumstick,ChevronRight,Sparkles,Home,UtensilsCrossed}from'lucide-react';
 import'./style.css';
@@ -17,11 +17,18 @@ const money=n=>'$'+n.toLocaleString('es-CL');
 function DesktopOnlyBlock(){return <main className="desktopOnlyBlock"><div><strong>CHUCKY</strong><p>Disponible solo en celular por ahora</p></div></main>}
 
 function App(){
- const isDesktopDevice=typeof window!=='undefined'&&(
-  window.matchMedia?.('(hover: hover) and (pointer: fine)').matches ||
-  window.innerWidth>=900
- );
- if(isDesktopDevice)return <DesktopOnlyBlock/>;
+ const[isDesktopDevice,setIsDesktopDevice]=useState(()=>typeof window!=='undefined'&&window.matchMedia('(min-width: 900px)').matches);
+ useEffect(()=>{
+  const media=window.matchMedia('(min-width: 900px)');
+  const sync=()=>setIsDesktopDevice(media.matches);
+  sync();
+  media.addEventListener?.('change',sync);
+  return()=>media.removeEventListener?.('change',sync);
+ },[]);
+ return isDesktopDevice?<DesktopOnlyBlock/>:<MobileApp/>;
+}
+
+function MobileApp(){
  const initialScreen=()=>{try{const hash=window.location.hash.replace('#/','').replace('#','');return ['home','menu','search','cart'].includes(hash)?hash:'home'}catch{return 'home'}};
  const[screen,setScreenState]=useState(initialScreen),[cat,setCat]=useState('Todo'),[q,setQ]=useState(''),[cart,setCart]=useState({}),[selected,setSelected]=useState(null);
  const setScreen=next=>{setScreenState(next);try{history.replaceState(null,'',next==='home'?window.location.pathname:window.location.pathname+'#/'+next)}catch{}};
