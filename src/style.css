@@ -12014,3 +12014,29 @@ body:has(.menuShowcase) .app,
     display:none!important;
   }
 }
+
+
+/* MENU HEN ARTWORK — 2026-09-27 */
+@media(max-width:767px){
+  .menuEditorialTitleMain{
+    display:flex!important;
+    align-items:flex-end!important;
+    gap:9px!important;
+    flex:1 1 auto!important;
+    min-width:0!important;
+  }
+
+  .menuEditorialTitleMain h2{
+    flex:0 0 auto!important;
+  }
+
+  .menuEditorialHen{
+    display:block!important;
+    width:28px!important;
+    height:28px!important;
+    object-fit:contain!important;
+    flex:0 0 28px!important;
+    margin:0 0 1px!important;
+    opacity:.9!important;
+  }
+}
