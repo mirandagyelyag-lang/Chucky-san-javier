@@ -11884,3 +11884,128 @@ body:has(.menuShowcase) .app,
   transform:none !important;
   skew:none !important;
 }
+
+
+/* MENU EDITORIAL MINIMAL 01 — 2026-09-27 */
+@media(max-width:767px){
+  .menuRefSection{
+    padding-top:0!important;
+    border-color:rgba(255,255,255,.10)!important;
+    background:linear-gradient(180deg,rgba(8,8,8,.985),rgba(3,3,3,.995))!important;
+    box-shadow:0 12px 28px rgba(0,0,0,.22)!important;
+  }
+
+  .menuRefHeading.menuEditorialHeading{
+    display:block!important;
+    padding:22px 18px 18px!important;
+    margin:0!important;
+    border:0!important;
+    background:transparent!important;
+    min-height:0!important;
+  }
+
+  .menuEditorialKicker{
+    display:flex!important;
+    align-items:center!important;
+    gap:12px!important;
+    width:100%!important;
+    margin-bottom:8px!important;
+  }
+
+  .menuEditorialKicker span{
+    flex:0 0 auto!important;
+    color:#d8c7bc!important;
+    font-family:Arial,sans-serif!important;
+    font-size:9px!important;
+    line-height:1!important;
+    font-weight:700!important;
+    letter-spacing:.24em!important;
+    text-transform:uppercase!important;
+  }
+
+  .menuEditorialKicker i{
+    display:block!important;
+    flex:1 1 auto!important;
+    height:1px!important;
+    background:rgba(232,216,204,.45)!important;
+  }
+
+  .menuEditorialTitleRow{
+    display:flex!important;
+    align-items:flex-end!important;
+    justify-content:space-between!important;
+    gap:14px!important;
+    width:100%!important;
+  }
+
+  .menuRefHeading.menuEditorialHeading .menuEditorialTitleRow h2{
+    margin:0!important;
+    color:#f0e9e2!important;
+    font-family:Georgia,'Times New Roman',serif!important;
+    font-size:38px!important;
+    line-height:.94!important;
+    font-style:normal!important;
+    font-weight:700!important;
+    letter-spacing:-.035em!important;
+    text-transform:uppercase!important;
+    text-shadow:none!important;
+  }
+
+  .menuRefHeading.menuEditorialHeading .menuEditorialTitleRow>button{
+    flex:0 0 auto!important;
+    display:flex!important;
+    align-items:center!important;
+    gap:3px!important;
+    margin:0 0 3px!important;
+    padding:0!important;
+    border:0!important;
+    background:transparent!important;
+    color:#ff3652!important;
+    font-family:Arial,sans-serif!important;
+    font-size:12px!important;
+    line-height:1!important;
+    font-weight:700!important;
+  }
+
+  .menuRefHeading.menuEditorialHeading .menuEditorialTitleRow>button svg{
+    width:15px!important;
+    height:15px!important;
+    stroke-width:2!important;
+  }
+
+  .menuEditorialNote{
+    display:flex!important;
+    align-items:center!important;
+    gap:10px!important;
+    width:100%!important;
+    margin-top:11px!important;
+  }
+
+  .menuEditorialNote i{
+    display:block!important;
+    flex:1 1 auto!important;
+    height:1px!important;
+    background:rgba(232,216,204,.28)!important;
+  }
+
+  .menuEditorialNote small{
+    flex:0 0 auto!important;
+    color:#a99b92!important;
+    font-family:Arial,sans-serif!important;
+    font-size:8px!important;
+    line-height:1!important;
+    font-weight:600!important;
+    letter-spacing:.17em!important;
+    text-transform:uppercase!important;
+    white-space:nowrap!important;
+  }
+
+  .menuRefRail{
+    padding-top:4px!important;
+  }
+
+  .menuRefSectionIcon,
+  .chuckyCardDoodles{
+    display:none!important;
+  }
+}
