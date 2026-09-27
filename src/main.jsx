@@ -113,7 +113,12 @@ function HomePage({setScreen,setCat,add,setSelected}){
 function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
  const menuCats=['Todo',...cats];
  const[justAdded,setJustAdded]=useState(null);
- const sectionIcon=c=>c==='Pollo frito'?'🍗':c==='Sushi'?'🍣':c==='Salsas'?'◉':'🥤';
+ const sectionMeta={
+  'Pollo frito':{kicker:'NUESTRO CLÁSICO',note:'CRUJIENTE · JUGOSO · RECIÉN HECHO'},
+  'Sushi':{kicker:'ROLLS DE LA CASA',note:'FRESCO · CREMOSO · HECHO AL MOMENTO'},
+  'Salsas':{kicker:'EL TOQUE FINAL',note:'PARA ACOMPAÑAR TU PEDIDO'},
+  'Bebidas':{kicker:'PARA TOMAR',note:'FRÍAS · SIMPLES · AL PUNTO'}
+ };
  const jump=(c)=>{
   setCat(c);
   if(c==='Todo'){window.scrollTo({top:0,behavior:'smooth'});return}
@@ -143,9 +148,13 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
     if(!items.length)return null;
     const id='menu-'+c.toLowerCase().replace(/\s+/g,'-');
     return <section id={id} key={c} className="menuRefSection">
-     <header className="menuRefHeading">
-      <div><span className="menuRefSectionIcon" aria-hidden="true">{sectionIcon(c)}</span><h2>{c}</h2></div>
-      <button onClick={()=>jump(c)}>Ver todo <ChevronRight/></button>
+     <header className="menuRefHeading menuEditorialHeading">
+      <div className="menuEditorialKicker"><span>{sectionMeta[c].kicker}</span><i aria-hidden="true"/></div>
+      <div className="menuEditorialTitleRow">
+       <h2>{c}</h2>
+       <button onClick={()=>jump(c)}>Ver todo <ChevronRight/></button>
+      </div>
+      <div className="menuEditorialNote"><i aria-hidden="true"/><small>{sectionMeta[c].note}</small><i aria-hidden="true"/></div>
      </header>
 
      <div className="menuRefRail">
@@ -155,7 +164,6 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
         <button className="menuRefHeart" onClick={e=>e.stopPropagation()} aria-label={'Favorito '+p.name}><Heart/></button>
        </div>
        <div className="menuRefCardBody" data-cat={p.cat}>
-        <span className="chuckyCardDoodles" aria-hidden="true"><i>♛</i><b>{p.cat==='Salsas'?'🌶':p.cat==='Bebidas'?'✦':p.cat==='Sushi'?'⌁':'×'}</b></span>
         <h3>{p.name}</h3>
         <p>{p.desc}</p>
         <strong>{money(p.price)}</strong>
