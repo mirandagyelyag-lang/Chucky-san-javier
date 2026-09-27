@@ -12510,3 +12510,9 @@ body:has(.menuShowcase) .app,
     color:#a06f62!important;
   }
 }
+
+
+/* ADDRESS SEARCH NONBLOCKING — 2026-09-27 */
+@media(max-width:767px){
+  .addressLoading{display:none!important}
+}
