@@ -248,76 +248,80 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
   if(customer.delivery!=='Despacho'||addressLocked||customer.address.trim().length<2){setAddressSuggestions([]);return}
   const timer=setTimeout(async()=>{
    setAddressLoading(true);
-   const rawQuery=customer.address.trim();
-   const numberMatch=rawQuery.match(/(?:^|\s)(\d+[A-Za-z]?)\s*$/);
+   const raw=customer.address.trim();
+   const numberMatch=raw.match(/(?:^|\s)(\d+[A-Za-z]?)\s*$/);
    const typedNumber=(numberMatch?.[1]||'').toLowerCase();
-   const streetQuery=(typedNumber?rawQuery.slice(0,numberMatch.index).trim():rawQuery).trim();
+   const streetQuery=(typedNumber?raw.slice(0,numberMatch.index).trim():raw).trim();
    const norm=v=>normalizePlace(v).replace(/\s+/g,' ').trim();
    const unique=list=>{const seen=new Set();return list.filter(x=>{if(!x?.label||!x?.lat||!x?.lon)return false;const k=norm(x.label);if(seen.has(k))return false;seen.add(k);return true})};
 
    try{
-    const streetQ=encodeURIComponent((streetQuery||rawQuery)+', San Javier, Maule, Chile');
-    const r=await fetch('https://photon.komoot.io/api/?limit=8&lang=es&q='+streetQ);
-    if(!r.ok)throw new Error('photon');
-    const data=await r.json();
-    const candidates=(data.features||[]).map(feat=>{
-     const p=feat.properties||{};
-     const street=(p.street||p.name||'').trim();
-     const txt=[p.name,p.street,p.district,p.city,p.county,p.state].filter(Boolean).join(' ');
-     const area=[p.district,p.city,p.county].filter(Boolean);
-     return{street,meta:[...new Set(area)].slice(0,2).join(', '),lat:feat.geometry?.coordinates?.[1],lon:feat.geometry?.coordinates?.[0],ok:isSanJavierPlace(txt)};
-    }).filter(x=>x.ok&&x.street&&x.lat&&x.lon);
-    const base=candidates.find(x=>norm(x.street)===norm(streetQuery))||candidates[0];
+    // Resolve the street in San Javier first. This is independent from the house number.
+    const streetUrl='https://nominatim.openstreetmap.org/search?format=jsonv2&countrycodes=cl&limit=8&addressdetails=1&q='+encodeURIComponent((streetQuery||raw)+', San Javier, Maule, Chile');
+    const sr=await fetch(streetUrl);
+    if(!sr.ok)throw new Error('street lookup');
+    const sd=await sr.json();
+    const streetCandidates=sd.filter(x=>{
+     const a=x.address||{};
+     const place=[a.city,a.town,a.village,a.municipality,a.county,a.state,x.display_name].filter(Boolean).join(' ');
+     return isSanJavierPlace(place);
+    }).map(x=>{
+     const a=x.address||{};
+     const street=(a.road||a.pedestrian||a.path||x.name||x.display_name.split(',')[0]||streetQuery).trim();
+     const meta=[a.suburb||a.neighbourhood,a.city||a.town||a.village||a.municipality].filter(Boolean);
+     return{street,meta:[...new Set(meta)].slice(0,2).join(', '),lat:x.lat,lon:x.lon};
+    }).filter(x=>x.street&&x.lat&&x.lon);
+    const base=streetCandidates.find(x=>norm(x.street)===norm(streetQuery))||streetCandidates[0];
 
     if(base&&typedNumber){
-     try{
-      const overpass='[out:json][timeout:12];nwr(around:4500,'+base.lat+','+base.lon+')["addr:housenumber"]["addr:street"];out center 500;';
-      const or=await fetch('https://overpass-api.de/api/interpreter',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:'data='+encodeURIComponent(overpass)});
-      if(or.ok){
+     const targetStreet=norm(base.street);
+     const streetTokens=targetStreet.split(' ').filter(t=>t.length>2);
+     const query='[out:json][timeout:15];nwr(around:6500,'+base.lat+','+base.lon+')["addr:housenumber"]["addr:street"];out center 800;';
+     const endpoints=['https://overpass-api.de/api/interpreter?data=','https://overpass.kumi.systems/api/interpreter?data='];
+     for(const endpoint of endpoints){
+      try{
+       const or=await fetch(endpoint+encodeURIComponent(query));
+       if(!or.ok)continue;
        const od=await or.json();
-       const targetStreet=norm(base.street);
-       const streetTokens=targetStreet.split(' ').filter(t=>t.length>2);
        const numbered=(od.elements||[]).map(el=>{
         const t=el.tags||{};
         const street=(t['addr:street']||'').trim();
         const number=(t['addr:housenumber']||'').trim();
         const lat=el.lat??el.center?.lat,lon=el.lon??el.center?.lon;
-        const normalizedStreet=norm(street);
-        const sameStreet=normalizedStreet===targetStreet||streetTokens.every(tok=>normalizedStreet.includes(tok));
+        const ns=norm(street);
+        const sameStreet=ns===targetStreet||streetTokens.every(tok=>ns.includes(tok));
         return{street,number,lat,lon,sameStreet};
-       }).filter(x=>x.sameStreet&&x.street&&x.number&&x.lat&&x.lon&&x.number.toLowerCase().startsWith(typedNumber));
+       }).filter(x=>x.sameStreet&&x.number&&x.lat&&x.lon&&x.number.toLowerCase().startsWith(typedNumber));
        const pref=unique(numbered.sort((a,b)=>String(a.number).localeCompare(String(b.number),'es',{numeric:true})).map(x=>({label:x.street+' '+x.number,meta:base.meta||'San Javier',lat:x.lat,lon:x.lon,verified:true}))).slice(0,6);
        if(pref.length){setAddressSuggestions(pref);return}
-      }
-     }catch{}
-    }
+      }catch{}
+     }
 
-    if(typedNumber&&base){
-     const exactQ=encodeURIComponent(base.street+' '+typedNumber+', San Javier, Maule, Chile');
-     const er=await fetch('https://nominatim.openstreetmap.org/search?format=jsonv2&countrycodes=cl&limit=6&addressdetails=1&q='+exactQ);
+     // Exact-address fallback if OpenStreetMap's number index has no prefix matches.
+     const er=await fetch('https://nominatim.openstreetmap.org/search?format=jsonv2&countrycodes=cl&limit=6&addressdetails=1&q='+encodeURIComponent(base.street+' '+typedNumber+', San Javier, Maule, Chile'));
      if(er.ok){
       const ed=await er.json();
       const exact=unique(ed.filter(x=>{const a=x.address||{};return isSanJavierPlace([a.city,a.town,a.village,a.municipality,a.county,a.state,x.display_name].filter(Boolean).join(' '))}).map(x=>{
-       const a=x.address||{};const street=(a.road||a.pedestrian||a.path||base.street).trim();const number=(a.house_number||typedNumber).trim();
-       return{label:street+' '+number,meta:[a.suburb||a.neighbourhood,a.city||a.town||a.village||a.municipality].filter(Boolean).join(', '),lat:x.lat,lon:x.lon};
-      }));
+       const a=x.address||{};const street=(a.road||a.pedestrian||a.path||base.street).trim();const number=(a.house_number||'').trim();
+       return number&&number.toLowerCase().startsWith(typedNumber)?{label:street+' '+number,meta:[a.suburb||a.neighbourhood,a.city||a.town||a.village||a.municipality].filter(Boolean).join(', '),lat:x.lat,lon:x.lon}:null;
+      }).filter(Boolean));
       if(exact.length){setAddressSuggestions(exact.slice(0,6));return}
      }
-    }
 
-    if(typedNumber&&base){
-     setAddressSuggestions([{label:base.street+' '+typedNumber,meta:'San Javier · completa el número si falta',lat:base.lat,lon:base.lon,unverified:true}]);
+     setAddressSuggestions([{label:base.street+' '+typedNumber,meta:'No encontramos números registrados que empiecen así',lat:base.lat,lon:base.lon,unverified:true,noSelect:true}]);
      return;
     }
-    const plain=unique(candidates.map(x=>({label:x.street,meta:x.meta,lat:x.lat,lon:x.lon}))).slice(0,6);
+
+    const plain=unique(streetCandidates.map(x=>({label:x.street,meta:x.meta||'San Javier',lat:x.lat,lon:x.lon}))).slice(0,6);
     setAddressSuggestions(plain);
    }catch{
     setAddressSuggestions([]);
    }finally{setAddressLoading(false)}
-  },350);
+  },400);
   return()=>clearTimeout(timer);
  },[customer.address,customer.delivery,addressLocked]);
  const chooseAddress=s=>{
+  if(s.noSelect)return;
   const full=[s.label,s.meta].filter(Boolean).join(', ');
   if(!isSanJavierPlace(full)){setLocationStatus('Solo hacemos despachos dentro de San Javier.');return}
   setAddressLocked(true);
@@ -433,7 +437,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
       {customer.address.trim()&&!hasStreetNumber&&<small className="fieldError addressNumberError">Agrega el número de la dirección.</small>}
       {(addressLoading||addressSuggestions.length>0)&&<div className="addressSuggestions">
        {addressLoading&&<div className="addressLoading">Buscando direcciones…</div>}
-       {addressSuggestions.map((s,i)=><button type="button" key={s.lat+'-'+s.lon+'-'+i} onClick={()=>chooseAddress(s)} className={s.unverified?'unverifiedAddress':''}><MapPin/><span><b>{s.label}</b>{s.meta&&<small>{s.meta}</small>}</span></button>)}
+       {addressSuggestions.map((s,i)=><button type="button" key={s.lat+'-'+s.lon+'-'+i} onClick={()=>chooseAddress(s)} className={(s.unverified?'unverifiedAddress ':'')+(s.noSelect?'addressInfoRow':'')}><MapPin/><span><b>{s.label}</b>{s.meta&&<small>{s.meta}</small>}</span></button>)}
       </div>}
      </label>
      <label>Piso y departamento <span className="optionalTag">OPCIONAL</span><input name="floor" value={customer.floor} onChange={change} placeholder="Ej: 1B"/></label>
