@@ -12516,3 +12516,22 @@ body:has(.menuShowcase) .app,
 @media(max-width:767px){
   .addressLoading{display:none!important}
 }
+
+
+/* GOOGLE MAPS AUTOCOMPLETE — 2026-09-27 */
+@media(max-width:767px){
+  .googleMapsAttribution{
+    padding:8px 12px 9px!important;
+    border-top:1px solid #e4ddd8!important;
+    background:#f6f1ed!important;
+    color:#5e5e5e!important;
+    font-family:Roboto,Arial,sans-serif!important;
+    font-size:12px!important;
+    font-style:normal!important;
+    font-weight:400!important;
+    line-height:1!important;
+    letter-spacing:normal!important;
+    text-align:right!important;
+    white-space:nowrap!important;
+  }
+}
