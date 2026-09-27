@@ -12063,3 +12063,68 @@ body:has(.menuShowcase) .app,
     margin:0 0 -8px!important;
   }
 }
+
+
+/* MENU WARM DARK BALANCE — 2026-09-27 */
+@media(max-width:767px){
+  .menuRefSection{
+    background:
+      radial-gradient(circle at 12% 8%,rgba(111,34,30,.16),transparent 34%),
+      radial-gradient(circle at 88% 92%,rgba(88,28,24,.12),transparent 32%),
+      linear-gradient(180deg,#171210 0%,#120e0d 100%)!important;
+    border-color:rgba(222,170,154,.18)!important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.035),
+      0 12px 28px rgba(0,0,0,.20)!important;
+  }
+
+  .menuRefHeading.menuEditorialHeading{
+    background:
+      linear-gradient(180deg,rgba(255,255,255,.012),rgba(255,255,255,0))!important;
+  }
+
+  .menuRefCard{
+    background:#181210!important;
+    border-color:rgba(255,56,79,.58)!important;
+    box-shadow:
+      0 10px 24px rgba(0,0,0,.22),
+      inset 0 1px 0 rgba(255,255,255,.025)!important;
+  }
+
+  .menuRefCardBody{
+    background:
+      radial-gradient(circle at 90% 12%,rgba(176,48,48,.12),transparent 34%),
+      linear-gradient(180deg,#1b1412 0%,#140f0e 100%)!important;
+  }
+
+  .menuRefCardBody::before{
+    opacity:.22!important;
+  }
+
+  .menuRefPhoto{
+    background:#211815!important;
+  }
+
+  .menuRefCardBody p{
+    color:rgba(239,226,218,.72)!important;
+  }
+
+  .menuRefCardBody h3,
+  .menuRefCardBody strong{
+    color:#fff8f2!important;
+  }
+
+  .menuRefHeading.menuEditorialHeading .menuEditorialTitleRow h2{
+    color:#f5ede7!important;
+  }
+
+  .menuEditorialKicker span,
+  .menuEditorialNote small{
+    color:#cdb9ad!important;
+  }
+
+  .menuEditorialKicker i,
+  .menuEditorialNote i{
+    background:rgba(225,205,193,.30)!important;
+  }
+}
