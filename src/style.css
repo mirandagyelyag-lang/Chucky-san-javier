@@ -12041,3 +12041,14 @@ body:has(.menuShowcase) .app,
     margin:0 0 -8px!important;
   }
 }
+
+
+/* MENU SALSAS ICON SIZE — 2026-09-27 */
+@media(max-width:767px){
+  .menuEditorialFoodIconSalsas{
+    width:46px!important;
+    height:46px!important;
+    flex:0 0 46px!important;
+    margin:0 0 -7px!important;
+  }
+}
