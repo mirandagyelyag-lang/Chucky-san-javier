@@ -11843,3 +11843,25 @@ body:has(.menuShowcase) .app,
   .detailChalk .detailBody h1{font-size:27px!important}
   .detailChalk .detailBody p{font-size:12px!important}
 }
+
+
+/* softer menu typography 2026-09-27 */
+.menuRefHeroCopy h1{
+  color:#f2ebe4 !important;
+  font-weight:800 !important;
+  text-shadow:none !important;
+  letter-spacing:.015em !important;
+}
+
+.menuRefHeading h2{
+  color:#f2ebe4 !important;
+  font-weight:700 !important;
+  text-shadow:none !important;
+  letter-spacing:.005em !important;
+}
+
+/* Keep the section title strong without the eye-searing white/black contrast */
+.menuRefHeading{
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
