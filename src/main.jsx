@@ -278,28 +278,14 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
   },260);
   return()=>clearTimeout(timer);
  },[customer.address,customer.delivery,addressLocked]);
- const chooseAddress=async s=>{
-  if(!s?.placeId)return;
-  try{
-   setAddressLoading(true);
-   const response=await fetch('/api/geoapify',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({placeId:s.placeId})
-   });
-   const data=await response.json();
-   if(!response.ok)throw new Error(data?.error||'geoapify-details');
-   const full=(data.formatted||[s.label,s.meta].filter(Boolean).join(', ')).trim();
-   if(!isSanJavierPlace(full)){setLocationStatus('Solo hacemos despachos dentro de San Javier.');return}
-   const lat=data.lat;
-   const lon=data.lon;
-   setAddressLocked(true);
-   setCustomer(c=>({...c,address:full,lat:lat!=null?String(lat):'',lon:lon!=null?String(lon):''}));
-   setAddressSuggestions([]);
-   setLocationStatus('Dirección confirmada');
-  }catch{
-   setLocationStatus('No pudimos confirmar esa dirección. Intenta otra sugerencia.');
-  }finally{setAddressLoading(false)}
+ const chooseAddress=s=>{
+  if(!s)return;
+  const full=[s.label,s.meta].filter(Boolean).join(', ').trim();
+  if(!isSanJavierPlace(full)){setLocationStatus('Solo hacemos despachos dentro de San Javier.');return}
+  setAddressLocked(true);
+  setCustomer(c=>({...c,address:full,lat:s.lat!=null?String(s.lat):'',lon:s.lon!=null?String(s.lon):''}));
+  setAddressSuggestions([]);
+  setLocationStatus('Dirección confirmada');
  };
  const useMyLocation=()=>{
   if(!navigator.geolocation){setLocationStatus('Este dispositivo no permite obtener la ubicación.');return}
