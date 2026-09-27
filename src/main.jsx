@@ -152,13 +152,7 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
       <div className="menuEditorialKicker">
        <span>{sectionMeta[c].kicker}</span>
        <i aria-hidden="true"/>
-       {c==='Pollo frito'&&<svg className="menuEditorialFoodIcon" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-        <path d="M43.7 8.7c-8.2-4.2-18.6-.6-23.3 7.9-3.8 6.9-3 15.1 1.2 20.6L9.9 48.9a6.1 6.1 0 0 0 8.6 8.6l11.7-11.7c5.7 4.1 13.9 4.8 20.7.9 8.4-4.9 11.7-15.4 7.3-23.5-2.9-5.4-8-8.9-14.5-14.5Z"/>
-        <path d="M18.4 42.7 9.8 51.3m13.1-4.1-8.6 8.6"/>
-        <path d="M27.2 19.5c2.7-4.9 8.8-6.9 13.8-4.6m-16.2 10.7c-.6 2.7-.3 5.4.9 7.8m20.5-13.6c3 1.6 5.3 4.2 6.3 7.4"/>
-        <path d="M31.7 16.7c1.6 1.2 2.4 2.7 2.6 4.4m4.3-7.5c1.3 1.6 1.8 3.3 1.5 5m5.7-2.5c.8 1.7.9 3.4.3 5.1m5.4-.2c.5 1.6.4 3.2-.4 4.7"/>
-        <path d="M29.8 33.7c2.4 3.2 6.2 5.3 10.4 5.5m-7.8 4c3.8 1.7 8.2 1.9 12.1.4m-2.9-15.1c2.2 2.1 5.3 3.3 8.5 3.2"/>
-       </svg>}
+       {c==='Pollo frito'&&<img className="menuEditorialFoodIcon" src="./pollo-frito.png?v=1" alt="" aria-hidden="true" loading="eager" decoding="async"/>}
       </div>
       <div className="menuEditorialTitleRow">
        <h2>{c}</h2>
