@@ -12022,11 +12022,16 @@ body:has(.menuShowcase) .app,
 @media(max-width:767px){
   .menuEditorialFoodIcon{
     display:block!important;
-    width:34px!important;
-    height:34px!important;
-    flex:0 0 34px!important;
-    object-fit:contain!important;
+    width:42px!important;
+    height:42px!important;
+    flex:0 0 42px!important;
+    overflow:visible!important;
     opacity:1!important;
-    margin:0 0 -2px!important;
+    margin:0 0 -6px!important;
+    fill:none!important;
+    stroke:#efe5dc!important;
+    stroke-width:2.1!important;
+    stroke-linecap:round!important;
+    stroke-linejoin:round!important;
   }
 }
