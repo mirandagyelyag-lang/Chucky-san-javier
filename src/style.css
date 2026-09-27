@@ -12716,3 +12716,101 @@ body:has(.menuShowcase) .app,
     padding:0!important;
   }
 }
+
+
+/* CHECKOUT WARM DARK PALETTE — 2026-09-27 */
+@media(max-width:767px){
+  body:has(main.cartSmart:not(.cartSmartEmpty)),
+  body:has(main.cartSmart:not(.cartSmartEmpty)) #root,
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .app{
+    background:
+      radial-gradient(circle at 85% 8%,rgba(120,28,38,.18),transparent 28%),
+      radial-gradient(circle at 12% 62%,rgba(90,46,34,.14),transparent 30%),
+      #140b0c!important;
+  }
+
+  body:has(main.cartSmart:not(.cartSmartEmpty)) main.content.cartSmart{
+    background:
+      linear-gradient(180deg,#140b0c 0%,#1a0f11 46%,#120a0b 100%)!important;
+  }
+
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .smartSummary{
+    background:
+      linear-gradient(145deg,#221416 0%,#1b1112 58%,#241416 100%)!important;
+    border-color:#513034!important;
+    box-shadow:0 16px 34px rgba(0,0,0,.20)!important;
+  }
+
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .smartCartItem,
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .smartDelivery,
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .smartTotal{
+    border-color:rgba(214,141,130,.16)!important;
+  }
+
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .smartQty{
+    background:#2a1a19!important;
+    border-color:#62413e!important;
+  }
+
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .smartQty button{
+    background:#3a2422!important;
+  }
+
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .smartCustomer{
+    background:
+      linear-gradient(160deg,#241718 0%,#1d1313 52%,#281819 100%)!important;
+    border-color:#543536!important;
+    box-shadow:0 18px 38px rgba(0,0,0,.22)!important;
+  }
+
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .checkoutGroup{
+    border-color:rgba(232,185,172,.12)!important;
+  }
+
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .checkoutFormV2 input,
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .checkoutFormV2 textarea{
+    color:#fff7f2!important;
+    border-bottom-color:rgba(232,203,193,.30)!important;
+  }
+
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .deliveryChoice button{
+    background:#2b1c1b!important;
+    border-color:#60413e!important;
+  }
+
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .deliveryChoice button.on{
+    background:linear-gradient(135deg,#542026,#35171b)!important;
+    border-color:#ff405a!important;
+  }
+
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .useLocationBtn{
+    background:linear-gradient(135deg,rgba(111,31,40,.34),rgba(73,28,31,.22))!important;
+    border-color:rgba(255,64,90,.55)!important;
+  }
+
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .paymentOption{
+    padding:0 12px!important;
+    border-radius:14px!important;
+    background:rgba(255,255,255,.025)!important;
+  }
+
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .paymentOption.on{
+    background:rgba(255,49,80,.08)!important;
+  }
+
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .checkoutFinalSummary{
+    padding:18px 14px 10px!important;
+    border:1px solid rgba(217,163,150,.16)!important;
+    border-radius:16px!important;
+    background:#1a1011!important;
+  }
+
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .checkoutBackV2{
+    background:rgba(255,255,255,.018)!important;
+  }
+
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .chuckyNav{
+    background:rgba(24,14,15,.97)!important;
+    border-color:#513235!important;
+  }
+}
