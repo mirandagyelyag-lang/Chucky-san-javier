@@ -11934,21 +11934,25 @@ body:has(.menuShowcase) .app,
     display:flex!important;
     align-items:flex-end!important;
     justify-content:space-between!important;
-    gap:14px!important;
+    gap:12px!important;
     width:100%!important;
+    flex-wrap:nowrap!important;
   }
 
   .menuRefHeading.menuEditorialHeading .menuEditorialTitleRow h2{
     margin:0!important;
     color:#f0e9e2!important;
     font-family:Georgia,'Times New Roman',serif!important;
-    font-size:38px!important;
-    line-height:.94!important;
+    font-size:28px!important;
+    line-height:.92!important;
     font-style:normal!important;
     font-weight:700!important;
-    letter-spacing:-.035em!important;
+    letter-spacing:-.05em!important;
     text-transform:uppercase!important;
     text-shadow:none!important;
+    white-space:nowrap!important;
+    flex:1 1 auto!important;
+    min-width:0!important;
   }
 
   .menuRefHeading.menuEditorialHeading .menuEditorialTitleRow>button{
@@ -11956,7 +11960,7 @@ body:has(.menuShowcase) .app,
     display:flex!important;
     align-items:center!important;
     gap:3px!important;
-    margin:0 0 3px!important;
+    margin:0 0 2px!important;
     padding:0!important;
     border:0!important;
     background:transparent!important;
@@ -11965,6 +11969,7 @@ body:has(.menuShowcase) .app,
     font-size:12px!important;
     line-height:1!important;
     font-weight:700!important;
+    white-space:nowrap!important;
   }
 
   .menuRefHeading.menuEditorialHeading .menuEditorialTitleRow>button svg{
