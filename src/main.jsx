@@ -228,7 +228,7 @@ function Detail({p,close,add}){return <div className="detail detailChalk">
 
 function Cart({cart,setCart,add,sub,subtotal,setScreen}){
  const items=products.filter(p=>cart[p.id]);
- const[customer,setCustomer]=useState({name:'',phone:'',email:'',delivery:'Retiro en local',address:'',floor:'',notes:'',payment:'',cashAmount:'',lat:'',lon:''});
+ const[customer,setCustomer]=useState({name:'',phone:'',email:'',delivery:'Retiro en local',address:'',street:'',streetNumber:'',floor:'',notes:'',payment:'',cashAmount:'',lat:'',lon:''});
  const[sending,setSending]=useState(false);
  const[sent,setSent]=useState(false);
  const[error,setError]=useState('');
@@ -239,63 +239,91 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
  const[locationStatus,setLocationStatus]=useState('');
  const change=e=>setCustomer(c=>({...c,[e.target.name]:e.target.value}));
  const emailOk=!customer.email.trim()||/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customer.email.trim());
- const hasStreetNumber=/\d/.test(customer.address.trim());
- const canSend=items.length&&customer.name.trim()&&customer.phone.trim()&&emailOk&&customer.payment&&(customer.delivery==='Retiro en local'||(customer.address.trim()&&hasStreetNumber))&&(customer.payment!=='Efectivo'||!customer.cashAmount||Number(customer.cashAmount.replace(/\D/g,''))>=subtotal);
+ const hasStreetNumber=/\d/.test(customer.streetNumber.trim());
+ const canSend=items.length&&customer.name.trim()&&customer.phone.trim()&&emailOk&&customer.payment&&(customer.delivery==='Retiro en local'||(customer.street.trim()&&hasStreetNumber))&&(customer.payment!=='Efectivo'||!customer.cashAmount||Number(customer.cashAmount.replace(/\D/g,''))>=subtotal);
  const normalizePlace=v=>(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
  const isSanJavierPlace=v=>normalizePlace(v).includes('san javier');
 
  useEffect(()=>{
-  if(customer.delivery!=='Despacho'||addressLocked||customer.address.trim().length<2){setAddressSuggestions([]);return}
+  if(customer.delivery!=='Despacho'||customer.street.trim().length<2){setAddressSuggestions([]);return}
   const timer=setTimeout(async()=>{
-   const raw=customer.address.trim();
-   const numberMatch=raw.match(/(?:^|\s)(\d+[A-Za-z]?)\s*$/);
-   const typedNumber=(numberMatch?.[1]||'').toLowerCase();
    setAddressLoading(true);
    try{
     const response=await fetch('/api/geoapify',{
      method:'POST',
      headers:{'Content-Type':'application/json'},
-     body:JSON.stringify({input:raw})
+     body:JSON.stringify({input:customer.street.trim()})
     });
     const data=await response.json();
     if(!response.ok)throw new Error(data?.error||'geoapify');
-    let suggestions=(data.suggestions||[]).map(x=>({
-     label:x.addressLine1||x.formatted||'',
+    const seen=new Set();
+    const suggestions=(data.suggestions||[]).map(x=>({
+     label:(x.street||x.addressLine1||'').replace(/\s+\d+[A-Za-z-]*$/,'').trim(),
      meta:x.addressLine2||'San Javier',
-     placeId:x.placeId,
      lat:x.lat,
-     lon:x.lon,
-     housenumber:String(x.housenumber||''),
-     resultType:x.resultType||'',
-     confidence:x.confidence,
-     matchType:x.matchType||'',
-     geoapify:true
-    })).filter(x=>x.label&&x.placeId);
-    if(typedNumber){
-     suggestions=suggestions.filter(x=>{
-      const n=x.housenumber.toLowerCase();
-      const isRealNumber=!!n&&n.startsWith(typedNumber);
-      const isBuilding=x.resultType==='building'||x.matchType==='full_match'||x.matchType==='match_by_building';
-      const isCompleted=n.length>typedNumber.length||n===typedNumber;
-      return isRealNumber&&isBuilding&&isCompleted;
-     });
-    }
-    setAddressSuggestions(suggestions.slice(0,6));
+     lon:x.lon
+    })).filter(x=>{
+     if(!x.label)return false;
+     const key=normalizePlace(x.label);
+     if(seen.has(key))return false;
+     seen.add(key);
+     return true;
+    }).slice(0,6);
+    setAddressSuggestions(suggestions);
    }catch(e){
     setAddressSuggestions([]);
     if(String(e?.message||'').includes('GEOAPIFY_API_KEY_NOT_CONFIGURED'))setLocationStatus('Falta configurar Geoapify para las sugerencias.');
    }finally{setAddressLoading(false)}
   },260);
   return()=>clearTimeout(timer);
- },[customer.address,customer.delivery,addressLocked]);
- const chooseAddress=s=>{
+ },[customer.street,customer.delivery]);
+ const chooseStreet=s=>{
   if(!s)return;
-  const full=[s.label,s.meta].filter(Boolean).join(', ').trim();
-  if(!isSanJavierPlace(full)){setLocationStatus('Solo hacemos despachos dentro de San Javier.');return}
-  setAddressLocked(true);
-  setCustomer(c=>({...c,address:full,lat:s.lat!=null?String(s.lat):'',lon:s.lon!=null?String(s.lon):''}));
+  setCustomer(c=>({...c,street:s.label,address:'',lat:'',lon:''}));
   setAddressSuggestions([]);
-  setLocationStatus('Dirección confirmada');
+  setAddressLocked(false);
+  setLocationStatus('');
+ };
+
+ const verifyAddress=async()=>{
+  if(!customer.street.trim()||!hasStreetNumber){
+   setLocationStatus('Escribe la calle y el número.');
+   return;
+  }
+  setAddressLoading(true);
+  setLocationStatus('Verificando dirección…');
+  try{
+   const fullQuery=(customer.street.trim()+' '+customer.streetNumber.trim());
+   const response=await fetch('/api/geoapify',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({input:fullQuery})
+   });
+   const data=await response.json();
+   if(!response.ok)throw new Error(data?.error||'geoapify');
+   const wanted=customer.streetNumber.trim().toLowerCase();
+   const matches=(data.suggestions||[]).filter(x=>String(x.housenumber||'').toLowerCase()===wanted);
+   const best=matches[0]||data.suggestions?.[0];
+   if(!best){
+    setAddressLocked(false);
+    setCustomer(c=>({...c,address:fullQuery+', San Javier',lat:'',lon:''}));
+    setLocationStatus('No pudimos verificar el número, pero puedes continuar con la dirección escrita.');
+    return;
+   }
+   const full=(best.formatted||[fullQuery,best.addressLine2].filter(Boolean).join(', ')).trim();
+   if(!isSanJavierPlace(full)){
+    setAddressLocked(false);
+    setLocationStatus('Solo hacemos despachos dentro de San Javier.');
+    return;
+   }
+   setAddressLocked(true);
+   setCustomer(c=>({...c,address:full,lat:String(best.lat||''),lon:String(best.lon||'')}));
+   setLocationStatus('Dirección verificada');
+  }catch{
+   setAddressLocked(false);
+   setCustomer(c=>({...c,address:(customer.street.trim()+' '+customer.streetNumber.trim()+', San Javier'),lat:'',lon:''}));
+   setLocationStatus('No pudimos verificarla ahora, pero puedes continuar con la dirección escrita.');
+  }finally{setAddressLoading(false)}
  };
  const useMyLocation=()=>{
   if(!navigator.geolocation){setLocationStatus('Este dispositivo no permite obtener la ubicación.');return}
@@ -308,6 +336,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
     if(r.ok){
      const data=await r.json();
      if(data.formatted)label=data.formatted;
+     if(data.street||data.housenumber)setCustomer(c=>({...c,street:data.street||c.street,streetNumber:data.housenumber||c.streetNumber}));
     }
    }catch{}
    if(!isSanJavierPlace(label)){
@@ -337,7 +366,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
    data.append('_autoresponse',`¡Hola ${customer.name}! Recibimos tu solicitud de pedido en Chucky.\n\n${detail}\n\nTOTAL: ${money(subtotal)}\n\nEl negocio te contactará para confirmar disponibilidad, horario y entrega. Este mensaje no confirma todavía la preparación.`);
   }
   data.append('Entrega',customer.delivery);
-  data.append('Dirección',customer.delivery==='Despacho'?customer.address:'Retiro en local');
+  data.append('Dirección',customer.delivery==='Despacho'?(customer.address||[customer.street,customer.streetNumber,'San Javier'].filter(Boolean).join(' ')):'Retiro en local');
   if(customer.delivery==='Despacho'){
    data.append('Piso / departamento',customer.floor||'No aplica');
    data.append('Coordenadas',customer.lat&&customer.lon?`${customer.lat}, ${customer.lon}`:'No disponibles');
@@ -391,20 +420,25 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
    <div className="checkoutGroup">
     <div className="checkoutGroupTitle"><MapPin/><h3>Entrega</h3></div>
     <div className="deliveryChoice">
-     <button className={customer.delivery==='Retiro en local'?'on':''} onClick={()=>{setAddressSuggestions([]);setAddressLocked(false);setLocationStatus('');setCustomer(c=>({...c,delivery:'Retiro en local'}))}}>Retiro</button>
+     <button className={customer.delivery==='Retiro en local'?'on':''} onClick={()=>{setAddressSuggestions([]);setAddressLocked(false);setLocationStatus('');setCustomer(c=>({...c,delivery:'Retiro en local',address:'',street:'',streetNumber:'',lat:'',lon:''}))}}>Retiro</button>
      <button className={customer.delivery==='Despacho'?'on':''} onClick={()=>{setAddressSuggestions([]);setAddressLocked(false);setCustomer(c=>({...c,delivery:'Despacho'}))}}>Despacho</button>
     </div>
     {customer.delivery==='Despacho'&&<>
      <button className="useLocationBtn" type="button" onClick={useMyLocation} disabled={locating}><LocateFixed/>{locating?'Buscando ubicación…':'Usar mi ubicación actual'}</button>
      {locationStatus&&<small className="locationStatus">{locationStatus}</small>}
-     <label className="addressAutocomplete">Calle y número <em>*</em><small className="addressZoneHint">Solo San Javier</small>
-      <input name="address" value={customer.address} onChange={e=>{setAddressLocked(false);setLocationStatus('');setCustomer(c=>({...c,address:e.target.value,lat:'',lon:''}))}} placeholder="Ej: Hernán Lobos Arias 123" autoComplete="street-address"/>
-      {customer.address.trim()&&!hasStreetNumber&&<small className="fieldError addressNumberError">Agrega el número de la dirección.</small>}
-      {hasStreetNumber&&!addressLoading&&addressSuggestions.length===0&&!addressLocked&&<small className="addressVerifyHint">Escribe el número completo. Solo mostramos direcciones verificadas.</small>}
-      {addressSuggestions.length>0&&<div className="addressSuggestions">
-       {addressSuggestions.map((s,i)=><button type="button" key={s.placeId||i} onClick={()=>chooseAddress(s)}><MapPin/><span><b>{s.label}</b>{s.meta&&<small>{s.meta}</small>}</span></button>)}<div className="geoapifyAttribution" translate="no">Powered by Geoapify</div>
-      </div>}
-     </label>
+     <div className="addressFields">
+      <label className="addressAutocomplete">Calle <em>*</em><small className="addressZoneHint">Solo San Javier</small>
+       <input name="street" value={customer.street} onChange={e=>{setAddressLocked(false);setLocationStatus('');setCustomer(c=>({...c,street:e.target.value,address:'',lat:'',lon:''}))}} placeholder="Ej: Hernán Lobos Arias" autoComplete="off"/>
+       {addressSuggestions.length>0&&<div className="addressSuggestions">
+        {addressSuggestions.map((s,i)=><button type="button" key={s.label+'-'+i} onClick={()=>chooseStreet(s)}><MapPin/><span><b>{s.label}</b>{s.meta&&<small>{s.meta}</small>}</span></button>)}<div className="geoapifyAttribution" translate="no">Powered by Geoapify</div>
+       </div>}
+      </label>
+      <label>Número <em>*</em>
+       <input name="streetNumber" value={customer.streetNumber} onChange={e=>{setAddressLocked(false);setLocationStatus('');setCustomer(c=>({...c,streetNumber:e.target.value.replace(/[^0-9A-Za-z-]/g,''),address:'',lat:'',lon:''}))}} placeholder="Ej: 2972" inputMode="numeric" autoComplete="off"/>
+       {customer.streetNumber.trim()&&!hasStreetNumber&&<small className="fieldError addressNumberError">Escribe un número válido.</small>}
+      </label>
+      <button type="button" className="verifyAddressBtn" onClick={verifyAddress} disabled={!customer.street.trim()||!hasStreetNumber||addressLoading}>{addressLoading?'VERIFICANDO…':'VERIFICAR DIRECCIÓN'}</button>
+     </div>
      <label>Piso y departamento <span className="optionalTag">OPCIONAL</span><input name="floor" value={customer.floor} onChange={change} placeholder="Ej: 1B"/></label>
      <label>Indicaciones <span className="optionalTag">OPCIONAL</span><textarea name="notes" value={customer.notes} onChange={change} placeholder="Casa con portón rojo, llamar al llegar..."/></label>
     </>}
