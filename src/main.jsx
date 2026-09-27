@@ -394,7 +394,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
   <button className="backHome" onClick={()=>setScreen('home')}>VOLVER AL INICIO <ChevronRight/></button>
  </main>;
  return <main className={"content cart cartSmart chuckyScreen"+(!items.length?" cartSmartEmpty":"")}>
- {items.length?<><div className="smartCartHead"><small>TU CARRITO</small><h1>RESUMEN</h1><p>{items.reduce((s,p)=>s+cart[p.id],0)} productos</p></div>
+ {items.length?<><div className="smartCartHead"><small>TU CARRITO</small><img className="summaryLogo" src="/resumen.png?v=1" alt="Resumen"/><p>{items.reduce((s,p)=>s+cart[p.id],0)} productos</p></div>
   <section className="smartSummary">
    <div className="smartSummaryTop"><b>Productos</b><strong>{money(subtotal)}</strong></div>
    {items.map(p=><article className="smartCartItem" key={p.id}>
