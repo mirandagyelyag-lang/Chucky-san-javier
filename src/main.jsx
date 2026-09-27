@@ -265,10 +265,20 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
      placeId:x.placeId,
      lat:x.lat,
      lon:x.lon,
+     housenumber:String(x.housenumber||''),
+     resultType:x.resultType||'',
+     confidence:x.confidence,
+     matchType:x.matchType||'',
      geoapify:true
     })).filter(x=>x.label&&x.placeId);
     if(typedNumber){
-     suggestions=suggestions.filter(x=>/\d/.test(x.label)&&x.label.toLowerCase().includes(typedNumber));
+     suggestions=suggestions.filter(x=>{
+      const n=x.housenumber.toLowerCase();
+      const isRealNumber=!!n&&n.startsWith(typedNumber);
+      const isBuilding=x.resultType==='building'||x.matchType==='full_match'||x.matchType==='match_by_building';
+      const isCompleted=n.length>typedNumber.length||n===typedNumber;
+      return isRealNumber&&isBuilding&&isCompleted;
+     });
     }
     setAddressSuggestions(suggestions.slice(0,6));
    }catch(e){
@@ -390,6 +400,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
      <label className="addressAutocomplete">Calle y número <em>*</em><small className="addressZoneHint">Solo San Javier</small>
       <input name="address" value={customer.address} onChange={e=>{setAddressLocked(false);setLocationStatus('');setCustomer(c=>({...c,address:e.target.value,lat:'',lon:''}))}} placeholder="Ej: Hernán Lobos Arias 123" autoComplete="street-address"/>
       {customer.address.trim()&&!hasStreetNumber&&<small className="fieldError addressNumberError">Agrega el número de la dirección.</small>}
+      {hasStreetNumber&&!addressLoading&&addressSuggestions.length===0&&!addressLocked&&<small className="addressVerifyHint">Escribe el número completo. Solo mostramos direcciones verificadas.</small>}
       {addressSuggestions.length>0&&<div className="addressSuggestions">
        {addressSuggestions.map((s,i)=><button type="button" key={s.placeId||i} onClick={()=>chooseAddress(s)}><MapPin/><span><b>{s.label}</b>{s.meta&&<small>{s.meta}</small>}</span></button>)}<div className="geoapifyAttribution" translate="no">Powered by Geoapify</div>
       </div>}
