@@ -151,7 +151,10 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
      <header className="menuRefHeading menuEditorialHeading">
       <div className="menuEditorialKicker"><span>{sectionMeta[c].kicker}</span><i aria-hidden="true"/></div>
       <div className="menuEditorialTitleRow">
-       <h2>{c}</h2>
+       <div className="menuEditorialTitleMain">
+        <h2>{c}</h2>
+        {c==='Pollo frito'&&<img className="menuEditorialHen" src="./gallina.png?v=1" alt="" aria-hidden="true" loading="eager" decoding="async"/>}
+       </div>
        <button onClick={()=>jump(c)}>Ver todo <ChevronRight/></button>
       </div>
       <div className="menuEditorialNote"><i aria-hidden="true"/><small>{sectionMeta[c].note}</small><i aria-hidden="true"/></div>
