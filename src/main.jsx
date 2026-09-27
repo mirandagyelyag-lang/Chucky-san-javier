@@ -233,7 +233,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
  const[sent,setSent]=useState(false);
  const[error,setError]=useState('');
  const change=e=>setCustomer(c=>({...c,[e.target.name]:e.target.value}));
- const emailOk=!customer.email.trim()||/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(customer.email.trim());
+ const emailOk=!customer.email.trim()||/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customer.email.trim());
  const canSend=items.length&&customer.name.trim()&&customer.phone.trim()&&emailOk&&(customer.delivery==='Retiro en local'||customer.address.trim());
  const sendOrder=async()=>{
   if(!canSend||sending)return;
