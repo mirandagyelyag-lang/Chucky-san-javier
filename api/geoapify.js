@@ -36,7 +36,9 @@ export default async function handler(req,res){
         lat:result.lat,
         lon:result.lon,
         city:result.city,
-        postcode:result.postcode
+        postcode:result.postcode,
+        street:result.street||'',
+        housenumber:result.housenumber||''
       });
     }
 
