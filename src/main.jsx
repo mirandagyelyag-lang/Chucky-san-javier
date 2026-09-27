@@ -252,18 +252,20 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
    const typedNumber=(numberMatch?.[1]||'').toLowerCase();
    setAddressLoading(true);
    try{
-    const response=await fetch('/api/google-places',{
+    const response=await fetch('/api/geoapify',{
      method:'POST',
      headers:{'Content-Type':'application/json'},
      body:JSON.stringify({input:raw})
     });
     const data=await response.json();
-    if(!response.ok)throw new Error(data?.error||'google-places');
+    if(!response.ok)throw new Error(data?.error||'geoapify');
     let suggestions=(data.suggestions||[]).map(x=>({
-     label:x.mainText||x.text||'',
-     meta:x.secondaryText||'San Javier',
+     label:x.addressLine1||x.formatted||'',
+     meta:x.addressLine2||'San Javier',
      placeId:x.placeId,
-     google:true
+     lat:x.lat,
+     lon:x.lon,
+     geoapify:true
     })).filter(x=>x.label&&x.placeId);
     if(typedNumber){
      suggestions=suggestions.filter(x=>/\d/.test(x.label)&&x.label.toLowerCase().includes(typedNumber));
@@ -271,7 +273,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
     setAddressSuggestions(suggestions.slice(0,6));
    }catch(e){
     setAddressSuggestions([]);
-    if(String(e?.message||'').includes('GOOGLE_MAPS_API_KEY_NOT_CONFIGURED'))setLocationStatus('Falta activar Google Maps para las sugerencias.');
+    if(String(e?.message||'').includes('GEOAPIFY_API_KEY_NOT_CONFIGURED'))setLocationStatus('Falta configurar Geoapify para las sugerencias.');
    }finally{setAddressLoading(false)}
   },260);
   return()=>clearTimeout(timer);
@@ -280,21 +282,21 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
   if(!s?.placeId)return;
   try{
    setAddressLoading(true);
-   const response=await fetch('/api/google-places',{
+   const response=await fetch('/api/geoapify',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
     body:JSON.stringify({placeId:s.placeId})
    });
    const data=await response.json();
-   if(!response.ok)throw new Error(data?.error||'google-place-details');
-   const full=(data.formattedAddress||[s.label,s.meta].filter(Boolean).join(', ')).trim();
+   if(!response.ok)throw new Error(data?.error||'geoapify-details');
+   const full=(data.formatted||[s.label,s.meta].filter(Boolean).join(', ')).trim();
    if(!isSanJavierPlace(full)){setLocationStatus('Solo hacemos despachos dentro de San Javier.');return}
-   const lat=data.location?.latitude;
-   const lon=data.location?.longitude;
+   const lat=data.lat;
+   const lon=data.lon;
    setAddressLocked(true);
    setCustomer(c=>({...c,address:full,lat:lat!=null?String(lat):'',lon:lon!=null?String(lon):''}));
    setAddressSuggestions([]);
-   setLocationStatus('Dirección confirmada con Google Maps');
+   setLocationStatus('Dirección confirmada');
   }catch{
    setLocationStatus('No pudimos confirmar esa dirección. Intenta otra sugerencia.');
   }finally{setAddressLoading(false)}
@@ -306,12 +308,10 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
    const lat=pos.coords.latitude.toFixed(6),lon=pos.coords.longitude.toFixed(6);
    let label=lat+', '+lon;
    try{
-    const r=await fetch('https://photon.komoot.io/reverse?lang=es&lat='+lat+'&lon='+lon);
+    const r=await fetch('/api/geoapify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({lat,lon})});
     if(r.ok){
      const data=await r.json();
-     const p=data.features?.[0]?.properties||{};
-     const parts=[p.name,p.street,p.housenumber,p.district,p.city,p.county,p.state,'Chile'].filter(Boolean);
-     if(parts.length)label=[...new Set(parts)].join(', ');
+     if(data.formatted)label=data.formatted;
     }
    }catch{}
    if(!isSanJavierPlace(label)){
@@ -405,7 +405,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
       <input name="address" value={customer.address} onChange={e=>{setAddressLocked(false);setLocationStatus('');setCustomer(c=>({...c,address:e.target.value,lat:'',lon:''}))}} placeholder="Ej: Hernán Lobos Arias 123" autoComplete="street-address"/>
       {customer.address.trim()&&!hasStreetNumber&&<small className="fieldError addressNumberError">Agrega el número de la dirección.</small>}
       {addressSuggestions.length>0&&<div className="addressSuggestions">
-       {addressSuggestions.map((s,i)=><button type="button" key={s.placeId||i} onClick={()=>chooseAddress(s)}><MapPin/><span><b>{s.label}</b>{s.meta&&<small>{s.meta}</small>}</span></button>)}<div className="googleMapsAttribution" translate="no">Google Maps</div>
+       {addressSuggestions.map((s,i)=><button type="button" key={s.placeId||i} onClick={()=>chooseAddress(s)}><MapPin/><span><b>{s.label}</b>{s.meta&&<small>{s.meta}</small>}</span></button>)}<div className="geoapifyAttribution" translate="no">Powered by Geoapify</div>
       </div>}
      </label>
      <label>Piso y departamento <span className="optionalTag">OPCIONAL</span><input name="floor" value={customer.floor} onChange={change} placeholder="Ej: 1B"/></label>
