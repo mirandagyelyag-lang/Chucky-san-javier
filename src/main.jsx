@@ -447,7 +447,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
    <div className="checkoutGroup">
     <div className="checkoutGroupTitle"><WalletCards/><h3>Forma de pago <em>*</em></h3></div>
     <div className="paymentOptions">
-     {['Efectivo','Transferencia'].map(method=><label className={'paymentOption '+(customer.payment===method?'on':'')} key={method}><input type="radio" name="payment" value={method} checked={customer.payment===method} onChange={change}/><span></span><b>{method}</b></label>)}
+     {['Efectivo','Transferencia'].map(method=><label className={'paymentOption '+(customer.payment===method?'on':'')} key={method}><input className="paymentRadio" type="radio" name="payment" value={method} checked={customer.payment===method} onChange={change}/><b>{method}</b></label>)}
     </div>
     {customer.payment==='Efectivo'&&<label className="cashField">¿Con cuánto vas a pagar? <span className="optionalTag">OPCIONAL</span><input name="cashAmount" value={customer.cashAmount} onChange={change} placeholder="$0" inputMode="numeric"/></label>}
    </div>
