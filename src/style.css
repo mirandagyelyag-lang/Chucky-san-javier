@@ -12518,9 +12518,9 @@ body:has(.menuShowcase) .app,
 }
 
 
-/* GOOGLE MAPS AUTOCOMPLETE — 2026-09-27 */
+/* GEOAPIFY AUTOCOMPLETE — 2026-09-27 */
 @media(max-width:767px){
-  .googleMapsAttribution{
+  .geoapifyAttribution{
     padding:8px 12px 9px!important;
     border-top:1px solid #e4ddd8!important;
     background:#f6f1ed!important;
