@@ -247,8 +247,15 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
    const query=customer.address.trim();
    const formatPhoton=f=>{
     const p=f.properties||{};
-    const parts=[p.name,p.street,p.housenumber,p.district,p.city,p.county,p.state,'Chile'].filter(Boolean);
-    return{label:[...new Set(parts)].join(', '),lat:f.geometry?.coordinates?.[1],lon:f.geometry?.coordinates?.[0]};
+    const street=[p.street||p.name,p.housenumber].filter(Boolean).join(' ').trim();
+    const area=[p.district,p.city,p.county].filter(Boolean);
+    const uniqueArea=[...new Set(area)].filter(x=>x&&x!==street);
+    return{
+     label:street||p.name||'Ubicación',
+     meta:uniqueArea.slice(0,2).join(', '),
+     lat:f.geometry?.coordinates?.[1],
+     lon:f.geometry?.coordinates?.[0]
+    };
    };
    try{
     const q=encodeURIComponent(query+' Chile');
@@ -256,7 +263,13 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
     if(!r.ok)throw new Error('photon');
     const data=await r.json();
     const suggestions=(data.features||[]).map(formatPhoton).filter(x=>x.label&&x.lat&&x.lon);
-    if(suggestions.length){setAddressSuggestions(suggestions.slice(0,5));return}
+    const seen=new Set();
+    const clean=suggestions.filter(x=>{
+     const key=(x.label+'|'+x.meta).toLowerCase();
+     if(seen.has(key))return false;
+     seen.add(key);return true;
+    });
+    if(clean.length){setAddressSuggestions(clean.slice(0,4));return}
     throw new Error('empty');
    }catch{
     try{
@@ -264,7 +277,13 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
      const r=await fetch('https://nominatim.openstreetmap.org/search?format=jsonv2&countrycodes=cl&limit=5&addressdetails=1&q='+q);
      if(!r.ok)throw new Error();
      const data=await r.json();
-     setAddressSuggestions(data.map(x=>({label:x.display_name,lat:x.lat,lon:x.lon})));
+     setAddressSuggestions(data.map(x=>{
+      const a=x.address||{};
+      const street=[a.road||a.pedestrian||a.path||a.neighbourhood,x.type==='house'?a.house_number:null].filter(Boolean).join(' ').trim();
+      const label=street||x.name||x.display_name.split(',')[0];
+      const meta=[a.suburb||a.neighbourhood,a.city||a.town||a.village||a.municipality].filter(Boolean);
+      return{label,meta:[...new Set(meta)].slice(0,2).join(', '),lat:x.lat,lon:x.lon};
+     }).filter(x=>x.label));
     }catch{setAddressSuggestions([])}
    }finally{setAddressLoading(false)}
   },300);
@@ -272,7 +291,8 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
  },[customer.address,customer.delivery]);
 
  const chooseAddress=s=>{
-  setCustomer(c=>({...c,address:s.label,lat:String(s.lat),lon:String(s.lon)}));
+  const full=[s.label,s.meta].filter(Boolean).join(', ');
+  setCustomer(c=>({...c,address:full,lat:String(s.lat),lon:String(s.lon)}));
   setAddressSuggestions([]);
   setLocationStatus('Ubicación confirmada');
  };
@@ -377,7 +397,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
       <input name="address" value={customer.address} onChange={change} placeholder="Ej: Hernán Lobos Arias 123" autoComplete="street-address"/>
       {(addressLoading||addressSuggestions.length>0)&&<div className="addressSuggestions">
        {addressLoading&&<div className="addressLoading">Buscando direcciones…</div>}
-       {addressSuggestions.map((s,i)=><button type="button" key={s.lat+'-'+s.lon+'-'+i} onClick={()=>chooseAddress(s)}><MapPin/><span>{s.label}</span></button>)}
+       {addressSuggestions.map((s,i)=><button type="button" key={s.lat+'-'+s.lon+'-'+i} onClick={()=>chooseAddress(s)}><MapPin/><span><b>{s.label}</b>{s.meta&&<small>{s.meta}</small>}</span></button>)}
       </div>}
      </label>
      <label>Piso y departamento <span className="optionalTag">OPCIONAL</span><input name="floor" value={customer.floor} onChange={change} placeholder="Ej: 1B"/></label>
