@@ -239,6 +239,8 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
  const change=e=>setCustomer(c=>({...c,[e.target.name]:e.target.value}));
  const emailOk=!customer.email.trim()||/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customer.email.trim());
  const canSend=items.length&&customer.name.trim()&&customer.phone.trim()&&emailOk&&customer.payment&&(customer.delivery==='Retiro en local'||customer.address.trim())&&(customer.payment!=='Efectivo'||!customer.cashAmount||Number(customer.cashAmount.replace(/\D/g,''))>=subtotal);
+ const normalizePlace=v=>(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+ const isSanJavierPlace=v=>normalizePlace(v).includes('san javier');
 
  useEffect(()=>{
   if(customer.delivery!=='Despacho'||customer.address.trim().length<2){setAddressSuggestions([]);return}
@@ -258,11 +260,17 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
     };
    };
    try{
-    const q=encodeURIComponent(query+' Chile');
+    const q=encodeURIComponent(query+', San Javier, Maule, Chile');
     const r=await fetch('https://photon.komoot.io/api/?limit=6&lang=es&q='+q);
     if(!r.ok)throw new Error('photon');
     const data=await r.json();
-    const suggestions=(data.features||[]).map(formatPhoton).filter(x=>x.label&&x.lat&&x.lon);
+    const suggestions=(data.features||[]).map(formatPhoton).filter(x=>{
+     if(!x.label||!x.lat||!x.lon)return false;
+     const f=(data.features||[]).find(feat=>String(feat.geometry?.coordinates?.[1])===String(x.lat)&&String(feat.geometry?.coordinates?.[0])===String(x.lon));
+     const p=f?.properties||{};
+     const placeText=[p.name,p.street,p.district,p.city,p.county,p.state].filter(Boolean).join(' ');
+     return isSanJavierPlace(placeText);
+    });
     const seen=new Set();
     const clean=suggestions.filter(x=>{
      const key=(x.label+'|'+x.meta).toLowerCase();
@@ -273,11 +281,15 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
     throw new Error('empty');
    }catch{
     try{
-     const q=encodeURIComponent(query+', Chile');
+     const q=encodeURIComponent(query+', San Javier, Maule, Chile');
      const r=await fetch('https://nominatim.openstreetmap.org/search?format=jsonv2&countrycodes=cl&limit=5&addressdetails=1&q='+q);
      if(!r.ok)throw new Error();
      const data=await r.json();
-     setAddressSuggestions(data.map(x=>{
+     setAddressSuggestions(data.filter(x=>{
+      const a=x.address||{};
+      const placeText=[a.road,a.neighbourhood,a.suburb,a.city,a.town,a.village,a.municipality,a.county,a.state,x.display_name].filter(Boolean).join(' ');
+      return isSanJavierPlace(placeText);
+     }).map(x=>{
       const a=x.address||{};
       const street=[a.road||a.pedestrian||a.path||a.neighbourhood,x.type==='house'?a.house_number:null].filter(Boolean).join(' ').trim();
       const label=street||x.name||x.display_name.split(',')[0];
@@ -292,9 +304,10 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
 
  const chooseAddress=s=>{
   const full=[s.label,s.meta].filter(Boolean).join(', ');
+  if(!isSanJavierPlace(full)){setLocationStatus('Solo hacemos despachos dentro de San Javier.');return}
   setCustomer(c=>({...c,address:full,lat:String(s.lat),lon:String(s.lon)}));
   setAddressSuggestions([]);
-  setLocationStatus('Ubicación confirmada');
+  setLocationStatus('Ubicación en San Javier confirmada');
  };
 
  const useMyLocation=()=>{
@@ -312,9 +325,14 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
      if(parts.length)label=[...new Set(parts)].join(', ');
     }
    }catch{}
+   if(!isSanJavierPlace(label)){
+    setLocationStatus('La ubicación está fuera de San Javier. Solo hacemos despachos dentro de la comuna.');
+    setLocating(false);
+    return;
+   }
    setCustomer(c=>({...c,address:label,lat,lon}));
    setAddressSuggestions([]);
-   setLocationStatus('Ubicación GPS confirmada');
+   setLocationStatus('Ubicación en San Javier confirmada');
    setLocating(false);
   },()=>{setLocationStatus('No pudimos obtener tu ubicación. Revisa el permiso de ubicación.');setLocating(false)},{enableHighAccuracy:true,timeout:12000,maximumAge:0});
  };
@@ -393,7 +411,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
     {customer.delivery==='Despacho'&&<>
      <button className="useLocationBtn" type="button" onClick={useMyLocation} disabled={locating}><LocateFixed/>{locating?'Buscando ubicación…':'Usar mi ubicación actual'}</button>
      {locationStatus&&<small className="locationStatus">{locationStatus}</small>}
-     <label className="addressAutocomplete">Calle y número <em>*</em>
+     <label className="addressAutocomplete">Calle y número <em>*</em><small className="addressZoneHint">Solo San Javier</small>
       <input name="address" value={customer.address} onChange={change} placeholder="Ej: Hernán Lobos Arias 123" autoComplete="street-address"/>
       {(addressLoading||addressSuggestions.length>0)&&<div className="addressSuggestions">
        {addressLoading&&<div className="addressLoading">Buscando direcciones…</div>}
