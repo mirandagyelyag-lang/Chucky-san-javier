@@ -149,14 +149,13 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
     const id='menu-'+c.toLowerCase().replace(/\s+/g,'-');
     return <section id={id} key={c} className="menuRefSection">
      <header className="menuRefHeading menuEditorialHeading">
-      <div className="menuEditorialKicker"><span>{sectionMeta[c].kicker}</span><i aria-hidden="true"/></div>
+      <div className="menuEditorialKicker">
+       <span>{sectionMeta[c].kicker}</span>
+       <i aria-hidden="true"/>
+       {c==='Pollo frito'&&<img className="menuEditorialHenInline" src="./gallina.png?v=3" alt="" aria-hidden="true" loading="eager" decoding="async"/>}
+      </div>
       <div className="menuEditorialTitleRow">
-       <div className="menuEditorialTitleMain">
-        <h2>{c}</h2>
-        {c==='Pollo frito'&&<span className="menuEditorialHenWrap" aria-hidden="true" style={{width:30,height:30,flex:'0 0 30px',display:'inline-flex',alignItems:'center',justifyContent:'center',overflow:'hidden',marginBottom:1}}>
-         <img className="menuEditorialHen" src="./gallina.png?v=2" alt="" loading="eager" decoding="async" style={{display:'block',width:'100%',height:'100%',maxWidth:'30px',maxHeight:'30px',objectFit:'contain'}}/>
-        </span>}
-       </div>
+       <h2>{c}</h2>
        <button onClick={()=>jump(c)}>Ver todo <ChevronRight/></button>
       </div>
       <div className="menuEditorialNote"><i aria-hidden="true"/><small>{sectionMeta[c].note}</small><i aria-hidden="true"/></div>
