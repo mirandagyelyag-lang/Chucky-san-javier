@@ -91,7 +91,10 @@ export default async function handler(req,res){
         lat:r.lat,
         lon:r.lon,
         housenumber:r.housenumber||'',
-        street:r.street||''
+        street:r.street||'',
+        resultType:r.result_type||'',
+        confidence:r.rank?.confidence??null,
+        matchType:r.rank?.match_type||''
       }))
       .filter((r,index,array)=>array.findIndex(x=>x.formatted===r.formatted)===index)
       .slice(0,6);
