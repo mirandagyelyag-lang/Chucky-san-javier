@@ -271,19 +271,22 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
 
     if(base&&typedNumber){
      try{
-      const overpass='[out:json][timeout:10];nwr(around:2200,'+base.lat+','+base.lon+')["addr:housenumber"]["addr:street"];out center 120;';
+      const overpass='[out:json][timeout:12];nwr(around:4500,'+base.lat+','+base.lon+')["addr:housenumber"]["addr:street"];out center 500;';
       const or=await fetch('https://overpass-api.de/api/interpreter',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:'data='+encodeURIComponent(overpass)});
       if(or.ok){
        const od=await or.json();
        const targetStreet=norm(base.street);
+       const streetTokens=targetStreet.split(' ').filter(t=>t.length>2);
        const numbered=(od.elements||[]).map(el=>{
         const t=el.tags||{};
         const street=(t['addr:street']||'').trim();
         const number=(t['addr:housenumber']||'').trim();
         const lat=el.lat??el.center?.lat,lon=el.lon??el.center?.lon;
-        return{street,number,lat,lon};
-       }).filter(x=>x.street&&x.number&&x.lat&&x.lon&&norm(x.street)===targetStreet&&x.number.toLowerCase().startsWith(typedNumber));
-       const pref=unique(numbered.sort((a,b)=>String(a.number).localeCompare(String(b.number),'es',{numeric:true})).map(x=>({label:x.street+' '+x.number,meta:base.meta||'San Javier',lat:x.lat,lon:x.lon}))).slice(0,6);
+        const normalizedStreet=norm(street);
+        const sameStreet=normalizedStreet===targetStreet||streetTokens.every(tok=>normalizedStreet.includes(tok));
+        return{street,number,lat,lon,sameStreet};
+       }).filter(x=>x.sameStreet&&x.street&&x.number&&x.lat&&x.lon&&x.number.toLowerCase().startsWith(typedNumber));
+       const pref=unique(numbered.sort((a,b)=>String(a.number).localeCompare(String(b.number),'es',{numeric:true})).map(x=>({label:x.street+' '+x.number,meta:base.meta||'San Javier',lat:x.lat,lon:x.lon,verified:true}))).slice(0,6);
        if(pref.length){setAddressSuggestions(pref);return}
       }
      }catch{}
@@ -302,6 +305,10 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
      }
     }
 
+    if(typedNumber&&base){
+     setAddressSuggestions([{label:base.street+' '+typedNumber,meta:'San Javier · completa el número si falta',lat:base.lat,lon:base.lon,unverified:true}]);
+     return;
+    }
     const plain=unique(candidates.map(x=>({label:x.street,meta:x.meta,lat:x.lat,lon:x.lon}))).slice(0,6);
     setAddressSuggestions(plain);
    }catch{
@@ -426,7 +433,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
       {customer.address.trim()&&!hasStreetNumber&&<small className="fieldError addressNumberError">Agrega el número de la dirección.</small>}
       {(addressLoading||addressSuggestions.length>0)&&<div className="addressSuggestions">
        {addressLoading&&<div className="addressLoading">Buscando direcciones…</div>}
-       {addressSuggestions.map((s,i)=><button type="button" key={s.lat+'-'+s.lon+'-'+i} onClick={()=>chooseAddress(s)}><MapPin/><span><b>{s.label}</b>{s.meta&&<small>{s.meta}</small>}</span></button>)}
+       {addressSuggestions.map((s,i)=><button type="button" key={s.lat+'-'+s.lon+'-'+i} onClick={()=>chooseAddress(s)} className={s.unverified?'unverifiedAddress':''}><MapPin/><span><b>{s.label}</b>{s.meta&&<small>{s.meta}</small>}</span></button>)}
       </div>}
      </label>
      <label>Piso y departamento <span className="optionalTag">OPCIONAL</span><input name="floor" value={customer.floor} onChange={change} placeholder="Ej: 1B"/></label>
