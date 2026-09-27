@@ -30,9 +30,9 @@ function App(){
 
 function MobileApp(){
  const initialScreen=()=>{try{const hash=window.location.hash.replace('#/','').replace('#','');return ['home','menu','search','cart'].includes(hash)?hash:'home'}catch{return 'home'}};
- const[screen,setScreenState]=useState(initialScreen),[cat,setCat]=useState('Todo'),[q,setQ]=useState(''),[cart,setCart]=useState({}),[selected,setSelected]=useState(null);
+ const[screen,setScreenState]=useState(initialScreen),[cat,setCat]=useState('Todo'),[q,setQ]=useState(''),[cart,setCart]=useState({}),[selected,setSelected]=useState(null),[lastAdded,setLastAdded]=useState(null);
  const setScreen=next=>{setScreenState(next);try{history.replaceState(null,'',next==='home'?window.location.pathname:window.location.pathname+'#/'+next)}catch{}};
- const add=(id,e)=>{e?.stopPropagation();setCart(c=>({...c,[id]:(c[id]||0)+1}))};
+ const add=(id,e)=>{e?.stopPropagation();setCart(c=>({...c,[id]:(c[id]||0)+1}));const product=products.find(p=>p.id===id);if(product){setLastAdded(product);clearTimeout(window.__chuckyCartToastTimer);window.__chuckyCartToastTimer=setTimeout(()=>setLastAdded(null),1800)}};
  const sub=id=>setCart(c=>({...c,[id]:Math.max(0,(c[id]||0)-1)}));
  const count=Object.values(cart).reduce((a,b)=>a+b,0);
  const subtotal=products.reduce((s,p)=>s+(cart[p.id]||0)*p.price,0);
@@ -66,8 +66,8 @@ function MobileApp(){
    window.scrollTo(0,y);
   };
  },[selected]);
- if(screen==='cart')return <Shell screen={screen} setScreen={setScreen} count={count}><Cart cart={cart} setCart={setCart} add={add} sub={sub} subtotal={subtotal} setScreen={setScreen}/></Shell>;
- return <Shell screen={screen} setScreen={setScreen} count={count}>
+ if(screen==='cart')return <Shell screen={screen} setScreen={setScreen} count={count} lastAdded={lastAdded}><Cart cart={cart} setCart={setCart} add={add} sub={sub} subtotal={subtotal} setScreen={setScreen}/></Shell>;
+ return <Shell screen={screen} setScreen={setScreen} count={count} lastAdded={lastAdded}>
   {screen!=='home'&&screen!=='menu'&&<Topbar setScreen={setScreen} count={count}/>}
   {screen==='home'&&<HomePage setScreen={setScreen} setCat={setCat} add={add} setSelected={setSelected}/>}
   {screen==='menu'&&<MenuPage cat={cat} setCat={setCat} filtered={filtered} add={add} setSelected={setSelected} setScreen={setScreen}/>} 
@@ -82,7 +82,7 @@ function Topbar({setScreen,count}){return <header className="topbar topbarConcep
   <span className="chuckyTextBrand">CHUCKY<small>POLLO FRITO × SUSHI</small></span>
  </button>
  <div className="topActions editorialActions">
-  <button className="ghostBtn cartBtn premiumCart" onClick={()=>setScreen('cart')} aria-label="Ver pedido"><ShoppingBag/>{count>0&&<i>{count}</i>}</button>
+  <button className="ghostBtn cartBtn premiumCart" onClick={()=>setScreen('cart')} aria-label="Ver carrito"><ShoppingBag/>{count>0&&<i>{count}</i>}</button>
  </div>
  </header>}
 
@@ -100,7 +100,7 @@ function HomePage({setScreen,setCat,add,setSelected}){
    <div className="exactHeroShade"/>
    <button className="exactMenu" onClick={()=>setScreen('menu')} aria-label="Menú"><Menu/></button>
    <img className="exactLogo exactLogoImg" src="./chucky-header.png?v=1" alt="Chucky" loading="eager" decoding="async" fetchPriority="high"/>
-   <button className="exactCart" onClick={()=>setScreen('cart')} aria-label="Pedido"><ShoppingBag/></button>
+   <button className="exactCart" onClick={()=>setScreen('cart')} aria-label="Carrito"><ShoppingBag/></button>
    <div className="exactCopy"><img className="exactHeroTitleImg" src="./pollo-sushi-titulo.png?v=1" alt="Pollo frito y sushi." loading="eager" decoding="async" fetchPriority="high"/><button className="exactOrderCta" onClick={()=>setScreen('menu')}><ShoppingBag/> <strong>Pide ahora</strong> <span>→</span></button></div>
   </section>
   <section className="exactShop">
@@ -222,7 +222,7 @@ function Detail({p,close,add}){return <div className="detail detailChalk">
   <h1>{p.name}</h1>
   <p>{p.desc}</p>
   <div className="detailPrice"><strong>{money(p.price)}</strong></div>
-  <button className="bigAdd" onClick={e=>{add(p.id,e);close()}}><Plus/><span>Agregar al pedido</span></button>
+  <button className="bigAdd" onClick={e=>{add(p.id,e);close()}}><Plus/><span>Agregar al carrito</span></button>
  </div>
  </div>}
 
@@ -270,7 +270,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
   <button className="backHome" onClick={()=>setScreen('home')}>VOLVER AL INICIO <ChevronRight/></button>
  </main>;
  return <main className={"content cart cartSmart chuckyScreen"+(!items.length?" cartSmartEmpty":"")}>
- {items.length?<><div className="smartCartHead"><small>TU PEDIDO</small><h1>RESUMEN</h1><p>${items.reduce((s,p)=>s+cart[p.id],0)} productos</p></div>
+ {items.length?<><div className="smartCartHead"><small>TU CARRITO</small><h1>RESUMEN</h1><p>${items.reduce((s,p)=>s+cart[p.id],0)} productos</p></div>
   <section className="smartSummary">
    <div className="smartSummaryTop"><b>Productos</b><strong>{money(subtotal)}</strong></div>
    {items.map(p=><article className="smartCartItem" key={p.id}>
@@ -296,13 +296,15 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
   </section>
   {error&&<p className="orderError">{error}</p>}
   <button className="checkout smartFinal" disabled={!canSend||sending} onClick={sendOrder}>{sending?'ENVIANDO...':'HACER PEDIDO'} {!sending&&<ChevronRight/>}</button>
- </>:<div className="smartEmpty"><small>TU PEDIDO</small><div className="emptyPedidoArtwork" aria-hidden="true"></div><img className="pedidoChuckyLogo" src="./chucky-logo.webp?v=1" alt="Chucky"/><div className="pedidoEmptyCopy"><h1>Tu pedido está <em>vacío.</em></h1><p>¿Lo arreglamos?</p><button onClick={()=>setScreen('menu')}>IR AL MENÚ <ChevronRight/></button></div></div>}
+ </>:<div className="smartEmpty"><small>TU CARRITO</small><div className="emptyPedidoArtwork" aria-hidden="true"></div><img className="pedidoChuckyLogo" src="./chucky-logo.webp?v=1" alt="Chucky"/><div className="pedidoEmptyCopy"><h1>Tu carrito está <em>vacío.</em></h1><p>¿Lo arreglamos?</p><button onClick={()=>setScreen('menu')}>IR AL MENÚ <ChevronRight/></button></div></div>}
  </main>}
 
-function Shell({children,screen,setScreen,count}){return <div className="app"><div className="grain"/>{children}<div className="mobileNavSpace" aria-hidden="true"/><nav className="nav chuckyNav">
+function Shell({children,screen,setScreen,count,lastAdded}){return <div className="app"><div className="grain"/>{children}
+ {lastAdded&&screen!=='cart'&&<button className="cartAddedToast" onClick={()=>setScreen('cart')} aria-label="Ver carrito"><span className="cartAddedCheck">✓</span><span><small>AGREGADO AL CARRITO</small><b>{lastAdded.name}</b></span><strong>Ver carrito <ChevronRight/></strong></button>}
+ <div className="mobileNavSpace" aria-hidden="true"/><nav className="nav chuckyNav">
  <button className={screen==='home'?'on':''} onClick={()=>setScreen('home')}><Home/><b>Inicio</b></button>
  <button className={screen==='menu'?'on':''} onClick={()=>setScreen('menu')}><UtensilsCrossed/><b>Menú</b></button>
- <button className={screen==='cart'?'on':''} onClick={()=>setScreen('cart')}><ShoppingBag/><b>Pedido</b>{count>0&&<i>{count}</i>}</button>
+ <button className={screen==='cart'?'on':''} onClick={()=>setScreen('cart')} aria-label={count?('Carrito, '+count+' '+(count===1?'producto':'productos')):'Carrito vacío'}><ShoppingBag/><b>Carrito</b>{count>0&&<i>{count}</i>}</button>
  </nav></div>}
 
 createRoot(document.getElementById('root')).render(<App/>);
