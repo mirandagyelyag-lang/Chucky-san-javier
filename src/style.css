@@ -12690,3 +12690,29 @@ body:has(.menuShowcase) .app,
     font:800 16px/1.2 Arial,sans-serif!important;
   }
 }
+
+
+/* CHECKOUT BOTTOM GAP FIX — 2026-09-27 */
+@media(max-width:767px){
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .app{
+    padding-bottom:0!important;
+  }
+
+  body:has(main.cartSmart:not(.cartSmartEmpty)) main.content.cartSmart{
+    min-height:0!important;
+    padding-bottom:94px!important;
+  }
+
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .checkoutBackV2{
+    margin:10px 16px 0!important;
+  }
+
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .mobileNavSpace{
+    display:none!important;
+    height:0!important;
+    min-height:0!important;
+    flex:0 0 0!important;
+    margin:0!important;
+    padding:0!important;
+  }
+}
