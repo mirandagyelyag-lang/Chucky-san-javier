@@ -11875,3 +11875,12 @@ body:has(.menuShowcase) .app,
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
 }
+
+
+/* upright menu typography 2026-09-27 */
+.menuRefHeroCopy h1,
+.menuRefHeading h2{
+  font-style:normal !important;
+  transform:none !important;
+  skew:none !important;
+}
