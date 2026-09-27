@@ -153,7 +153,9 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
       <div className="menuEditorialTitleRow">
        <div className="menuEditorialTitleMain">
         <h2>{c}</h2>
-        {c==='Pollo frito'&&<img className="menuEditorialHen" src="./gallina.png?v=1" alt="" aria-hidden="true" loading="eager" decoding="async"/>}
+        {c==='Pollo frito'&&<span className="menuEditorialHenWrap" aria-hidden="true" style={{width:30,height:30,flex:'0 0 30px',display:'inline-flex',alignItems:'center',justifyContent:'center',overflow:'hidden',marginBottom:1}}>
+         <img className="menuEditorialHen" src="./gallina.png?v=2" alt="" loading="eager" decoding="async" style={{display:'block',width:'100%',height:'100%',maxWidth:'30px',maxHeight:'30px',objectFit:'contain'}}/>
+        </span>}
        </div>
        <button onClick={()=>jump(c)}>Ver todo <ChevronRight/></button>
       </div>
