@@ -12495,3 +12495,18 @@ body:has(.menuShowcase) .app,
     color:#b88676!important;
   }
 }
+
+
+/* ADDRESS NO-MATCH INFO — 2026-09-27 */
+@media(max-width:767px){
+  .addressSuggestions button.addressInfoRow{
+    cursor:default!important;
+    opacity:.72!important;
+  }
+  .addressSuggestions button.addressInfoRow b{
+    color:#5f514a!important;
+  }
+  .addressSuggestions button.addressInfoRow small{
+    color:#a06f62!important;
+  }
+}
