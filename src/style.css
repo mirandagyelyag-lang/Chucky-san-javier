@@ -12840,3 +12840,39 @@ body:has(.menuShowcase) .app,
     bottom:9px!important;
   }
 }
+
+
+/* SUMMARY PAGE CHUCKY BACKGROUND — 2026-09-27 */
+@media(max-width:767px){
+  body:has(main.cartSmart:not(.cartSmartEmpty)),
+  body:has(main.cartSmart:not(.cartSmartEmpty)) #root,
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .app,
+  body:has(main.cartSmart:not(.cartSmartEmpty)) main.content.cartSmart{
+    background-image:
+      linear-gradient(180deg,rgba(5,3,3,.30),rgba(8,3,4,.54)),
+      url('/resumen-fondo.png?v=1')!important;
+    background-size:cover!important;
+    background-position:center top!important;
+    background-repeat:no-repeat!important;
+    background-attachment:scroll!important;
+  }
+
+  body:has(main.cartSmart:not(.cartSmartEmpty)) main.content.cartSmart{
+    position:relative!important;
+  }
+
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .smartSummary,
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .smartCustomer{
+    background:rgba(20,10,11,.84)!important;
+    -webkit-backdrop-filter:blur(8px)!important;
+    backdrop-filter:blur(8px)!important;
+    border-color:rgba(255,64,90,.34)!important;
+    box-shadow:0 16px 38px rgba(0,0,0,.28)!important;
+  }
+
+  body:has(main.cartSmart:not(.cartSmartEmpty)) .chuckyNav{
+    background:rgba(18,9,10,.92)!important;
+    -webkit-backdrop-filter:blur(10px)!important;
+    backdrop-filter:blur(10px)!important;
+  }
+}
