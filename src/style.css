@@ -13001,3 +13001,18 @@ body:has(.menuShowcase) .app,
     -webkit-backdrop-filter:blur(8px)!important;
   }
 }
+
+
+/* ORDER SUCCESS FULLSCREEN FIX - 2026-09-27 */
+@media(max-width:767px){
+  html:has(.orderSuccess),body:has(.orderSuccess),body:has(.orderSuccess) #root,body:has(.orderSuccess) .app{width:100%!important;height:100dvh!important;min-height:100dvh!important;margin:0!important;padding:0!important;overflow:hidden!important;background:#070303!important}
+  body:has(.orderSuccess) .grain,body:has(.orderSuccess) .mobileNavSpace{display:none!important}
+  body:has(.orderSuccess) main.orderSuccess{position:fixed!important;inset:0!important;z-index:2!important;width:100vw!important;height:100dvh!important;min-height:100dvh!important;margin:0!important;padding:clamp(84px,12dvh,126px) 28px 112px!important;box-sizing:border-box!important;overflow:hidden!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;text-align:center!important;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.38)),url('/fondo-chucky-street.webp?v=2') center/cover no-repeat!important;color:#fff!important}
+  body:has(.orderSuccess) .successMark{flex:0 0 92px!important;width:92px!important;height:92px!important;margin:0 0 28px!important;border-radius:50%!important;display:grid!important;place-items:center!important;overflow:visible!important;background:#f52f35!important;box-shadow:0 14px 34px rgba(0,0,0,.30)!important}
+  body:has(.orderSuccess) .successMark b{display:block!important;color:#fff!important;font-family:Arial,sans-serif!important;font-size:20px!important;line-height:1!important;font-weight:1000!important;font-style:italic!important;letter-spacing:-1px!important;white-space:nowrap!important;transform:skew(-7deg)!important}
+  body:has(.orderSuccess) .orderSuccess>small{margin:0 0 8px!important;color:#ff4150!important;font-size:10px!important;font-weight:900!important;letter-spacing:.22em!important;text-shadow:0 2px 9px rgba(0,0,0,.85)!important}
+  body:has(.orderSuccess) .orderSuccess h1{margin:0 0 18px!important;color:#fff8f3!important;font:400 clamp(54px,14vw,74px)/.92 Anton,Impact,sans-serif!important;letter-spacing:.01em!important;text-shadow:0 5px 22px rgba(0,0,0,.72)!important}
+  body:has(.orderSuccess) .orderSuccess p{max-width:390px!important;margin:0!important;color:rgba(255,245,239,.88)!important;font-size:15px!important;line-height:1.55!important;text-shadow:0 2px 12px rgba(0,0,0,.92)!important}
+  body:has(.orderSuccess) .backHome{width:min(320px,82vw)!important;height:58px!important;margin-top:30px!important;padding:0 26px!important;justify-content:center!important;border-radius:999px!important;background:#f3373d!important;color:#fff!important;font-size:12px!important;box-shadow:0 12px 28px rgba(0,0,0,.30)!important}
+  body:has(.orderSuccess) .app>nav.nav.chuckyNav{position:fixed!important;z-index:999!important;left:36px!important;right:36px!important;bottom:10px!important;top:auto!important;width:auto!important;max-width:none!important;height:68px!important;min-height:68px!important;margin:0!important;transform:none!important;border-radius:34px!important;background:rgba(10,7,7,.94)!important;border:1px solid rgba(255,255,255,.18)!important;box-shadow:0 14px 34px rgba(0,0,0,.45)!important;-webkit-backdrop-filter:blur(14px)!important;backdrop-filter:blur(14px)!important}
+}
