@@ -12954,3 +12954,22 @@ body:has(.menuShowcase) .app,
 .menuRefCardBody{
   background:linear-gradient(180deg,rgba(11,11,11,.72),rgba(5,5,5,.62))!important;
 }
+
+
+/* menu cards visibly translucent - 2026-09-27 */
+.menuRefCard{
+  background:rgba(10,7,7,.34)!important;
+  border-color:rgba(255,255,255,.22)!important;
+  backdrop-filter:blur(7px)!important;
+  -webkit-backdrop-filter:blur(7px)!important;
+  box-shadow:0 10px 24px rgba(0,0,0,.18)!important;
+}
+.menuRefCardBody{
+  background:rgba(12,8,8,.38)!important;
+  backdrop-filter:blur(8px)!important;
+  -webkit-backdrop-filter:blur(8px)!important;
+}
+.menuRefCardBody::before{
+  opacity:0!important;
+  background:none!important;
+}
