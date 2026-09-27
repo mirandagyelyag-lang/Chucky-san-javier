@@ -234,6 +234,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
  const[error,setError]=useState('');
  const[addressSuggestions,setAddressSuggestions]=useState([]);
  const[addressLoading,setAddressLoading]=useState(false);
+ const[addressLocked,setAddressLocked]=useState(false);
  const[locating,setLocating]=useState(false);
  const[locationStatus,setLocationStatus]=useState('');
  const change=e=>setCustomer(c=>({...c,[e.target.name]:e.target.value}));
@@ -244,7 +245,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
  const isSanJavierPlace=v=>normalizePlace(v).includes('san javier');
 
  useEffect(()=>{
-  if(customer.delivery!=='Despacho'||customer.address.trim().length<2){setAddressSuggestions([]);return}
+  if(customer.delivery!=='Despacho'||addressLocked||customer.address.trim().length<2){setAddressSuggestions([]);return}
   const timer=setTimeout(async()=>{
    setAddressLoading(true);
    const rawQuery=customer.address.trim();
@@ -347,10 +348,11 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
    }finally{setAddressLoading(false)}
   },350);
   return()=>clearTimeout(timer);
- },[customer.address,customer.delivery]);
+ },[customer.address,customer.delivery,addressLocked]);
  const chooseAddress=s=>{
   const full=[s.label,s.meta].filter(Boolean).join(', ');
   if(!isSanJavierPlace(full)){setLocationStatus('Solo hacemos despachos dentro de San Javier.');return}
+  setAddressLocked(true);
   setCustomer(c=>({...c,address:full,lat:String(s.lat),lon:String(s.lon)}));
   setAddressSuggestions([]);
   setLocationStatus('Ubicación en San Javier confirmada');
@@ -376,6 +378,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
     setLocating(false);
     return;
    }
+   setAddressLocked(true);
    setCustomer(c=>({...c,address:label,lat,lon}));
    setAddressSuggestions([]);
    setLocationStatus('Ubicación en San Javier confirmada');
@@ -451,14 +454,14 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
    <div className="checkoutGroup">
     <div className="checkoutGroupTitle"><MapPin/><h3>Entrega</h3></div>
     <div className="deliveryChoice">
-     <button className={customer.delivery==='Retiro en local'?'on':''} onClick={()=>setCustomer(c=>({...c,delivery:'Retiro en local'}))}>Retiro</button>
-     <button className={customer.delivery==='Despacho'?'on':''} onClick={()=>setCustomer(c=>({...c,delivery:'Despacho'}))}>Despacho</button>
+     <button className={customer.delivery==='Retiro en local'?'on':''} onClick={()=>{setAddressSuggestions([]);setAddressLocked(false);setLocationStatus('');setCustomer(c=>({...c,delivery:'Retiro en local'}))}}>Retiro</button>
+     <button className={customer.delivery==='Despacho'?'on':''} onClick={()=>{setAddressSuggestions([]);setAddressLocked(false);setCustomer(c=>({...c,delivery:'Despacho'}))}}>Despacho</button>
     </div>
     {customer.delivery==='Despacho'&&<>
      <button className="useLocationBtn" type="button" onClick={useMyLocation} disabled={locating}><LocateFixed/>{locating?'Buscando ubicación…':'Usar mi ubicación actual'}</button>
      {locationStatus&&<small className="locationStatus">{locationStatus}</small>}
      <label className="addressAutocomplete">Calle y número <em>*</em><small className="addressZoneHint">Solo San Javier</small>
-      <input name="address" value={customer.address} onChange={change} placeholder="Ej: Hernán Lobos Arias 123" autoComplete="street-address"/>
+      <input name="address" value={customer.address} onChange={e=>{setAddressLocked(false);setAddressSuggestions([]);setLocationStatus('');setCustomer(c=>({...c,address:e.target.value,lat:'',lon:''}))}} placeholder="Ej: Hernán Lobos Arias 123" autoComplete="street-address"/>
       {customer.address.trim()&&!hasStreetNumber&&<small className="fieldError addressNumberError">Agrega el número de la dirección.</small>}
       {(addressLoading||addressSuggestions.length>0)&&<div className="addressSuggestions">
        {addressLoading&&<div className="addressLoading">Buscando direcciones…</div>}
