@@ -153,7 +153,7 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
        <span>{sectionMeta[c].kicker}</span>
        <i aria-hidden="true"/>
        {c==='Pollo frito'&&<img className="menuEditorialFoodIcon" src="./pollo-frito.png?v=1" alt="" aria-hidden="true" loading="eager" decoding="async"/>}
-       {c==='Sushi'&&<img className="menuEditorialFoodIcon" src="./sushi.png?v=1" alt="" aria-hidden="true" loading="eager" decoding="async"/>}
+       {c==='Sushi'&&<img className="menuEditorialFoodIcon menuEditorialFoodIconSushi" src="./sushi.png?v=2" alt="" aria-hidden="true" loading="eager" decoding="async"/>}
       </div>
       <div className="menuEditorialTitleRow">
        <h2>{c}</h2>
