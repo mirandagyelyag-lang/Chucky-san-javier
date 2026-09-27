@@ -248,17 +248,24 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
   if(customer.delivery!=='Despacho'||addressLocked||customer.address.trim().length<2){setAddressSuggestions([]);return}
   const timer=setTimeout(async()=>{
    setAddressLoading(true);
+   setAddressSuggestions([]);
    const raw=customer.address.trim();
    const numberMatch=raw.match(/(?:^|\s)(\d+[A-Za-z]?)\s*$/);
    const typedNumber=(numberMatch?.[1]||'').toLowerCase();
    const streetQuery=(typedNumber?raw.slice(0,numberMatch.index).trim():raw).trim();
    const norm=v=>normalizePlace(v).replace(/\s+/g,' ').trim();
    const unique=list=>{const seen=new Set();return list.filter(x=>{if(!x?.label||!x?.lat||!x?.lon)return false;const k=norm(x.label);if(seen.has(k))return false;seen.add(k);return true})};
+   const fetchFast=async(url,options={},ms=2200)=>{
+    const controller=new AbortController();
+    const timer=setTimeout(()=>controller.abort(),ms);
+    try{return await fetch(url,{...options,signal:controller.signal})}
+    finally{clearTimeout(timer)}
+   };
 
    try{
     // Resolve the street in San Javier first. This is independent from the house number.
     const streetUrl='https://nominatim.openstreetmap.org/search?format=jsonv2&countrycodes=cl&limit=8&addressdetails=1&q='+encodeURIComponent((streetQuery||raw)+', San Javier, Maule, Chile');
-    const sr=await fetch(streetUrl);
+    const sr=await fetchFast(streetUrl,{},1800);
     if(!sr.ok)throw new Error('street lookup');
     const sd=await sr.json();
     const streetCandidates=sd.filter(x=>{
@@ -280,7 +287,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
      const endpoints=['https://overpass-api.de/api/interpreter?data=','https://overpass.kumi.systems/api/interpreter?data='];
      for(const endpoint of endpoints){
       try{
-       const or=await fetch(endpoint+encodeURIComponent(query));
+       const or=await fetchFast(endpoint+encodeURIComponent(query),{},2200);
        if(!or.ok)continue;
        const od=await or.json();
        const numbered=(od.elements||[]).map(el=>{
@@ -298,7 +305,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
      }
 
      // Exact-address fallback if OpenStreetMap's number index has no prefix matches.
-     const er=await fetch('https://nominatim.openstreetmap.org/search?format=jsonv2&countrycodes=cl&limit=6&addressdetails=1&q='+encodeURIComponent(base.street+' '+typedNumber+', San Javier, Maule, Chile'));
+     const er=await fetchFast('https://nominatim.openstreetmap.org/search?format=jsonv2&countrycodes=cl&limit=6&addressdetails=1&q='+encodeURIComponent(base.street+' '+typedNumber+', San Javier, Maule, Chile'),{},1800);
      if(er.ok){
       const ed=await er.json();
       const exact=unique(ed.filter(x=>{const a=x.address||{};return isSanJavierPlace([a.city,a.town,a.village,a.municipality,a.county,a.state,x.display_name].filter(Boolean).join(' '))}).map(x=>{
@@ -317,7 +324,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
    }catch{
     setAddressSuggestions([]);
    }finally{setAddressLoading(false)}
-  },400);
+  },260);
   return()=>clearTimeout(timer);
  },[customer.address,customer.delivery,addressLocked]);
  const chooseAddress=s=>{
@@ -433,10 +440,9 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
      <button className="useLocationBtn" type="button" onClick={useMyLocation} disabled={locating}><LocateFixed/>{locating?'Buscando ubicación…':'Usar mi ubicación actual'}</button>
      {locationStatus&&<small className="locationStatus">{locationStatus}</small>}
      <label className="addressAutocomplete">Calle y número <em>*</em><small className="addressZoneHint">Solo San Javier</small>
-      <input name="address" value={customer.address} onChange={e=>{setAddressLocked(false);setAddressSuggestions([]);setLocationStatus('');setCustomer(c=>({...c,address:e.target.value,lat:'',lon:''}))}} placeholder="Ej: Hernán Lobos Arias 123" autoComplete="street-address"/>
+      <input name="address" value={customer.address} onChange={e=>{setAddressLocked(false);setLocationStatus('');setCustomer(c=>({...c,address:e.target.value,lat:'',lon:''}))}} placeholder="Ej: Hernán Lobos Arias 123" autoComplete="street-address"/>
       {customer.address.trim()&&!hasStreetNumber&&<small className="fieldError addressNumberError">Agrega el número de la dirección.</small>}
-      {(addressLoading||addressSuggestions.length>0)&&<div className="addressSuggestions">
-       {addressLoading&&<div className="addressLoading">Buscando direcciones…</div>}
+      {addressSuggestions.length>0&&<div className="addressSuggestions">
        {addressSuggestions.map((s,i)=><button type="button" key={s.lat+'-'+s.lon+'-'+i} onClick={()=>chooseAddress(s)} className={(s.unverified?'unverifiedAddress ':'')+(s.noSelect?'addressInfoRow':'')}><MapPin/><span><b>{s.label}</b>{s.meta&&<small>{s.meta}</small>}</span></button>)}
       </div>}
      </label>
