@@ -12876,3 +12876,40 @@ body:has(.menuShowcase) .app,
     backdrop-filter:blur(10px)!important;
   }
 }
+
+
+/* MENU BACKGROUND ARTWORK — fondo-menu.png — 2026-09-27 */
+@media(max-width:600px){
+  body:has(.menuShowcase),
+  body:has(.menuShowcase) #root,
+  body:has(.menuShowcase) .app,
+  body:has(.menuShowcase) .content,
+  body:has(.menuShowcase) .menuShowcase{
+    background-color:#120707!important;
+    background-image:
+      linear-gradient(180deg,rgba(9,3,4,.12),rgba(9,3,4,.24)),
+      url('/fondo-menu.png?v=1')!important;
+    background-size:cover!important;
+    background-position:center top!important;
+    background-repeat:no-repeat!important;
+    background-attachment:scroll!important;
+  }
+
+  /* Solo quitamos el negro de las capas del catálogo para que se vea el fondo.
+     Las fichas/product cards NO se tocan. */
+  body:has(.menuShowcase) .menuShowSection,
+  body:has(.menuShowcase) .menuCatalogSection,
+  body:has(.menuShowcase) .menuShowList,
+  body:has(.menuShowcase) .menuShowHeading,
+  body:has(.menuShowcase) .mobileNavSpace{
+    background:transparent!important;
+    background-image:none!important;
+  }
+
+  /* Mantener la franja de categorías legible y separada del arte de fondo */
+  body:has(.menuShowcase) .menuShowTabs{
+    background:rgba(5,5,5,.88)!important;
+    -webkit-backdrop-filter:blur(8px)!important;
+    backdrop-filter:blur(8px)!important;
+  }
+}
