@@ -263,9 +263,10 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
     const seen=new Set();
     return list.filter(x=>{
      if(!x?.label||!x?.lat||!x?.lon)return false;
-     const key=(x.label+'|'+(x.meta||'')).toLowerCase();
-     if(seen.has(key))return false;
-     seen.add(key);return true;
+     const normalizedLabel=normalizePlace(x.label).replace(/\s+/g,' ').trim();
+     if(seen.has(normalizedLabel))return false;
+     seen.add(normalizedLabel);
+     return true;
     });
    };
 
@@ -288,7 +289,12 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
        return{label:[street,number].filter(Boolean).join(' '),street,number,meta:[...new Set(meta)].slice(0,2).join(', '),lat:x.lat,lon:x.lon};
       });
       const exactClean=cleanList(exactMapped);
-      if(exactClean.length){setAddressSuggestions(exactClean.slice(0,5));return}
+      if(exactClean.length){
+       const exactStreetNumber=normalizePlace([streetQuery,typedNumber].filter(Boolean).join(' '));
+       const best=exactClean.find(x=>normalizePlace(x.label)===exactStreetNumber)||exactClean[0];
+       setAddressSuggestions(best?[best]:[]);
+       return;
+      }
      }
     }
 
@@ -301,7 +307,14 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
      const txt=[p.name,p.street,p.district,p.city,p.county,p.state].filter(Boolean).join(' ');
      return isSanJavierPlace(txt);
     });
-    const clean=cleanList(photonRaw).slice(0,6);
+    let clean=cleanList(photonRaw);
+    if(typedNumber){
+     const exactStreetNumber=normalizePlace([streetQuery,typedNumber].filter(Boolean).join(' '));
+     const best=clean.find(x=>normalizePlace(x.label)===exactStreetNumber)||clean[0];
+     clean=best?[best]:[];
+    }else{
+     clean=clean.slice(0,6);
+    }
     if(clean.length){setAddressSuggestions(clean);return}
     throw new Error('empty');
    }catch{
@@ -321,7 +334,15 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
       const meta=[a.suburb||a.neighbourhood,a.city||a.town||a.village||a.municipality].filter(Boolean);
       return{label:[street,number].filter(Boolean).join(' '),street,number,meta:[...new Set(meta)].slice(0,2).join(', '),lat:x.lat,lon:x.lon};
      });
-     setAddressSuggestions(cleanList(mapped).slice(0,6));
+     let fallbackClean=cleanList(mapped);
+     if(typedNumber){
+      const exactStreetNumber=normalizePlace([streetQuery,typedNumber].filter(Boolean).join(' '));
+      const best=fallbackClean.find(x=>normalizePlace(x.label)===exactStreetNumber)||fallbackClean[0];
+      fallbackClean=best?[best]:[];
+     }else{
+      fallbackClean=fallbackClean.slice(0,6);
+     }
+     setAddressSuggestions(fallbackClean);
     }catch{setAddressSuggestions([])}
    }finally{setAddressLoading(false)}
   },350);
