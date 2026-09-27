@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root{
@@ -11848,16 +11849,25 @@ body:has(.menuShowcase) .app,
 /* softer menu typography 2026-09-27 */
 .menuRefHeroCopy h1{
   color:#f2ebe4 !important;
-  font-weight:800 !important;
+  font-family:'Barlow Condensed', sans-serif !important;
+  font-weight:700 !important;
   text-shadow:none !important;
-  letter-spacing:.015em !important;
+  letter-spacing:.025em !important;
+  line-height:.92 !important;
 }
 
 .menuRefHeading h2{
   color:#f2ebe4 !important;
-  font-weight:700 !important;
+  font-family:'Barlow Condensed', sans-serif !important;
+  font-weight:600 !important;
   text-shadow:none !important;
-  letter-spacing:.005em !important;
+  letter-spacing:.015em !important;
+}
+
+/* Keep the section title strong without the eye-searing white/black contrast */
+.menuRefHeading{
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
 }
 
 /* Keep the section title strong without the eye-searing white/black contrast */
