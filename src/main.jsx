@@ -152,6 +152,7 @@ function MenuPage({cat,setCat,filtered,add,setSelected,setScreen}){
       <div className="menuEditorialKicker">
        <span>{sectionMeta[c].kicker}</span>
        <i aria-hidden="true"/>
+       {c==='Pollo frito'&&<img className="menuEditorialFoodIcon" src="./pollo-frito.png?v=1" alt="" aria-hidden="true" loading="eager" decoding="async"/>}
       </div>
       <div className="menuEditorialTitleRow">
        <h2>{c}</h2>
