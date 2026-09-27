@@ -12052,3 +12052,14 @@ body:has(.menuShowcase) .app,
     margin:0 0 -7px!important;
   }
 }
+
+
+/* MENU BEBIDAS ICON SIZE — 2026-09-27 */
+@media(max-width:767px){
+  .menuEditorialFoodIconBebidas{
+    width:48px!important;
+    height:48px!important;
+    flex:0 0 48px!important;
+    margin:0 0 -8px!important;
+  }
+}
