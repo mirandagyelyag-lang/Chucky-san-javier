@@ -12030,3 +12030,14 @@ body:has(.menuShowcase) .app,
     margin:0 0 -6px!important;
   }
 }
+
+
+/* MENU SUSHI ICON SIZE — 2026-09-27 */
+@media(max-width:767px){
+  .menuEditorialFoodIconSushi{
+    width:50px!important;
+    height:50px!important;
+    flex:0 0 50px!important;
+    margin:0 0 -8px!important;
+  }
+}
