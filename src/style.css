@@ -12429,3 +12429,38 @@ body:has(.menuShowcase) .app,
     font:800 12px/1 Arial,sans-serif!important;
   }
 }
+
+
+/* ADDRESS SUGGESTIONS CLEANUP — 2026-09-27 */
+@media(max-width:767px){
+  .addressSuggestions{
+    max-height:236px!important;
+    overflow-y:auto!important;
+  }
+  .addressSuggestions button{
+    min-height:54px!important;
+    padding:10px 12px!important;
+    grid-template-columns:20px minmax(0,1fr)!important;
+  }
+  .addressSuggestions button>span{
+    min-width:0!important;
+    display:block!important;
+  }
+  .addressSuggestions button b{
+    display:block!important;
+    margin:0 0 3px!important;
+    color:#332925!important;
+    font:700 12.5px/1.2 Arial,sans-serif!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+  .addressSuggestions button small{
+    display:block!important;
+    color:#8b7c74!important;
+    font:500 10.5px/1.25 Arial,sans-serif!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+}
