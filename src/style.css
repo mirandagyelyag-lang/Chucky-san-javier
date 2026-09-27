@@ -12016,3 +12016,17 @@ body:has(.menuShowcase) .app,
 }
 
 
+
+
+/* MENU POLLO FRITO ICON — 2026-09-27 */
+@media(max-width:767px){
+  .menuEditorialFoodIcon{
+    display:block!important;
+    width:34px!important;
+    height:34px!important;
+    flex:0 0 34px!important;
+    object-fit:contain!important;
+    opacity:1!important;
+    margin:0 0 -2px!important;
+  }
+}
