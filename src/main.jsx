@@ -238,7 +238,8 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
  const[locationStatus,setLocationStatus]=useState('');
  const change=e=>setCustomer(c=>({...c,[e.target.name]:e.target.value}));
  const emailOk=!customer.email.trim()||/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customer.email.trim());
- const canSend=items.length&&customer.name.trim()&&customer.phone.trim()&&emailOk&&customer.payment&&(customer.delivery==='Retiro en local'||customer.address.trim())&&(customer.payment!=='Efectivo'||!customer.cashAmount||Number(customer.cashAmount.replace(/\D/g,''))>=subtotal);
+ const hasStreetNumber=/\d/.test(customer.address.trim());
+ const canSend=items.length&&customer.name.trim()&&customer.phone.trim()&&emailOk&&customer.payment&&(customer.delivery==='Retiro en local'||(customer.address.trim()&&hasStreetNumber))&&(customer.payment!=='Efectivo'||!customer.cashAmount||Number(customer.cashAmount.replace(/\D/g,''))>=subtotal);
  const normalizePlace=v=>(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
  const isSanJavierPlace=v=>normalizePlace(v).includes('san javier');
 
@@ -413,6 +414,7 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
      {locationStatus&&<small className="locationStatus">{locationStatus}</small>}
      <label className="addressAutocomplete">Calle y número <em>*</em><small className="addressZoneHint">Solo San Javier</small>
       <input name="address" value={customer.address} onChange={change} placeholder="Ej: Hernán Lobos Arias 123" autoComplete="street-address"/>
+      {customer.address.trim()&&!hasStreetNumber&&<small className="fieldError addressNumberError">Agrega el número de la dirección.</small>}
       {(addressLoading||addressSuggestions.length>0)&&<div className="addressSuggestions">
        {addressLoading&&<div className="addressLoading">Buscando direcciones…</div>}
        {addressSuggestions.map((s,i)=><button type="button" key={s.lat+'-'+s.lon+'-'+i} onClick={()=>chooseAddress(s)}><MapPin/><span><b>{s.label}</b>{s.meta&&<small>{s.meta}</small>}</span></button>)}
