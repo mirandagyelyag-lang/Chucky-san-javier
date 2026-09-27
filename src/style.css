@@ -12477,3 +12477,13 @@ body:has(.menuShowcase) .app,
     text-transform:uppercase!important;
   }
 }
+
+
+/* ADDRESS NUMBER REQUIRED — 2026-09-27 */
+@media(max-width:767px){
+  .addressNumberError{
+    margin-top:6px!important;
+    color:#ff6075!important;
+    font:700 10px/1.2 Arial,sans-serif!important;
+  }
+}
