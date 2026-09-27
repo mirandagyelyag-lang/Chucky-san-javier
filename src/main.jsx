@@ -1,6 +1,6 @@
 import React,{useEffect,useMemo,useState}from'react';
 import{createRoot}from'react-dom/client';
-import{Menu,Search,ShoppingBag,Plus,Minus,X,ArrowLeft,Heart,Drumstick,ChevronRight,Sparkles,Home,UtensilsCrossed}from'lucide-react';
+import{Menu,Search,ShoppingBag,Plus,Minus,X,ArrowLeft,Heart,Drumstick,ChevronRight,Sparkles,Home,UtensilsCrossed,MapPin,UserRound,WalletCards,LocateFixed}from'lucide-react';
 import'./style.css';
 
 const products=[
@@ -228,13 +228,57 @@ function Detail({p,close,add}){return <div className="detail detailChalk">
 
 function Cart({cart,setCart,add,sub,subtotal,setScreen}){
  const items=products.filter(p=>cart[p.id]);
- const[customer,setCustomer]=useState({name:'',phone:'',email:'',delivery:'Retiro en local',address:'',notes:''});
+ const[customer,setCustomer]=useState({name:'',phone:'',email:'',delivery:'Retiro en local',address:'',floor:'',notes:'',payment:'',cashAmount:'',lat:'',lon:''});
  const[sending,setSending]=useState(false);
  const[sent,setSent]=useState(false);
  const[error,setError]=useState('');
+ const[addressSuggestions,setAddressSuggestions]=useState([]);
+ const[addressLoading,setAddressLoading]=useState(false);
+ const[locating,setLocating]=useState(false);
+ const[locationStatus,setLocationStatus]=useState('');
  const change=e=>setCustomer(c=>({...c,[e.target.name]:e.target.value}));
  const emailOk=!customer.email.trim()||/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customer.email.trim());
- const canSend=items.length&&customer.name.trim()&&customer.phone.trim()&&emailOk&&(customer.delivery==='Retiro en local'||customer.address.trim());
+ const canSend=items.length&&customer.name.trim()&&customer.phone.trim()&&emailOk&&customer.payment&&(customer.delivery==='Retiro en local'||customer.address.trim())&&(customer.payment!=='Efectivo'||!customer.cashAmount||Number(customer.cashAmount.replace(/\D/g,''))>=subtotal);
+
+ useEffect(()=>{
+  if(customer.delivery!=='Despacho'||customer.address.trim().length<3){setAddressSuggestions([]);return}
+  const timer=setTimeout(async()=>{
+   try{
+    setAddressLoading(true);
+    const q=encodeURIComponent(customer.address.trim()+', Chile');
+    const r=await fetch('https://nominatim.openstreetmap.org/search?format=jsonv2&countrycodes=cl&limit=5&addressdetails=1&q='+q,{headers:{Accept:'application/json'}});
+    if(!r.ok)throw new Error();
+    const data=await r.json();
+    setAddressSuggestions(data.map(x=>({label:x.display_name,lat:x.lat,lon:x.lon})));
+   }catch{setAddressSuggestions([])}
+   finally{setAddressLoading(false)}
+  },450);
+  return()=>clearTimeout(timer);
+ },[customer.address,customer.delivery]);
+
+ const chooseAddress=s=>{
+  setCustomer(c=>({...c,address:s.label,lat:s.lat,lon:s.lon}));
+  setAddressSuggestions([]);
+  setLocationStatus('Ubicación confirmada');
+ };
+
+ const useMyLocation=()=>{
+  if(!navigator.geolocation){setLocationStatus('Este dispositivo no permite obtener la ubicación.');return}
+  setLocating(true);setLocationStatus('Buscando tu ubicación…');
+  navigator.geolocation.getCurrentPosition(async pos=>{
+   const lat=pos.coords.latitude.toFixed(6),lon=pos.coords.longitude.toFixed(6);
+   let label=lat+', '+lon;
+   try{
+    const r=await fetch('https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat='+lat+'&lon='+lon,{headers:{Accept:'application/json'}});
+    if(r.ok){const data=await r.json();if(data.display_name)label=data.display_name}
+   }catch{}
+   setCustomer(c=>({...c,address:label,lat,lon}));
+   setAddressSuggestions([]);
+   setLocationStatus('Ubicación GPS confirmada');
+   setLocating(false);
+  },()=>{setLocationStatus('No pudimos obtener tu ubicación. Revisa el permiso de ubicación.');setLocating(false)},{enableHighAccuracy:true,timeout:12000,maximumAge:0});
+ };
+
  const sendOrder=async()=>{
   if(!canSend||sending)return;
   setSending(true);setError('');
@@ -250,9 +294,16 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
   }
   data.append('Entrega',customer.delivery);
   data.append('Dirección',customer.delivery==='Despacho'?customer.address:'Retiro en local');
+  if(customer.delivery==='Despacho'){
+   data.append('Piso / departamento',customer.floor||'No aplica');
+   data.append('Coordenadas',customer.lat&&customer.lon?`${customer.lat}, ${customer.lon}`:'No disponibles');
+   if(customer.lat&&customer.lon)data.append('Mapa',`https://www.google.com/maps?q=${customer.lat},${customer.lon}`);
+  }
+  data.append('Forma de pago',customer.payment);
+  if(customer.payment==='Efectivo')data.append('Paga con',customer.cashAmount?money(Number(customer.cashAmount.replace(/\D/g,''))):'Monto exacto / no indicado');
   data.append('Pedido',detail);
-  data.append('Total',money(subtotal));
-  data.append('Notas',customer.notes||'Sin notas');
+  data.append('Total productos',money(subtotal));
+  data.append('Notas',customer.notes||'Sin indicaciones');
   try{
    const response=await fetch('https://formsubmit.co/ajax/antonia.miranda.acmmo@gmail.com',{method:'POST',headers:{Accept:'application/json'},body:data});
    const result=await response.json();
@@ -270,35 +321,71 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
   <button className="backHome" onClick={()=>setScreen('home')}>VOLVER AL INICIO <ChevronRight/></button>
  </main>;
  return <main className={"content cart cartSmart chuckyScreen"+(!items.length?" cartSmartEmpty":"")}>
- {items.length?<><div className="smartCartHead"><small>TU CARRITO</small><h1>RESUMEN</h1><p>${items.reduce((s,p)=>s+cart[p.id],0)} productos</p></div>
+ {items.length?<><div className="smartCartHead"><small>TU CARRITO</small><h1>RESUMEN</h1><p>{items.reduce((s,p)=>s+cart[p.id],0)} productos</p></div>
   <section className="smartSummary">
    <div className="smartSummaryTop"><b>Productos</b><strong>{money(subtotal)}</strong></div>
    {items.map(p=><article className="smartCartItem" key={p.id}>
     <img src={p.img} alt={p.name} loading="lazy" decoding="async"/>
     <div className="smartItemCopy"><b>{p.name}</b><span>{money(p.price)}</span></div>
-    <div className="smartQty"><button onClick={()=>sub(p.id)}><Minus/></button><strong>{cart[p.id]}</strong><button onClick={e=>add(p.id,e)}><Plus/></button></div>
+    <div className="smartQty"><button onClick={()=>sub(p.id)} aria-label={'Quitar uno de '+p.name}><Minus/></button><strong>{cart[p.id]}</strong><button onClick={e=>add(p.id,e)} aria-label={'Agregar uno de '+p.name}><Plus/></button></div>
    </article>)}
-   <div className="smartDelivery"><span>Entrega</span><b>Se calcula al confirmar</b></div>
-   <div className="smartTotal"><span>TOTAL</span><strong>{money(subtotal)}</strong></div>
+   <div className="smartDelivery"><span>Despacho</span><b>{customer.delivery==='Despacho'?'Se confirma con el negocio':'Retiro · $0'}</b></div>
+   <div className="smartTotal"><span>TOTAL PRODUCTOS</span><strong>{money(subtotal)}</strong></div>
   </section>
-  <button className="smartCheckoutJump" onClick={()=>document.querySelector('.customerForm')?.scrollIntoView({behavior:'smooth'})}>FINALIZAR PEDIDO <ChevronRight/></button>
-  <section className="smartExtras"><div><small>¿ALGO MÁS?</small><b>Completa tu pedido</b></div><div className="smartSuggestions">
-   {products.filter(p=>!cart[p.id]).slice(0,3).map(p=><button className="smartSuggest" key={p.id} onClick={e=>add(p.id,e)}><img src={p.img} alt="" loading="lazy" decoding="async"/><span><b>{p.name}</b><small>{money(p.price)}</small></span><i>+</i></button>)}
-  </div><button className="smartMore" onClick={()=>setScreen('menu')}>VER MÁS</button></section>
-  <section className="customerForm smartCustomer">
-   <div className="orderFormHead"><small>DATOS DEL CLIENTE</small><h2>¿A QUIÉN ENTREGAMOS?</h2></div>
-   <label>Nombre<input name="name" value={customer.name} onChange={change} placeholder="Tu nombre" autoComplete="name"/></label>
-   <label>Teléfono<input name="phone" value={customer.phone} onChange={change} placeholder="+56 9..." inputMode="tel" autoComplete="tel"/></label>
-   <label>Correo <span className="optionalTag">OPCIONAL</span><input type="email" name="email" value={customer.email} onChange={change} placeholder="tu@correo.com" inputMode="email" autoComplete="email"/>{customer.email&&!emailOk&&<small className="fieldError">Escribe un correo válido.</small>}</label>
-   <label>Tipo de entrega<select name="delivery" value={customer.delivery} onChange={change}><option>Retiro en local</option><option>Despacho</option></select></label>
-   {customer.delivery==='Despacho'&&<label>Dirección<input name="address" value={customer.address} onChange={change} placeholder="Calle, número y comuna" autoComplete="street-address"/></label>}
-   <label>Notas<textarea name="notes" value={customer.notes} onChange={change} placeholder="Salsas o indicaciones..."/></label>
+  <button className="smartCheckoutJump" onClick={()=>document.querySelector('.customerForm')?.scrollIntoView({behavior:'smooth'})}>CONTINUAR CON MIS DATOS <ChevronRight/></button>
+
+  <section className="customerForm smartCustomer checkoutFormV2">
+   <div className="orderFormHead"><small>FINALIZAR COMPRA</small><h2>Tus datos</h2></div>
+
+   <div className="checkoutGroup">
+    <div className="checkoutGroupTitle"><UserRound/><h3>Contacto</h3></div>
+    <label>Nombre y apellido <em>*</em><input name="name" value={customer.name} onChange={change} placeholder="Tu nombre" autoComplete="name"/></label>
+    <label>Teléfono <em>*</em><input name="phone" value={customer.phone} onChange={change} placeholder="+56 9 1234 5678" inputMode="tel" autoComplete="tel"/></label>
+    <label>Correo electrónico <span className="optionalTag">OPCIONAL</span><input type="email" name="email" value={customer.email} onChange={change} placeholder="nombre@ejemplo.com" inputMode="email" autoComplete="email"/>{customer.email&&!emailOk&&<small className="fieldError">Escribe un correo válido.</small>}</label>
+   </div>
+
+   <div className="checkoutGroup">
+    <div className="checkoutGroupTitle"><MapPin/><h3>Entrega</h3></div>
+    <div className="deliveryChoice">
+     <button className={customer.delivery==='Retiro en local'?'on':''} onClick={()=>setCustomer(c=>({...c,delivery:'Retiro en local'}))}>Retiro</button>
+     <button className={customer.delivery==='Despacho'?'on':''} onClick={()=>setCustomer(c=>({...c,delivery:'Despacho'}))}>Despacho</button>
+    </div>
+    {customer.delivery==='Despacho'&&<>
+     <button className="useLocationBtn" type="button" onClick={useMyLocation} disabled={locating}><LocateFixed/>{locating?'Buscando ubicación…':'Usar mi ubicación actual'}</button>
+     {locationStatus&&<small className="locationStatus">{locationStatus}</small>}
+     <label className="addressAutocomplete">Calle y número <em>*</em>
+      <input name="address" value={customer.address} onChange={change} placeholder="Ej: Hernán Lobos Arias 123" autoComplete="street-address"/>
+      {(addressLoading||addressSuggestions.length>0)&&<div className="addressSuggestions">
+       {addressLoading&&<div className="addressLoading">Buscando direcciones…</div>}
+       {addressSuggestions.map((s,i)=><button type="button" key={s.lat+'-'+s.lon+'-'+i} onClick={()=>chooseAddress(s)}><MapPin/><span>{s.label}</span></button>)}
+      </div>}
+     </label>
+     <label>Piso y departamento <span className="optionalTag">OPCIONAL</span><input name="floor" value={customer.floor} onChange={change} placeholder="Ej: 1B"/></label>
+     <label>Indicaciones <span className="optionalTag">OPCIONAL</span><textarea name="notes" value={customer.notes} onChange={change} placeholder="Casa con portón rojo, llamar al llegar..."/></label>
+    </>}
+   </div>
+
+   <div className="checkoutGroup">
+    <div className="checkoutGroupTitle"><WalletCards/><h3>Forma de pago <em>*</em></h3></div>
+    <div className="paymentOptions">
+     {['Efectivo','Transferencia'].map(method=><label className={'paymentOption '+(customer.payment===method?'on':'')} key={method}><input type="radio" name="payment" value={method} checked={customer.payment===method} onChange={change}/><span></span><b>{method}</b></label>)}
+    </div>
+    {customer.payment==='Efectivo'&&<label className="cashField">¿Con cuánto vas a pagar? <span className="optionalTag">OPCIONAL</span><input name="cashAmount" value={customer.cashAmount} onChange={change} placeholder="$0" inputMode="numeric"/></label>}
+   </div>
+
+   <section className="checkoutFinalSummary">
+    <h3>Resumen</h3>
+    <div><span>Subtotal</span><b>{money(subtotal)}</b></div>
+    <div><span>{customer.delivery==='Despacho'?'Costo de envío':'Retiro'}</span><b>{customer.delivery==='Despacho'?'Por confirmar':'$0'}</b></div>
+    <div className="checkoutTotalLine"><span>Total productos</span><strong>{money(subtotal)}</strong></div>
+   </section>
   </section>
+
   {error&&<p className="orderError">{error}</p>}
-  <button className="checkout smartFinal" disabled={!canSend||sending} onClick={sendOrder}>{sending?'ENVIANDO...':'HACER PEDIDO'} {!sending&&<ChevronRight/>}</button>
+  <button className="checkout smartFinal checkoutConfirmV2" disabled={!canSend||sending} onClick={sendOrder}>{sending?'ENVIANDO...':'CONFIRMAR PEDIDO'} {!sending&&<ChevronRight/>}</button>
+  <button className="checkoutBackV2" onClick={()=>setScreen('menu')}>VOLVER AL MENÚ</button>
  </>:<div className="smartEmpty"><small>TU CARRITO</small><div className="emptyPedidoArtwork" aria-hidden="true"></div><img className="pedidoChuckyLogo" src="./chucky-logo.webp?v=1" alt="Chucky"/><div className="pedidoEmptyCopy"><h1>Tu carrito está <em>vacío.</em></h1><p>¿Lo arreglamos?</p><button onClick={()=>setScreen('menu')}>IR AL MENÚ <ChevronRight/></button></div></div>}
  </main>}
-
 function Shell({children,screen,setScreen,count,lastAdded}){return <div className="app"><div className="grain"/>{children}
  {lastAdded&&screen!=='cart'&&<button className="cartAddedToast" onClick={()=>setScreen('cart')} aria-label="Ver carrito"><span className="cartAddedCheck">✓</span><span><small>AGREGADO AL CARRITO</small><b>{lastAdded.name}</b></span><strong>Ver carrito <ChevronRight/></strong></button>}
  <div className="mobileNavSpace" aria-hidden="true"/><nav className="nav chuckyNav">
