@@ -12814,3 +12814,29 @@ body:has(.menuShowcase) .app,
     border-color:#513235!important;
   }
 }
+
+
+/* CUSTOM RESUMEN LOGO — 2026-09-27 */
+.smartCartHead .summaryLogo{
+  display:block!important;
+  width:min(440px,72%)!important;
+  max-height:132px!important;
+  height:auto!important;
+  object-fit:contain!important;
+  object-position:left center!important;
+  margin:5px 0 0!important;
+  filter:drop-shadow(0 7px 14px rgba(0,0,0,.30))!important;
+}
+@media(max-width:767px){
+  .smartCartHead{
+    min-height:120px!important;
+  }
+  .smartCartHead .summaryLogo{
+    width:min(430px,78%)!important;
+    max-height:118px!important;
+    margin-top:4px!important;
+  }
+  .smartCartHead p{
+    bottom:9px!important;
+  }
+}
