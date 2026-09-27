@@ -241,23 +241,38 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
  const canSend=items.length&&customer.name.trim()&&customer.phone.trim()&&emailOk&&customer.payment&&(customer.delivery==='Retiro en local'||customer.address.trim())&&(customer.payment!=='Efectivo'||!customer.cashAmount||Number(customer.cashAmount.replace(/\D/g,''))>=subtotal);
 
  useEffect(()=>{
-  if(customer.delivery!=='Despacho'||customer.address.trim().length<3){setAddressSuggestions([]);return}
+  if(customer.delivery!=='Despacho'||customer.address.trim().length<2){setAddressSuggestions([]);return}
   const timer=setTimeout(async()=>{
+   setAddressLoading(true);
+   const query=customer.address.trim();
+   const formatPhoton=f=>{
+    const p=f.properties||{};
+    const parts=[p.name,p.street,p.housenumber,p.district,p.city,p.county,p.state,'Chile'].filter(Boolean);
+    return{label:[...new Set(parts)].join(', '),lat:f.geometry?.coordinates?.[1],lon:f.geometry?.coordinates?.[0]};
+   };
    try{
-    setAddressLoading(true);
-    const q=encodeURIComponent(customer.address.trim()+', Chile');
-    const r=await fetch('https://nominatim.openstreetmap.org/search?format=jsonv2&countrycodes=cl&limit=5&addressdetails=1&q='+q,{headers:{Accept:'application/json'}});
-    if(!r.ok)throw new Error();
+    const q=encodeURIComponent(query+' Chile');
+    const r=await fetch('https://photon.komoot.io/api/?limit=6&lang=es&q='+q);
+    if(!r.ok)throw new Error('photon');
     const data=await r.json();
-    setAddressSuggestions(data.map(x=>({label:x.display_name,lat:x.lat,lon:x.lon})));
-   }catch{setAddressSuggestions([])}
-   finally{setAddressLoading(false)}
-  },450);
+    const suggestions=(data.features||[]).map(formatPhoton).filter(x=>x.label&&x.lat&&x.lon);
+    if(suggestions.length){setAddressSuggestions(suggestions.slice(0,5));return}
+    throw new Error('empty');
+   }catch{
+    try{
+     const q=encodeURIComponent(query+', Chile');
+     const r=await fetch('https://nominatim.openstreetmap.org/search?format=jsonv2&countrycodes=cl&limit=5&addressdetails=1&q='+q);
+     if(!r.ok)throw new Error();
+     const data=await r.json();
+     setAddressSuggestions(data.map(x=>({label:x.display_name,lat:x.lat,lon:x.lon})));
+    }catch{setAddressSuggestions([])}
+   }finally{setAddressLoading(false)}
+  },300);
   return()=>clearTimeout(timer);
  },[customer.address,customer.delivery]);
 
  const chooseAddress=s=>{
-  setCustomer(c=>({...c,address:s.label,lat:s.lat,lon:s.lon}));
+  setCustomer(c=>({...c,address:s.label,lat:String(s.lat),lon:String(s.lon)}));
   setAddressSuggestions([]);
   setLocationStatus('Ubicación confirmada');
  };
@@ -269,8 +284,13 @@ function Cart({cart,setCart,add,sub,subtotal,setScreen}){
    const lat=pos.coords.latitude.toFixed(6),lon=pos.coords.longitude.toFixed(6);
    let label=lat+', '+lon;
    try{
-    const r=await fetch('https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat='+lat+'&lon='+lon,{headers:{Accept:'application/json'}});
-    if(r.ok){const data=await r.json();if(data.display_name)label=data.display_name}
+    const r=await fetch('https://photon.komoot.io/reverse?lang=es&lat='+lat+'&lon='+lon);
+    if(r.ok){
+     const data=await r.json();
+     const p=data.features?.[0]?.properties||{};
+     const parts=[p.name,p.street,p.housenumber,p.district,p.city,p.county,p.state,'Chile'].filter(Boolean);
+     if(parts.length)label=[...new Set(parts)].join(', ');
+    }
    }catch{}
    setCustomer(c=>({...c,address:label,lat,lon}));
    setAddressSuggestions([]);
