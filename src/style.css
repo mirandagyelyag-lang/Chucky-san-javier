@@ -12464,3 +12464,16 @@ body:has(.menuShowcase) .app,
     text-overflow:ellipsis!important;
   }
 }
+
+
+/* SAN JAVIER DELIVERY ZONE — 2026-09-27 */
+@media(max-width:767px){
+  .addressZoneHint{
+    float:right!important;
+    margin-top:1px!important;
+    color:#ff4962!important;
+    font:800 8px/1 Arial,sans-serif!important;
+    letter-spacing:.08em!important;
+    text-transform:uppercase!important;
+  }
+}
