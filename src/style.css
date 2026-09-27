@@ -12020,11 +12020,11 @@ body:has(.menuShowcase) .app,
 @media(max-width:767px){
   .menuEditorialHenInline{
     display:block!important;
-    width:22px!important;
-    height:22px!important;
-    flex:0 0 22px!important;
+    width:26px!important;
+    height:26px!important;
+    flex:0 0 26px!important;
     object-fit:contain!important;
     opacity:.92!important;
-    margin:0!important;
+    margin:0 0 -1px!important;
   }
 }
