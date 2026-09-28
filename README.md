@@ -65,8 +65,8 @@ The customer experience is intentionally optimized for mobile devices.
 ### Installation
 
 ```bash
-git clone https://github.com/mirandagyelyag-lang/Online-menu-informal.git
-cd Online-menu-informal
+git clone https://github.com/mirandagyelyag-lang/Chucky-san-javier.git
+cd Chucky-san-javier
 npm install
 npm run dev
 ```
