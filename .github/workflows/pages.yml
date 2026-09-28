@@ -24,7 +24,7 @@ jobs:
           node-version: 20
 
       - run: npm install
-      - run: npm run build -- --base=/Online-menu-informal/
+      - run: npm run build -- --base=/Chucky-san-javier/
 
       - uses: actions/configure-pages@v5
 
