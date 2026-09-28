@@ -16,16 +16,22 @@ const money=n=>'$'+n.toLocaleString('es-CL');
 
 function DesktopOnlyBlock(){return <main className="desktopOnlyBlock"><div><strong>CHUCKY</strong><p>Disponible solo en celular por ahora</p></div></main>}
 
+function ComingSoon(){
+ return <main className="comingSoon">
+  <div className="comingSoonBackdrop" aria-hidden="true"/>
+  <div className="comingSoonShade" aria-hidden="true"/>
+  <section className="comingSoonContent">
+   <img src="./chucky-header.png?v=1" alt="Chucky" className="comingSoonLogo"/>
+   <span className="comingSoonEyebrow">SAN JAVIER</span>
+   <h1>SE VIENE<br/><em>ALGO RICO.</em></h1>
+   <p>Estamos preparando todo para abrir.</p>
+   <div className="comingSoonPill"><span/> PRÓXIMAMENTE</div>
+  </section>
+ </main>
+}
+
 function App(){
- const[isDesktopDevice,setIsDesktopDevice]=useState(()=>typeof window!=='undefined'&&window.matchMedia('(min-width: 900px)').matches);
- useEffect(()=>{
-  const media=window.matchMedia('(min-width: 900px)');
-  const sync=()=>setIsDesktopDevice(media.matches);
-  sync();
-  media.addEventListener?.('change',sync);
-  return()=>media.removeEventListener?.('change',sync);
- },[]);
- return isDesktopDevice?<DesktopOnlyBlock/>:<MobileApp/>;
+ return <ComingSoon/>;
 }
 
 function MobileApp(){
