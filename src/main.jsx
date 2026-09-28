@@ -31,7 +31,7 @@ function ComingSoon(){
 }
 
 function App(){
- return <ComingSoon/>;
+ return <MobileApp/>;
 }
 
 function MobileApp(){
